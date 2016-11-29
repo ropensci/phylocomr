@@ -1,0 +1,14 @@
+.DS_Store
+.Rproj.user
+.Rhistory
+.RData
+*.o
+*.a
+*.so
+*.dll
+src/phylocom
+src/ecovolve
+src/phylomatic
+inst/bin
+*.RData
+inst/doc
