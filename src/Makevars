@@ -28,3 +28,4 @@ phylomatic: libphylocom.a libphylocom/phylomatic.o
 
 clean:
 	rm -f $(OBJECTS) libphylocom/*.o phylocom ecovolve phylomatic
+	touch empty.dll

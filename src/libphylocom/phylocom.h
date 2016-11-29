@@ -64,6 +64,8 @@
 #include <string.h>
 #include <time.h>
 
+#include "winfix.h"
+
 // DEFINITIONS FOR MAIN PROGRAM ------------------------------------------
 
 //#define RAND_MAX (pow(2,31)-1)
