@@ -15,15 +15,15 @@ libphylocom.a: $(LIBPHYLOCOM)
 	$(AR) rcs libphylocom.a $(LIBPHYLOCOM)
 
 phylocom: libphylocom.a libphylocom/main.o
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o phylocom libphylocom/main.o -L. -lphylocom
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o phylocom libphylocom/main.o -L. -lphylocom -lm
 	cp -f phylocom $(INSTDIR)
 
 ecovolve: libphylocom.a libphylocom/ecomain.o
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o ecovolve libphylocom/ecomain.o -L. -lphylocom
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o ecovolve libphylocom/ecomain.o -L. -lphylocom -lm
 	cp -f ecovolve $(INSTDIR)
 
 phylomatic: libphylocom.a libphylocom/phylomatic.o
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o phylomatic libphylocom/phylomatic.o -L. -lphylocom
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o phylomatic libphylocom/phylomatic.o -L. -lphylocom -lm
 	cp -f phylomatic $(INSTDIR)
 
 clean:
