@@ -9,11 +9,11 @@ phylocom <- function(args = "--help"){
 }
 
 #' @export
-phylomatic <- function(args = "--help"){
-  run("phylomatic", args)
+phylomatic <- function(args = "--help", stdout = ""){
+  run("phylomatic", args, stdout)
 }
 
-run <- function(name, args = args){
+run <- function(name, args = args, stdout = ""){
   path <- file.path(system.file("bin", package = "phylocom"), name)
-  system2(path, args)
+  system2(path, args, stdout = stdout)
 }
