@@ -2,7 +2,7 @@
 
 export(ecovolve)
 export(ph_aot)
-export(ph_ecovolve)
+export(ph_bladj)
 export(ph_phylomatic)
 export(phylocom)
 export(phylomatic)
