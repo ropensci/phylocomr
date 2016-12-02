@@ -1,15 +1,15 @@
 #' @export
-ecovolve <- function(args = "--help"){
+ecovolve <- function(args = "--help") {
   run("ecovolve", args)
 }
 
 #' @export
-phylocom <- function(args = "--help"){
-  run("phylocom", args)
+phylocom <- function(args = "help", stdout = "") {
+  run("phylocom", args, stdout = stdout)
 }
 
 #' @export
-phylomatic <- function(args = "--help", stdout = ""){
+phylomatic <- function(args = "--help", stdout = "") {
   run("phylomatic", args, stdout)
 }
 

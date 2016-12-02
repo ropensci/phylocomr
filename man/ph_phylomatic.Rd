@@ -2,7 +2,7 @@
 % Please edit documentation in R/phylomatic.R
 \name{ph_phylomatic}
 \alias{ph_phylomatic}
-\title{phylomatic examples}
+\title{phylomatic}
 \usage{
 ph_phylomatic(taxa = NULL, taxa_file = NULL, phylo = NULL,
   phylo_file = NULL, tabular = FALSE, lowercase = FALSE, nodes = FALSE)
@@ -28,15 +28,15 @@ Default: \code{FALSE}}
 Default: \code{FALSE}}
 }
 \description{
-phylomatic examples
+phylomatic
 }
 \examples{
 taxa_file <- system.file("examples/taxa", package = "phylocom")
 phylo_file <- system.file("examples/phylo", package = "phylocom")
 
 # from strings
-taxa_str <- readLines(taxa_file)
-phylo_str <- readLines(phylo_file)
+(taxa_str <- readLines(taxa_file))
+(phylo_str <- readLines(phylo_file))
 (tree <- ph_phylomatic(taxa = taxa_str, phylo = phylo_str))
 
 # from files

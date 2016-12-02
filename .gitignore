@@ -9,6 +9,7 @@
 src/phylocom
 src/ecovolve
 src/phylomatic
+src/aot
 inst/bin
 *.RData
 inst/doc

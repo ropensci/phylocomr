@@ -1,4 +1,4 @@
-#' phylomatic examples
+#' phylomatic
 #'
 #' @export
 #' @param taxa (character) all taxa as a character vector, will be written to
@@ -18,8 +18,8 @@
 #' phylo_file <- system.file("examples/phylo", package = "phylocom")
 #'
 #' # from strings
-#' taxa_str <- readLines(taxa_file)
-#' phylo_str <- readLines(phylo_file)
+#' (taxa_str <- readLines(taxa_file))
+#' (phylo_str <- readLines(phylo_file))
 #' (tree <- ph_phylomatic(taxa = taxa_str, phylo = phylo_str))
 #'
 #' # from files
