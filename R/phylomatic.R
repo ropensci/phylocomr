@@ -14,6 +14,8 @@
 #' @param nodes (logical) label all nodes with default names.
 #' Default: \code{FALSE}
 #' @examples
+#' library(phytools)
+#'
 #' taxa_file <- system.file("examples/taxa", package = "phylocom")
 #' phylo_file <- system.file("examples/phylo", package = "phylocom")
 #'
@@ -29,7 +31,7 @@
 #' cat(phylo_str, file = phylo_file2, sep = '\n')
 #' (tree <- ph_phylomatic(taxa_file = taxa_file2, phylo_file = phylo_file2))
 #' library(ape)
-#' plot(read.tree(text = tree))
+#' plot(read.newick(text = tree))
 #'
 ph_phylomatic <- function(taxa = NULL, taxa_file = NULL, phylo = NULL,
                           phylo_file = NULL, tabular = FALSE,

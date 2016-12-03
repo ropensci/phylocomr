@@ -1,6 +1,6 @@
 #' @export
-ecovolve <- function(args = "--help") {
-  run("ecovolve", args)
+ecovolve <- function(args = "--help", stdout = "") {
+  run("ecovolve", args, stdout = stdout)
 }
 
 #' @export
