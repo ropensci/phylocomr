@@ -1,0 +1,90 @@
+phylocom
+========
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "inst/img/"
+)
+```
+
+[![Build Status](https://travis-ci.org/ropensci/phylocom.svg?branch=master)](https://travis-ci.org/ropensci/phylocom)
+
+`phylocom` gives you access to the Phylocom C library.
+
+## Package API
+
+* `ecovolve`/`ph_ecovolve` - interface to `ecovolve` executable, and a higher
+level interface
+* `phylomatic`/`ph_phylomatic` - interface to `phylomatic` executable, and a higher
+level interface
+* `phylocom` - interface to `phylocom` executable
+* `ph_aot` - higher level interface to `aot`
+* `ph_bladj` - higher level interface to `bladj`
+
+## Installation
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/phylocom")
+```
+
+```{r}
+library("phylocom")
+library("phytools")
+library("ape")
+```
+
+## ecovolve
+
+```{r}
+ph_ecovolve(speciation = 0.05, extinction = 0.005, time_units = 50)
+```
+
+## phylomatic
+
+```{r}
+taxa_file <- system.file("examples/taxa", package = "phylocom")
+phylo_file <- system.file("examples/phylo", package = "phylocom")
+(taxa_str <- readLines(taxa_file))
+(phylo_str <- readLines(phylo_file))
+ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
+```
+
+## aot
+
+```{r}
+traits_file <- system.file("examples/traits_aot", package = "phylocom")
+phylo_file <- system.file("examples/phylo_aot", package = "phylocom")
+traitsdf_file <- system.file("examples/traits_aot_df", package = "phylocom")
+traits <- read.table(text = readLines(traitsdf_file), header = TRUE,
+  stringsAsFactors = FALSE)
+phylo_str <- readLines(phylo_file)
+ph_aot(traits = traits, phylo = phylo_str)
+```
+
+## bladj
+
+```{r}
+ages_file <- system.file("examples/ages", package = "phylocom")
+phylo_file <- system.file("examples/phylo_bladj", package = "phylocom")
+ages_df <- data.frame(
+  a = c('malpighiales','salicaceae','fabaceae','rosales','oleaceae',
+        'gentianales','apocynaceae','rubiaceae'),
+  b = c(81,20,56,76,47,71,18,56)
+)
+phylo_str <- readLines(phylo_file)
+(res <- ph_bladj(ages = ages_df, phylo = phylo_str))
+plot(phytools::read.newick(text = res))
+```
+
+## Meta
+
+* Please [report any issues or bugs](https://github.com/ropensci/phylocom/issues).
+* License: MIT
+* Get citation information for `phylocom` in R doing `citation(package = 'phylocom')`
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
