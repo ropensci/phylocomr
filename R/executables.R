@@ -1,14 +1,25 @@
+#' Executables
+#'
+#' @name executables
+#' @examples
+#' ecovolve()
+#' phylocom()
+#' phylomatic()
+
 #' @export
+#' @rdname executables
 ecovolve <- function(args = "--help", stdout = "") {
   run("ecovolve", args, stdout = stdout)
 }
 
 #' @export
+#' @rdname executables
 phylocom <- function(args = "help", stdout = "") {
   run("phylocom", args, stdout = stdout)
 }
 
 #' @export
+#' @rdname executables
 phylomatic <- function(args = "--help", stdout = "") {
   run("phylomatic", args, stdout)
 }

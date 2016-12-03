@@ -39,7 +39,7 @@ ph_bladj <- function(ages = NULL, ages_file = NULL, phylo = NULL,
   stopifnot(xor(!is.null(phylo), !is.null(phylo_file)))
   if (!is.null(ages)) {
     ages_file <- file.path(tempdir(), "ages")
-    write.table(ages, file = ages_file, quote = FALSE, row.names = FALSE)
+    utils::write.table(ages, file = ages_file, quote = FALSE, row.names = FALSE)
   }
   if (!is.null(phylo)) {
     phylo_file <- file.path(tempdir(), "phylo")

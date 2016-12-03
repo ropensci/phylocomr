@@ -37,7 +37,7 @@ ph_aot <- function(traits = NULL, traits_file = NULL, phylo = NULL,
   stopifnot(xor(!is.null(phylo), !is.null(phylo_file)))
   if (!is.null(traits)) {
     traits_file <- tempfile("trait_")
-    write.table(prep_traits(traits), file = traits_file, quote = FALSE, row.names = FALSE)
+    utils::write.table(prep_traits(traits), file = traits_file, quote = FALSE, row.names = FALSE)
   }
   if (!is.null(phylo)) {
     phylo_file <- tempfile("phylo_")
@@ -65,25 +65,25 @@ ph_aot <- function(traits = NULL, traits_file = NULL, phylo = NULL,
 
   list(
     trait_conservatism = {
-      astbl(read.table(text = out[
+      astbl(utils::read.table(text = out[
         seq(from = grep("Trait conservatism by node", out) + 1,
             to = grep("Output of independent contrast", out) - 2)
       ], header = TRUE, stringsAsFactors = FALSE))
     },
     independent_contrasts = {
-      astbl(read.table(text = out[
+      astbl(utils::read.table(text = out[
         seq(from = grep("Output of independent contrast", out) + 1,
             to = grep("Phylogenetic signal", out) - 2)
         ], header = TRUE, stringsAsFactors = FALSE))
     },
     phylogenetic_signal = {
-      astbl(read.table(text = out[
+      astbl(utils::read.table(text = out[
         seq(from = grep("Phylogenetic signal", out) + 1,
             to = grep("Independent contrast correlations", out) - 2)
         ], header = TRUE, stringsAsFactors = FALSE))
     },
     ind_contrast_corr = {
-      astbl(read.table(text = out[
+      astbl(utils::read.table(text = out[
         seq(from = grep("Independent contrast correlations", out) + 1,
             to = length(out))
         ], header = TRUE, stringsAsFactors = FALSE))
@@ -103,5 +103,5 @@ prep_traits <- function(x) {
         3
       }
     }))
-  setNames(x, c("type", types))
+  stats::setNames(x, c("type", types))
 }

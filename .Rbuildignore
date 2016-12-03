@@ -2,4 +2,5 @@
 ^\.Rproj\.user$
 ^inst/bin$
 .travis.yml
-
+CONDUCT.md
+README.Rmd
