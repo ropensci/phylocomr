@@ -28,6 +28,6 @@ phylomatic <- function(args = "--help", stdout = "") {
 }
 
 run <- function(name, args = args, stdout = ""){
-  path <- file.path(system.file("bin", package = "phylocom"), name)
+  path <- file.path(system.file("bin", package = "phylocomr"), name)
   system2(path, args, stdout = stdout)
 }

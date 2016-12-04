@@ -33,8 +33,8 @@ phylomatic
 \examples{
 library(phytools)
 
-taxa_file <- system.file("examples/taxa", package = "phylocom")
-phylo_file <- system.file("examples/phylo", package = "phylocom")
+taxa_file <- system.file("examples/taxa", package = "phylocomr")
+phylo_file <- system.file("examples/phylo", package = "phylocomr")
 
 # from strings
 (taxa_str <- readLines(taxa_file))

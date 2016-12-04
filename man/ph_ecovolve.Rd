@@ -28,7 +28,7 @@ extant lineages. Default: \code{FALSE}}
 \item{only_extant}{(logical) Output phylogeny pruned only for extant taxa.
 Default: \code{FALSE}}
 
-\item{taper_change}{(character) Taper character change by \code{e^(−time/F)}.
+\item{taper_change}{(character) Taper character change by \code{e^(-time/F)}.
 This produces more conservatism in traits (see Kraft et al., 2007).
 Default: NULL, not passed}
 

@@ -15,7 +15,7 @@
 #' extant lineages. Default: \code{FALSE}
 #' @param only_extant (logical) Output phylogeny pruned only for extant taxa.
 #' Default: \code{FALSE}
-#' @param taper_change (character) Taper character change by \code{e^(−time/F)}.
+#' @param taper_change (character) Taper character change by \code{e^(-time/F)}.
 #' This produces more conservatism in traits (see Kraft et al., 2007).
 #' Default: NULL, not passed
 #' @param competition (logical) Simulate competition, with trait proximity

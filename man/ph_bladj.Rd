@@ -25,8 +25,8 @@ bladj
 \examples{
 library(phytools)
 
-ages_file <- system.file("examples/ages", package = "phylocom")
-phylo_file <- system.file("examples/phylo_bladj", package = "phylocom")
+ages_file <- system.file("examples/ages", package = "phylocomr")
+phylo_file <- system.file("examples/phylo_bladj", package = "phylocomr")
 
 # from data.frame
 ages_df <- data.frame(
