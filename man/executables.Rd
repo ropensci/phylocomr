@@ -13,6 +13,12 @@ phylocom(args = "help", stdout = "")
 
 phylomatic(args = "--help", stdout = "")
 }
+\arguments{
+\item{args}{a character vector of arguments to command.}
+
+\item{stdout}{where output to stdout should be sent, see
+\code{\link{system2}}}
+}
 \description{
 Executables
 }

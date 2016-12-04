@@ -1,6 +1,9 @@
 #' Executables
 #'
 #' @name executables
+#' @param args a character vector of arguments to command.
+#' @param stdout where output to stdout should be sent, see
+#' \code{\link{system2}}
 #' @examples
 #' ecovolve()
 #' phylocom()

@@ -2,7 +2,7 @@ Package: phylocomr
 Type: Package
 Title: Phylocom Client
 Description: Phylocom client.
-Version: 0.0.4.9000
+Version: 0.0.4.9400
 Authors@R: c(person("Jeroen", "Ooms", role = c("aut", "cre"),
     email = "jeroen.ooms@stat.ucla.edu"),
     person("Scott", "Chamberlain", role = "aut",
