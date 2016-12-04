@@ -1,11 +1,11 @@
-phylocom
+phylocomr
 ========
 
 
 
-[![Build Status](https://travis-ci.org/ropensci/phylocom.svg?branch=master)](https://travis-ci.org/ropensci/phylocom)
+[![Build Status](https://travis-ci.org/ropensci/phylocomr.svg?branch=master)](https://travis-ci.org/ropensci/phylocomr)
 
-`phylocom` gives you access to the Phylocom C library.
+`phylocomr` gives you access to the Phylocom C library.
 
 ## Package API
 
@@ -22,12 +22,12 @@ level interface
 
 ```r
 install.packages("devtools")
-devtools::install_github("ropensci/phylocom")
+devtools::install_github("ropensci/phylocomr")
 ```
 
 
 ```r
-library("phylocom")
+library("phylocomr")
 library("phytools")
 library("ape")
 ```
@@ -40,7 +40,7 @@ ph_ecovolve(speciation = 0.05, extinction = 0.005, time_units = 50)
 ```
 
 ```
-#> [1] "((((dead9:7.000000,sp13:12.000000)node4:14.000000,((sp14:12.000000,sp15:12.000000)node5:4.000000,(sp18:5.000000,sp19:5.000000)node8:11.000000)node3:10.000000)node2:1.000000,(sp16:5.000000,sp17:5.000000)node7:22.000000)node1:9.000000,((sp20:4.000000,sp21:4.000000)node10:5.000000,(sp22:3.000000,(sp23:1.000000,sp24:1.000000)node12:2.000000)node11:6.000000)node6:27.000000)node0:14.000000;"
+#> [1] "(((dead6:4.000000,sp14:28.000000)node3:9.000000,(sp17:21.000000,(sp21:7.000000,(sp22:5.000000,(sp23:4.000000,sp24:4.000000)node12:1.000000)node11:2.000000)node10:14.000000)node7:16.000000)node2:13.000000,(sp13:38.000000,(sp15:26.000000,(sp16:25.000000,(sp18:13.000000,(sp19:10.000000,sp20:10.000000)node9:3.000000)node8:12.000000)node5:1.000000)node4:12.000000)node1:12.000000)node0:0.000000;"
 #> attr(,"status")
 #> [1] 1
 ```
@@ -49,8 +49,8 @@ ph_ecovolve(speciation = 0.05, extinction = 0.005, time_units = 50)
 
 
 ```r
-taxa_file <- system.file("examples/taxa", package = "phylocom")
-phylo_file <- system.file("examples/phylo", package = "phylocom")
+taxa_file <- system.file("examples/taxa", package = "phylocomr")
+phylo_file <- system.file("examples/phylo", package = "phylocomr")
 (taxa_str <- readLines(taxa_file))
 ```
 
@@ -75,18 +75,18 @@ ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
 ```
 #> [1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpQP1ZYP/taxa_a989790de8b"
+#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmppFddup/taxa_111f54579802c"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpQP1ZYP/phylo_a98938027b8e"
+#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmppFddup/phylo_111f52bcdec56"
 ```
 
 ## aot
 
 
 ```r
-traits_file <- system.file("examples/traits_aot", package = "phylocom")
-phylo_file <- system.file("examples/phylo_aot", package = "phylocom")
-traitsdf_file <- system.file("examples/traits_aot_df", package = "phylocom")
+traits_file <- system.file("examples/traits_aot", package = "phylocomr")
+phylo_file <- system.file("examples/phylo_aot", package = "phylocomr")
+traitsdf_file <- system.file("examples/traits_aot_df", package = "phylocomr")
 traits <- read.table(text = readLines(traitsdf_file), header = TRUE,
   stringsAsFactors = FALSE)
 phylo_str <- readLines(phylo_file)
@@ -99,15 +99,15 @@ ph_aot(traits = traits, phylo = phylo_str)
 #>    trait trait.name  node  name   age Ntaxa N.nodes Tip.mn Tmn.rankLow
 #>    <int>      <chr> <int> <chr> <dbl> <int>   <int>  <dbl>       <int>
 #> 1      1     traitA     0     A     5    32       2   1.75        1000
-#> 2      1     traitA     1     B     4    16       2   1.75         636
-#> 3      1     traitA     2     C     3     8       2   1.75         647
-#> 4      1     traitA     3     D     2     4       2   1.50         259
-#> 5      1     traitA     4     E     1     2       2   1.00          68
+#> 2      1     traitA     1     B     4    16       2   1.75         652
+#> 3      1     traitA     2     C     3     8       2   1.75         673
+#> 4      1     traitA     3     D     2     4       2   1.50         272
+#> 5      1     traitA     4     E     1     2       2   1.00          54
 #> 6      1     traitA     7     F     1     2       2   2.00        1000
 #> 7      1     traitA    10     G     2     4       2   2.00        1000
 #> 8      1     traitA    11     H     1     2       2   2.00        1000
 #> 9      1     traitA    14     I     1     2       2   2.00        1000
-#> 10     1     traitA    17     J     3     8       2   1.75         671
+#> 10     1     traitA    17     J     3     8       2   1.75         677
 #> # ... with 114 more rows, and 19 more variables: Tmn.rankHi <int>,
 #> #   Tip.sd <dbl>, Tsd.rankLow <int>, Tsd.rankHi <int>, Node.mn <dbl>,
 #> #   Nmn.rankLow <int>, Nmn.rankHi <int>, Nod.sd <dbl>, Nsd.rankLow <int>,
@@ -140,7 +140,7 @@ ph_aot(traits = traits, phylo = phylo_str)
 #>    <chr> <int>    <dbl>         <int>        <int>
 #> 1 traitA    32    0.054             1         1000
 #> 2 traitB    32    0.109             1         1000
-#> 3 traitC    32    0.622            59          942
+#> 3 traitC    32    0.622            55          946
 #> 4 traitD    32    0.011             1         1000
 #> 
 #> $ind_contrast_corr
@@ -156,8 +156,8 @@ ph_aot(traits = traits, phylo = phylo_str)
 
 
 ```r
-ages_file <- system.file("examples/ages", package = "phylocom")
-phylo_file <- system.file("examples/phylo_bladj", package = "phylocom")
+ages_file <- system.file("examples/ages", package = "phylocomr")
+phylo_file <- system.file("examples/phylo_bladj", package = "phylocomr")
 ages_df <- data.frame(
   a = c('malpighiales','salicaceae','fabaceae','rosales','oleaceae',
         'gentianales','apocynaceae','rubiaceae'),
@@ -179,9 +179,9 @@ plot(phytools::read.newick(text = res))
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropensci/phylocom/issues).
+* Please [report any issues or bugs](https://github.com/ropensci/phylocomr/issues).
 * License: MIT
-* Get citation information for `phylocom` in R doing `citation(package = 'phylocom')`
+* Get citation information for `phylocomr` in R doing `citation(package = 'phylocomr')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
