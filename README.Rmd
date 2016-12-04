@@ -1,4 +1,4 @@
-phylocom
+phylocomr
 ========
 
 ```{r echo=FALSE}
@@ -10,9 +10,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Build Status](https://travis-ci.org/ropensci/phylocom.svg?branch=master)](https://travis-ci.org/ropensci/phylocom)
+[![Build Status](https://travis-ci.org/ropensci/phylocomr.svg?branch=master)](https://travis-ci.org/ropensci/phylocomr)
 
-`phylocom` gives you access to the Phylocom C library.
+`phylocomr` gives you access to the Phylocom C library.
 
 ## Package API
 
@@ -28,11 +28,11 @@ level interface
 
 ```{r eval=FALSE}
 install.packages("devtools")
-devtools::install_github("ropensci/phylocom")
+devtools::install_github("ropensci/phylocomr")
 ```
 
 ```{r}
-library("phylocom")
+library("phylocomr")
 library("phytools")
 library("ape")
 ```
@@ -46,8 +46,8 @@ ph_ecovolve(speciation = 0.05, extinction = 0.005, time_units = 50)
 ## phylomatic
 
 ```{r}
-taxa_file <- system.file("examples/taxa", package = "phylocom")
-phylo_file <- system.file("examples/phylo", package = "phylocom")
+taxa_file <- system.file("examples/taxa", package = "phylocomr")
+phylo_file <- system.file("examples/phylo", package = "phylocomr")
 (taxa_str <- readLines(taxa_file))
 (phylo_str <- readLines(phylo_file))
 ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
@@ -56,9 +56,9 @@ ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
 ## aot
 
 ```{r}
-traits_file <- system.file("examples/traits_aot", package = "phylocom")
-phylo_file <- system.file("examples/phylo_aot", package = "phylocom")
-traitsdf_file <- system.file("examples/traits_aot_df", package = "phylocom")
+traits_file <- system.file("examples/traits_aot", package = "phylocomr")
+phylo_file <- system.file("examples/phylo_aot", package = "phylocomr")
+traitsdf_file <- system.file("examples/traits_aot_df", package = "phylocomr")
 traits <- read.table(text = readLines(traitsdf_file), header = TRUE,
   stringsAsFactors = FALSE)
 phylo_str <- readLines(phylo_file)
@@ -68,8 +68,8 @@ ph_aot(traits = traits, phylo = phylo_str)
 ## bladj
 
 ```{r}
-ages_file <- system.file("examples/ages", package = "phylocom")
-phylo_file <- system.file("examples/phylo_bladj", package = "phylocom")
+ages_file <- system.file("examples/ages", package = "phylocomr")
+phylo_file <- system.file("examples/phylo_bladj", package = "phylocomr")
 ages_df <- data.frame(
   a = c('malpighiales','salicaceae','fabaceae','rosales','oleaceae',
         'gentianales','apocynaceae','rubiaceae'),
@@ -82,9 +82,9 @@ plot(phytools::read.newick(text = res))
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropensci/phylocom/issues).
+* Please [report any issues or bugs](https://github.com/ropensci/phylocomr/issues).
 * License: MIT
-* Get citation information for `phylocom` in R doing `citation(package = 'phylocom')`
+* Get citation information for `phylocomr` in R doing `citation(package = 'phylocomr')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
