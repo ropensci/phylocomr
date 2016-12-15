@@ -29,5 +29,11 @@ phylomatic <- function(args = "--help", stdout = "") {
 
 run <- function(name, args = args, stdout = ""){
   path <- file.path(system.file("bin", .Platform$r_arch, package = "phylocomr"), name)
-  system2(path, args, stdout = stdout)
+  res <- system2(path, args, stdout = stdout)
+  status <- attr(res, "status")
+  if(isTRUE(stdout) && is.numeric(status)){
+    if(status != 0)
+      stop(sprintf("call to %s failed with status %d", name, status))
+  }
+  res
 }
