@@ -6,6 +6,7 @@
 *.a
 *.so
 *.dll
+*.exe
 src/phylocom
 src/ecovolve
 src/phylomatic

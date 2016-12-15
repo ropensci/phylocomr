@@ -5,3 +5,7 @@ src/empty.dll$
 .travis.yml
 CONDUCT.md
 README.Rmd
+^src/.*\.o$
+^src/.*\.a$
+^src/.*\.exe$
+^src/.*\.so$
