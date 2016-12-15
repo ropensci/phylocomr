@@ -33,7 +33,7 @@ run <- function(name, args = args, stdout = ""){
   status <- attr(res, "status")
   if(isTRUE(stdout) && is.numeric(status)){
     if(status != 0)
-      stop(sprintf("call to %s failed with status %d", name, status))
+      warning(sprintf("call to %s failed with status %d", name, status))
   }
   res
 }
