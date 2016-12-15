@@ -1,4 +1,4 @@
-INSTDIR=../inst/bin
+INSTDIR=../inst/bin${R_ARCH}
 LIBPHYLOCOM=libphylocom/io.o libphylocom/new2fy.o libphylocom/aot.o libphylocom/traits.o \
 	libphylocom/comstruct.o libphylocom/nrutil.o libphylocom/fy2new.o libphylocom/bladj.o \
 	libphylocom/comnode.o libphylocom/prune.o libphylocom/comtrait.o libphylocom/stats.o \
