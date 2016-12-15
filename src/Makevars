@@ -25,4 +25,4 @@ phylomatic: libphylocom.a libphylocom/phylomatic.o
 	cp -f phylomatic $(INSTDIR)
 
 clean:
-	rm -f $(OBJECTS) libphylocom/*.o libphylocom.a phylocom ecovolve phylomatic
+	rm -Rf $(OBJECTS) libphylocom/*.o libphylocom.a phylocom ecovolve phylomatic ../inst/bin
