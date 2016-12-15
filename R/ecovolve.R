@@ -21,23 +21,24 @@
 #' @param competition (logical) Simulate competition, with trait proximity
 #' increasing extinction. Default: \code{FALSE}
 #' @examples
-#' library(phytools)
-#' plo_t <- function(x) plot(phytools::read.newick(text = x))
-#'
-#' plo_t(ph_ecovolve(speciation = 0.05))
-#' plo_t(ph_ecovolve(speciation = 0.1))
-#' plo_t(ph_ecovolve(extinction = 0.005))
-#' plo_t(ph_ecovolve(time_units = 50))
+#' ph_ecovolve(speciation = 0.05)
+#' ph_ecovolve(speciation = 0.1)
+#' ph_ecovolve(extinction = 0.005)
+#' ph_ecovolve(time_units = 50)
 #' ph_ecovolve(out_mode = 2)
-#' plo_t(ph_ecovolve(extant_lineages = TRUE))
-#' plo_t(ph_ecovolve(extant_lineages = FALSE))
-#' plo_t(ph_ecovolve(only_extant = FALSE))
-#' plo_t(ph_ecovolve(only_extant = TRUE))
-#' plo_t(ph_ecovolve(taper_change = 2))
-#' plo_t(ph_ecovolve(taper_change = 10))
-#' plo_t(ph_ecovolve(taper_change = 500))
-#' plo_t(ph_ecovolve(competition = TRUE))
-#' plo_t(ph_ecovolve(competition = FALSE))
+#' ph_ecovolve(extant_lineages = TRUE)
+#' ph_ecovolve(extant_lineages = FALSE)
+#' ph_ecovolve(only_extant = FALSE)
+#' ph_ecovolve(only_extant = TRUE)
+#' ph_ecovolve(taper_change = 2)
+#' ph_ecovolve(taper_change = 10)
+#' ph_ecovolve(taper_change = 500)
+#' ph_ecovolve(competition = TRUE)
+#' ph_ecovolve(competition = FALSE)
+#'
+#' # library(phytools)
+#' # x <- ph_ecovolve(speciation = 0.05)
+#' # plot(phytools::read.newick(text = x))
 
 ph_ecovolve <- function(speciation = 0.05, extinction = 0.01, time_units = 100,
   out_mode = 3, prob_env = '3211000000', extant_lineages = FALSE,
