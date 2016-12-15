@@ -4,9 +4,7 @@ LIBPHYLOCOM=libphylocom/io.o libphylocom/new2fy.o libphylocom/aot.o libphylocom/
 	libphylocom/comnode.o libphylocom/prune.o libphylocom/comtrait.o libphylocom/stats.o \
 	libphylocom/nrutil.o libphylocom/combase.o libphylocom/prune.o
 
-all: clean
-
-$(SHLIB): executables
+all: clean executables
 
 executables: phylocom ecovolve phylomatic
 
@@ -27,5 +25,4 @@ phylomatic: libphylocom.a libphylocom/phylomatic.o
 	cp -f phylomatic $(INSTDIR)
 
 clean:
-	rm -f $(OBJECTS) libphylocom/*.o phylocom ecovolve phylomatic
-	touch empty.dll
+	rm -f $(OBJECTS) libphylocom/*.o libphylocom.a phylocom ecovolve phylomatic

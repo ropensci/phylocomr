@@ -1,6 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^inst/bin$
+src/empty.dll$
 .travis.yml
 CONDUCT.md
 README.Rmd
