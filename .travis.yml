@@ -1,13 +1,32 @@
 language: r
-sudo: false
 cache: packages
 
-after_success:
-  - Rscript -e 'covr::codecov()'
+matrix:
+  include:
+    - os: linux
+      dist: precise
+      sudo: false
+    - os: linux
+      dist: trusty
+      sudo: required
+      env: R_CODECOV=true
+    - os: osx
+      osx_image: xcode8.1
+      latex: false
+    - os: osx
+      osx_image: beta-xcode6.1
+      latex: false
+
+r_github_packages:
+  - jimhester/covr
+
+warnings_are_errors: true
+#r_check_revdep: true
 
 notifications:
   email:
     on_success: change
     on_failure: change
-  slack:
-    secure: Y7ly6rxiG4EBAKKREFovZ1LPQp2ghrN7ThIfkMaQ1XCQLRV0D39a3Uuf1UigS6gpqrtaedXakbtZwG3CIhICILRRiQSZch3gGZUNMRkVrG/0wZDn7HwWOquTxPJEeH1AUlKYToxiI6rRqd/c3U4FwisKuIUHmvqDRA1NEtdiqJY=
+
+after_success:
+  - if [[ "${R_CODECOV}" ]]; then R -e 'covr::codecov()'; fi
