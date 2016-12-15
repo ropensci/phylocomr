@@ -9,3 +9,4 @@ README.Rmd
 ^src/.*\.a$
 ^src/.*\.exe$
 ^src/.*\.so$
+^appveyor\.yml$
