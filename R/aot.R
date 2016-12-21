@@ -1,4 +1,4 @@
-#' phylomatic
+#' aot
 #'
 #' @export
 #' @param traits (data.frame) trait data.frame
@@ -16,7 +16,8 @@
 #' phylo_file <- system.file("examples/phylo_aot", package = "phylocomr")
 #'
 #' # from data.frame
-#' traitsdf_file <- system.file("examples/traits_aot_df", package = "phylocomr")
+#' traitsdf_file <- system.file("examples/traits_aot_df",
+#'   package = "phylocomr")
 #' traits <- read.table(text = readLines(traitsdf_file), header = TRUE,
 #'   stringsAsFactors = FALSE)
 #' phylo_str <- readLines(phylo_file)
@@ -38,7 +39,8 @@ ph_aot <- function(traits = NULL, traits_file = NULL, phylo = NULL,
   stopifnot(xor(!is.null(phylo), !is.null(phylo_file)))
   if (!is.null(traits)) {
     traits_file <- tempfile("trait_")
-    utils::write.table(prep_traits(traits), file = traits_file, quote = FALSE, row.names = FALSE)
+    utils::write.table(prep_traits(traits), file = traits_file,
+                       quote = FALSE, row.names = FALSE)
   }
   if (!is.null(phylo)) {
     phylo_file <- tempfile("phylo_")
@@ -91,8 +93,6 @@ ph_aot <- function(traits = NULL, traits_file = NULL, phylo = NULL,
     }
   )
 }
-
-astbl <- function(x) tibble::as_data_frame(x)
 
 prep_traits <- function(x) {
   hd <- names(x)

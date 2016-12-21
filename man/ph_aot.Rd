@@ -2,7 +2,7 @@
 % Please edit documentation in R/aot.R
 \name{ph_aot}
 \alias{ph_aot}
-\title{phylomatic}
+\title{aot}
 \usage{
 ph_aot(traits = NULL, traits_file = NULL, phylo = NULL,
   phylo_file = NULL, randomizations = 999, trait_contrasts = 1,
@@ -27,14 +27,15 @@ variable for contrasts. Default: 1}
 contrasts. Default: \code{FALSE}}
 }
 \description{
-phylomatic
+aot
 }
 \examples{
 traits_file <- system.file("examples/traits_aot", package = "phylocomr")
 phylo_file <- system.file("examples/phylo_aot", package = "phylocomr")
 
 # from data.frame
-traitsdf_file <- system.file("examples/traits_aot_df", package = "phylocomr")
+traitsdf_file <- system.file("examples/traits_aot_df",
+  package = "phylocomr")
 traits <- read.table(text = readLines(traitsdf_file), header = TRUE,
   stringsAsFactors = FALSE)
 phylo_str <- readLines(phylo_file)

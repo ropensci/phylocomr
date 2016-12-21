@@ -3,10 +3,10 @@ Type: Package
 Title: Interface to 'Phylocom'
 Description: Interface to 'Phylocom' (<http://phylodiversity.net/phylocom/>),
     a library for analysis of 'phylogenetic' community structure and
-    character evolution. Includes low level methods for interacting with 
+    character evolution. Includes low level methods for interacting with
     the three executables, as well as higher level interfaces for methods
     like 'aot', 'ecovolve', 'bladj', 'phylomatic', and more.
-Version: 0.0.4.9400
+Version: 0.0.5.9200
 Authors@R: c(person("Jeroen", "Ooms", role = c("aut", "cre"),
     email = "jeroen.ooms@stat.ucla.edu"),
     person("Scott", "Chamberlain", role = "aut",
