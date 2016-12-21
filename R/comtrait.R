@@ -44,14 +44,15 @@
 #'
 #' ph_comtrait(sample = sfile2, traits = tfile2)
 #'
+#'
 #' # from data.frame
 #' sampledf <- read.table(sfile, header = FALSE,
 #'   stringsAsFactors = FALSE)
 #' traitsdf_file <- system.file("examples/traits_aot_df",
 #'   package = "phylocomr")
-#' traits <- read.table(text = readLines(traitsdf_file), header = TRUE,
+#' traitsdf <- read.table(text = readLines(traitsdf_file), header = TRUE,
 #'   stringsAsFactors = FALSE)
-#' ph_comtrait(sample = sampledf, traits = phylo_str)
+#' ph_comtrait(sample = sampledf, traits = traitsdf)
 ph_comtrait <- function(sample, traits, metric = "variance", null_model = 0,
                         randomizations = 999, abundance = TRUE) {
 

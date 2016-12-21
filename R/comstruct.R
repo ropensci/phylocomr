@@ -35,7 +35,7 @@
 #' ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 3)
 
 ph_comstruct <- function(sample, phylo, null_model = 0, randomizations = 999,
-                         abundance = TRUE) {
+                         swaps = 1000, abundance = TRUE) {
 
   stopifnot(class(sample) %in% c('data.frame', 'character'))
   if (inherits(sample, "data.frame")) {

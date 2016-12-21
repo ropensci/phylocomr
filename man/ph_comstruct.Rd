@@ -5,7 +5,7 @@
 \title{comstruct}
 \usage{
 ph_comstruct(sample, phylo, null_model = 0, randomizations = 999,
-  abundance = TRUE)
+  swaps = 1000, abundance = TRUE)
 }
 \arguments{
 \item{sample}{(data.frame/character) sample data.frame or path to a
@@ -19,10 +19,10 @@ file with a newick string}
 
 \item{randomizations}{(numeric) number of randomizations. Default: 999}
 
+\item{swaps}{(numeric) number of swaps. Default: 1000}
+
 \item{abundance}{(logical) If \code{TRUE} (default) computed accounting
 for abundance. Otherwise, uses presence-absence.}
-
-\item{swaps}{(numeric) number of swaps. Default: 1000}
 }
 \value{
 data.frame

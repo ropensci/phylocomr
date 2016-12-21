@@ -10,3 +10,4 @@ README.Rmd
 ^src/.*\.exe$
 ^src/.*\.so$
 ^appveyor\.yml$
+man-roxygen
