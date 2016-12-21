@@ -24,6 +24,10 @@ level interface
 * `phylocom` - interface to `phylocom` executable
 * `ph_aot` - higher level interface to `aot`
 * `ph_bladj` - higher level interface to `bladj`
+* `ph_comdist`/`ph_comdistnt` - higher level interface to comdist
+* `ph_comstruct` - higher level interface to comstruct
+* `ph_comtrait` - higher level interface to comtrait
+* `ph_pd` - higher level interface to Faith's phylogenetic diversity
 
 ## Installation
 

@@ -17,6 +17,10 @@ level interface
 * `phylocom` - interface to `phylocom` executable
 * `ph_aot` - higher level interface to `aot`
 * `ph_bladj` - higher level interface to `bladj`
+* `ph_comdist`/`ph_comdistnt` - higher level interface to comdist
+* `ph_comstruct` - higher level interface to comstruct
+* `ph_comtrait` - higher level interface to comtrait
+* `ph_pd` - higher level interface to Faith's phylogenetic diversity
 
 ## Installation
 
@@ -41,9 +45,9 @@ ph_ecovolve(speciation = 0.05, extinction = 0.005, time_units = 50)
 ```
 
 ```
-#> [1] "sp0:50.000000;"
+#> [1] "((sp8:25.000000,((sp11:10.000000,sp12:10.000000)node5:5.000000,(sp13:4.000000,sp14:4.000000)node6:11.000000)node3:10.000000)node1:4.000000,(sp9:19.000000,(sp10:13.000000,(sp15:1.000000,sp16:1.000000)node7:12.000000)node4:6.000000)node2:10.000000)node0:21.000000;"
 #> attr(,"status")
-#> [1] 8
+#> [1] 1
 ```
 
 ## phylomatic
@@ -76,9 +80,9 @@ ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
 ```
 #> [1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/pv/clp8mkdn6qqf5d04qqfw4xj80000gn/T//RtmplEYx4v/taxa_39856ca377a"
+#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpSt9yC3/taxa_cbe633bfab67"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/pv/clp8mkdn6qqf5d04qqfw4xj80000gn/T//RtmplEYx4v/phylo_39876005719"
+#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpSt9yC3/phylo_cbe66c8e11bb"
 ```
 
 ## aot
@@ -100,15 +104,15 @@ ph_aot(traits = traits, phylo = phylo_str)
 #>    trait trait.name  node  name   age Ntaxa N.nodes Tip.mn Tmn.rankLow
 #>    <int>      <chr> <int> <chr> <dbl> <int>   <int>  <dbl>       <int>
 #> 1      1     traitA     0     A     5    32       2   1.75        1000
-#> 2      1     traitA     1     B     4    16       2   1.75         663
-#> 3      1     traitA     2     C     3     8       2   1.75         666
-#> 4      1     traitA     3     D     2     4       2   1.50         270
-#> 5      1     traitA     4     E     1     2       2   1.00          53
+#> 2      1     traitA     1     B     4    16       2   1.75         691
+#> 3      1     traitA     2     C     3     8       2   1.75         675
+#> 4      1     traitA     3     D     2     4       2   1.50         259
+#> 5      1     traitA     4     E     1     2       2   1.00          52
 #> 6      1     traitA     7     F     1     2       2   2.00        1000
 #> 7      1     traitA    10     G     2     4       2   2.00        1000
 #> 8      1     traitA    11     H     1     2       2   2.00        1000
 #> 9      1     traitA    14     I     1     2       2   2.00        1000
-#> 10     1     traitA    17     J     3     8       2   1.75         669
+#> 10     1     traitA    17     J     3     8       2   1.75         673
 #> # ... with 114 more rows, and 19 more variables: Tmn.rankHi <int>,
 #> #   Tip.sd <dbl>, Tsd.rankLow <int>, Tsd.rankHi <int>, Node.mn <dbl>,
 #> #   Nmn.rankLow <int>, Nmn.rankHi <int>, Nod.sd <dbl>, Nsd.rankLow <int>,
@@ -141,7 +145,7 @@ ph_aot(traits = traits, phylo = phylo_str)
 #>    <chr> <int>    <dbl>         <int>        <int>
 #> 1 traitA    32    0.054             1         1000
 #> 2 traitB    32    0.109             1         1000
-#> 3 traitC    32    0.622            52          949
+#> 3 traitC    32    0.622            56          945
 #> 4 traitD    32    0.011             1         1000
 #> 
 #> $ind_contrast_corr
