@@ -52,7 +52,7 @@
 #'   package = "phylocomr")
 #' traitsdf <- read.table(text = readLines(traitsdf_file), header = TRUE,
 #'   stringsAsFactors = FALSE)
-#' ph_comtrait(sample = sampledf, traits = traitsdf)
+#' # ph_comtrait(sample = sampledf, traits = traitsdf)
 ph_comtrait <- function(sample, traits, metric = "variance", null_model = 0,
                         randomizations = 999, abundance = TRUE) {
 
