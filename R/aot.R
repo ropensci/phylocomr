@@ -68,28 +68,28 @@ ph_aot <- function(traits = NULL, traits_file = NULL, phylo = NULL,
 
   list(
     trait_conservatism = {
-      astbl(utils::read.table(text = out[
+      astbl(utils::read.delim(text = out[
         seq(from = grep("Trait conservatism by node", out) + 1,
             to = grep("Output of independent contrast", out) - 2)
-      ], header = TRUE, stringsAsFactors = FALSE))
+      ], header = TRUE, stringsAsFactors = FALSE, sep = "\t"))
     },
     independent_contrasts = {
-      astbl(utils::read.table(text = out[
+      astbl(utils::read.delim(text = out[
         seq(from = grep("Output of independent contrast", out) + 1,
             to = grep("Phylogenetic signal", out) - 2)
-        ], header = TRUE, stringsAsFactors = FALSE))
+        ], header = TRUE, stringsAsFactors = FALSE, sep = "\t"))
     },
     phylogenetic_signal = {
-      astbl(utils::read.table(text = out[
+      astbl(utils::read.delim(text = out[
         seq(from = grep("Phylogenetic signal", out) + 1,
             to = grep("Independent contrast correlations", out) - 2)
-        ], header = TRUE, stringsAsFactors = FALSE))
+        ], header = TRUE, stringsAsFactors = FALSE, sep = "\t"))
     },
     ind_contrast_corr = {
-      astbl(utils::read.table(text = out[
+      astbl(utils::read.delim(text = out[
         seq(from = grep("Independent contrast correlations", out) + 1,
             to = length(out))
-        ], header = TRUE, stringsAsFactors = FALSE))
+        ], header = TRUE, stringsAsFactors = FALSE, sep = "\t"))
     }
   )
 }
