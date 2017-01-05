@@ -43,9 +43,9 @@ artifacts:
 
 deploy:
 - provider: S3
-  access_key_id: AKIAI6F2ZOASYNIRGW6A
+  access_key_id: AKIAIE65F6ZPF3JF7JTA
   secret_access_key:
-    secure: tghGGvPU9AQKRPhkQTuaGsAGmNrfRtT1VuAo5OOOMdZnEctxSn1A/Snp2yEwjZ85
+    secure: mZuBVV4wLTmpDHQoSsuDigaotYfVLtjZa05GYyQAuEwva0s+TP+jWi4itUvU3Z1z
   region: us-west-2
   bucket: ropensci-windows
   artifact: zip
