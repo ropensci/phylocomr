@@ -56,27 +56,8 @@
 ph_comtrait <- function(sample, traits, metric = "variance", null_model = 0,
                         randomizations = 999, abundance = TRUE) {
 
-  stopifnot(class(sample) %in% c('data.frame', 'character'))
-  if (inherits(sample, "data.frame")) {
-    sfile <- tempfile("sample_")
-    utils::write.table(
-      sample, file = sfile,
-      quote = FALSE, row.names = FALSE, col.names = FALSE, sep = "\t")
-    sample <- sfile
-  } else {
-    stopifnot(file.exists(sample))
-  }
-
-  stopifnot(class(traits) %in% c('data.frame', 'character'))
-  if (inherits(traits, "data.frame")) {
-    tfile <- tempfile("traits_")
-    utils::write.table(
-      traits, file = tfile,
-      quote = FALSE, row.names = FALSE, col.names = FALSE, sep = "\t")
-    traits <- tfile
-  } else {
-    stopifnot(file.exists(traits))
-  }
+  sample <- sample_check(sample)
+  traits <- sample_check(traits, "traits")
 
   metric <- switch(
     metric,
@@ -101,6 +82,6 @@ ph_comtrait <- function(sample, traits, metric = "variance", null_model = 0,
     ), collapse = " "), stdout = TRUE)
   )
 
-  utils::read.table(text = out, skip = 1, header = TRUE,
-                    stringsAsFactors = FALSE)
+  astbl(utils::read.table(text = out, skip = 1, header = TRUE,
+                    stringsAsFactors = FALSE))
 }

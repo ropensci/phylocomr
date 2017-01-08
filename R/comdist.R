@@ -45,32 +45,8 @@ ph_comdistnt <- function(sample, phylo, null_model = 0, randomizations = 999,
 com_dist <- function(sample, phylo, null_model = 0, randomizations = 999,
                        abundance = TRUE, method) {
 
-  stopifnot(class(sample) %in% c('data.frame', 'character'))
-  if (inherits(sample, "data.frame")) {
-    sfile <- tempfile("sample_")
-    utils::write.table(
-      sample, file = sfile,
-      quote = FALSE, row.names = FALSE, col.names = FALSE, sep = "\t")
-    sample <- sfile
-  } else {
-    stopifnot(file.exists(sample))
-  }
-
-  stopifnot(class(phylo) %in% c('phylo', 'character'))
-  if (inherits(phylo, "phylo")) {
-    tree <- ape::write.tree(phylo)
-    pfile <- tempfile("phylo_")
-    cat(tree, file = phylo, sep = "\n")
-    phylo <- pfile
-  } else {
-    if (grepl("\\(\\(", phylo)) {
-      pfile <- tempfile("phylo_")
-      cat(phylo, file = pfile, sep = "\n")
-      phylo <- pfile
-    } else {
-      stopifnot(file.exists(phylo))
-    }
-  }
+  sample <- sample_check(sample)
+  phylo <- phylo_check(phylo)
 
   cdir <- getwd()
   bdir <- dirname(sample)
@@ -89,5 +65,5 @@ com_dist <- function(sample, phylo, null_model = 0, randomizations = 999,
     ), collapse = " "), stdout = TRUE)
   )
 
-  utils::read.table(text = out, header = TRUE, stringsAsFactors = FALSE)
+  astbl(utils::read.table(text = out, header = TRUE, stringsAsFactors = FALSE))
 }

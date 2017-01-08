@@ -37,32 +37,8 @@
 ph_comstruct <- function(sample, phylo, null_model = 0, randomizations = 999,
                          swaps = 1000, abundance = TRUE) {
 
-  stopifnot(class(sample) %in% c('data.frame', 'character'))
-  if (inherits(sample, "data.frame")) {
-    sfile <- tempfile("sample_")
-    utils::write.table(
-      sample, file = sfile,
-      quote = FALSE, row.names = FALSE, col.names = FALSE, sep = "\t")
-    sample <- sfile
-  } else {
-    stopifnot(file.exists(sample))
-  }
-
-  stopifnot(class(phylo) %in% c('phylo', 'character'))
-  if (inherits(phylo, "phylo")) {
-    tree <- ape::write.tree(phylo)
-    pfile <- tempfile("phylo_")
-    cat(tree, file = phylo, sep = "\n")
-    phylo <- pfile
-  } else {
-    if (grepl("\\(\\(", phylo)) {
-      pfile <- tempfile("phylo_")
-      cat(phylo, file = pfile, sep = "\n")
-      phylo <- pfile
-    } else {
-      stopifnot(file.exists(phylo))
-    }
-  }
+  sample <- sample_check(sample)
+  phylo <- phylo_check(phylo)
 
   cdir <- getwd()
   bdir <- dirname(sample)
@@ -82,8 +58,8 @@ ph_comstruct <- function(sample, phylo, null_model = 0, randomizations = 999,
     ), collapse = " "), stdout = TRUE)
   )
 
-  utils::read.table(
+  astbl(utils::read.table(
     text = out, skip = 1, header = TRUE,
     stringsAsFactors = FALSE
-  )
+  ))
 }

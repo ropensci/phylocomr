@@ -8,11 +8,11 @@ ph_pd(sample, phylo)
 }
 \arguments{
 \item{sample}{(data.frame/character) sample data.frame or path to a
-sample file}
+sample file. required}
 
 \item{phylo}{(character/phylo) phylogeny as a phylo object or a newick
 string (will be written to a temp file if provided) - or a path to a
-file with a newick string}
+file with a newick string. required}
 }
 \value{
 A single data.frame, with the colums:

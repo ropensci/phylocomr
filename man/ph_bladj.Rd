@@ -4,17 +4,14 @@
 \alias{ph_bladj}
 \title{bladj}
 \usage{
-ph_bladj(ages = NULL, ages_file = NULL, phylo = NULL, phylo_file = NULL)
+ph_bladj(ages, phylo)
 }
 \arguments{
-\item{ages}{(data.frame) ages data.frame}
-
-\item{ages_file}{(character) path to traits file}
+\item{ages}{(data.frame/character) ages data.frame, or path to an ages
+file. required.}
 
 \item{phylo}{(character) phylogeny as a newick string, will be written to
-a temp file if provided}
-
-\item{phylo_file}{(character) path to phylo file}
+a temp file if provided - OR path to file with a newick string. required.}
 }
 \value{
 newick string
@@ -44,7 +41,7 @@ write.table(ages_df, file = ages_file2, row.names = FALSE,
   col.names = FALSE, quote = FALSE)
 phylo_file2 <- tempfile()
 cat(phylo_str, file = phylo_file2, sep = '\\n')
-(res <- ph_bladj(ages_file = ages_file2, phylo_file = phylo_file2))
+(res <- ph_bladj(ages_file2, phylo_file2))
 plot(phytools::read.newick(text = res))
 }
 

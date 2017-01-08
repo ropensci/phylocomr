@@ -4,19 +4,15 @@
 \alias{ph_aot}
 \title{aot}
 \usage{
-ph_aot(traits = NULL, traits_file = NULL, phylo = NULL,
-  phylo_file = NULL, randomizations = 999, trait_contrasts = 1,
+ph_aot(traits, phylo, randomizations = 999, trait_contrasts = 1,
   ebl_unstconst = FALSE)
 }
 \arguments{
-\item{traits}{(data.frame) trait data.frame}
-
-\item{traits_file}{(character) path to traits file}
+\item{traits}{(data.frame/character) trait data.frame or path to
+traits file. required}
 
 \item{phylo}{(character) phylogeny as a newick string, will be written to
-a temp file if provided}
-
-\item{phylo_file}{(character) path to phylo file}
+a temp file if provided - OR path to file with a newick string. required}
 
 \item{randomizations}{(numeric) number of randomizations. Default: 999}
 
@@ -25,6 +21,9 @@ variable for contrasts. Default: 1}
 
 \item{ebl_unstconst}{(logical) Use equal branch lengths and unstandardized
 contrasts. Default: \code{FALSE}}
+}
+\value{
+a list of data.frames, ...
 }
 \description{
 aot
@@ -39,7 +38,7 @@ traitsdf_file <- system.file("examples/traits_aot_df",
 traits <- read.table(text = readLines(traitsdf_file), header = TRUE,
   stringsAsFactors = FALSE)
 phylo_str <- readLines(phylo_file)
-(res <- ph_aot(traits = traits, phylo = phylo_str))
+(res <- ph_aot(traits, phylo_str))
 
 # from files
 traits_str <- paste0(readLines(traits_file), collapse = "\\n")
@@ -47,6 +46,6 @@ traits_file2 <- tempfile()
 cat(traits_str, file = traits_file2, sep = '\\n')
 phylo_file2 <- tempfile()
 cat(phylo_str, file = phylo_file2, sep = '\\n')
-(res <- ph_aot(traits_file = traits_file2, phylo_file = phylo_file2))
+(res <- ph_aot(traits_file2, phylo_file2))
 }
 
