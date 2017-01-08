@@ -6,7 +6,15 @@
 #' @param phylo (character/phylo) phylogeny as a phylo object or a newick
 #' string (will be written to a temp file if provided) - or a path to a
 #' file with a newick string
-#' @return data.frame
+#' @return A single data.frame, with the colums:
+#' \itemize{
+#'  \item sample - community name/label
+#'  \item ntaxa - number of taxa
+#'  \item PD - Faith's phylogenetic diversity
+#'  \item treeBL - tree BL
+#'  \item propTreeBL - proportion tree BL
+#' }
+#' @family phylogenetic-diversity
 #' @examples
 #' sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 #' pfile <- system.file("examples/phylo_comstruct", package = "phylocomr")

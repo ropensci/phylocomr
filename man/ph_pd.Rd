@@ -15,7 +15,14 @@ string (will be written to a temp file if provided) - or a path to a
 file with a newick string}
 }
 \value{
-data.frame
+A single data.frame, with the colums:
+\itemize{
+ \item sample - community name/label
+ \item ntaxa - number of taxa
+ \item PD - Faith's phylogenetic diversity
+ \item treeBL - tree BL
+ \item propTreeBL - proportion tree BL
+}
 }
 \description{
 pd - Faith's index of phylogenetic diversity
@@ -39,5 +46,8 @@ phylo_str <- readLines(pfile)
 cat(phylo_str, file = pfile2, sep = '\\n')
 
 ph_pd(sample = sfile2, phylo = pfile2)
+}
+\seealso{
+Other phylogenetic.diversity: \code{\link{ph_rao}}
 }
 
