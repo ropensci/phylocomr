@@ -9,7 +9,7 @@ ph_phylomatic(taxa, phylo, tabular = FALSE, lowercase = FALSE,
 }
 \arguments{
 \item{taxa}{(character) all taxa as a character vector (will be written to
-a temp file if provided) - OR a path to taxa file. Required.}
+a temp file if provided) - OR a path to taxa file. Required. See Details.}
 
 \item{phylo}{(character/phylo) phylogeny as a \code{phylo} object, a newick
 string (both will be written to a temp file if provided) - OR a path to a
@@ -26,6 +26,13 @@ Default: \code{FALSE}}
 }
 \description{
 phylomatic
+}
+\details{
+The \code{taxa} character vector must have each element of the
+form \code{family/genus/genus_epithet}. If a file is passed in, each
+line should have a \code{family/genus/genus_epithet} string - make sure
+only one per line, and a newline (i.e., press ENTER) at the end of
+each line
 }
 \examples{
 library(phytools)
