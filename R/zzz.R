@@ -14,6 +14,18 @@ sample_check <- function(x, name = "sample") {
   }
 }
 
+taxa_check <- function(x, name = "taxa") {
+  stopifnot(class(x) %in% c('data.frame', 'character'))
+  if (!file.exists(x[1])) {
+    sfile <- tempfile(paste0(name, "_"))
+    cat(x, file = sfile, sep = "\n")
+    return(sfile)
+  } else {
+    stopifnot(file.exists(x))
+    return(x)
+  }
+}
+
 phylo_check <- function(x) {
   stopifnot(class(x) %in% c('phylo', 'character'))
   if (inherits(x, "phylo")) {

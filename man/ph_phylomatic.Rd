@@ -4,19 +4,16 @@
 \alias{ph_phylomatic}
 \title{phylomatic}
 \usage{
-ph_phylomatic(taxa = NULL, taxa_file = NULL, phylo = NULL,
-  phylo_file = NULL, tabular = FALSE, lowercase = FALSE, nodes = FALSE)
+ph_phylomatic(taxa, phylo, tabular = FALSE, lowercase = FALSE,
+  nodes = FALSE)
 }
 \arguments{
-\item{taxa}{(character) all taxa as a character vector, will be written to
-a temp file if provided}
+\item{taxa}{(character) all taxa as a character vector (will be written to
+a temp file if provided) - OR a path to taxa file. Required.}
 
-\item{taxa_file}{(character) path to taxa file}
-
-\item{phylo}{(character) phylogeny as a newick string, will be written to
-a temp file if provided}
-
-\item{phylo_file}{(character) path to phylo file}
+\item{phylo}{(character/phylo) phylogeny as a \code{phylo} object, a newick
+string (both will be written to a temp file if provided) - OR a path to a
+file with the newick string. Required.}
 
 \item{tabular}{(logical) Output a tabular representation of phylogeny.
 Default: \code{FALSE}}
@@ -46,9 +43,8 @@ taxa_file2 <- tempfile()
 cat(taxa_str, file = taxa_file2, sep = '\\n')
 phylo_file2 <- tempfile()
 cat(phylo_str, file = phylo_file2, sep = '\\n')
-(tree <- ph_phylomatic(taxa_file = taxa_file2, phylo_file = phylo_file2))
+(tree <- ph_phylomatic(taxa = taxa_file2, phylo = phylo_file2))
 library(ape)
 plot(read.newick(text = tree))
-
 }
 
