@@ -17,8 +17,10 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-  tibble
+  tibble,
+  sys
 Suggests:
   ape,
   phytools
+Remotes: jeroenooms/sys
 RoxygenNote: 5.0.1

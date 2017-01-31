@@ -28,12 +28,21 @@ phylomatic <- function(args = "--help", stdout = "") {
 }
 
 run <- function(name, args = args, stdout = ""){
-  path <- file.path(system.file("bin", .Platform$r_arch, package = "phylocomr"), name)
-  res <- system2(path, args, stdout = stdout)
-  status <- attr(res, "status")
-  if(isTRUE(stdout) && is.numeric(status)){
-    if(status != 0)
-      warning(sprintf("call to %s failed with status %d", name, status))
+  path <- file.path(
+    system.file("bin", .Platform$r_arch, package = "phylocomr"), name)
+  out <- rawConnection(raw(0), "r+")
+  res <- sys::exec_wait(path, args, std_out = out)
+  txt <- rawToChar(rawConnectionValue(out))
+  if (stdout == "") {
+    cat(txt)
+  } else {
+    return(txt)
   }
-  res
+  # res <- system2(path, args, stdout = stdout)
+  # status <- attr(res, "status")
+  # if(isTRUE(stdout) && is.numeric(status)){
+  #   if(status != 0)
+  #     warning(sprintf("call to %s failed with status %d", name, status))
+  # }
+  # res
 }
