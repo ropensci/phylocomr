@@ -21,7 +21,7 @@
 #' traits <- read.table(text = readLines(traitsdf_file), header = TRUE,
 #'   stringsAsFactors = FALSE)
 #' phylo_str <- readLines(phylo_file)
-#' (res <- ph_aot(traits, phylo_str))
+#' (res <- ph_aot(traits, phylo = phylo_str))
 #'
 #' # from files
 #' traits_str <- paste0(readLines(traits_file), collapse = "\n")
@@ -49,19 +49,19 @@ ph_aot <- function(traits, phylo, randomizations = 999, trait_contrasts = 1,
   stopifnot(bdir == dirname(phylo))
   setwd(bdir)
   on.exit(setwd(cdir))
-  # on.exit(unlink(traits_file), add = TRUE)
-  # on.exit(unlink(phylo_file), add = TRUE)
 
   out <- suppressWarnings(
-    phylocom(paste0(c(
+    phylocom(c(
       "aotf",
-      paste0("-t ", basename(traits)),
-      paste0("-f ", basename(phylo)),
-      paste0("-r ", randomizations),
-      paste0("-x ", trait_contrasts),
+      "-t", basename(traits),
+      "-f", basename(phylo),
+      "-r", randomizations,
+      "-x", trait_contrasts,
       if (ebl_unstconst) "-e "
-    ), collapse = " "), stdout = TRUE)
+    ), stdout = TRUE)
   )
+
+  out <- strsplit(out, split = "\n")[[1]]
 
   list(
     trait_conservatism = {

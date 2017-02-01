@@ -45,11 +45,11 @@ ph_pd <- function(sample, phylo) {
   on.exit(setwd(cdir))
 
   out <- suppressWarnings(
-    phylocom(paste0(c(
+    phylocom(c(
       "pd",
-      paste0("-s ", basename(sample)),
-      paste0("-f ", basename(phylo))
-    ), collapse = " "), stdout = TRUE)
+      "-s", basename(sample),
+      "-f", basename(phylo)
+    ), stdout = TRUE)
   )
 
   astbl(utils::read.table(text = out, header = TRUE, stringsAsFactors = FALSE))

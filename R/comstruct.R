@@ -47,15 +47,15 @@ ph_comstruct <- function(sample, phylo, null_model = 0, randomizations = 999,
   on.exit(setwd(cdir))
 
   out <- suppressWarnings(
-    phylocom(paste0(c(
+    phylocom(c(
       "comstruct",
-      paste0("-s ", basename(sample)),
-      paste0("-f ", basename(phylo)),
-      paste0("-m ", null_model),
-      paste0("-w ", swaps),
-      paste0("-r ", randomizations),
-      if (abundance) "-a "
-    ), collapse = " "), stdout = TRUE)
+      "-s", basename(sample),
+      "-f", basename(phylo),
+      "-m", null_model,
+      "-w", swaps,
+      "-r", randomizations,
+      if (abundance) "-a"
+    ), stdout = TRUE)
   )
 
   astbl(utils::read.table(

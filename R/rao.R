@@ -73,12 +73,14 @@ ph_rao <- function(sample, phylo) {
   on.exit(setwd(cdir))
 
   out <- suppressWarnings(
-    phylocom(paste0(c(
+    phylocom(c(
       "rao",
-      paste0("-s ", basename(sample)),
-      paste0("-f ", basename(phylo))
-    ), collapse = " "), stdout = TRUE)
+      "-s", basename(sample),
+      "-f", basename(phylo)
+    ), stdout = TRUE)
   )
+
+  out <- strsplit(out, split = "\n")[[1]]
 
   list(
     diversity_components = {

@@ -71,15 +71,15 @@ ph_comtrait <- function(sample, traits, metric = "variance", null_model = 0,
   on.exit(setwd(cdir))
 
   out <- suppressWarnings(
-    phylocom(paste0(c(
+    phylocom(c(
       "comtrait",
-      paste0("-s ", basename(sample)),
-      paste0("-t ", basename(traits)),
-      paste0("-m ", null_model),
-      paste0("-r ", randomizations),
-      paste0("-x ", metric),
-      if (abundance) "-a "
-    ), collapse = " "), stdout = TRUE)
+      "-s", basename(sample),
+      "-t", basename(traits),
+      "-m", null_model,
+      "-r", randomizations,
+      "-x", metric,
+      if (abundance) "-a"
+    ), stdout = TRUE)
   )
 
   astbl(utils::read.table(text = out, skip = 1, header = TRUE,
