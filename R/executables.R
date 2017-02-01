@@ -30,9 +30,8 @@ phylomatic <- function(args = "--help", stdout = "") {
 run <- function(name, args = args, stdout = ""){
   path <- file.path(
     system.file("bin", .Platform$r_arch, package = "phylocomr"), name)
-  out <- rawConnection(raw(0), "r+")
-  res <- sys::exec_wait(path, args, std_out = out)
-  txt <- rawToChar(rawConnectionValue(out))
+  res <- sys::exec_internal(path, args, error = FALSE)
+  txt <- rawToChar(res$stdout)
   if (stdout == "") {
     cat(txt)
   } else {

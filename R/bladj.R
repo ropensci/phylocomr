@@ -47,9 +47,9 @@ ph_bladj <- function(ages, phylo) {
   on.exit(setwd(cdir))
 
   suppressWarnings(
-    phylocom(paste0(c(
+    phylocom(c(
       "bladj",
-      paste0("-f ", basename(phylo))
-    ), collapse = " "), stdout = TRUE)
+      "-f", basename(phylo)
+    ), stdout = TRUE)
   )[1]
 }

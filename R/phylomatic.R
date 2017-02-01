@@ -43,13 +43,13 @@ ph_phylomatic <- function(taxa, phylo, tabular = FALSE, lowercase = FALSE,
   taxa <- taxa_check(taxa)
   phylo <- phylo_check(phylo)
   out <- suppressWarnings(
-    phylomatic(paste0(c(
-      paste0("-t ", taxa),
-      paste0("-f ", phylo),
-      if (tabular) "-y ",
-      if (lowercase) "-l ",
-      if (nodes) "-n "
-    ), collapse = " "), stdout = TRUE)
+    phylomatic(c(
+      "-t", taxa,
+      "-f", phylo,
+      if (tabular) "-y",
+      if (lowercase) "-l",
+      if (nodes) "-n"
+    ), stdout = TRUE)
   )[1]
   attr(out, "taxa_file") <- taxa
   attr(out, "phylo_file") <- phylo

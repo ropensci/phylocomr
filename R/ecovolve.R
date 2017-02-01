@@ -45,16 +45,16 @@ ph_ecovolve <- function(speciation = 0.05, extinction = 0.01, time_units = 100,
   only_extant = FALSE, taper_change = NULL, competition = FALSE) {
 
   suppressWarnings(
-    ecovolve(paste0(c(
-      paste0("-s ", speciation),
-      paste0("-e ", extinction),
-      paste0("-t ", time_units),
-      paste0("-m ", out_mode),
-      paste0("-c ", prob_env),
-      if (extant_lineages) paste0("-l ", extant_lineages),
-      if (only_extant) paste0("-p ", only_extant),
-      if (!is.null(taper_change)) paste0("-d ", taper_change),
-      if (competition) "-x "
-    ), collapse = " "), stdout = TRUE)
+    ecovolve(c(
+      "-s", speciation,
+      "-e", extinction,
+      "-t", time_units,
+      "-m", out_mode,
+      "-c", prob_env,
+      if (extant_lineages) "-l", extant_lineages,
+      if (only_extant) "-p", only_extant,
+      if (!is.null(taper_change)) "-d ", taper_change,
+      if (competition) "-x"
+    ), stdout = TRUE)
   )
 }

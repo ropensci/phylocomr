@@ -38,7 +38,7 @@ traitsdf_file <- system.file("examples/traits_aot_df",
 traits <- read.table(text = readLines(traitsdf_file), header = TRUE,
   stringsAsFactors = FALSE)
 phylo_str <- readLines(phylo_file)
-(res <- ph_aot(traits, phylo_str))
+(res <- ph_aot(traits, phylo = phylo_str))
 
 # from files
 traits_str <- paste0(readLines(traits_file), collapse = "\\n")
