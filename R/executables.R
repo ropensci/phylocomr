@@ -32,16 +32,17 @@ run <- function(name, args = args, stdout = ""){
     system.file("bin", .Platform$r_arch, package = "phylocomr"), name)
   res <- sys::exec_internal(path, args, error = FALSE)
   txt <- rawToChar(res$stdout)
+
+  # errors
+  if (!res$status %in% 0:1) {
+    stop(sprintf("call to '%s' failed with status %d\n%s", name,
+                 res$status, txt), call. = FALSE)
+  }
+
+  # return
   if (stdout == "") {
     cat(txt)
   } else {
     return(txt)
   }
-  # res <- system2(path, args, stdout = stdout)
-  # status <- attr(res, "status")
-  # if(isTRUE(stdout) && is.numeric(status)){
-  #   if(status != 0)
-  #     warning(sprintf("call to %s failed with status %d", name, status))
-  # }
-  # res
 }

@@ -49,7 +49,7 @@ ph_phylomatic <- function(taxa, phylo, tabular = FALSE, lowercase = FALSE,
       if (tabular) "-y",
       if (lowercase) "-l",
       if (nodes) "-n"
-    ), stdout = TRUE)
+    ), stdout = FALSE)
   )[1]
   attr(out, "taxa_file") <- taxa
   attr(out, "phylo_file") <- phylo

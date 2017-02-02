@@ -6,7 +6,7 @@ Description: Interface to 'Phylocom' (<http://phylodiversity.net/phylocom/>),
     character evolution. Includes low level methods for interacting with
     the three executables, as well as higher level interfaces for methods
     like 'aot', 'ecovolve', 'bladj', 'phylomatic', and more.
-Version: 0.0.7.9200
+Version: 0.0.8.9210
 Authors@R: c(person("Jeroen", "Ooms", role = c("aut", "cre"),
     email = "jeroen.ooms@stat.ucla.edu"),
     person("Scott", "Chamberlain", role = "aut",
@@ -20,6 +20,7 @@ Imports:
   tibble,
   sys (>= 1.1)
 Suggests:
+  testthat,
   ape,
   phytools
 RoxygenNote: 5.0.1
