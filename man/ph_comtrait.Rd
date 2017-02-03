@@ -63,7 +63,7 @@ traits_str <- paste0(readLines(tfile), collapse = "\\n")
 tfile2 <- tempfile()
 cat(traits_str, file = tfile2, sep = '\\n')
 
-ph_comtrait(sample = sfile2, traits = tfile2)
+# ph_comtrait(sample = sfile2, traits = tfile2)
 
 
 # from data.frame

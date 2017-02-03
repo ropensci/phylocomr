@@ -17,10 +17,10 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-  tibble,
-  sys (>= 1.1)
+    tibble,
+    sys (>= 1.1)
 Suggests:
-  testthat,
-  ape,
-  phytools
-RoxygenNote: 5.0.1
+    testthat,
+    ape,
+    phytools
+RoxygenNote: 6.0.0
