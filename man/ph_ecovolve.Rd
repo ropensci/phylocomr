@@ -39,15 +39,15 @@ increasing extinction. Default: \code{FALSE}}
 FIXME: need to read in sample and trait files
 }
 \examples{
-ph_ecovolve(speciation = 0.05)
-ph_ecovolve(speciation = 0.1)
+#ph_ecovolve(speciation = 0.05)
+#ph_ecovolve(speciation = 0.1)
 ph_ecovolve(extinction = 0.005)
 ph_ecovolve(time_units = 50)
 ph_ecovolve(out_mode = 2)
 ph_ecovolve(extant_lineages = TRUE)
 ph_ecovolve(extant_lineages = FALSE)
 ph_ecovolve(only_extant = FALSE)
-ph_ecovolve(only_extant = TRUE)
+# ph_ecovolve(only_extant = TRUE)
 ph_ecovolve(taper_change = 2)
 ph_ecovolve(taper_change = 10)
 ph_ecovolve(taper_change = 500)
