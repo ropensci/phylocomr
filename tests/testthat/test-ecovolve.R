@@ -1,4 +1,5 @@
 context("ecovolve")
+
 test_that("ecovolve executable works", {
   expect_output(ecovolve(), "Cam Webb")
   expect_output(ecovolve(), "ecovolve")
@@ -7,11 +8,8 @@ test_that("ecovolve executable works", {
   expect_match(ecovolve(stdout = FALSE), "Cam Webb")
 })
 
-# foo <- function(x) {
-#   plot(phytools::read.newick(text = x))
-# }
-
 context("ph_ecovolve")
+
 test_that("ph_phylomatic works with chr string input", {
   # ph_ecovolve(speciation = 0.05)
   # ph_ecovolve(speciation = 0.1)
