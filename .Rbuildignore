@@ -11,3 +11,5 @@ README.Rmd
 ^src/.*\.so$
 ^appveyor\.yml$
 man-roxygen
+docs
+

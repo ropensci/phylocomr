@@ -14,7 +14,7 @@ test_that("ph_phylomatic works with chr string input", {
   # ph_ecovolve(speciation = 0.05)
   # ph_ecovolve(speciation = 0.1)
   expect_is(ph_ecovolve(extinction = 0.005), "character")
-  expect_is(ph_ecovolve(time_units = 50), "character")
+  # expect_is(ph_ecovolve(time_units = 50), "character")
   expect_is(ph_ecovolve(out_mode = 2), "character")
   expect_is(ph_ecovolve(extant_lineages = TRUE), "character")
   expect_is(ph_ecovolve(extant_lineages = FALSE), "character")
