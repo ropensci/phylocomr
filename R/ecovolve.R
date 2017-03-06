@@ -20,6 +20,10 @@
 #' Default: NULL, not passed
 #' @param competition (logical) Simulate competition, with trait proximity
 #' increasing extinction. Default: \code{FALSE}
+#' @return a phylogeny as a newick string
+#' @details function occasionally fails with error "call to 'ecovolve' failed
+#' with status 8. only 1 taxon; > 1 required" - this just means that only
+#' 1 taxon was created in the random process, so the function can't proceed
 #' @examples
 #' # ph_ecovolve(speciation = 0.05)
 #' # ph_ecovolve(speciation = 0.1)

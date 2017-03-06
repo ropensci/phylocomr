@@ -16,11 +16,14 @@ BugReports: https://github.com/ropensci/phylocomr/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+VignetteBuilder: knitr
 Imports:
     tibble,
     sys (>= 1.1)
 Suggests:
     testthat,
     ape,
-    phytools
+    phytools,
+    knitr,
+    rmarkdown
 RoxygenNote: 6.0.1

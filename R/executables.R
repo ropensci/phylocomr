@@ -32,11 +32,17 @@ run <- function(name, args = args, stdout = ""){
     system.file("bin", .Platform$r_arch, package = "phylocomr"), name)
   res <- sys::exec_internal(path, args, error = FALSE)
   txt <- rawToChar(res$stdout)
+  txt
 
   # errors
   if (!res$status %in% 0:1) {
-    stop(sprintf("call to '%s' failed with status %d\n%s", name,
-                 res$status, txt), call. = FALSE)
+    if (res$status == 8 && name == "ecovolve") {
+      stop(sprintf("call to 'ecovolve' failed with status %d\n only 1 taxon; > 1 required",
+                   res$status), call. = FALSE)
+    } else {
+      stop(sprintf("call to '%s' failed with status %d\n%s", name,
+                   res$status, txt), call. = FALSE)
+    }
   }
 
   # return
