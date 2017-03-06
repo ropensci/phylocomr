@@ -54,4 +54,3 @@ cat(phylo_str, file = phylo_file2, sep = '\\n')
 library(ape)
 plot(read.newick(text = tree))
 }
-

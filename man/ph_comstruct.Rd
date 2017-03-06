@@ -56,6 +56,7 @@ comstruct
  versions of the sample/species matrix.
 }
 }
+
 \examples{
 sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 pfile <- system.file("examples/phylo_comstruct", package = "phylocomr")
@@ -80,4 +81,3 @@ ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 1)
 ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 2)
 ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 3)
 }
-

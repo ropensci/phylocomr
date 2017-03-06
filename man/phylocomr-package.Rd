@@ -2,10 +2,9 @@
 % Please edit documentation in R/phylocomr-package.R
 \docType{package}
 \name{phylocomr-package}
-\alias{phylocomr}
 \alias{phylocomr-package}
+\alias{phylocomr}
 \title{Phylocom interface}
 \description{
 Phylocom interface
 }
-

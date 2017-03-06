@@ -48,4 +48,3 @@ phylo_file2 <- tempfile()
 cat(phylo_str, file = phylo_file2, sep = '\\n')
 (res <- ph_aot(traits_file2, phylo_file2))
 }
-

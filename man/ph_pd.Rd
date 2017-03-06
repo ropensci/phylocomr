@@ -48,6 +48,5 @@ cat(phylo_str, file = pfile2, sep = '\\n')
 ph_pd(sample = sfile2, phylo = pfile2)
 }
 \seealso{
-Other phylogenetic.diversity: \code{\link{ph_rao}}
+Other phylogenetic-diversity: \code{\link{ph_rao}}
 }
-

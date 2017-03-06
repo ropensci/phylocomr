@@ -58,6 +58,7 @@ comdist
  versions of the sample/species matrix.
 }
 }
+
 \examples{
 sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 pfile <- system.file("examples/phylo_comstruct", package = "phylocomr")
@@ -78,4 +79,3 @@ cat(phylo_str, file = pfile2, sep = '\\n')
 ph_comdist(sample = sfile2, phylo = pfile2)
 ph_comdistnt(sample = sfile2, phylo = pfile2)
 }
-
