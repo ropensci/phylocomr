@@ -21,8 +21,8 @@
 #' @param competition (logical) Simulate competition, with trait proximity
 #' increasing extinction. Default: \code{FALSE}
 #' @examples
-#' #ph_ecovolve(speciation = 0.05)
-#' #ph_ecovolve(speciation = 0.1)
+#' # ph_ecovolve(speciation = 0.05)
+#' # ph_ecovolve(speciation = 0.1)
 #' ph_ecovolve(extinction = 0.005)
 #' ph_ecovolve(time_units = 50)
 #' ph_ecovolve(out_mode = 2)

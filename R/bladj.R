@@ -46,10 +46,13 @@ ph_bladj <- function(ages, phylo) {
   setwd(bdir)
   on.exit(setwd(cdir))
 
-  suppressWarnings(
+  out <- suppressWarnings(
     phylocom(c(
       "bladj",
       "-f", basename(phylo)
     ), stdout = TRUE)
   )[1]
+  attr(out, "ages_file") <- ages
+  attr(out, "phylo_file") <- phylo
+  return(out)
 }
