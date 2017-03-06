@@ -12,6 +12,7 @@ knitr::opts_chunk$set(
 
 [![Build Status](https://travis-ci.org/ropensci/phylocomr.svg?branch=master)](https://travis-ci.org/ropensci/phylocomr)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/phylocomr?branch=master&svg=true)](https://ci.appveyor.com/project/jeroenooms/phylocomr)
+[![codecov](https://codecov.io/gh/ropensci/phylocomr/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/phylocomr)
 
 `phylocomr` gives you access to the Phylocom C library.
 
@@ -30,6 +31,14 @@ level interface
 * `ph_pd` - higher level interface to Faith's phylogenetic diversity
 
 ## Installation
+
+Stable version:
+
+```{r eval=FALSE}
+install.packages("phylocomr")
+```
+
+Development version:
 
 ```{r eval=FALSE}
 install.packages("devtools")
