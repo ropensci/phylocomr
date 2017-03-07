@@ -81,7 +81,7 @@ ph_ecovolve <- function(speciation = 0.05, extinction = 0.01, time_units = 100,
   )
 
   # collect ecovolve files
-  e_sample <- e_traits <- astbl(NULL)
+  e_sample <- e_traits <- astbl()
   if (out_mode == 3) {
     efiles <- list.files(pattern = "ecovolve.", full.names = TRUE)
     on.exit(unlink(efiles, force = TRUE))

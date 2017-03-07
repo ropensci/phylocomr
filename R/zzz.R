@@ -1,5 +1,5 @@
-astbl <- function(x) {
-  if (NCOL(x) > 0) {
+astbl <- function(x = NULL) {
+  if (NCOL(x) > 0 && !is.null(x)) {
     names(x) <- tolower(names(x))
   }
   tibble::as_data_frame(x)
