@@ -32,7 +32,6 @@ run <- function(name, args = args, stdout = ""){
     system.file("bin", .Platform$r_arch, package = "phylocomr"), name)
   res <- sys::exec_internal(path, args, error = FALSE)
   txt <- rawToChar(res$stdout)
-  txt
 
   # errors
   if (!res$status %in% 0:1) {

@@ -36,16 +36,36 @@ Default: NULL, not passed}
 increasing extinction. Default: \code{FALSE}}
 }
 \value{
-a phylogeny as a newick string
+a list with three elements:
+\itemize{
+ \item phylogeny - a phylogeny as a newick string. In the case of
+ `out_mode = 2` gives a Lineage Through Time data.frame instead of a
+ newick phylogeny
+ \item sample - a data.frame with three columns, "sample" (all "alive"),
+ "abundance" (all 1's), "name" (the species code). In the case of
+ `out_mode = 2` gives an empty data.frame
+ \item traits - a data.frame with first column with spcies code ("name"),
+ then 5 randomly evolved and independent traits. In the case of
+ `out_mode = 2` gives an empty data.frame
+}
 }
 \description{
-FIXME: need to read in sample and trait files
+ecovolve
 }
-\details{
-function occasionally fails with error "call to 'ecovolve' failed
+\section{Clean up}{
+
+Two files, "ecovolve.sample" and "ecovolve.traits" are written to the
+current working directory when this function runs - we read these files
+in, then delete the files via \code{\link{unlink}}
+}
+
+\section{Failure behavior}{
+
+Function occasionally fails with error "call to 'ecovolve' failed
 with status 8. only 1 taxon; > 1 required" - this just means that only
 1 taxon was created in the random process, so the function can't proceed
 }
+
 \examples{
 # ph_ecovolve(speciation = 0.05)
 # ph_ecovolve(speciation = 0.1)
