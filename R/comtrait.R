@@ -5,6 +5,8 @@
 #' sample file
 #' @param traits (data.frame/character) traits data.frame or path to a
 #' traits file
+#' @param binary (logical) a logical vector indicating what columns are to
+#' be treated as binary characters - all others are treated as continuous
 #' @param metric (integer) metric to calculate. One of variance, mpd, mntd,
 #' or range (converted to phylocom integer format internally)
 #' @template com_args
@@ -28,7 +30,32 @@
 #'  \code{\link{ph_comstruct}}
 #' }
 #'
-#' @return data.frame
+#' @details
+#' If you give a data.frame to `traits` parameter it expects data.frame like
+#' \itemize{
+#'  \item species - the taxon labels matching the sample data to `sample`
+#'  parameter
+#'  \item col1,col2,col3,etc. - any number of trait columns - column names do
+#'  not matter
+#' }
+#'
+#' When giving a data.frame to `traits` make sure to pass in a binary
+#' vector for what traits are to be treated as binary.
+#'
+#' @return data.frame of the form:
+#' \itemize{
+#'  \item trait - Trait name
+#'  \item sample - Sample name
+#'  \item ntaxa - Number of taxa in sample
+#'  \item mean - Mean value of trait in sample
+#'  \item metric - Observed metric in sample
+#'  \item meanrndmetric - Mean value of metric in null models
+#'  \item sdrndmetric - Standard deviation of metric in null models
+#'  \item sesmetric - Standardized effect size of metric
+#'  \item ranklow - Number of randomizations with metric lower than observed
+#'  \item rankhigh - Number of randomizations with metric higher than observed
+#'  \item runs - Number of randomizations
+#' }
 #' @examples
 #' sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 #' tfile <- system.file("examples/traits_aot", package = "phylocomr")
@@ -42,8 +69,7 @@
 #' tfile2 <- tempfile()
 #' cat(traits_str, file = tfile2, sep = '\n')
 #'
-#' # ph_comtrait(sample = sfile2, traits = tfile2)
-#'
+#' ph_comtrait(sample = sfile2, traits = tfile2)
 #'
 #' # from data.frame
 #' sampledf <- read.table(sfile, header = FALSE,
@@ -52,12 +78,14 @@
 #'   package = "phylocomr")
 #' traitsdf <- read.table(text = readLines(traitsdf_file), header = TRUE,
 #'   stringsAsFactors = FALSE)
-#' # ph_comtrait(sample = sampledf, traits = traitsdf)
-ph_comtrait <- function(sample, traits, metric = "variance", null_model = 0,
-                        randomizations = 999, abundance = TRUE) {
+#' ph_comtrait(sample = sampledf, traits = traitsdf,
+#'   binary = c(FALSE, FALSE, FALSE, TRUE))
+ph_comtrait <- function(sample, traits, binary = NULL, metric = "variance",
+                        null_model = 0, randomizations = 999,
+                        abundance = TRUE) {
 
   sample <- sample_check(sample)
-  traits <- sample_check(traits, "traits")
+  traits <- trait_check(x = traits, binary)
 
   metric <- switch(
     metric,

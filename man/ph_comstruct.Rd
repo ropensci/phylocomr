@@ -79,5 +79,5 @@ cat(phylo_str, file = pfile2, sep = '\\n')
 ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 0)
 ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 1)
 ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 2)
-ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 3)
+# ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 3)
 }

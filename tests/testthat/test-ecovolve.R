@@ -77,7 +77,7 @@ test_that("ph_ecovolve works when out_mode = 3", {
 })
 
 
-test_that("ph_ecovolve when out_mode = 2" {
+test_that("ph_ecovolve when out_mode = 2", {
   aa <- ph_ecovolve(out_mode = 2)
   expect_is(aa, "list")
   expect_is(aa$phylogeny, "data.frame")

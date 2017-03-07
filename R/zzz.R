@@ -1,4 +1,9 @@
-astbl <- function(x) tibble::as_data_frame(x)
+astbl <- function(x) {
+  if (NCOL(x) > 0) {
+    names(x) <- tolower(names(x))
+  }
+  tibble::as_data_frame(x)
+}
 
 sample_check <- function(x, name = "sample") {
   stopifnot(class(x) %in% c('data.frame', 'character'))
@@ -7,6 +12,32 @@ sample_check <- function(x, name = "sample") {
     utils::write.table(
       x, file = sfile,
       quote = FALSE, row.names = FALSE, col.names = FALSE, sep = "\t")
+    return(sfile)
+  } else {
+    stopifnot(file.exists(x))
+    return(x)
+  }
+}
+
+trait_check <- function(x, binary) {
+  stopifnot(class(x) %in% c('data.frame', 'character'))
+  if (inherits(x, "data.frame")) {
+    stopifnot(!is.null(binary))
+    stopifnot(is.logical(binary))
+    sfile <- tempfile("trait_")
+    top <- matrix("3", ncol = NCOL(x) - 1)
+    top[binary] <- 0
+    utils::write.table(data.frame("type", top), file = sfile,
+      quote = FALSE, row.names = FALSE, col.names = FALSE, sep = "\t",
+      append = TRUE)
+    utils::write.table(matrix(names(x), nrow = 1),
+      file = sfile,
+      quote = FALSE, row.names = FALSE, col.names = FALSE, sep = "\t",
+      append = TRUE)
+    utils::write.table(
+      x, file = sfile,
+      quote = FALSE, row.names = FALSE, col.names = FALSE, sep = "\t",
+      append = TRUE)
     return(sfile)
   } else {
     stopifnot(file.exists(x))

@@ -32,7 +32,7 @@
 #' ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 0)
 #' ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 1)
 #' ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 2)
-#' ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 3)
+#' # ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 3)
 
 ph_comstruct <- function(sample, phylo, null_model = 0, randomizations = 999,
                          swaps = 1000, abundance = TRUE) {

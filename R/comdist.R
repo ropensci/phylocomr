@@ -65,5 +65,7 @@ com_dist <- function(sample, phylo, null_model = 0, randomizations = 999,
     ), stdout = TRUE)
   )
 
-  astbl(utils::read.table(text = out, header = TRUE, stringsAsFactors = FALSE))
+  tmp <- astbl(utils::read.table(text = out, header = TRUE,
+                                 stringsAsFactors = FALSE))
+  stats::setNames(tmp, c('name', names(tmp)[-1]))
 }
