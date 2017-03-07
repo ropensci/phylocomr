@@ -7,17 +7,16 @@
 \alias{phylomatic}
 \title{Executables}
 \usage{
-ecovolve(args = "--help", stdout = "")
+ecovolve(args = "--help", intern = FALSE)
 
-phylocom(args = "help", stdout = "")
+phylocom(args = "help", intern = FALSE)
 
-phylomatic(args = "--help", stdout = "")
+phylomatic(args = "--help", intern = FALSE)
 }
 \arguments{
 \item{args}{a character vector of arguments to command.}
 
-\item{stdout}{where output to stdout should be sent, see
-\code{\link{system2}}}
+\item{intern}{capture output as character vector. Default: \code{FALSE}}
 }
 \description{
 Executables

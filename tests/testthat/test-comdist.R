@@ -43,10 +43,29 @@ test_that("ph_comdist - different models give expected output", {
   n1 <- ph_comdist(sample = sfile, phylo = pfile, null_model = 1)
 
   # identical
-  expect_identical(n0$mpd, n1$mpd)
-  expect_identical(n0$mntd, n1$mntd)
-
-  # not identical
-  # expect_false(identical(n0$NRI, n1$NRI))
-  # expect_false(identical(n0$NTI, n1$NTI))
+  expect_identical(n0$clump1, n1$clump1)
+  expect_identical(n0$clump4, n1$clump4)
 })
+
+test_that("ph_comdist fails well", {
+  # required inputs
+  expect_error(ph_comdist(), "argument \"sample\" is missing, with no default")
+  expect_error(ph_comdist("Adsf"), "argument \"phylo\" is missing, with no default")
+
+  # types are correct
+  expect_error(ph_comdist(5, "asdfad"),
+               "sample must be of class character, data.frame")
+  expect_error(ph_comdist("adf", mtcars),
+               "phylo must be of class character, phylo")
+  expect_error(ph_comdist(sfile, pfile, null_model = mtcars),
+               "null_model must be of class numeric, integer")
+  expect_error(ph_comdist(sfile, pfile, randomizations = mtcars),
+               "randomizations must be of class numeric, integer")
+  expect_error(ph_comdist(sfile, pfile, abundance = 5),
+               "abundance must be of class logical")
+
+  # correct set of values
+  expect_error(ph_comdist(sfile, pfile, null_model = 15),
+               "null_model %in% 0:3 is not TRUE")
+})
+

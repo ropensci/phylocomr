@@ -11,8 +11,9 @@ ph_aot(traits, phylo, randomizations = 999, trait_contrasts = 1,
 \item{traits}{(data.frame/character) trait data.frame or path to
 traits file. required}
 
-\item{phylo}{(character) phylogeny as a newick string, will be written to
-a temp file if provided - OR path to file with a newick string. required}
+\item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an \pkg{ape} `phylo` object. required.}
 
 \item{randomizations}{(numeric) number of randomizations. Default: 999}
 
@@ -26,7 +27,9 @@ contrasts. Default: \code{FALSE}}
 a list of data.frames, ...
 }
 \description{
-aot
+AOT conducts univariate and bivariate tests of phylogenetic signal and
+trait correlations, respectively, and node-level analyses of trait
+means and diversification.
 }
 \examples{
 traits_file <- system.file("examples/traits_aot", package = "phylocomr")
@@ -47,4 +50,6 @@ cat(traits_str, file = traits_file2, sep = '\\n')
 phylo_file2 <- tempfile()
 cat(phylo_str, file = phylo_file2, sep = '\\n')
 (res <- ph_aot(traits_file2, phylo_file2))
+
+
 }

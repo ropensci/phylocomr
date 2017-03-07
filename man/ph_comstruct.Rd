@@ -11,9 +11,9 @@ ph_comstruct(sample, phylo, null_model = 0, randomizations = 999,
 \item{sample}{(data.frame/character) sample data.frame or path to a
 sample file}
 
-\item{phylo}{(character/phylo) phylogeny as a phylo object or a newick
-string (will be written to a temp file if provided) - or a path to a
-file with a newick string}
+\item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an \pkg{ape} `phylo` object. required.}
 
 \item{null_model}{(integer) which null model to use. See Details.}
 
@@ -28,7 +28,10 @@ for abundance. Otherwise, uses presence-absence.}
 data.frame
 }
 \description{
-comstruct
+Calculates mean phylogenetic distance (MPD) and mean nearest
+phylogenetic taxon distance (MNTD; aka MNND) for each sample, and
+compares them to MPD/MNTD values for randomly generated samples
+(null communities) or phylogenies.
 }
 \section{Null models}{
 

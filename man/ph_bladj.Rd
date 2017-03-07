@@ -10,17 +10,23 @@ ph_bladj(ages, phylo)
 \item{ages}{(data.frame/character) ages data.frame, or path to an ages
 file. required.}
 
-\item{phylo}{(character) phylogeny as a newick string, will be written to
-a temp file if provided - OR path to file with a newick string. required.}
+\item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an \pkg{ape} `phylo` object. required.}
 }
 \value{
-newick string
+newick string with attributes for where ages and phylo files
+used are stored
 }
 \description{
-bladj
+Bladj take a phylogeny and fixes the root node at a specified age,
+and fixes other nodes you might have age estimates for. It then sets all
+other branch lengths by placing the nodes evenly between dated nodes,
+and between dated nodes and terminals (beginning with the longest
+'chains').
 }
 \examples{
-library(phytools)
+library(ape)
 
 ages_file <- system.file("examples/ages", package = "phylocomr")
 phylo_file <- system.file("examples/phylo_bladj", package = "phylocomr")
@@ -33,7 +39,7 @@ ages_df <- data.frame(
 )
 phylo_str <- readLines(phylo_file)
 (res <- ph_bladj(ages = ages_df, phylo = phylo_str))
-plot(phytools::read.newick(text = res))
+plot(read.tree(text = res))
 
 # from files
 ages_file2 <- file.path(tempdir(), "ages")
@@ -42,5 +48,12 @@ write.table(ages_df, file = ages_file2, row.names = FALSE,
 phylo_file2 <- tempfile()
 cat(phylo_str, file = phylo_file2, sep = '\\n')
 (res <- ph_bladj(ages_file2, phylo_file2))
-plot(phytools::read.newick(text = res))
+plot(read.tree(text = res))
+
+# using a ape phylo phylogeny object
+x <- read.tree(text = phylo_str)
+plot(x)
+(res <- ph_bladj(ages_file2, x))
+tree <- read.tree(text = res)
+plot(tree)
 }

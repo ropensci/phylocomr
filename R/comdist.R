@@ -1,11 +1,12 @@
 #' comdist
 #'
+#' Outputs the phylogenetic distance between samples, based on phylogenetic
+#' distances of taxa in one sample to the taxa in the other
+#'
 #' @export
 #' @param sample (data.frame/character) sample data.frame or path to a
 #' sample file
-#' @param phylo (character/phylo) phylogeny as a phylo object or a newick
-#' string (will be written to a temp file if provided) - or a path to a
-#' file with a newick string
+#' @template phylo
 #' @template com_args
 #' @template com_null_models
 #' @return data.frame
@@ -30,20 +31,27 @@
 #' ph_comdistnt(sample = sfile2, phylo = pfile2)
 ph_comdist <- function(sample, phylo, null_model = 0, randomizations = 999,
                        abundance = TRUE) {
-  com_dist(sample, phylo, null_model = 0, randomizations = 999,
-           abundance = TRUE, "comdist")
+  com_dist(sample, phylo, null_model = null_model,
+           randomizations = randomizations, abundance = abundance, "comdist")
 }
 
 #' @export
 #' @rdname ph_comdist
 ph_comdistnt <- function(sample, phylo, null_model = 0, randomizations = 999,
                          abundance = TRUE) {
-  com_dist(sample, phylo, null_model = 0, randomizations = 999,
-           abundance = TRUE, "comdistnt")
+  com_dist(sample, phylo, null_model = null_model,
+           randomizations = randomizations, abundance = abundance, "comdistnt")
 }
 
 com_dist <- function(sample, phylo, null_model = 0, randomizations = 999,
                        abundance = TRUE, method) {
+
+  assert(sample, c("character", "data.frame"))
+  assert(phylo, c("character", "phylo"))
+  assert(null_model, c("numeric", "integer"))
+  assert(randomizations, c("numeric", "integer"))
+  assert(abundance, "logical")
+  stopifnot(null_model %in% 0:3)
 
   sample <- sample_check(sample)
   phylo <- phylo_check(phylo)
@@ -62,7 +70,7 @@ com_dist <- function(sample, phylo, null_model = 0, randomizations = 999,
       "-m", null_model,
       "-r", randomizations,
       if (abundance) "-a"
-    ), stdout = TRUE)
+    ), intern = TRUE)
   )
 
   tmp <- astbl(utils::read.table(text = out, header = TRUE,

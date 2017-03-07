@@ -1,18 +1,19 @@
 #' pd - Faith's index of phylogenetic diversity
 #'
+#' Calculates Faith’s (1992) index of phylogenetic diversity (PD) for
+#' each sample in the phylo.
+#'
 #' @export
 #' @param sample (data.frame/character) sample data.frame or path to a
 #' sample file. required
-#' @param phylo (character/phylo) phylogeny as a phylo object or a newick
-#' string (will be written to a temp file if provided) - or a path to a
-#' file with a newick string. required
+#' @template phylo
 #' @return A single data.frame, with the colums:
 #' \itemize{
 #'  \item sample - community name/label
 #'  \item ntaxa - number of taxa
-#'  \item PD - Faith's phylogenetic diversity
-#'  \item treeBL - tree BL
-#'  \item propTreeBL - proportion tree BL
+#'  \item pd - Faith's phylogenetic diversity
+#'  \item treebl - tree BL
+#'  \item proptreebl - proportion tree BL
 #' }
 #' @family phylogenetic-diversity
 #' @examples
@@ -35,6 +36,9 @@
 #'
 #' ph_pd(sample = sfile2, phylo = pfile2)
 ph_pd <- function(sample, phylo) {
+  assert(sample, c("data.frame", "character"))
+  assert(phylo, c("phylo", "character"))
+
   sample <- sample_check(sample)
   phylo <- phylo_check(phylo)
 
@@ -49,7 +53,7 @@ ph_pd <- function(sample, phylo) {
       "pd",
       "-s", basename(sample),
       "-f", basename(phylo)
-    ), stdout = TRUE)
+    ), intern = TRUE)
   )
 
   astbl(utils::read.table(text = out, header = TRUE, stringsAsFactors = FALSE))

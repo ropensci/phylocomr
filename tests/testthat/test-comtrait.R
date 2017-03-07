@@ -60,3 +60,33 @@ test_that("ph_comtrait - different models give expected output", {
   # not identical
   expect_false(identical(n0$sesmetric, n1$sesmetric))
 })
+
+test_that("ph_comtrait fails well", {
+  # required inputs
+  expect_error(ph_comtrait(),
+               "argument \"sample\" is missing, with no default")
+  expect_error(ph_comtrait("Adsf"),
+               "argument \"traits\" is missing, with no default")
+
+  # types are correct
+  expect_error(ph_comtrait(5, "asdfad"),
+               "sample must be of class character, data.frame")
+  expect_error(ph_comtrait("adf", 5),
+               "traits must be of class character, data.frame")
+  expect_error(ph_comtrait(sfile, tfile, null_model = mtcars),
+               "null_model must be of class numeric, integer")
+  expect_error(ph_comtrait(sfile, tfile, randomizations = mtcars),
+               "randomizations must be of class numeric, integer")
+
+  expect_error(ph_comtrait(sfile, tfile, metric = 5),
+               "metric must be of class character")
+
+  expect_error(ph_comtrait(sfile, tfile, binary = 5),
+               "binary must be of class logical")
+  expect_error(ph_comtrait(sfile, tfile, abundance = 5),
+               "abundance must be of class logical")
+
+  # correct set of values
+  expect_error(ph_comtrait(sfile, tfile, null_model = 15),
+               "null_model %in% 0:3 is not TRUE")
+})

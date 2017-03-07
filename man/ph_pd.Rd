@@ -10,22 +10,23 @@ ph_pd(sample, phylo)
 \item{sample}{(data.frame/character) sample data.frame or path to a
 sample file. required}
 
-\item{phylo}{(character/phylo) phylogeny as a phylo object or a newick
-string (will be written to a temp file if provided) - or a path to a
-file with a newick string. required}
+\item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an \pkg{ape} `phylo` object. required.}
 }
 \value{
 A single data.frame, with the colums:
 \itemize{
- \item sample - community name/label
- \item ntaxa - number of taxa
- \item PD - Faith's phylogenetic diversity
- \item treeBL - tree BL
- \item propTreeBL - proportion tree BL
+\item sample - community name/label
+\item ntaxa - number of taxa
+\item pd - Faith's phylogenetic diversity
+\item treebl - tree BL
+\item proptreebl - proportion tree BL
 }
 }
 \description{
-pd - Faith's index of phylogenetic diversity
+Calculates Faith’s (1992) index of phylogenetic diversity (PD) for
+each sample in the phylo.
 }
 \examples{
 sfile <- system.file("examples/sample_comstruct", package = "phylocomr")

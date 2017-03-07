@@ -11,9 +11,9 @@ ph_phylomatic(taxa, phylo, tabular = FALSE, lowercase = FALSE,
 \item{taxa}{(character) all taxa as a character vector (will be written to
 a temp file if provided) - OR a path to taxa file. Required. See Details.}
 
-\item{phylo}{(character/phylo) phylogeny as a \code{phylo} object, a newick
-string (both will be written to a temp file if provided) - OR a path to a
-file with the newick string. Required.}
+\item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an \pkg{ape} `phylo` object. required.}
 
 \item{tabular}{(logical) Output a tabular representation of phylogeny.
 Default: \code{FALSE}}
@@ -25,7 +25,8 @@ Default: \code{FALSE}}
 Default: \code{FALSE}}
 }
 \description{
-phylomatic
+Phylomatic is a tool for extracting a phylogeny from a master
+phylogeny using only a user-supplied list of taxa.
 }
 \details{
 The \code{taxa} character vector must have each element of the
@@ -35,7 +36,7 @@ only one per line, and a newline (i.e., press ENTER) at the end of
 each line
 }
 \examples{
-library(phytools)
+library(ape)
 
 taxa_file <- system.file("examples/taxa", package = "phylocomr")
 phylo_file <- system.file("examples/phylo", package = "phylocomr")
@@ -51,6 +52,12 @@ cat(taxa_str, file = taxa_file2, sep = '\\n')
 phylo_file2 <- tempfile()
 cat(phylo_str, file = phylo_file2, sep = '\\n')
 (tree <- ph_phylomatic(taxa = taxa_file2, phylo = phylo_file2))
-library(ape)
-plot(read.newick(text = tree))
+plot(read.tree(text = tree))
+}
+\references{
+Phylomatic is also available as a web service
+(https://github.com/camwebb/phylomatic-ws) - but is based on a different
+code base (https://github.com/camwebb/phylomatic-ws)
+See \href{https://doi.org/10.1111/j.1471-8286.2004.00829.x}{Webb and Donoghue (2005)}
+for more information on the goals of Phylomatic.
 }

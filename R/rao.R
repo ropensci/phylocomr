@@ -6,9 +6,7 @@
 #' @export
 #' @param sample (data.frame/character) sample data.frame or path to a
 #' sample file
-#' @param phylo (character/phylo) phylogeny as a phylo object or a newick
-#' string (will be written to a temp file if provided) - or a path to a
-#' file with a newick string
+#' @template phylo
 #' @return A list of 6 data.frame's:
 #' \strong{Diversity components}:
 #' \itemize{
@@ -63,6 +61,9 @@
 #'
 #' ph_rao(sample = sfile2, phylo = pfile2)
 ph_rao <- function(sample, phylo) {
+  assert(sample, c("data.frame", "character"))
+  assert(phylo, c("phylo", "character"))
+
   sample <- sample_check(sample)
   phylo <- phylo_check(phylo)
 
@@ -77,7 +78,7 @@ ph_rao <- function(sample, phylo) {
       "rao",
       "-s", basename(sample),
       "-f", basename(phylo)
-    ), stdout = TRUE)
+    ), intern = TRUE)
   )
 
   out <- strsplit(out, split = "\n")[[1]]

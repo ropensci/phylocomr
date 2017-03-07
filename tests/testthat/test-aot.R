@@ -1,7 +1,5 @@
 context("ph_aot")
 
-library(phytools)
-
 traits_file <- system.file("examples/traits_aot", package = "phylocomr")
 phylo_file <- system.file("examples/phylo_aot", package = "phylocomr")
 
@@ -55,4 +53,22 @@ test_that("ph_aot works with file input", {
 
   expect_type(aa$independent_contrasts$name, "character")
   expect_type(aa$independent_contrasts$contrastsd, "double")
+})
+
+test_that("ph_aot fails well", {
+  # required inputs
+  expect_error(ph_aot(), "argument \"traits\" is missing, with no default")
+  expect_error(ph_aot("Adsf"), "argument \"phylo\" is missing, with no default")
+
+  # types are correct
+  expect_error(ph_aot(5, "asdfad"),
+               "traits must be of class data.frame, character")
+  expect_error(ph_aot("adf", mtcars),
+               "phylo must be of class phylo, character")
+  expect_error(ph_aot("adf", "adsf", randomizations = "asdff"),
+               "randomizations must be of class integer, numeric")
+  expect_error(ph_aot("adf", "adsf", trait_contrasts = "asdff"),
+               "trait_contrasts must be of class integer, numeric")
+  expect_error(ph_aot("adf", "adsf", ebl_unstconst = "asdff"),
+               "ebl_unstconst must be of class logical")
 })

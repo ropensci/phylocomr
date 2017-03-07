@@ -10,41 +10,41 @@ ph_rao(sample, phylo)
 \item{sample}{(data.frame/character) sample data.frame or path to a
 sample file}
 
-\item{phylo}{(character/phylo) phylogeny as a phylo object or a newick
-string (will be written to a temp file if provided) - or a path to a
-file with a newick string}
+\item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an \pkg{ape} `phylo` object. required.}
 }
 \value{
 A list of 6 data.frame's:
 \strong{Diversity components}:
 \itemize{
- \item overall alpha (within-site)
- \item beta (among-site)
- \item total diversity
- \item Fst statistic of differentiation for diversity and phylogenetic
- diversity
+\item overall alpha (within-site)
+\item beta (among-site)
+\item total diversity
+\item Fst statistic of differentiation for diversity and phylogenetic
+diversity
 }
 
 \strong{Within-community diversity}:
 \itemize{
- \item Plot - Plot name
- \item NSpp - Number of species
- \item NIndiv - Number of individuals
- \item PropIndiv - Proportion of all individuals found in this plot
- \item D - Diversity (= Simpson’s diversity)
- \item Dp - Phylogenetic diversity (= Diversity weighted by interspecific
- phylogenetic distances)
+\item Plot - Plot name
+\item NSpp - Number of species
+\item NIndiv - Number of individuals
+\item PropIndiv - Proportion of all individuals found in this plot
+\item D - Diversity (= Simpson’s diversity)
+\item Dp - Phylogenetic diversity (= Diversity weighted by interspecific
+phylogenetic distances)
 }
 
 The remaining 4 tables compare each community pairwise:
 \itemize{
- \item among_community_diversity_d - Among-community diversities
- \item among_community_diversity_h - Among-community diversities excluding
- within-community diversity
- \item among_community_phylogenetic_diversity_dp - Among-community
- phylogenetic diversities
- \item among_community_phylogenetic_diversity_hp - Among-community
- phylogenetic diversities excluding within-community diversity
+\item among_community_diversity_d - Among-community diversities
+\item among_community_diversity_h - Among-community diversities excluding
+within-community diversity
+\item among_community_phylogenetic_diversity_dp - Among-community
+phylogenetic diversities
+\item among_community_phylogenetic_diversity_hp - Among-community
+phylogenetic diversities excluding within-community diversity
 }
 }
 \description{

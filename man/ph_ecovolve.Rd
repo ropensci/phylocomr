@@ -28,9 +28,9 @@ extant lineages. Default: \code{FALSE}}
 \item{only_extant}{(logical) Output phylogeny pruned only for extant taxa.
 Default: \code{FALSE}}
 
-\item{taper_change}{(character) Taper character change by \code{e^(-time/F)}.
-This produces more conservatism in traits (see Kraft et al., 2007).
-Default: NULL, not passed}
+\item{taper_change}{(numeric/integer) Taper character change by
+\code{e^(-time/F)}. This produces more conservatism in traits
+(see Kraft et al., 2007). Default: NULL, not passed}
 
 \item{competition}{(logical) Simulate competition, with trait proximity
 increasing extinction. Default: \code{FALSE}}
@@ -38,25 +38,28 @@ increasing extinction. Default: \code{FALSE}}
 \value{
 a list with three elements:
 \itemize{
- \item phylogeny - a phylogeny as a newick string. In the case of
- `out_mode = 2` gives a Lineage Through Time data.frame instead of a
- newick phylogeny
- \item sample - a data.frame with three columns, "sample" (all "alive"),
- "abundance" (all 1's), "name" (the species code). In the case of
- `out_mode = 2` gives an empty data.frame
- \item traits - a data.frame with first column with spcies code ("name"),
- then 5 randomly evolved and independent traits. In the case of
- `out_mode = 2` gives an empty data.frame
+\item phylogeny - a phylogeny as a newick string. In the case of
+\code{out_mode = 2} gives a Lineage Through Time data.frame instead of a
+newick phylogeny
+\item sample - a data.frame with three columns, "sample" (all "alive"),
+"abundance" (all 1's), "name" (the species code). In the case of
+\code{out_mode = 2} gives an empty data.frame
+\item traits - a data.frame with first column with spcies code ("name"),
+then 5 randomly evolved and independent traits. In the case of
+\code{out_mode = 2} gives an empty data.frame
 }
 }
 \description{
-ecovolve
+Ecovolve generates a phylogeny via a random birth and death process,
+generates a traits file with five randomly evolving, in-dependent traits,
+and a sample file with a single sample unit (‘alive’) containing all
+extant members of the phylogeny.
 }
 \section{Clean up}{
 
 Two files, "ecovolve.sample" and "ecovolve.traits" are written to the
 current working directory when this function runs - we read these files
-in, then delete the files via \code{\link{unlink}}
+in, then delete the files via \link{unlink}
 }
 
 \section{Failure behavior}{
@@ -82,7 +85,7 @@ ph_ecovolve(taper_change = 500)
 ph_ecovolve(competition = TRUE)
 ph_ecovolve(competition = FALSE)
 
-# library(phytools)
+# library(ape)
 # x <- ph_ecovolve(speciation = 0.05)
-# plot(phytools::read.newick(text = x))
+# plot(read.tree(text = x))
 }

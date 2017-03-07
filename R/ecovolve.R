@@ -1,5 +1,10 @@
 #' ecovolve
 #'
+#' Ecovolve generates a phylogeny via a random birth and death process,
+#' generates a traits file with five randomly evolving, in-dependent traits,
+#' and a sample file with a single sample unit (‘alive’) containing all
+#' extant members of the phylogeny.
+#'
 #' @export
 #' @param speciation (numeric) Probability of speciation per unit time.
 #' Default: 0.05
@@ -10,14 +15,14 @@
 #' @param prob_env (character) Probability envelope for character change.
 #' must be a string of 10 integers. Default: 3211000000
 #' @param extant_lineages (logical) Stop simulation after this number of
-#' extant lineages. Default: \code{FALSE}
+#' extant lineages. Default: `FALSE`
 #' @param only_extant (logical) Output phylogeny pruned only for extant taxa.
-#' Default: \code{FALSE}
-#' @param taper_change (character) Taper character change by \code{e^(-time/F)}.
-#' This produces more conservatism in traits (see Kraft et al., 2007).
-#' Default: NULL, not passed
+#' Default: `FALSE`
+#' @param taper_change (numeric/integer) Taper character change by
+#' `e^(-time/F)`. This produces more conservatism in traits
+#' (see Kraft et al., 2007). Default: NULL, not passed
 #' @param competition (logical) Simulate competition, with trait proximity
-#' increasing extinction. Default: \code{FALSE}
+#' increasing extinction. Default: `FALSE`
 #' @return a list with three elements:
 #' \itemize{
 #'  \item phylogeny - a phylogeny as a newick string. In the case of
@@ -34,7 +39,7 @@
 #' @section Clean up:
 #' Two files, "ecovolve.sample" and "ecovolve.traits" are written to the
 #' current working directory when this function runs - we read these files
-#' in, then delete the files via \code{\link{unlink}}
+#' in, then delete the files via [unlink]
 #'
 #' @section Failure behavior:
 #' Function occasionally fails with error "call to 'ecovolve' failed
@@ -57,13 +62,24 @@
 #' ph_ecovolve(competition = TRUE)
 #' ph_ecovolve(competition = FALSE)
 #'
-#' # library(phytools)
+#' # library(ape)
 #' # x <- ph_ecovolve(speciation = 0.05)
-#' # plot(phytools::read.newick(text = x))
+#' # plot(read.tree(text = x))
 
 ph_ecovolve <- function(speciation = 0.05, extinction = 0.01, time_units = 100,
   out_mode = 3, prob_env = '3211000000', extant_lineages = FALSE,
   only_extant = FALSE, taper_change = NULL, competition = FALSE) {
+
+  assert(speciation, c("numeric", "integer"))
+  assert(extinction, c("numeric", "integer"))
+  assert(time_units, c("numeric", "integer"))
+  assert(out_mode, c("numeric", "integer"))
+  stopifnot(out_mode %in% 2:3)
+  assert(prob_env, "character")
+  assert(extant_lineages, "logical")
+  assert(only_extant, "logical")
+  assert(taper_change, c("numeric", "integer"))
+  assert(competition, "logical")
 
   # run and collect newick string
   out <- suppressWarnings(
@@ -77,7 +93,7 @@ ph_ecovolve <- function(speciation = 0.05, extinction = 0.01, time_units = 100,
       if (only_extant) "-p", only_extant,
       if (!is.null(taper_change)) "-d ", taper_change,
       if (competition) "-x"
-    ), stdout = TRUE)
+    ), intern = TRUE)
   )
 
   # collect ecovolve files

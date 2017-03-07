@@ -45,10 +45,10 @@ in C/C++, so performance should be similar in those cases.
 
 ## Install
 
-Install some packages that you'll want to have to work with this package:
+Install `ape` for below examples:
 
 ```{r eval=FALSE}
-install.packages(c('ape', 'phytools'))
+install.packages('ape')
 ```
 
 Stable `phylocomr` version from CRAN
@@ -65,7 +65,6 @@ devtools::install_github("ropensci/phylocomr")
 
 ```{r}
 library("phylocomr")
-library("phytools")
 library("ape")
 ```
 
@@ -103,5 +102,5 @@ ages_df <- data.frame(
 )
 phylo_str <- readLines(phylo_file)
 (res <- ph_bladj(ages = ages_df, phylo = phylo_str))
-plot(phytools::read.newick(text = res))
+plot(read.tree(text = res))
 ```

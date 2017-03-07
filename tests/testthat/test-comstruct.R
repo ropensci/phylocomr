@@ -68,3 +68,29 @@ test_that("ph_comstruct - different models give expected output", {
   expect_false(identical(n0$nri, n1$nri))
   expect_false(identical(n0$nti, n1$nti))
 })
+
+test_that("ph_comstruct fails well", {
+  # required inputs
+  expect_error(ph_comstruct(),
+               "argument \"sample\" is missing, with no default")
+  expect_error(ph_comstruct("Adsf"),
+               "argument \"phylo\" is missing, with no default")
+
+  # types are correct
+  expect_error(ph_comstruct(5, "asdfad"),
+               "sample must be of class character, data.frame")
+  expect_error(ph_comstruct("adf", mtcars),
+               "phylo must be of class character, phylo")
+  expect_error(ph_comstruct(sfile, pfile, null_model = mtcars),
+               "null_model must be of class numeric, integer")
+  expect_error(ph_comstruct(sfile, pfile, randomizations = mtcars),
+               "randomizations must be of class numeric, integer")
+  expect_error(ph_comstruct(sfile, pfile, swaps = mtcars),
+               "swaps must be of class numeric, integer")
+  expect_error(ph_comstruct(sfile, pfile, abundance = 5),
+               "abundance must be of class logical")
+
+  # correct set of values
+  expect_error(ph_comstruct(sfile, pfile, null_model = 15),
+               "null_model %in% 0:3 is not TRUE")
+})

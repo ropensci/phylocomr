@@ -1,5 +1,8 @@
 #' comtrait
 #'
+#' Calculate measures of trait dispersion within each community, and
+#' compare observed patterns to those expected under a null model.
+#'
 #' @export
 #' @param sample (data.frame/character) sample data.frame or path to a
 #' sample file
@@ -26,8 +29,8 @@
 #'  species with trait values. This function is redundant since by definition
 #'  the sample and trait species must match, but is included for consistency
 #'  with the comstruct function.
-#'  \item 3 - Independent swap: Same as for \code{\link{ph_comdist}} and
-#'  \code{\link{ph_comstruct}}
+#'  \item 3 - Independent swap: Same as for [ph_comdist] and
+#'  [ph_comstruct]
 #' }
 #'
 #' @details
@@ -84,6 +87,15 @@ ph_comtrait <- function(sample, traits, binary = NULL, metric = "variance",
                         null_model = 0, randomizations = 999,
                         abundance = TRUE) {
 
+  assert(sample, c("character", "data.frame"))
+  assert(traits, c("character", "data.frame"))
+  if (!is.null(binary)) assert(binary, "logical")
+  assert(metric, "character")
+  assert(null_model, c("numeric", "integer"))
+  assert(randomizations, c("numeric", "integer"))
+  assert(abundance, "logical")
+  stopifnot(null_model %in% 0:3)
+
   sample <- sample_check(sample)
   traits <- trait_check(x = traits, binary)
 
@@ -107,7 +119,7 @@ ph_comtrait <- function(sample, traits, binary = NULL, metric = "variance",
       "-r", randomizations,
       "-x", metric,
       if (abundance) "-a"
-    ), stdout = TRUE)
+    ), intern = TRUE)
   )
 
   astbl(utils::read.table(text = out, skip = 1, header = TRUE,

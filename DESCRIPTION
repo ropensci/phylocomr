@@ -6,7 +6,7 @@ Description: Interface to 'Phylocom' (<http://phylodiversity.net/phylocom/>),
     character evolution. Includes low level methods for interacting with
     the three executables, as well as higher level interfaces for methods
     like 'aot', 'ecovolve', 'bladj', 'phylomatic', and more.
-Version: 0.0.9.9310
+Version: 0.0.9.9510
 Authors@R: c(person("Jeroen", "Ooms", role = "aut",
     email = "jeroen.ooms@stat.ucla.edu"),
     person("Scott", "Chamberlain", role = c("aut", "cre"),
@@ -17,13 +17,14 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
 Imports:
     tibble,
-    sys (>= 1.1)
+    sys (>= 1.1),
+    ape
 Suggests:
     testthat,
-    ape,
-    phytools,
+    roxygen2 (>= 6.0.1),
     knitr,
     rmarkdown
 RoxygenNote: 6.0.1

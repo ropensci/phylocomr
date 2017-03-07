@@ -1,14 +1,14 @@
 context("phylomatic")
 test_that("phylomatic executable works", {
   expect_output(phylomatic(), "Cam Webb")
-  expect_is(phylomatic(stdout = FALSE), "character")
-  expect_match(phylomatic(stdout = FALSE), "Cam Webb")
+  expect_is(phylomatic(intern = TRUE), "character")
+  expect_match(phylomatic(intern = TRUE), "Cam Webb")
 })
 
 
 context("ph_phylomatic")
 
-library(phytools)
+library(ape)
 
 taxa_file <- system.file("examples/taxa", package = "phylocomr")
 phylo_file <- system.file("examples/phylo", package = "phylocomr")
@@ -29,7 +29,7 @@ test_that("ph_phylomatic works with chr string input", {
   expect_match(aa, "narcissus_cuatrecasasii")
   expect_match(aa, "poales_to_asterales")
 
-  tree <- phytools::read.newick(text = aa)
+  tree <- read.tree(text = aa)
   expect_is(tree, "phylo")
 })
 
@@ -49,6 +49,27 @@ test_that("ph_phylomatic works with file input", {
   expect_match(aa, "narcissus_cuatrecasasii")
   expect_match(aa, "poales_to_asterales")
 
-  tree <- phytools::read.newick(text = aa)
+  tree <- read.tree(text = aa)
   expect_is(tree, "phylo")
+})
+
+test_that("ph_phylomatic fails well", {
+  # required inputs
+  expect_error(ph_phylomatic(),
+               "argument \"taxa\" is missing, with no default")
+  expect_error(ph_phylomatic("Adsf"),
+               "argument \"phylo\" is missing, with no default")
+
+  # types are correct
+  expect_error(ph_phylomatic(5, "asdfad"),
+               "taxa must be of class character")
+  expect_error(ph_phylomatic("adf", 5),
+               "phylo must be of class phylo, character")
+
+  expect_error(ph_phylomatic(taxa_str, phylo_str, tabular = 5),
+               "tabular must be of class logical")
+  expect_error(ph_phylomatic(taxa_str, phylo_str, lowercase = 5),
+               "lowercase must be of class logical")
+  expect_error(ph_phylomatic(taxa_str, phylo_str, nodes = 5),
+               "nodes must be of class logical")
 })

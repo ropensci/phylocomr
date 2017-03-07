@@ -1,11 +1,14 @@
 #' comstruct
 #'
+#' Calculates mean phylogenetic distance (MPD) and mean nearest
+#' phylogenetic taxon distance (MNTD; aka MNND) for each sample, and
+#' compares them to MPD/MNTD values for randomly generated samples
+#' (null communities) or phylogenies.
+#'
 #' @export
 #' @param sample (data.frame/character) sample data.frame or path to a
 #' sample file
-#' @param phylo (character/phylo) phylogeny as a phylo object or a newick
-#' string (will be written to a temp file if provided) - or a path to a
-#' file with a newick string
+#' @template phylo
 #' @param swaps (numeric) number of swaps. Default: 1000
 #' @template com_args
 #' @template com_null_models
@@ -37,6 +40,14 @@
 ph_comstruct <- function(sample, phylo, null_model = 0, randomizations = 999,
                          swaps = 1000, abundance = TRUE) {
 
+  assert(sample, c("character", "data.frame"))
+  assert(phylo, c("character", "phylo"))
+  assert(null_model, c("numeric", "integer"))
+  assert(randomizations, c("numeric", "integer"))
+  assert(swaps, c("numeric", "integer"))
+  assert(abundance, "logical")
+  stopifnot(null_model %in% 0:3)
+
   sample <- sample_check(sample)
   phylo <- phylo_check(phylo)
 
@@ -55,7 +66,7 @@ ph_comstruct <- function(sample, phylo, null_model = 0, randomizations = 999,
       "-w", swaps,
       "-r", randomizations,
       if (abundance) "-a"
-    ), stdout = TRUE)
+    ), intern = TRUE)
   )
 
   astbl(utils::read.table(

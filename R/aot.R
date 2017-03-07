@@ -1,10 +1,13 @@
 #' aot
 #'
+#' AOT conducts univariate and bivariate tests of phylogenetic signal and
+#' trait correlations, respectively, and node-level analyses of trait
+#' means and diversification.
+#'
 #' @export
 #' @param traits (data.frame/character) trait data.frame or path to
 #' traits file. required
-#' @param phylo (character) phylogeny as a newick string, will be written to
-#' a temp file if provided - OR path to file with a newick string. required
+#' @template phylo
 #' @param randomizations (numeric) number of randomizations. Default: 999
 #' @param trait_contrasts (numeric) Specify which trait should be used as 'x'
 #' variable for contrasts. Default: 1
@@ -30,9 +33,16 @@
 #' phylo_file2 <- tempfile()
 #' cat(phylo_str, file = phylo_file2, sep = '\n')
 #' (res <- ph_aot(traits_file2, phylo_file2))
+#'
+#'
 
 ph_aot <- function(traits, phylo, randomizations = 999, trait_contrasts = 1,
                    ebl_unstconst = FALSE) {
+  assert(traits, c("data.frame", "character"))
+  assert(phylo, c("phylo", "character"))
+  assert(randomizations, c('integer', 'numeric'))
+  assert(trait_contrasts, c('integer', 'numeric'))
+  assert(ebl_unstconst, 'logical')
 
   stopifnot(class(traits) %in% c('data.frame', 'character'))
   if (inherits(traits, "data.frame")) {
@@ -58,7 +68,7 @@ ph_aot <- function(traits, phylo, randomizations = 999, trait_contrasts = 1,
       "-r", randomizations,
       "-x", trait_contrasts,
       if (ebl_unstconst) "-e "
-    ), stdout = TRUE)
+    ), intern = TRUE)
   )
 
   out <- strsplit(out, split = "\n")[[1]]

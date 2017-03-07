@@ -30,52 +30,53 @@ for abundance. Otherwise, uses presence-absence.}
 \value{
 data.frame of the form:
 \itemize{
- \item trait - Trait name
- \item sample - Sample name
- \item ntaxa - Number of taxa in sample
- \item mean - Mean value of trait in sample
- \item metric - Observed metric in sample
- \item meanrndmetric - Mean value of metric in null models
- \item sdrndmetric - Standard deviation of metric in null models
- \item sesmetric - Standardized effect size of metric
- \item ranklow - Number of randomizations with metric lower than observed
- \item rankhigh - Number of randomizations with metric higher than observed
- \item runs - Number of randomizations
+\item trait - Trait name
+\item sample - Sample name
+\item ntaxa - Number of taxa in sample
+\item mean - Mean value of trait in sample
+\item metric - Observed metric in sample
+\item meanrndmetric - Mean value of metric in null models
+\item sdrndmetric - Standard deviation of metric in null models
+\item sesmetric - Standardized effect size of metric
+\item ranklow - Number of randomizations with metric lower than observed
+\item rankhigh - Number of randomizations with metric higher than observed
+\item runs - Number of randomizations
 }
 }
 \description{
-comtrait
+Calculate measures of trait dispersion within each community, and
+compare observed patterns to those expected under a null model.
 }
 \details{
-If you give a data.frame to `traits` parameter it expects data.frame like
+If you give a data.frame to \code{traits} parameter it expects data.frame like
 \itemize{
- \item species - the taxon labels matching the sample data to `sample`
- parameter
- \item col1,col2,col3,etc. - any number of trait columns - column names do
- not matter
+\item species - the taxon labels matching the sample data to \code{sample}
+parameter
+\item col1,col2,col3,etc. - any number of trait columns - column names do
+not matter
 }
 
-When giving a data.frame to `traits` make sure to pass in a binary
+When giving a data.frame to \code{traits} make sure to pass in a binary
 vector for what traits are to be treated as binary.
 }
 \section{Null models}{
 
 \itemize{
- \item 0 - This null model shuffles trait values across species.
- \item 1 - Species in each sample become random draws from sample pool.
- This null model maintains the species richness of each sample, but
- the identities of the species occurring in each sample are randomized.
- For each sample, species are drawn without replacement from the list of
- all species actually occurring in at least one sample
- \item 2 - Species in each sample become random draws from traits data.
- This null model maintains the species richness of each sample, but the
- identities of the species occurring in each sample are randomized. For
- each sample, species are drawn without replacement from the list of all
- species with trait values. This function is redundant since by definition
- the sample and trait species must match, but is included for consistency
- with the comstruct function.
- \item 3 - Independent swap: Same as for \code{\link{ph_comdist}} and
- \code{\link{ph_comstruct}}
+\item 0 - This null model shuffles trait values across species.
+\item 1 - Species in each sample become random draws from sample pool.
+This null model maintains the species richness of each sample, but
+the identities of the species occurring in each sample are randomized.
+For each sample, species are drawn without replacement from the list of
+all species actually occurring in at least one sample
+\item 2 - Species in each sample become random draws from traits data.
+This null model maintains the species richness of each sample, but the
+identities of the species occurring in each sample are randomized. For
+each sample, species are drawn without replacement from the list of all
+species with trait values. This function is redundant since by definition
+the sample and trait species must match, but is included for consistency
+with the comstruct function.
+\item 3 - Independent swap: Same as for \link{ph_comdist} and
+\link{ph_comstruct}
 }
 }
 

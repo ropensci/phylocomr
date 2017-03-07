@@ -6,5 +6,42 @@
 \alias{phylocomr}
 \title{Phylocom interface}
 \description{
-Phylocom interface
+\code{phylocomr} gives you access to Phylocom, specifically the
+\href{https://github.com/phylocom/phylocom/}{Phylocom C library}.
+}
+\details{
+This package isn't doing system calls to a separately installed Phylocom
+instance - but actually includes Phylocom itself in the package.
+
+Phylocom is usually used either on the command line or through the
+R package \href{https://cran.r-project.org/package=picante}{picante}, which
+has duplicated some of the Phylocom functionality.
+
+In terms of performance, some functionality will be faster here than
+in \code{picante}, but the maintainers of \code{picante} have re-written some
+Phylocom functionality in C/C++, so performance should be similar in
+those cases.
+}
+\section{Package API}{
+
+
+\itemize{
+\item \code{\link[=ecovolve]{ecovolve()}}/\code{\link[=ph_ecovolve]{ph_ecovolve()}} - interface to \code{ecovolve} executable,
+and a higher level interface
+\item \code{\link[=phylomatic]{phylomatic()}}/\code{\link[=ph_phylomatic]{ph_phylomatic()}} - interface to \code{phylomatic}
+executable, and a higher level interface
+\item \code{\link[=phylocom]{phylocom()}} - interface to \code{phylocom} executable
+\item \code{\link[=ph_aot]{ph_aot()}} - higher level interface to \code{aot}
+\item \code{\link[=ph_bladj]{ph_bladj()}} - higher level interface to \code{bladj}
+\item \code{\link[=ph_comdist]{ph_comdist()}}/\code{\link[=ph_comdistnt]{ph_comdistnt()}} - higher level interface to comdist
+\item \code{\link[=ph_comstruct]{ph_comstruct()}} - higher level interface to comstruct
+\item \code{\link[=ph_comtrait]{ph_comtrait()}} - higher level interface to comtrait
+\item \code{\link[=ph_pd]{ph_pd()}} - higher level interface to Faith's phylogenetic diversity
+}
+}
+
+\author{
+Scott Chamberlain
+
+Jeroen Ooms
 }

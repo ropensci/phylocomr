@@ -1,6 +1,6 @@
 context("ph_bladj")
 
-library(phytools)
+library(ape)
 
 ages_df <- data.frame(
   a = c('malpighiales','salicaceae','fabaceae','rosales','oleaceae',
@@ -26,7 +26,7 @@ test_that("ph_bladj works with data.frame input", {
   expect_match(aa, "poales")
   expect_match(aa, "ericales_to_asterales")
 
-  tree <- phytools::read.newick(text = aa)
+  tree <- read.tree(text = aa)
   expect_is(tree, "phylo")
 })
 
@@ -49,6 +49,18 @@ test_that("ph_bladj works with file input", {
   expect_match(aa, "poales")
   expect_match(aa, "ericales_to_asterales")
 
-  tree <- phytools::read.newick(text = aa)
+  tree <- read.tree(text = aa)
   expect_is(tree, "phylo")
+})
+
+test_that("ph_bladj fails well", {
+  # required inputs
+  expect_error(ph_bladj(), "argument \"ages\" is missing, with no default")
+  expect_error(ph_bladj("Adsf"), "argument \"phylo\" is missing, with no default")
+
+  # types are correct
+  expect_error(ph_bladj(5, "asdfad"),
+               "ages must be of class data.frame, character")
+  expect_error(ph_bladj("adf", mtcars),
+               "phylo must be of class phylo, character")
 })
