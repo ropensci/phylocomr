@@ -1,7 +1,7 @@
 #include <Rinternals.h>
 #include <R_ext/Rdynload.h>
 
-void R_init_jqr(DllInfo* info) {
+void R_init_phylocom(DllInfo* info) {
   R_registerRoutines(info, NULL, NULL, NULL, NULL);
   R_useDynamicSymbols(info, TRUE);
 }
