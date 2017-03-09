@@ -4,7 +4,8 @@ LIBPHYLOCOM=libphylocom/io.o libphylocom/new2fy.o  libphylocom/traits.o \
 	libphylocom/comnode.o libphylocom/prune.o libphylocom/comtrait.o libphylocom/stats.o \
 	libphylocom/combase.o
 
-PKG_CFLAGS=-Wno-unused
+# Debugging flag
+PKG_CFLAGS = $(subst true,-Wno-unused,${NOT_CRAN})
 
 all: clean executables
 
