@@ -4,6 +4,8 @@ LIBPHYLOCOM=libphylocom/io.o libphylocom/new2fy.o libphylocom/aot.o libphylocom/
 	libphylocom/comnode.o libphylocom/prune.o libphylocom/comtrait.o libphylocom/stats.o \
 	libphylocom/nrutil.o libphylocom/combase.o libphylocom/prune.o
 
+PKG_CFLAGS=-Wno-unused
+
 all: clean executables
 
 executables: phylocom ecovolve phylomatic
