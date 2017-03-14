@@ -8,7 +8,7 @@ Description: Interface to 'Phylocom' (<http://phylodiversity.net/phylocom/>),
     like 'aot', 'ecovolve', 'bladj', 'phylomatic', and more.
 Version: 0.1.0
 Authors@R: c(person("Jeroen", "Ooms", role = "aut",
-    email = "jeroen.ooms@stat.ucla.edu"),
+    email = "jeroen@berkeley.edu"),
     person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus+r@gmail.com"))
 URL: https://github.com/ropensci/phylocomr
