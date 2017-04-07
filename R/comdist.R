@@ -92,7 +92,7 @@ com_dist <- function(sample, phylo, rand_test = FALSE, null_model = 0, randomiza
     tmp <- astbl(utils::read.table(text = out, header = TRUE, stringsAsFactors = FALSE))
     stats::setNames(tmp, c('name', names(tmp)[-1]))
   } else {
-    tmp <- read.table(text = x, header = FALSE, stringsAsFactors = FALSE)
+    tmp <- read.table(text = out, header = FALSE, stringsAsFactors = FALSE)
     # split output into a list of 4 data frames
     n_per_df = nrow(tmp) / 4
     set_names = function(df){
