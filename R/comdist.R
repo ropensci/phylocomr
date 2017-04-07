@@ -29,25 +29,26 @@
 #' cat(phylo_str, file = pfile2, sep = '\n')
 #' ph_comdist(sample = sfile2, phylo = pfile2)
 #' ph_comdistnt(sample = sfile2, phylo = pfile2)
-ph_comdist <- function(sample, phylo, null_model = 0, randomizations = 999,
+ph_comdist <- function(sample, phylo, rand_test = FALSE, null_model = 0, randomizations = 999,
                        abundance = TRUE) {
-  com_dist(sample, phylo, null_model = null_model,
+  com_dist(sample, phylo, rand_test = rand_test, null_model = null_model,
            randomizations = randomizations, abundance = abundance, "comdist")
 }
 
 #' @export
 #' @rdname ph_comdist
-ph_comdistnt <- function(sample, phylo, null_model = 0, randomizations = 999,
+ph_comdistnt <- function(sample, phylo, rand_test = FALSE, null_model = 0, randomizations = 999,
                          abundance = TRUE) {
-  com_dist(sample, phylo, null_model = null_model,
+  com_dist(sample, phylo, rand_test = rand_test, null_model = null_model,
            randomizations = randomizations, abundance = abundance, "comdistnt")
 }
 
-com_dist <- function(sample, phylo, null_model = 0, randomizations = 999,
-                       abundance = TRUE, method) {
+com_dist <- function(sample, phylo, rand_test = FALSE, null_model = 0, randomizations = 999,
+                     abundance = TRUE, method) {
 
   assert(sample, c("character", "data.frame"))
   assert(phylo, c("character", "phylo"))
+  assert(rand_test, "logical")
   assert(null_model, c("numeric", "integer"))
   assert(randomizations, c("numeric", "integer"))
   assert(abundance, "logical")
@@ -62,18 +63,50 @@ com_dist <- function(sample, phylo, null_model = 0, randomizations = 999,
   setwd(bdir)
   on.exit(setwd(cdir))
 
-  out <- suppressWarnings(
-    phylocom(c(
-      method,
-      "-s", basename(sample),
-      "-f", basename(phylo),
-      "-m", null_model,
-      "-r", randomizations,
-      if (abundance) "-a"
-    ), intern = TRUE)
-  )
+  if(rand_test == TRUE){
+    out <- suppressWarnings(
+      phylocom(c(
+        method,
+        "-s", basename(sample),
+        "-f", basename(phylo),
+        "-m", null_model,
+        "-r", randomizations,
+        if (rand_test) "-n",
+        if (abundance) "-a"
+      ), intern = TRUE)
+    )
+  } else {
+    out <- suppressWarnings(
+      phylocom(c(
+        method,
+        "-s", basename(sample),
+        "-f", basename(phylo),
+        if (abundance) "-a"
+      ), intern = TRUE)
+    )
+  }
 
-  tmp <- astbl(utils::read.table(text = out, header = TRUE,
-                                 stringsAsFactors = FALSE))
-  stats::setNames(tmp, c('name', names(tmp)[-1]))
+
+  if(rand_test == FALSE){
+    tmp <- astbl(utils::read.table(text = out, header = TRUE, stringsAsFactors = FALSE))
+    stats::setNames(tmp, c('name', names(tmp)[-1]))
+  } else {
+    tmp <- read.table(text = x, header = FALSE, stringsAsFactors = FALSE)
+    # split output into a list of 4 data frames
+    n_per_df = nrow(tmp) / 4
+    set_names = function(df){
+      names(df) = c('name', df[1, -1]) # use the first row as column names
+      df = df[-1,] # then remove the first row
+      rownames(df) = NULL # reset row names
+      df
+    }
+
+    comdist_obs = set_names(tmp[1:n_per_df,])
+    comdist_null_mean = set_names(tmp[(1 + n_per_df):(2 * n_per_df), ])
+    comdist_null_sd = set_names(tmp[(1 + 2 * n_per_df):(3 * n_per_df), ])
+    comdist_NRI = set_names(tmp[(1 + 3 * n_per_df):(4 * n_per_df), ])
+    tmp = list(comdist_obs = comdist_obs, comdist_null_mean = comdist_null_mean,
+               comdist_null_sd, comdist_NRI)
+  }
+  return(tmp)
 }
