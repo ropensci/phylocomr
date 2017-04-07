@@ -9,7 +9,7 @@
 #' @template phylo
 #' @template com_args
 #' @template com_null_models
-#' @return data.frame
+#' @return data.frame or list if use null models
 #' @examples
 #' sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 #' pfile <- system.file("examples/phylo_comstruct", package = "phylocomr")
@@ -19,6 +19,7 @@
 #'   stringsAsFactors = FALSE)
 #' phylo_str <- readLines(pfile)
 #' ph_comdist(sample = sampledf, phylo = phylo_str)
+#' #' ph_comdist(sample = sampledf, phylo = phylo_str, rand_test = TRUE)
 #' ph_comdistnt(sample = sampledf, phylo = phylo_str)
 #'
 #' # from files
