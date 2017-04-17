@@ -1,8 +1,11 @@
 INSTDIR=../inst/bin${R_ARCH}
-LIBPHYLOCOM=libphylocom/io.o libphylocom/new2fy.o libphylocom/aot.o libphylocom/traits.o \
+LIBPHYLOCOM=libphylocom/io.o libphylocom/new2fy.o  libphylocom/traits.o \
 	libphylocom/comstruct.o libphylocom/nrutil.o libphylocom/fy2new.o libphylocom/bladj.o \
 	libphylocom/comnode.o libphylocom/prune.o libphylocom/comtrait.o libphylocom/stats.o \
-	libphylocom/nrutil.o libphylocom/combase.o libphylocom/prune.o
+	libphylocom/combase.o
+
+# Debugging flag
+# PKG_CFLAGS = -Wno-unused
 
 all: clean executables
 

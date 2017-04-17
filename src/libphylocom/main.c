@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
   AOTOUT = 0;
   HILEVEL = MAXLEVEL;
   //default swap is "samples become random draws from phylogeny"
-  SWAPMETHOD = 2;  
+  SWAPMETHOD = 2;
   strcpy(PhyloFile, "phylo");
   strcpy(SampleFile, "sample");
   strcpy(TraitFile, "traits");
@@ -190,9 +190,8 @@ int main(int argc, char *argv[])
 
   else if (strcmp(Method, "makenex") == 0)
     {
-      phylo IntreeV[0];
-      IntreeV[0] = ReadPhylogeny(PhyloFile);
-      WriteNexus( IntreeV , 1, \
+      phylo IntreeV = ReadPhylogeny(PhyloFile);
+      WriteNexus( &IntreeV , 1, \
 			  ReadSample(SampleFile), 1 , \
 			  ReadTraits(TraitFile), 1 );
 
@@ -202,9 +201,8 @@ int main(int argc, char *argv[])
   else if (strcmp(Method, "naf") == 0)
     {
       MAKENODENAMES = 1;
-      phylo IntreeV[0];
-      IntreeV[0] = ReadPhylogeny(PhyloFile);
-      NAF( IntreeV , ReadSample(SampleFile), ReadTraits(TraitFile));
+      phylo IntreeV = ReadPhylogeny(PhyloFile);;
+      NAF( &IntreeV , ReadSample(SampleFile), ReadTraits(TraitFile));
 
       return 1;
     }
