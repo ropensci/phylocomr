@@ -78,11 +78,12 @@
     </div>
 
     
-    <p>comtrait</p>
+    <p>Calculate measures of trait dispersion within each community, and
+compare observed patterns to those expected under a null model.</p>
     
 
-    <pre><span class='fu'>ph_comtrait</span>(<span class='no'>sample</span>, <span class='no'>traits</span>, <span class='kw'>metric</span> <span class='kw'>=</span> <span class='st'>"variance"</span>, <span class='kw'>null_model</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>randomizations</span> <span class='kw'>=</span> <span class='fl'>999</span>, <span class='kw'>abundance</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre><span class='fu'>ph_comtrait</span>(<span class='no'>sample</span>, <span class='no'>traits</span>, <span class='kw'>binary</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>metric</span> <span class='kw'>=</span> <span class='st'>"variance"</span>,
+  <span class='kw'>null_model</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>randomizations</span> <span class='kw'>=</span> <span class='fl'>999</span>, <span class='kw'>abundance</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -92,6 +93,9 @@ sample file</dd>
       <dt>traits</dt>
       <dd>(data.frame/character) traits data.frame or path to a
 traits file</dd>
+      <dt>binary</dt>
+      <dd>(logical) a logical vector indicating what columns are to
+be treated as binary characters - all others are treated as continuous</dd>
       <dt>metric</dt>
       <dd>(integer) metric to calculate. One of variance, mpd, mntd,
 or range (converted to phylocom integer format internally)</dd>
@@ -106,30 +110,68 @@ for abundance. Otherwise, uses presence-absence.</dd>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data.frame</p>
+    <p>data.frame of the form:
+<ul>
+<li> trait - Trait name
+</li>
+<li> sample - Sample name
+</li>
+<li> ntaxa - Number of taxa in sample
+</li>
+<li> mean - Mean value of trait in sample
+</li>
+<li> metric - Observed metric in sample
+</li>
+<li> meanrndmetric - Mean value of metric in null models
+</li>
+<li> sdrndmetric - Standard deviation of metric in null models
+</li>
+<li> sesmetric - Standardized effect size of metric
+</li>
+<li> ranklow - Number of randomizations with metric lower than observed
+</li>
+<li> rankhigh - Number of randomizations with metric higher than observed
+</li>
+<li> runs - Number of randomizations
+</li>
+</ul></p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If you give a data.frame to <code>traits</code> parameter it expects data.frame like
+<ul>
+<li> species - the taxon labels matching the sample data to <code>sample</code>
+parameter
+</li>
+<li> col1,col2,col3,etc. - any number of trait columns - column names do
+not matter
+</li>
+</ul></p>
+    <p>When giving a data.frame to <code>traits</code> make sure to pass in a binary
+vector for what traits are to be treated as binary.</p>
     
     <h2 class="hasAnchor" id="null-models"><a class="anchor" href="#null-models"></a>Null models</h2>
 
     <p></p>
     <p><ul>
 <li> 0 - This null model shuffles trait values across species.
- </li>
+</li>
 <li> 1 - Species in each sample become random draws from sample pool.
- This null model maintains the species richness of each sample, but
- the identities of the species occurring in each sample are randomized.
- For each sample, species are drawn without replacement from the list of
- all species actually occurring in at least one sample
- </li>
+This null model maintains the species richness of each sample, but
+the identities of the species occurring in each sample are randomized.
+For each sample, species are drawn without replacement from the list of
+all species actually occurring in at least one sample
+</li>
 <li> 2 - Species in each sample become random draws from traits data.
- This null model maintains the species richness of each sample, but the
- identities of the species occurring in each sample are randomized. For
- each sample, species are drawn without replacement from the list of all
- species with trait values. This function is redundant since by definition
- the sample and trait species must match, but is included for consistency
- with the comstruct function.
- </li>
-<li> 3 - Independent swap: Same as for <code><a href='ph_comdist.html'>ph_comdist</a></code> and
- <code><a href='ph_comstruct.html'>ph_comstruct</a></code>
+This null model maintains the species richness of each sample, but the
+identities of the species occurring in each sample are randomized. For
+each sample, species are drawn without replacement from the list of all
+species with trait values. This function is redundant since by definition
+the sample and trait species must match, but is included for consistency
+with the comstruct function.
+</li>
+<li> 3 - Independent swap: Same as for <a href='ph_comdist.html'>ph_comdist</a> and
+<a href='ph_comstruct.html'>ph_comstruct</a>
 </li>
 </ul></p>
     
@@ -147,9 +189,21 @@ for abundance. Otherwise, uses presence-absence.</dd>
 <span class='no'>tfile2</span> <span class='kw'>&lt;-</span> <span class='fu'>tempfile</span>()
 <span class='fu'>cat</span>(<span class='no'>traits_str</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>tfile2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>'\n'</span>)
 
-<span class='co'># ph_comtrait(sample = sfile2, traits = tfile2)</span>
-
-
+<span class='fu'>ph_comtrait</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sfile2</span>, <span class='kw'>traits</span> <span class='kw'>=</span> <span class='no'>tfile2</span>)</div><div class='output co'>#&gt; # A tibble: 24 × 11
+#&gt;     trait  sample ntaxa  mean   metric meanrndmetric sdrndmetric sesmetric
+#&gt;     &lt;chr&gt;   &lt;chr&gt; &lt;int&gt; &lt;dbl&gt;    &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+#&gt; 1  traitA  clump1     8  1.75 0.214286      0.190798    0.081878  0.286863
+#&gt; 2  traitA clump2a     8  1.50 0.285714      0.187813    0.084588  1.157396
+#&gt; 3  traitA clump2b     8  1.50 0.285714      0.186955    0.082009  1.204255
+#&gt; 4  traitA  clump4     8  1.00 0.000000      0.180681    0.087054 -2.075513
+#&gt; 5  traitA    even     8  1.50 0.285714      0.187580    0.083681  1.172720
+#&gt; 6  traitA  random     8  1.75 0.214286      0.188099    0.084910  0.308406
+#&gt; 7  traitB  clump1     8  1.50 0.285714      1.253432    0.421117 -2.297977
+#&gt; 8  traitB clump2a     8  2.00 1.142857      1.260403    0.431937 -0.272137
+#&gt; 9  traitB clump2b     8  1.00 0.000000      1.223545    0.414365 -2.952819
+#&gt; 10 traitB  clump4     8  2.00 1.142857      1.241241    0.438391 -0.224421
+#&gt; # ... with 14 more rows, and 3 more variables: ranklow &lt;int&gt;, rankhigh &lt;int&gt;,
+#&gt; #   runs &lt;int&gt;</div><div class='input'>
 <span class='co'># from data.frame</span>
 <span class='no'>sampledf</span> <span class='kw'>&lt;-</span> <span class='fu'>read.table</span>(<span class='no'>sfile</span>, <span class='kw'>header</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
@@ -157,7 +211,22 @@ for abundance. Otherwise, uses presence-absence.</dd>
   <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"phylocomr"</span>)
 <span class='no'>traitsdf</span> <span class='kw'>&lt;-</span> <span class='fu'>read.table</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'>readLines</span>(<span class='no'>traitsdf_file</span>), <span class='kw'>header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-<span class='co'># ph_comtrait(sample = sampledf, traits = traitsdf)</span></div></pre>
+<span class='fu'>ph_comtrait</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sampledf</span>, <span class='kw'>traits</span> <span class='kw'>=</span> <span class='no'>traitsdf</span>,
+  <span class='kw'>binary</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>FALSE</span>, <span class='fl'>FALSE</span>, <span class='fl'>FALSE</span>, <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; # A tibble: 24 × 11
+#&gt;     trait  sample ntaxa  mean   metric meanrndmetric sdrndmetric sesmetric
+#&gt;     &lt;chr&gt;   &lt;chr&gt; &lt;int&gt; &lt;dbl&gt;    &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+#&gt; 1  traitA  clump1     8  1.75 0.214286      0.190798    0.081878  0.286863
+#&gt; 2  traitA clump2a     8  1.50 0.285714      0.187813    0.084588  1.157396
+#&gt; 3  traitA clump2b     8  1.50 0.285714      0.186955    0.082009  1.204255
+#&gt; 4  traitA  clump4     8  1.00 0.000000      0.180681    0.087054 -2.075513
+#&gt; 5  traitA    even     8  1.50 0.285714      0.187580    0.083681  1.172720
+#&gt; 6  traitA  random     8  1.75 0.214286      0.188099    0.084910  0.308406
+#&gt; 7  traitB  clump1     8  1.50 0.285714      1.253432    0.421117 -2.297977
+#&gt; 8  traitB clump2a     8  2.00 1.142857      1.260403    0.431937 -0.272137
+#&gt; 9  traitB clump2b     8  1.00 0.000000      1.223545    0.414365 -2.952819
+#&gt; 10 traitB  clump4     8  2.00 1.142857      1.241241    0.438391 -0.224421
+#&gt; # ... with 14 more rows, and 3 more variables: ranklow &lt;int&gt;, rankhigh &lt;int&gt;,
+#&gt; #   runs &lt;int&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -165,6 +234,8 @@ for abundance. Otherwise, uses presence-absence.</dd>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
 
       <li><a href="#null-models">Null models</a></li>
       

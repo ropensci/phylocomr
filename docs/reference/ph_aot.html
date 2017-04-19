@@ -78,7 +78,9 @@
     </div>
 
     
-    <p>aot</p>
+    <p>AOT conducts univariate and bivariate tests of phylogenetic signal and
+trait correlations, respectively, and node-level analyses of trait
+means and diversification.</p>
     
 
     <pre><span class='fu'>ph_aot</span>(<span class='no'>traits</span>, <span class='no'>phylo</span>, <span class='kw'>randomizations</span> <span class='kw'>=</span> <span class='fl'>999</span>, <span class='kw'>trait_contrasts</span> <span class='kw'>=</span> <span class='fl'>1</span>,
@@ -90,8 +92,9 @@
       <dd>(data.frame/character) trait data.frame or path to
 traits file. required</dd>
       <dt>phylo</dt>
-      <dd>(character) phylogeny as a newick string, will be written to
-a temp file if provided - OR path to file with a newick string. required</dd>
+      <dd>(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an <span class="pkg">ape</span> `phylo` object. required.</dd>
       <dt>randomizations</dt>
       <dd>(numeric) number of randomizations. Default: 999</dd>
       <dt>trait_contrasts</dt>
@@ -119,28 +122,28 @@ contrasts. Default: <code>FALSE</code></dd>
 <span class='no'>phylo_str</span> <span class='kw'>&lt;-</span> <span class='fu'>readLines</span>(<span class='no'>phylo_file</span>)
 (<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>ph_aot</span>(<span class='no'>traits</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>phylo_str</span>))</div><div class='output co'>#&gt; $trait_conservatism
 #&gt; # A tibble: 124 × 28
-#&gt;    trait trait.name  node  name   age Ntaxa N.nodes Tip.mn Tmn.rankLow
+#&gt;    trait trait.name  node  name   age ntaxa n.nodes tip.mn tmn.ranklow
 #&gt;    &lt;int&gt;      &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt;       &lt;int&gt;
 #&gt; 1      1     traitA     0     A     5    32       2   1.75        1000
-#&gt; 2      1     traitA     1     B     4    16       2   1.75         654
-#&gt; 3      1     traitA     2     C     3     8       2   1.75         683
+#&gt; 2      1     traitA     1     B     4    16       2   1.75         669
+#&gt; 3      1     traitA     2     C     3     8       2   1.75         668
 #&gt; 4      1     traitA     3     D     2     4       2   1.50         271
-#&gt; 5      1     traitA     4     E     1     2       2   1.00          64
+#&gt; 5      1     traitA     4     E     1     2       2   1.00          71
 #&gt; 6      1     traitA     7     F     1     2       2   2.00        1000
 #&gt; 7      1     traitA    10     G     2     4       2   2.00        1000
 #&gt; 8      1     traitA    11     H     1     2       2   2.00        1000
 #&gt; 9      1     traitA    14     I     1     2       2   2.00        1000
-#&gt; 10     1     traitA    17     J     3     8       2   1.75         665
-#&gt; # ... with 114 more rows, and 19 more variables: Tmn.rankHi &lt;int&gt;,
-#&gt; #   Tip.sd &lt;dbl&gt;, Tsd.rankLow &lt;int&gt;, Tsd.rankHi &lt;int&gt;, Node.mn &lt;dbl&gt;,
-#&gt; #   Nmn.rankLow &lt;int&gt;, Nmn.rankHi &lt;int&gt;, Nod.sd &lt;dbl&gt;, Nsd.rankLow &lt;int&gt;,
-#&gt; #   Nsd.rankHi &lt;int&gt;, SSTipsRoot &lt;dbl&gt;, SSTips &lt;dbl&gt;, percVarAmongNodes &lt;dbl&gt;,
-#&gt; #   percVarAtNode &lt;dbl&gt;, ContributionIndex &lt;dbl&gt;, SSTipVNodeRoot &lt;dbl&gt;,
-#&gt; #   SSTipVNode &lt;dbl&gt;, SSAmongNodes &lt;dbl&gt;, SSWithinNodes &lt;dbl&gt;
+#&gt; 10     1     traitA    17     J     3     8       2   1.75         682
+#&gt; # ... with 114 more rows, and 19 more variables: tmn.rankhi &lt;int&gt;,
+#&gt; #   tip.sd &lt;dbl&gt;, tsd.ranklow &lt;int&gt;, tsd.rankhi &lt;int&gt;, node.mn &lt;dbl&gt;,
+#&gt; #   nmn.ranklow &lt;int&gt;, nmn.rankhi &lt;int&gt;, nod.sd &lt;dbl&gt;, nsd.ranklow &lt;int&gt;,
+#&gt; #   nsd.rankhi &lt;int&gt;, sstipsroot &lt;dbl&gt;, sstips &lt;dbl&gt;, percvaramongnodes &lt;dbl&gt;,
+#&gt; #   percvaratnode &lt;dbl&gt;, contributionindex &lt;dbl&gt;, sstipvnoderoot &lt;dbl&gt;,
+#&gt; #   sstipvnode &lt;dbl&gt;, ssamongnodes &lt;dbl&gt;, sswithinnodes &lt;dbl&gt;
 #&gt; 
 #&gt; $independent_contrasts
 #&gt; # A tibble: 31 × 17
-#&gt;     node  name   age N.nodes Contrast1 Contrast2 Contrast3 Contrast4 ContrastSD
+#&gt;     node  name   age n.nodes contrast1 contrast2 contrast3 contrast4 contrastsd
 #&gt;    &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 #&gt; 1      0     A     5       2  0.000000  0.000000  0.000000  0.254000   1.968502
 #&gt; 2      1     B     4       2  0.000000  1.032795  0.000000  0.516398   1.936492
@@ -152,22 +155,22 @@ contrasts. Default: <code>FALSE</code></dd>
 #&gt; 8     11     H     1       2  0.000000  0.000000  0.707107  0.000000   1.414214
 #&gt; 9     14     I     1       2  0.000000  0.000000  0.707107  0.000000   1.414214
 #&gt; 10    17     J     3       2  0.267261  0.534522  0.000000  0.000000   1.870829
-#&gt; # ... with 21 more rows, and 8 more variables: LowVal1 &lt;dbl&gt;, HiVal1 &lt;dbl&gt;,
-#&gt; #   LowVal2 &lt;dbl&gt;, HiVal2 &lt;dbl&gt;, LowVal3 &lt;dbl&gt;, HiVal3 &lt;dbl&gt;, LowVal4 &lt;dbl&gt;,
-#&gt; #   HiVal4 &lt;dbl&gt;
+#&gt; # ... with 21 more rows, and 8 more variables: lowval1 &lt;dbl&gt;, hival1 &lt;dbl&gt;,
+#&gt; #   lowval2 &lt;dbl&gt;, hival2 &lt;dbl&gt;, lowval3 &lt;dbl&gt;, hival3 &lt;dbl&gt;, lowval4 &lt;dbl&gt;,
+#&gt; #   hival4 &lt;dbl&gt;
 #&gt; 
 #&gt; $phylogenetic_signal
 #&gt; # A tibble: 4 × 5
-#&gt;    Trait NTaxa VarContr VarCn.rankLow VarCn.rankHi
+#&gt;    trait ntaxa varcontr varcn.ranklow varcn.rankhi
 #&gt;    &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;         &lt;int&gt;        &lt;int&gt;
 #&gt; 1 traitA    32    0.054             1         1000
 #&gt; 2 traitB    32    0.109             1         1000
-#&gt; 3 traitC    32    0.622            66          935
+#&gt; 3 traitC    32    0.622            42          959
 #&gt; 4 traitD    32    0.011             1         1000
 #&gt; 
 #&gt; $ind_contrast_corr
 #&gt; # A tibble: 3 × 6
-#&gt;   XTrait YTrait Ntaxa  PicR  nPos nCont
+#&gt;   xtrait ytrait ntaxa  picr  npos ncont
 #&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
 #&gt; 1 traitA traitB    32 0.248  18.5    31
 #&gt; 2 traitA traitC    32 0.485  27.5    31
@@ -181,28 +184,28 @@ contrasts. Default: <code>FALSE</code></dd>
 <span class='fu'>cat</span>(<span class='no'>phylo_str</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>phylo_file2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>'\n'</span>)
 (<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>ph_aot</span>(<span class='no'>traits_file2</span>, <span class='no'>phylo_file2</span>))</div><div class='output co'>#&gt; $trait_conservatism
 #&gt; # A tibble: 124 × 28
-#&gt;    trait trait.name  node  name   age Ntaxa N.nodes Tip.mn Tmn.rankLow
+#&gt;    trait trait.name  node  name   age ntaxa n.nodes tip.mn tmn.ranklow
 #&gt;    &lt;int&gt;      &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt;       &lt;int&gt;
 #&gt; 1      1     traitA     0     A     5    32       2   1.75        1000
-#&gt; 2      1     traitA     1     B     4    16       2   1.75         650
-#&gt; 3      1     traitA     2     C     3     8       2   1.75         658
-#&gt; 4      1     traitA     3     D     2     4       2   1.50         250
-#&gt; 5      1     traitA     4     E     1     2       2   1.00          63
+#&gt; 2      1     traitA     1     B     4    16       2   1.75         669
+#&gt; 3      1     traitA     2     C     3     8       2   1.75         668
+#&gt; 4      1     traitA     3     D     2     4       2   1.50         271
+#&gt; 5      1     traitA     4     E     1     2       2   1.00          71
 #&gt; 6      1     traitA     7     F     1     2       2   2.00        1000
 #&gt; 7      1     traitA    10     G     2     4       2   2.00        1000
 #&gt; 8      1     traitA    11     H     1     2       2   2.00        1000
 #&gt; 9      1     traitA    14     I     1     2       2   2.00        1000
-#&gt; 10     1     traitA    17     J     3     8       2   1.75         678
-#&gt; # ... with 114 more rows, and 19 more variables: Tmn.rankHi &lt;int&gt;,
-#&gt; #   Tip.sd &lt;dbl&gt;, Tsd.rankLow &lt;int&gt;, Tsd.rankHi &lt;int&gt;, Node.mn &lt;dbl&gt;,
-#&gt; #   Nmn.rankLow &lt;int&gt;, Nmn.rankHi &lt;int&gt;, Nod.sd &lt;dbl&gt;, Nsd.rankLow &lt;int&gt;,
-#&gt; #   Nsd.rankHi &lt;int&gt;, SSTipsRoot &lt;dbl&gt;, SSTips &lt;dbl&gt;, percVarAmongNodes &lt;dbl&gt;,
-#&gt; #   percVarAtNode &lt;dbl&gt;, ContributionIndex &lt;dbl&gt;, SSTipVNodeRoot &lt;dbl&gt;,
-#&gt; #   SSTipVNode &lt;dbl&gt;, SSAmongNodes &lt;dbl&gt;, SSWithinNodes &lt;dbl&gt;
+#&gt; 10     1     traitA    17     J     3     8       2   1.75         682
+#&gt; # ... with 114 more rows, and 19 more variables: tmn.rankhi &lt;int&gt;,
+#&gt; #   tip.sd &lt;dbl&gt;, tsd.ranklow &lt;int&gt;, tsd.rankhi &lt;int&gt;, node.mn &lt;dbl&gt;,
+#&gt; #   nmn.ranklow &lt;int&gt;, nmn.rankhi &lt;int&gt;, nod.sd &lt;dbl&gt;, nsd.ranklow &lt;int&gt;,
+#&gt; #   nsd.rankhi &lt;int&gt;, sstipsroot &lt;dbl&gt;, sstips &lt;dbl&gt;, percvaramongnodes &lt;dbl&gt;,
+#&gt; #   percvaratnode &lt;dbl&gt;, contributionindex &lt;dbl&gt;, sstipvnoderoot &lt;dbl&gt;,
+#&gt; #   sstipvnode &lt;dbl&gt;, ssamongnodes &lt;dbl&gt;, sswithinnodes &lt;dbl&gt;
 #&gt; 
 #&gt; $independent_contrasts
 #&gt; # A tibble: 31 × 17
-#&gt;     node  name   age N.nodes Contrast1 Contrast2 Contrast3 Contrast4 ContrastSD
+#&gt;     node  name   age n.nodes contrast1 contrast2 contrast3 contrast4 contrastsd
 #&gt;    &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 #&gt; 1      0     A     5       2  0.000000  0.000000  0.000000  0.254000   1.968502
 #&gt; 2      1     B     4       2  0.000000  1.032795  0.000000  0.516398   1.936492
@@ -214,26 +217,28 @@ contrasts. Default: <code>FALSE</code></dd>
 #&gt; 8     11     H     1       2  0.000000  0.000000  0.707107  0.000000   1.414214
 #&gt; 9     14     I     1       2  0.000000  0.000000  0.707107  0.000000   1.414214
 #&gt; 10    17     J     3       2  0.267261  0.534522  0.000000  0.000000   1.870829
-#&gt; # ... with 21 more rows, and 8 more variables: LowVal1 &lt;dbl&gt;, HiVal1 &lt;dbl&gt;,
-#&gt; #   LowVal2 &lt;dbl&gt;, HiVal2 &lt;dbl&gt;, LowVal3 &lt;dbl&gt;, HiVal3 &lt;dbl&gt;, LowVal4 &lt;dbl&gt;,
-#&gt; #   HiVal4 &lt;dbl&gt;
+#&gt; # ... with 21 more rows, and 8 more variables: lowval1 &lt;dbl&gt;, hival1 &lt;dbl&gt;,
+#&gt; #   lowval2 &lt;dbl&gt;, hival2 &lt;dbl&gt;, lowval3 &lt;dbl&gt;, hival3 &lt;dbl&gt;, lowval4 &lt;dbl&gt;,
+#&gt; #   hival4 &lt;dbl&gt;
 #&gt; 
 #&gt; $phylogenetic_signal
 #&gt; # A tibble: 4 × 5
-#&gt;    Trait NTaxa VarContr VarCn.rankLow VarCn.rankHi
+#&gt;    trait ntaxa varcontr varcn.ranklow varcn.rankhi
 #&gt;    &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;         &lt;int&gt;        &lt;int&gt;
 #&gt; 1 traitA    32    0.054             1         1000
 #&gt; 2 traitB    32    0.109             1         1000
-#&gt; 3 traitC    32    0.622            55          946
+#&gt; 3 traitC    32    0.622            42          959
 #&gt; 4 traitD    32    0.011             1         1000
 #&gt; 
 #&gt; $ind_contrast_corr
 #&gt; # A tibble: 2 × 6
-#&gt;   XTrait YTrait Ntaxa  PicR  nPos nCont
+#&gt;   xtrait ytrait ntaxa  picr  npos ncont
 #&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
 #&gt; 1 traitA traitB    32 0.248  18.5    31
 #&gt; 2 traitA traitC    32 0.485  27.5    31
-#&gt; </div></pre>
+#&gt; </div><div class='input'>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

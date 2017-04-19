@@ -78,7 +78,11 @@
     </div>
 
     
-    <p>bladj</p>
+    <p>Bladj take a phylogeny and fixes the root node at a specified age,
+and fixes other nodes you might have age estimates for. It then sets all
+other branch lengths by placing the nodes evenly between dated nodes,
+and between dated nodes and terminals (beginning with the longest
+&#39;chains&#39;).</p>
     
 
     <pre><span class='fu'>ph_bladj</span>(<span class='no'>ages</span>, <span class='no'>phylo</span>)</pre>
@@ -89,17 +93,19 @@
       <dd>(data.frame/character) ages data.frame, or path to an ages
 file. required.</dd>
       <dt>phylo</dt>
-      <dd>(character) phylogeny as a newick string, will be written to
-a temp file if provided - OR path to file with a newick string. required.</dd>
+      <dd>(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an <span class="pkg">ape</span> `phylo` object. required.</dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>newick string</p>
+    <p>newick string with attributes for where ages and phylo files
+used are stored</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='no'>phytools</span>)
+    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='no'>ape</span>)
 
 <span class='no'>ages_file</span> <span class='kw'>&lt;-</span> <span class='fu'>system.file</span>(<span class='st'>"examples/ages"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"phylocomr"</span>)
 <span class='no'>phylo_file</span> <span class='kw'>&lt;-</span> <span class='fu'>system.file</span>(<span class='st'>"examples/phylo_bladj"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"phylocomr"</span>)
@@ -113,9 +119,9 @@ a temp file if provided - OR path to file with a newick string. required.</dd>
 <span class='no'>phylo_str</span> <span class='kw'>&lt;-</span> <span class='fu'>readLines</span>(<span class='no'>phylo_file</span>)
 (<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>ph_bladj</span>(<span class='kw'>ages</span> <span class='kw'>=</span> <span class='no'>ages_df</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>phylo_str</span>))</div><div class='output co'>#&gt; [1] &quot;((((((lomatium_concinnum:20.250000,campanula_vandesii:20.250000):20.250000,(((veronica_candidissima:10.125000,penstemon_paniculatus:10.125000)plantaginaceae:10.125000,justicia_oblonga:20.250000):10.125000,marsdenia_gilgiana:30.375000):10.125000):10.125000,epacris_alba-compacta:50.625000)ericales_to_asterales:10.125000,((daphne_anhuiensis:20.250000,syzygium_cumini:20.250000)malvids:20.250000,ditaxis_clariana:40.500000):20.250000):10.125000,thalictrum_setulosum:70.875000)eudicots:10.125000,((dendrocalamus_giganteus:27.000000,guzmania_densiflora:27.000000)poales:27.000000,warczewiczella_digitata:54.000000):27.000000)malpighiales:1.000000;\n&quot;
 #&gt; attr(,&quot;ages_file&quot;)
-#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/ages&quot;
+#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/ages&quot;
 #&gt; attr(,&quot;phylo_file&quot;)
-#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/phylo_7c532718b13c&quot;</div><div class='input'><span class='fu'>plot</span>(<span class='kw'>phytools</span><span class='kw'>::</span><span class='fu'>read.newick</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>res</span>))</div><div class='input'>
+#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/phylo_12f940db646f&quot;</div><div class='input'><span class='fu'>plot</span>(<span class='fu'>read.tree</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>res</span>))</div><div class='input'>
 <span class='co'># from files</span>
 <span class='no'>ages_file2</span> <span class='kw'>&lt;-</span> <span class='fu'>file.path</span>(<span class='fu'>tempdir</span>(), <span class='st'>"ages"</span>)
 <span class='fu'>write.table</span>(<span class='no'>ages_df</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>ages_file2</span>, <span class='kw'>row.names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
@@ -124,9 +130,17 @@ a temp file if provided - OR path to file with a newick string. required.</dd>
 <span class='fu'>cat</span>(<span class='no'>phylo_str</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>phylo_file2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>'\n'</span>)
 (<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>ph_bladj</span>(<span class='no'>ages_file2</span>, <span class='no'>phylo_file2</span>))</div><div class='output co'>#&gt; [1] &quot;((((((lomatium_concinnum:20.250000,campanula_vandesii:20.250000):20.250000,(((veronica_candidissima:10.125000,penstemon_paniculatus:10.125000)plantaginaceae:10.125000,justicia_oblonga:20.250000):10.125000,marsdenia_gilgiana:30.375000):10.125000):10.125000,epacris_alba-compacta:50.625000)ericales_to_asterales:10.125000,((daphne_anhuiensis:20.250000,syzygium_cumini:20.250000)malvids:20.250000,ditaxis_clariana:40.500000):20.250000):10.125000,thalictrum_setulosum:70.875000)eudicots:10.125000,((dendrocalamus_giganteus:27.000000,guzmania_densiflora:27.000000)poales:27.000000,warczewiczella_digitata:54.000000):27.000000)malpighiales:1.000000;\n&quot;
 #&gt; attr(,&quot;ages_file&quot;)
-#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/ages&quot;
+#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/ages&quot;
 #&gt; attr(,&quot;phylo_file&quot;)
-#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/file7c53461bee31&quot;</div><div class='input'><span class='fu'>plot</span>(<span class='kw'>phytools</span><span class='kw'>::</span><span class='fu'>read.newick</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>res</span>))</div><img src='ph_bladj-7.png' alt='' width='540' height='400' /></pre>
+#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/file12f939ed4ad&quot;</div><div class='input'><span class='fu'>plot</span>(<span class='fu'>read.tree</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>res</span>))</div><img src='ph_bladj-7.png' alt='' width='540' height='400' /><div class='input'>
+<span class='co'># using a ape phylo phylogeny object</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>read.tree</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>phylo_str</span>)
+<span class='fu'>plot</span>(<span class='no'>x</span>)</div><img src='ph_bladj-9.png' alt='' width='540' height='400' /><div class='input'>(<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>ph_bladj</span>(<span class='no'>ages_file2</span>, <span class='no'>x</span>))</div><div class='output co'>#&gt; [1] &quot;((((((lomatium_concinnum:20.250000,campanula_vandesii:20.250000):20.250000,(((veronica_candidissima:10.125000,penstemon_paniculatus:10.125000)plantaginaceae:10.125000,justicia_oblonga:20.250000):10.125000,marsdenia_gilgiana:30.375000):10.125000):10.125000,epacris_alba-compacta:50.625000)ericales_to_asterales:10.125000,((daphne_anhuiensis:20.250000,syzygium_cumini:20.250000)malvids:20.250000,ditaxis_clariana:40.500000):20.250000):10.125000,thalictrum_setulosum:70.875000)eudicots:10.125000,((dendrocalamus_giganteus:27.000000,guzmania_densiflora:27.000000)poales:27.000000,warczewiczella_digitata:54.000000):27.000000)malpighiales:1.000000;\n&quot;
+#&gt; attr(,&quot;ages_file&quot;)
+#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/ages&quot;
+#&gt; attr(,&quot;phylo_file&quot;)
+#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/phylo_12f9309cabb6&quot;</div><div class='input'><span class='no'>tree</span> <span class='kw'>&lt;-</span> <span class='fu'>read.tree</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>res</span>)
+<span class='fu'>plot</span>(<span class='no'>tree</span>)</div><img src='ph_bladj-13.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -78,7 +78,8 @@
     </div>
 
     
-    <p>pd - Faith&#39;s index of phylogenetic diversity</p>
+    <p>Calculates Faith’s (1992) index of phylogenetic diversity (PD) for
+each sample in the phylo.</p>
     
 
     <pre><span class='fu'>ph_pd</span>(<span class='no'>sample</span>, <span class='no'>phylo</span>)</pre>
@@ -89,9 +90,9 @@
       <dd>(data.frame/character) sample data.frame or path to a
 sample file. required</dd>
       <dt>phylo</dt>
-      <dd>(character/phylo) phylogeny as a phylo object or a newick
-string (will be written to a temp file if provided) - or a path to a
-file with a newick string. required</dd>
+      <dd>(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an <span class="pkg">ape</span> `phylo` object. required.</dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -99,14 +100,14 @@ file with a newick string. required</dd>
     <p>A single data.frame, with the colums:
 <ul>
 <li> sample - community name/label
- </li>
+</li>
 <li> ntaxa - number of taxa
- </li>
-<li> PD - Faith&#39;s phylogenetic diversity
- </li>
-<li> treeBL - tree BL
- </li>
-<li> propTreeBL - proportion tree BL
+</li>
+<li> pd - Faith&#39;s phylogenetic diversity
+</li>
+<li> treebl - tree BL
+</li>
+<li> proptreebl - proportion tree BL
 </li>
 </ul></p>
     
@@ -124,7 +125,7 @@ file with a newick string. required</dd>
   <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 <span class='no'>phylo_str</span> <span class='kw'>&lt;-</span> <span class='fu'>readLines</span>(<span class='no'>pfile</span>)
 <span class='fu'>ph_pd</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sampledf</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>phylo_str</span>)</div><div class='output co'>#&gt; # A tibble: 6 × 5
-#&gt;    sample ntaxa    PD treeBL propTreeBL
+#&gt;    sample ntaxa    pd treebl proptreebl
 #&gt;     &lt;chr&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
 #&gt; 1  clump1     8    16     62      0.258
 #&gt; 2 clump2a     8    17     62      0.274
@@ -141,7 +142,7 @@ file with a newick string. required</dd>
 <span class='fu'>cat</span>(<span class='no'>phylo_str</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>pfile2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>'\n'</span>)
 
 <span class='fu'>ph_pd</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sfile2</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>pfile2</span>)</div><div class='output co'>#&gt; # A tibble: 6 × 5
-#&gt;    sample ntaxa    PD treeBL propTreeBL
+#&gt;    sample ntaxa    pd treebl proptreebl
 #&gt;     &lt;chr&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
 #&gt; 1  clump1     8    16     62      0.258
 #&gt; 2 clump2a     8    17     62      0.274

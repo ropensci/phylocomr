@@ -78,7 +78,10 @@
     </div>
 
     
-    <p>comstruct</p>
+    <p>Calculates mean phylogenetic distance (MPD) and mean nearest
+phylogenetic taxon distance (MNTD; aka MNND) for each sample, and
+compares them to MPD/MNTD values for randomly generated samples
+(null communities) or phylogenies.</p>
     
 
     <pre><span class='fu'>ph_comstruct</span>(<span class='no'>sample</span>, <span class='no'>phylo</span>, <span class='kw'>null_model</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>randomizations</span> <span class='kw'>=</span> <span class='fl'>999</span>,
@@ -90,9 +93,9 @@
       <dd>(data.frame/character) sample data.frame or path to a
 sample file</dd>
       <dt>phylo</dt>
-      <dd>(character/phylo) phylogeny as a phylo object or a newick
-string (will be written to a temp file if provided) - or a path to a
-file with a newick string</dd>
+      <dd>(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an <span class="pkg">ape</span> `phylo` object. required.</dd>
       <dt>null_model</dt>
       <dd>(integer) which null model to use. See Details.</dd>
       <dt>randomizations</dt>
@@ -149,16 +152,16 @@ for abundance. Otherwise, uses presence-absence.</dd>
   <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 <span class='no'>phylo_str</span> <span class='kw'>&lt;-</span> <span class='fu'>readLines</span>(<span class='no'>pfile</span>)
 (<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>ph_comstruct</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sampledf</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>phylo_str</span>))</div><div class='output co'>#&gt; # A tibble: 6 × 15
-#&gt;      plot ntaxa    MPD MPD.rnd MPD.sd     NRI MPD.rankLow MPD.rankHi  MNTD
+#&gt;      plot ntaxa    mpd mpd.rnd mpd.sd     nri mpd.ranklow mpd.rankhi  mntd
 #&gt;     &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
-#&gt; 1  clump1     8 4.2500  7.2675 0.3060  9.8606         999          0 2.000
-#&gt; 2 clump2a     8 4.9444  7.1575 0.3205  6.9053         999          0 2.000
-#&gt; 3 clump2b     8 5.8333  7.1565 0.3172  4.1712         993          6 2.000
-#&gt; 4  clump4     8 6.9444  7.1668 0.3101  0.7172         815        206 2.000
-#&gt; 5    even     8 7.7500  7.2840 0.2837 -1.6428           6        999 6.000
-#&gt; 6  random     8 7.1094  7.0061 0.3462 -0.2985         460        554 4.875
-#&gt; # ... with 6 more variables: MNTD.rnd &lt;dbl&gt;, MNTD.sd &lt;dbl&gt;, NTI &lt;dbl&gt;,
-#&gt; #   MNTD.rankLo &lt;int&gt;, MNTD.rankHi &lt;int&gt;, runs &lt;int&gt;</div><div class='input'>
+#&gt; 1  clump1     8 4.2500  7.2692 0.2960 10.2014         999          0 2.000
+#&gt; 2 clump2a     8 4.9444  7.1501 0.3225  6.8399         999          0 2.000
+#&gt; 3 clump2b     8 5.8333  7.1786 0.3005  4.4766         996          3 2.000
+#&gt; 4  clump4     8 6.9444  7.1818 0.3240  0.7327         824        189 2.000
+#&gt; 5    even     8 7.7500  7.2972 0.2750 -1.6464           8        999 6.000
+#&gt; 6  random     8 7.1094  7.0323 0.3348 -0.2304         500        509 4.875
+#&gt; # ... with 6 more variables: mntd.rnd &lt;dbl&gt;, mntd.sd &lt;dbl&gt;, nti &lt;dbl&gt;,
+#&gt; #   mntd.ranklo &lt;int&gt;, mntd.rankhi &lt;int&gt;, runs &lt;int&gt;</div><div class='input'>
 <span class='co'># from files</span>
 <span class='no'>sample_str</span> <span class='kw'>&lt;-</span> <span class='fu'>paste0</span>(<span class='fu'>readLines</span>(<span class='no'>sfile</span>), <span class='kw'>collapse</span> <span class='kw'>=</span> <span class='st'>"\n"</span>)
 <span class='no'>sfile2</span> <span class='kw'>&lt;-</span> <span class='fu'>tempfile</span>()
@@ -166,58 +169,48 @@ for abundance. Otherwise, uses presence-absence.</dd>
 <span class='no'>pfile2</span> <span class='kw'>&lt;-</span> <span class='fu'>tempfile</span>()
 <span class='fu'>cat</span>(<span class='no'>phylo_str</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>pfile2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>'\n'</span>)
 (<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>ph_comstruct</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sfile2</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>pfile2</span>))</div><div class='output co'>#&gt; # A tibble: 6 × 15
-#&gt;      plot ntaxa    MPD MPD.rnd MPD.sd     NRI MPD.rankLow MPD.rankHi  MNTD
+#&gt;      plot ntaxa    mpd mpd.rnd mpd.sd     nri mpd.ranklow mpd.rankhi  mntd
 #&gt;     &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
-#&gt; 1  clump1     8 4.2500  7.2675 0.3060  9.8606         999          0 2.000
-#&gt; 2 clump2a     8 4.9444  7.1575 0.3205  6.9053         999          0 2.000
-#&gt; 3 clump2b     8 5.8333  7.1565 0.3172  4.1712         993          6 2.000
-#&gt; 4  clump4     8 6.9444  7.1668 0.3101  0.7172         815        206 2.000
-#&gt; 5    even     8 7.7500  7.2840 0.2837 -1.6428           6        999 6.000
-#&gt; 6  random     8 7.1094  7.0061 0.3462 -0.2985         460        554 4.875
-#&gt; # ... with 6 more variables: MNTD.rnd &lt;dbl&gt;, MNTD.sd &lt;dbl&gt;, NTI &lt;dbl&gt;,
-#&gt; #   MNTD.rankLo &lt;int&gt;, MNTD.rankHi &lt;int&gt;, runs &lt;int&gt;</div><div class='input'>
+#&gt; 1  clump1     8 4.2500  7.2692 0.2960 10.2014         999          0 2.000
+#&gt; 2 clump2a     8 4.9444  7.1501 0.3225  6.8399         999          0 2.000
+#&gt; 3 clump2b     8 5.8333  7.1786 0.3005  4.4766         996          3 2.000
+#&gt; 4  clump4     8 6.9444  7.1818 0.3240  0.7327         824        189 2.000
+#&gt; 5    even     8 7.7500  7.2972 0.2750 -1.6464           8        999 6.000
+#&gt; 6  random     8 7.1094  7.0323 0.3348 -0.2304         500        509 4.875
+#&gt; # ... with 6 more variables: mntd.rnd &lt;dbl&gt;, mntd.sd &lt;dbl&gt;, nti &lt;dbl&gt;,
+#&gt; #   mntd.ranklo &lt;int&gt;, mntd.rankhi &lt;int&gt;, runs &lt;int&gt;</div><div class='input'>
 <span class='co'># different null models</span>
 <span class='fu'>ph_comstruct</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sfile2</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>pfile2</span>, <span class='kw'>null_model</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt; # A tibble: 6 × 15
-#&gt;      plot ntaxa    MPD MPD.rnd MPD.sd     NRI MPD.rankLow MPD.rankHi  MNTD
+#&gt;      plot ntaxa    mpd mpd.rnd mpd.sd     nri mpd.ranklow mpd.rankhi  mntd
 #&gt;     &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
-#&gt; 1  clump1     8 4.2500  7.2675 0.3060  9.8606         999          0 2.000
-#&gt; 2 clump2a     8 4.9444  7.1575 0.3205  6.9053         999          0 2.000
-#&gt; 3 clump2b     8 5.8333  7.1565 0.3172  4.1712         993          6 2.000
-#&gt; 4  clump4     8 6.9444  7.1668 0.3101  0.7172         815        206 2.000
-#&gt; 5    even     8 7.7500  7.2840 0.2837 -1.6428           6        999 6.000
-#&gt; 6  random     8 7.1094  7.0061 0.3462 -0.2985         460        554 4.875
-#&gt; # ... with 6 more variables: MNTD.rnd &lt;dbl&gt;, MNTD.sd &lt;dbl&gt;, NTI &lt;dbl&gt;,
-#&gt; #   MNTD.rankLo &lt;int&gt;, MNTD.rankHi &lt;int&gt;, runs &lt;int&gt;</div><div class='input'><span class='fu'>ph_comstruct</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sfile2</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>pfile2</span>, <span class='kw'>null_model</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; # A tibble: 6 × 15
-#&gt;      plot ntaxa    MPD MPD.rnd MPD.sd     NRI MPD.rankLow MPD.rankHi  MNTD
+#&gt; 1  clump1     8 4.2500  7.2692 0.2960 10.2014         999          0 2.000
+#&gt; 2 clump2a     8 4.9444  7.1501 0.3225  6.8399         999          0 2.000
+#&gt; 3 clump2b     8 5.8333  7.1786 0.3005  4.4766         996          3 2.000
+#&gt; 4  clump4     8 6.9444  7.1818 0.3240  0.7327         824        189 2.000
+#&gt; 5    even     8 7.7500  7.2972 0.2750 -1.6464           8        999 6.000
+#&gt; 6  random     8 7.1094  7.0323 0.3348 -0.2304         500        509 4.875
+#&gt; # ... with 6 more variables: mntd.rnd &lt;dbl&gt;, mntd.sd &lt;dbl&gt;, nti &lt;dbl&gt;,
+#&gt; #   mntd.ranklo &lt;int&gt;, mntd.rankhi &lt;int&gt;, runs &lt;int&gt;</div><div class='input'><span class='fu'>ph_comstruct</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sfile2</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>pfile2</span>, <span class='kw'>null_model</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; # A tibble: 6 × 15
+#&gt;      plot ntaxa    mpd mpd.rnd mpd.sd     nri mpd.ranklow mpd.rankhi  mntd
 #&gt;     &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
-#&gt; 1  clump1     8 4.2500  7.0913 0.4003  7.0975         999          0 2.000
-#&gt; 2 clump2a     8 4.9444  7.0962 0.3556  6.0511         999          0 2.000
-#&gt; 3 clump2b     8 5.8333  7.0900 0.3491  3.5992         991          9 2.000
-#&gt; 4  clump4     8 6.9444  7.0930 0.3365  0.4416         748        274 2.000
-#&gt; 5    even     8 7.7500  7.2055 0.3067 -1.7755           3        999 6.000
-#&gt; 6  random     8 7.1094  6.9310 0.3936 -0.4530         398        614 4.875
-#&gt; # ... with 6 more variables: MNTD.rnd &lt;dbl&gt;, MNTD.sd &lt;dbl&gt;, NTI &lt;dbl&gt;,
-#&gt; #   MNTD.rankLo &lt;int&gt;, MNTD.rankHi &lt;int&gt;, runs &lt;int&gt;</div><div class='input'><span class='fu'>ph_comstruct</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sfile2</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>pfile2</span>, <span class='kw'>null_model</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; # A tibble: 6 × 15
-#&gt;      plot ntaxa    MPD MPD.rnd MPD.sd     NRI MPD.rankLow MPD.rankHi  MNTD
+#&gt; 1  clump1     8 4.2500  7.0685 0.4209  6.6960         999          0 2.000
+#&gt; 2 clump2a     8 4.9444  7.0701 0.3745  5.6757         999          0 2.000
+#&gt; 3 clump2b     8 5.8333  7.0923 0.3693  3.4092         991          9 2.000
+#&gt; 4  clump4     8 6.9444  7.0778 0.3578  0.3727         737        290 2.000
+#&gt; 5    even     8 7.7500  7.2082 0.3148 -1.7212           7        999 6.000
+#&gt; 6  random     8 7.1094  6.9559 0.3844 -0.3991         433        583 4.875
+#&gt; # ... with 6 more variables: mntd.rnd &lt;dbl&gt;, mntd.sd &lt;dbl&gt;, nti &lt;dbl&gt;,
+#&gt; #   mntd.ranklo &lt;int&gt;, mntd.rankhi &lt;int&gt;, runs &lt;int&gt;</div><div class='input'><span class='fu'>ph_comstruct</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sfile2</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>pfile2</span>, <span class='kw'>null_model</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; # A tibble: 6 × 15
+#&gt;      plot ntaxa    mpd mpd.rnd mpd.sd     nri mpd.ranklow mpd.rankhi  mntd
 #&gt;     &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
-#&gt; 1  clump1     8 4.2500  7.2934 0.2716 11.2059         999          0 2.000
-#&gt; 2 clump2a     8 4.9444  7.1540 0.3118  7.0856         999          0 2.000
-#&gt; 3 clump2b     8 5.8333  7.1740 0.3140  4.2693         996          3 2.000
-#&gt; 4  clump4     8 6.9444  7.1575 0.3349  0.6362         813        208 2.000
-#&gt; 5    even     8 7.7500  7.2762 0.3002 -1.5783           8        999 6.000
-#&gt; 6  random     8 7.1094  7.0248 0.3351 -0.2525         478        544 4.875
-#&gt; # ... with 6 more variables: MNTD.rnd &lt;dbl&gt;, MNTD.sd &lt;dbl&gt;, NTI &lt;dbl&gt;,
-#&gt; #   MNTD.rankLo &lt;int&gt;, MNTD.rankHi &lt;int&gt;, runs &lt;int&gt;</div><div class='input'><span class='fu'>ph_comstruct</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sfile2</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>pfile2</span>, <span class='kw'>null_model</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; # A tibble: 6 × 15
-#&gt;      plot ntaxa    MPD MPD.rnd MPD.sd     NRI MPD.rankLow MPD.rankHi  MNTD
-#&gt;     &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
-#&gt; 1  clump1     8 4.2500  6.9381 0.3722  7.2227         999          0 2.000
-#&gt; 2 clump2a     8 4.9444  6.9486 0.3615  5.5437         999          0 2.000
-#&gt; 3 clump2b     8 5.8333  6.9477 0.3786  2.9434         983         16 2.000
-#&gt; 4  clump4     8 6.9444  6.9309 0.3800 -0.0357         557        447 2.000
-#&gt; 5    even     8 7.7500  6.9488 0.3721 -2.1532           0        999 6.000
-#&gt; 6  random     8 7.1094  6.9298 0.3952 -0.4544         370        629 4.875
-#&gt; # ... with 6 more variables: MNTD.rnd &lt;dbl&gt;, MNTD.sd &lt;dbl&gt;, NTI &lt;dbl&gt;,
-#&gt; #   MNTD.rankLo &lt;int&gt;, MNTD.rankHi &lt;int&gt;, runs &lt;int&gt;</div></pre>
+#&gt; 1  clump1     8 4.2500  7.2818 0.2910 10.4171         999          0 2.000
+#&gt; 2 clump2a     8 4.9444  7.1708 0.3135  7.1017         999          0 2.000
+#&gt; 3 clump2b     8 5.8333  7.1624 0.3144  4.2280         997          2 2.000
+#&gt; 4  clump4     8 6.9444  7.1667 0.3321  0.6691         813        210 2.000
+#&gt; 5    even     8 7.7500  7.2842 0.2813 -1.6557           5        999 6.000
+#&gt; 6  random     8 7.1094  7.0160 0.3618 -0.2582         482        535 4.875
+#&gt; # ... with 6 more variables: mntd.rnd &lt;dbl&gt;, mntd.sd &lt;dbl&gt;, nti &lt;dbl&gt;,
+#&gt; #   mntd.ranklo &lt;int&gt;, mntd.rankhi &lt;int&gt;, runs &lt;int&gt;</div><div class='input'><span class='co'># ph_comstruct(sample = sfile2, phylo = pfile2, null_model = 3)</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

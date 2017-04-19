@@ -78,7 +78,8 @@
     </div>
 
     
-    <p>phylomatic</p>
+    <p>Phylomatic is a tool for extracting a phylogeny from a master
+phylogeny using only a user-supplied list of taxa.</p>
     
 
     <pre><span class='fu'>ph_phylomatic</span>(<span class='no'>taxa</span>, <span class='no'>phylo</span>, <span class='kw'>tabular</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>lowercase</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
@@ -90,9 +91,9 @@
       <dd>(character) all taxa as a character vector (will be written to
 a temp file if provided) - OR a path to taxa file. Required. See Details.</dd>
       <dt>phylo</dt>
-      <dd>(character/phylo) phylogeny as a <code>phylo</code> object, a newick
-string (both will be written to a temp file if provided) - OR a path to a
-file with the newick string. Required.</dd>
+      <dd>(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an <span class="pkg">ape</span> `phylo` object. required.</dd>
       <dt>tabular</dt>
       <dd>(logical) Output a tabular representation of phylogeny.
 Default: <code>FALSE</code></dd>
@@ -112,9 +113,17 @@ line should have a <code>family/genus/genus_epithet</code> string - make sure
 only one per line, and a newline (i.e., press ENTER) at the end of
 each line</p>
     
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Phylomatic is also available as a web service
+(https://github.com/camwebb/phylomatic-ws) - but is based on a different
+code base (https://github.com/camwebb/phylomatic-ws)
+See <a href = 'Webb and Donoghue (2005)'>https://doi.org/10.1111/j.1471-8286.2004.00829.x</a>
+for more information on the goals of Phylomatic.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='no'>phytools</span>)
+    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='no'>ape</span>)
 
 <span class='no'>taxa_file</span> <span class='kw'>&lt;-</span> <span class='fu'>system.file</span>(<span class='st'>"examples/taxa"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"phylocomr"</span>)
 <span class='no'>phylo_file</span> <span class='kw'>&lt;-</span> <span class='fu'>system.file</span>(<span class='st'>"examples/phylo"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"phylocomr"</span>)
@@ -124,9 +133,9 @@ each line</p>
 #&gt; [2] &quot;cyperaceae/mapania/mapania_africana&quot;             
 #&gt; [3] &quot;amaryllidaceae/narcissus/narcissus_cuatrecasasii&quot;</div><div class='input'>(<span class='no'>phylo_str</span> <span class='kw'>&lt;-</span> <span class='fu'>readLines</span>(<span class='no'>phylo_file</span>))</div><div class='output co'>#&gt; [1] &quot;(((((eliea_articulata,homalanthus_populneus)malpighiales,rosa_willmottiae),((macrocentrum_neblinae,qualea_clavata),hibiscus_pohlii)malvids),(((lobelia_conferta,((millotia_depauperata,(layia_chrysanthemoides,layia_pentachaeta)layia),senecio_flanaganii)asteraceae)asterales,schwenkia_americana),tapinanthus_buntingii)),(narcissus_cuatrecasasii,mapania_africana))poales_to_asterales;&quot;</div><div class='input'>(<span class='no'>tree</span> <span class='kw'>&lt;-</span> <span class='fu'>ph_phylomatic</span>(<span class='kw'>taxa</span> <span class='kw'>=</span> <span class='no'>taxa_str</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>phylo_str</span>))</div><div class='output co'>#&gt; [1] &quot;(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;\n&quot;
 #&gt; attr(,&quot;taxa_file&quot;)
-#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/taxa_7c5315acb263&quot;
+#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/taxa_12f9791478f8&quot;
 #&gt; attr(,&quot;phylo_file&quot;)
-#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/phylo_7c537cf38cb2&quot;</div><div class='input'>
+#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/phylo_12f92f121fe2&quot;</div><div class='input'>
 <span class='co'># from files</span>
 <span class='no'>taxa_file2</span> <span class='kw'>&lt;-</span> <span class='fu'>tempfile</span>()
 <span class='fu'>cat</span>(<span class='no'>taxa_str</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>taxa_file2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>'\n'</span>)
@@ -134,10 +143,9 @@ each line</p>
 <span class='fu'>cat</span>(<span class='no'>phylo_str</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>phylo_file2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>'\n'</span>)
 (<span class='no'>tree</span> <span class='kw'>&lt;-</span> <span class='fu'>ph_phylomatic</span>(<span class='kw'>taxa</span> <span class='kw'>=</span> <span class='no'>taxa_file2</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>phylo_file2</span>))</div><div class='output co'>#&gt; [1] &quot;(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;\n&quot;
 #&gt; attr(,&quot;taxa_file&quot;)
-#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/file7c53599a3a34&quot;
+#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/file12f94eeb4692&quot;
 #&gt; attr(,&quot;phylo_file&quot;)
-#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/file7c531c6359e1&quot;</div><div class='input'><span class='fu'>library</span>(<span class='no'>ape</span>)
-<span class='fu'>plot</span>(<span class='fu'>read.newick</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>tree</span>))</div><img src='ph_phylomatic-10.png' alt='' width='540' height='400' /></pre>
+#&gt; [1] &quot;/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/file12f9386643b8&quot;</div><div class='input'><span class='fu'>plot</span>(<span class='fu'>read.tree</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>tree</span>))</div><img src='ph_phylomatic-10.png' alt='' width='540' height='400' /></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -145,6 +153,8 @@ each line</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#references">References</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

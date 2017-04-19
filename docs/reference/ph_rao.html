@@ -90,9 +90,9 @@ dissimilarity (phylogenetic dissimilarity) into account</p>
       <dd>(data.frame/character) sample data.frame or path to a
 sample file</dd>
       <dt>phylo</dt>
-      <dd>(character/phylo) phylogeny as a phylo object or a newick
-string (will be written to a temp file if provided) - or a path to a
-file with a newick string</dd>
+      <dd>(character/phylo) One of: phylogeny as a newick string (will be
+written to a temp file) - OR path to file with a newick
+string - OR a an <span class="pkg">ape</span> `phylo` object. required.</dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -101,43 +101,43 @@ file with a newick string</dd>
 <strong>Diversity components</strong>:
 <ul>
 <li> overall alpha (within-site)
- </li>
+</li>
 <li> beta (among-site)
- </li>
+</li>
 <li> total diversity
- </li>
+</li>
 <li> Fst statistic of differentiation for diversity and phylogenetic
- diversity
+diversity
 </li>
 </ul></p>
     <p><strong>Within-community diversity</strong>:
 <ul>
 <li> Plot - Plot name
- </li>
+</li>
 <li> NSpp - Number of species
- </li>
+</li>
 <li> NIndiv - Number of individuals
- </li>
+</li>
 <li> PropIndiv - Proportion of all individuals found in this plot
- </li>
+</li>
 <li> D - Diversity (= Simpson’s diversity)
- </li>
+</li>
 <li> Dp - Phylogenetic diversity (= Diversity weighted by interspecific
- phylogenetic distances)
+phylogenetic distances)
 </li>
 </ul></p>
     <p>The remaining 4 tables compare each community pairwise:
 <ul>
 <li> among_community_diversity_d - Among-community diversities
- </li>
+</li>
 <li> among_community_diversity_h - Among-community diversities excluding
- within-community diversity
- </li>
+within-community diversity
+</li>
 <li> among_community_phylogenetic_diversity_dp - Among-community
- phylogenetic diversities
- </li>
+phylogenetic diversities
+</li>
 <li> among_community_phylogenetic_diversity_hp - Among-community
- phylogenetic diversities excluding within-community diversity
+phylogenetic diversities excluding within-community diversity
 </li>
 </ul></p>
     
@@ -157,7 +157,7 @@ file with a newick string</dd>
 
 <span class='fu'>ph_rao</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sampledf</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>phylo_str</span>)</div><div class='output co'>#&gt; $diversity_components
 #&gt; # A tibble: 4 × 3
-#&gt;   Component Standard Phylogenetic
+#&gt;   component standard phylogenetic
 #&gt;       &lt;chr&gt;    &lt;dbl&gt;        &lt;dbl&gt;
 #&gt; 1     Alpha 0.860294     3.106005
 #&gt; 2      Beta 0.084775     0.752559
@@ -166,7 +166,7 @@ file with a newick string</dd>
 #&gt; 
 #&gt; $within_community_diveristy
 #&gt; # A tibble: 6 × 6
-#&gt;      Plot  NSpp NIndiv PropIndiv        D       Dp
+#&gt;      plot  nspp nindiv propindiv        d       dp
 #&gt;     &lt;chr&gt; &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
 #&gt; 1  clump1     8      8  0.117647 0.875000 2.125000
 #&gt; 2 clump2a     8     12  0.176471 0.861111 2.472222
@@ -229,7 +229,7 @@ file with a newick string</dd>
 
 <span class='fu'>ph_rao</span>(<span class='kw'>sample</span> <span class='kw'>=</span> <span class='no'>sfile2</span>, <span class='kw'>phylo</span> <span class='kw'>=</span> <span class='no'>pfile2</span>)</div><div class='output co'>#&gt; $diversity_components
 #&gt; # A tibble: 4 × 3
-#&gt;   Component Standard Phylogenetic
+#&gt;   component standard phylogenetic
 #&gt;       &lt;chr&gt;    &lt;dbl&gt;        &lt;dbl&gt;
 #&gt; 1     Alpha 0.860294     3.106005
 #&gt; 2      Beta 0.084775     0.752559
@@ -238,7 +238,7 @@ file with a newick string</dd>
 #&gt; 
 #&gt; $within_community_diveristy
 #&gt; # A tibble: 6 × 6
-#&gt;      Plot  NSpp NIndiv PropIndiv        D       Dp
+#&gt;      plot  nspp nindiv propindiv        d       dp
 #&gt;     &lt;chr&gt; &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
 #&gt; 1  clump1     8      8  0.117647 0.875000 2.125000
 #&gt; 2 clump2a     8     12  0.176471 0.861111 2.472222

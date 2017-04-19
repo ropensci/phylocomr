@@ -78,16 +78,65 @@
     </div>
 
     
-    <p>Phylocom interface</p>
+    <p><code>phylocomr</code> gives you access to Phylocom, specifically the
+<a href = 'Phylocom C library'>https://github.com/phylocom/phylocom/</a>.</p>
     
 
         
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>This package isn&#39;t doing system calls to a separately installed Phylocom
+instance - but actually includes Phylocom itself in the package.</p>
+    <p>Phylocom is usually used either on the command line or through the
+R package <a href = 'picante'>https://cran.r-project.org/package=picante</a>, which
+has duplicated some of the Phylocom functionality.</p>
+    <p>In terms of performance, some functionality will be faster here than
+in <code>picante</code>, but the maintainers of <code>picante</code> have re-written some
+Phylocom functionality in C/C++, so performance should be similar in
+those cases.</p>
+    
+    <h2 class="hasAnchor" id="package-api"><a class="anchor" href="#package-api"></a>Package API</h2>
+
+    <p></p>
+    <p><ul>
+<li> <code><a href='executables.html'>ecovolve()</a></code>/<code><a href='ph_ecovolve.html'>ph_ecovolve()</a></code> - interface to <code>ecovolve</code> executable,
+and a higher level interface
+</li>
+<li> <code><a href='executables.html'>phylomatic()</a></code>/<code><a href='ph_phylomatic.html'>ph_phylomatic()</a></code> - interface to <code>phylomatic</code>
+executable, and a higher level interface
+</li>
+<li> <code><a href='executables.html'>phylocom()</a></code> - interface to <code>phylocom</code> executable
+</li>
+<li> <code><a href='ph_aot.html'>ph_aot()</a></code> - higher level interface to <code>aot</code>
+</li>
+<li> <code><a href='ph_bladj.html'>ph_bladj()</a></code> - higher level interface to <code>bladj</code>
+</li>
+<li> <code><a href='ph_comdist.html'>ph_comdist()</a></code>/<code><a href='ph_comdist.html'>ph_comdistnt()</a></code> - higher level interface to comdist
+</li>
+<li> <code><a href='ph_comstruct.html'>ph_comstruct()</a></code> - higher level interface to comstruct
+</li>
+<li> <code><a href='ph_comtrait.html'>ph_comtrait()</a></code> - higher level interface to comtrait
+</li>
+<li> <code><a href='ph_pd.html'>ph_pd()</a></code> - higher level interface to Faith&#39;s phylogenetic diversity
+</li>
+</ul></p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#package-api">Package API</a></li>
+          </ul>
+
+    <h2>Author</h2>
+    
+Scott Chamberlain
+
+Jeroen Ooms
 
   </div>
 </div>

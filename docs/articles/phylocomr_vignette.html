@@ -57,7 +57,7 @@
       <h1>Introduction to the phylocomr package</h1>
                         <h4 class="author">Scott Chamberlain and Jeroen Ooms</h4>
             
-            <h4 class="date">2017-03-06</h4>
+            <h4 class="date">2017-04-19</h4>
           </div>
 
     
@@ -71,14 +71,13 @@
 <div id="install" class="section level2">
 <h2 class="hasAnchor">
 <html><body><a href="#install" class="anchor"> </a></body></html>Install</h2>
-<p>Install some packages that you’ll want to have to work with this package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">'ape'</span>, <span class="st">'phytools'</span>))</code></pre></div>
+<p>Install <code>ape</code> for below examples:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">'ape'</span>)</code></pre></div>
 <p>Stable <code>phylocomr</code> version from CRAN</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"phylocomr"</span>)</code></pre></div>
 <p>Or, the development version from Github</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">"ropensci/phylocomr"</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"phylocomr"</span>)
-<span class="kw">library</span>(<span class="st">"phytools"</span>)
 <span class="kw">library</span>(<span class="st">"ape"</span>)</code></pre></div>
 </div>
 <div id="phylomatic" class="section level2">
@@ -95,9 +94,9 @@ phylo_file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<sp
 <span class="kw"><a href="../reference/ph_phylomatic.html">ph_phylomatic</a></span>(<span class="dt">taxa =</span> taxa_str, <span class="dt">phylo =</span> phylo_str)
 <span class="co">#&gt; [1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;\n"</span>
 <span class="co">#&gt; attr(,"taxa_file")</span>
-<span class="co">#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/taxa_7c533440ccd2"</span>
+<span class="co">#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/taxa_12f956c83161"</span>
 <span class="co">#&gt; attr(,"phylo_file")</span>
-<span class="co">#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/phylo_7c53a4709cb"</span></code></pre></div>
+<span class="co">#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/phylo_12f9712203c9"</span></code></pre></div>
 </div>
 <div id="aot" class="section level2">
 <h2 class="hasAnchor">
@@ -111,29 +110,29 @@ phylo_str &lt;-<span class="st"> </span><span class="kw">readLines</span>(phylo_
 <span class="kw"><a href="../reference/ph_aot.html">ph_aot</a></span>(<span class="dt">traits =</span> traits, <span class="dt">phylo =</span> phylo_str)
 <span class="co">#&gt; $trait_conservatism</span>
 <span class="co">#&gt; # A tibble: 124 × 28</span>
-<span class="co">#&gt;    trait trait.name  node  name   age Ntaxa N.nodes Tip.mn Tmn.rankLow</span>
+<span class="co">#&gt;    trait trait.name  node  name   age ntaxa n.nodes tip.mn tmn.ranklow</span>
 <span class="co">#&gt;    &lt;int&gt;      &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt;       &lt;int&gt;</span>
 <span class="co">#&gt; 1      1     traitA     0     A     5    32       2   1.75        1000</span>
-<span class="co">#&gt; 2      1     traitA     1     B     4    16       2   1.75         675</span>
-<span class="co">#&gt; 3      1     traitA     2     C     3     8       2   1.75         686</span>
-<span class="co">#&gt; 4      1     traitA     3     D     2     4       2   1.50         273</span>
-<span class="co">#&gt; 5      1     traitA     4     E     1     2       2   1.00          72</span>
+<span class="co">#&gt; 2      1     traitA     1     B     4    16       2   1.75         663</span>
+<span class="co">#&gt; 3      1     traitA     2     C     3     8       2   1.75         674</span>
+<span class="co">#&gt; 4      1     traitA     3     D     2     4       2   1.50         269</span>
+<span class="co">#&gt; 5      1     traitA     4     E     1     2       2   1.00          67</span>
 <span class="co">#&gt; 6      1     traitA     7     F     1     2       2   2.00        1000</span>
 <span class="co">#&gt; 7      1     traitA    10     G     2     4       2   2.00        1000</span>
 <span class="co">#&gt; 8      1     traitA    11     H     1     2       2   2.00        1000</span>
 <span class="co">#&gt; 9      1     traitA    14     I     1     2       2   2.00        1000</span>
-<span class="co">#&gt; 10     1     traitA    17     J     3     8       2   1.75         702</span>
-<span class="co">#&gt; # ... with 114 more rows, and 19 more variables: Tmn.rankHi &lt;int&gt;,</span>
-<span class="co">#&gt; #   Tip.sd &lt;dbl&gt;, Tsd.rankLow &lt;int&gt;, Tsd.rankHi &lt;int&gt;, Node.mn &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Nmn.rankLow &lt;int&gt;, Nmn.rankHi &lt;int&gt;, Nod.sd &lt;dbl&gt;, Nsd.rankLow &lt;int&gt;,</span>
-<span class="co">#&gt; #   Nsd.rankHi &lt;int&gt;, SSTipsRoot &lt;dbl&gt;, SSTips &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   percVarAmongNodes &lt;dbl&gt;, percVarAtNode &lt;dbl&gt;, ContributionIndex &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   SSTipVNodeRoot &lt;dbl&gt;, SSTipVNode &lt;dbl&gt;, SSAmongNodes &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   SSWithinNodes &lt;dbl&gt;</span>
+<span class="co">#&gt; 10     1     traitA    17     J     3     8       2   1.75         669</span>
+<span class="co">#&gt; # ... with 114 more rows, and 19 more variables: tmn.rankhi &lt;int&gt;,</span>
+<span class="co">#&gt; #   tip.sd &lt;dbl&gt;, tsd.ranklow &lt;int&gt;, tsd.rankhi &lt;int&gt;, node.mn &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   nmn.ranklow &lt;int&gt;, nmn.rankhi &lt;int&gt;, nod.sd &lt;dbl&gt;, nsd.ranklow &lt;int&gt;,</span>
+<span class="co">#&gt; #   nsd.rankhi &lt;int&gt;, sstipsroot &lt;dbl&gt;, sstips &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   percvaramongnodes &lt;dbl&gt;, percvaratnode &lt;dbl&gt;, contributionindex &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   sstipvnoderoot &lt;dbl&gt;, sstipvnode &lt;dbl&gt;, ssamongnodes &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   sswithinnodes &lt;dbl&gt;</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $independent_contrasts</span>
 <span class="co">#&gt; # A tibble: 31 × 17</span>
-<span class="co">#&gt;     node  name   age N.nodes Contrast1 Contrast2 Contrast3 Contrast4</span>
+<span class="co">#&gt;     node  name   age n.nodes contrast1 contrast2 contrast3 contrast4</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;</span>
 <span class="co">#&gt; 1      0     A     5       2  0.000000  0.000000  0.000000  0.254000</span>
 <span class="co">#&gt; 2      1     B     4       2  0.000000  1.032795  0.000000  0.516398</span>
@@ -145,22 +144,22 @@ phylo_str &lt;-<span class="st"> </span><span class="kw">readLines</span>(phylo_
 <span class="co">#&gt; 8     11     H     1       2  0.000000  0.000000  0.707107  0.000000</span>
 <span class="co">#&gt; 9     14     I     1       2  0.000000  0.000000  0.707107  0.000000</span>
 <span class="co">#&gt; 10    17     J     3       2  0.267261  0.534522  0.000000  0.000000</span>
-<span class="co">#&gt; # ... with 21 more rows, and 9 more variables: ContrastSD &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   LowVal1 &lt;dbl&gt;, HiVal1 &lt;dbl&gt;, LowVal2 &lt;dbl&gt;, HiVal2 &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   LowVal3 &lt;dbl&gt;, HiVal3 &lt;dbl&gt;, LowVal4 &lt;dbl&gt;, HiVal4 &lt;dbl&gt;</span>
+<span class="co">#&gt; # ... with 21 more rows, and 9 more variables: contrastsd &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   lowval1 &lt;dbl&gt;, hival1 &lt;dbl&gt;, lowval2 &lt;dbl&gt;, hival2 &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   lowval3 &lt;dbl&gt;, hival3 &lt;dbl&gt;, lowval4 &lt;dbl&gt;, hival4 &lt;dbl&gt;</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $phylogenetic_signal</span>
 <span class="co">#&gt; # A tibble: 4 × 5</span>
-<span class="co">#&gt;    Trait NTaxa VarContr VarCn.rankLow VarCn.rankHi</span>
+<span class="co">#&gt;    trait ntaxa varcontr varcn.ranklow varcn.rankhi</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;         &lt;int&gt;        &lt;int&gt;</span>
 <span class="co">#&gt; 1 traitA    32    0.054             1         1000</span>
 <span class="co">#&gt; 2 traitB    32    0.109             1         1000</span>
-<span class="co">#&gt; 3 traitC    32    0.622            56          945</span>
+<span class="co">#&gt; 3 traitC    32    0.622            70          931</span>
 <span class="co">#&gt; 4 traitD    32    0.011             1         1000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $ind_contrast_corr</span>
 <span class="co">#&gt; # A tibble: 3 × 6</span>
-<span class="co">#&gt;   XTrait YTrait Ntaxa  PicR  nPos nCont</span>
+<span class="co">#&gt;   xtrait ytrait ntaxa  picr  npos ncont</span>
 <span class="co">#&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;</span>
 <span class="co">#&gt; 1 traitA traitB    32 0.248  18.5    31</span>
 <span class="co">#&gt; 2 traitA traitC    32 0.485  27.5    31</span>
@@ -180,10 +179,10 @@ phylo_str &lt;-<span class="st"> </span><span class="kw">readLines</span>(phylo_
 (res &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ph_bladj.html">ph_bladj</a></span>(<span class="dt">ages =</span> ages_df, <span class="dt">phylo =</span> phylo_str))
 <span class="co">#&gt; [1] "((((((lomatium_concinnum:20.250000,campanula_vandesii:20.250000):20.250000,(((veronica_candidissima:10.125000,penstemon_paniculatus:10.125000)plantaginaceae:10.125000,justicia_oblonga:20.250000):10.125000,marsdenia_gilgiana:30.375000):10.125000):10.125000,epacris_alba-compacta:50.625000)ericales_to_asterales:10.125000,((daphne_anhuiensis:20.250000,syzygium_cumini:20.250000)malvids:20.250000,ditaxis_clariana:40.500000):20.250000):10.125000,thalictrum_setulosum:70.875000)eudicots:10.125000,((dendrocalamus_giganteus:27.000000,guzmania_densiflora:27.000000)poales:27.000000,warczewiczella_digitata:54.000000):27.000000)malpighiales:1.000000;\n"</span>
 <span class="co">#&gt; attr(,"ages_file")</span>
-<span class="co">#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/ages"</span>
+<span class="co">#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/ages"</span>
 <span class="co">#&gt; attr(,"phylo_file")</span>
-<span class="co">#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/phylo_7c535167d137"</span>
-<span class="kw">plot</span>(phytools::<span class="kw">read.newick</span>(<span class="dt">text =</span> res))</code></pre></div>
+<span class="co">#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/phylo_12f91db99e4c"</span>
+<span class="kw">plot</span>(<span class="kw">read.tree</span>(<span class="dt">text =</span> res))</code></pre></div>
 <p><img src="phylocomr_vignette_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
 </div>
 </div>

@@ -62,7 +62,7 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#phylocomr" class="anchor"> </a>phylocomr</h1></div>
 
-<p><code>phylocomr</code> gives you access to the Phylocom C library.</p>
+<p><code>phylocomr</code> gives you access to the <a href="https://github.com/phylocom/phylocom/">Phylocom C library</a>.</p>
 <div id="package-api" class="section level2">
 <h2 class="hasAnchor">
 <a href="#package-api" class="anchor"> </a>Package API</h2>
@@ -92,6 +92,9 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"> </a>Installation</h2>
+<p>Stable version:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"phylocomr"</span>)</code></pre></div>
+<p>Development version:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"devtools"</span>)
 devtools::<span class="kw">install_github</span>(<span class="st">"ropensci/phylocomr"</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"phylocomr"</span>)
@@ -102,7 +105,31 @@ devtools::<span class="kw">install_github</span>(<span class="st">"ropensci/phyl
 <h2 class="hasAnchor">
 <a href="#ecovolve" class="anchor"> </a>ecovolve</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/ph_ecovolve.html">ph_ecovolve</a></span>(<span class="dt">speciation =</span> <span class="fl">0.05</span>, <span class="dt">extinction =</span> <span class="fl">0.005</span>, <span class="dt">time_units =</span> <span class="dv">50</span>)</code></pre></div>
-<pre><code>#&gt; [1] "((((sp23:23.000000,((sp24:17.000000,sp25:17.000000)node6:2.000000,(sp26:15.000000,(sp28:12.000000,(sp39:2.000000,sp40:2.000000)node19:10.000000)node10:3.000000)node8:4.000000)node5:4.000000)node4:7.000000,((sp37:3.000000,sp38:3.000000)node18:23.000000,(sp43:1.000000,sp44:1.000000)node21:25.000000)node3:4.000000)node2:6.000000,(sp29:11.000000,sp30:11.000000)node11:25.000000)node1:11.000000,((sp27:12.000000,((sp32:9.000000,(sp45:1.000000,sp46:1.000000)node22:8.000000)node14:2.000000,((sp35:6.000000,sp36:6.000000)node17:1.000000,(sp41:2.000000,sp42:2.000000)node20:5.000000)node16:4.000000)node13:1.000000)node9:4.000000,(sp31:11.000000,(sp33:8.000000,sp34:8.000000)node15:3.000000)node12:5.000000)node7:31.000000)node0:3.000000;\n"</code></pre>
+<pre><code>#&gt; $phylogeny
+#&gt; [1] "((dead2:4.000000,((sp9:3.000000,sp10:3.000000)node5:8.000000,(sp11:2.000000,sp12:2.000000)node6:9.000000)node3:14.000000)node1:16.000000,(sp7:8.000000,sp8:8.000000)node4:33.000000)node0:9.000000;\n"
+#&gt; 
+#&gt; $sample
+#&gt; # A tibble: 6 × 3
+#&gt;   sample abundance  name
+#&gt;    &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;
+#&gt; 1  alive         1   sp7
+#&gt; 2  alive         1   sp8
+#&gt; 3  alive         1   sp9
+#&gt; 4  alive         1  sp10
+#&gt; 5  alive         1  sp11
+#&gt; 6  alive         1  sp12
+#&gt; 
+#&gt; $traits
+#&gt; # A tibble: 7 × 6
+#&gt;    name ecov0 ecov1 ecov2 ecov3 ecov4
+#&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 dead2    16    15    -7   -11    -1
+#&gt; 2   sp7    12    -2   -33   -18    -6
+#&gt; 3   sp8    12     7   -23   -22    -2
+#&gt; 4   sp9    13     8    -1    -7    -4
+#&gt; 5  sp10    13     9    -2    -7    -5
+#&gt; 6  sp11    13     1    -7    -7   -17
+#&gt; 7  sp12    14     2    -5    -4   -15</code></pre>
 </div>
 <div id="phylomatic" class="section level2">
 <h2 class="hasAnchor">
@@ -118,9 +145,9 @@ phylo_file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<sp
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/ph_phylomatic.html">ph_phylomatic</a></span>(<span class="dt">taxa =</span> taxa_str, <span class="dt">phylo =</span> phylo_str)</code></pre></div>
 <pre><code>#&gt; [1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;\n"
 #&gt; attr(,"taxa_file")
-#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/taxa_7c53247366db"
+#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/taxa_12f96396b52b"
 #&gt; attr(,"phylo_file")
-#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/phylo_7c531465c68f"</code></pre>
+#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/phylo_12f93b504d21"</code></pre>
 </div>
 <div id="aot" class="section level2">
 <h2 class="hasAnchor">
@@ -134,29 +161,29 @@ phylo_str &lt;-<span class="st"> </span><span class="kw">readLines</span>(phylo_
 <span class="kw"><a href="reference/ph_aot.html">ph_aot</a></span>(<span class="dt">traits =</span> traits, <span class="dt">phylo =</span> phylo_str)</code></pre></div>
 <pre><code>#&gt; $trait_conservatism
 #&gt; # A tibble: 124 × 28
-#&gt;    trait trait.name  node  name   age Ntaxa N.nodes Tip.mn Tmn.rankLow
+#&gt;    trait trait.name  node  name   age ntaxa n.nodes tip.mn tmn.ranklow
 #&gt;    &lt;int&gt;      &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt;       &lt;int&gt;
 #&gt; 1      1     traitA     0     A     5    32       2   1.75        1000
-#&gt; 2      1     traitA     1     B     4    16       2   1.75         646
-#&gt; 3      1     traitA     2     C     3     8       2   1.75         670
-#&gt; 4      1     traitA     3     D     2     4       2   1.50         253
-#&gt; 5      1     traitA     4     E     1     2       2   1.00          54
+#&gt; 2      1     traitA     1     B     4    16       2   1.75         638
+#&gt; 3      1     traitA     2     C     3     8       2   1.75         663
+#&gt; 4      1     traitA     3     D     2     4       2   1.50         256
+#&gt; 5      1     traitA     4     E     1     2       2   1.00          55
 #&gt; 6      1     traitA     7     F     1     2       2   2.00        1000
 #&gt; 7      1     traitA    10     G     2     4       2   2.00        1000
 #&gt; 8      1     traitA    11     H     1     2       2   2.00        1000
 #&gt; 9      1     traitA    14     I     1     2       2   2.00        1000
-#&gt; 10     1     traitA    17     J     3     8       2   1.75         668
-#&gt; # ... with 114 more rows, and 19 more variables: Tmn.rankHi &lt;int&gt;,
-#&gt; #   Tip.sd &lt;dbl&gt;, Tsd.rankLow &lt;int&gt;, Tsd.rankHi &lt;int&gt;, Node.mn &lt;dbl&gt;,
-#&gt; #   Nmn.rankLow &lt;int&gt;, Nmn.rankHi &lt;int&gt;, Nod.sd &lt;dbl&gt;, Nsd.rankLow &lt;int&gt;,
-#&gt; #   Nsd.rankHi &lt;int&gt;, SSTipsRoot &lt;dbl&gt;, SSTips &lt;dbl&gt;,
-#&gt; #   percVarAmongNodes &lt;dbl&gt;, percVarAtNode &lt;dbl&gt;, ContributionIndex &lt;dbl&gt;,
-#&gt; #   SSTipVNodeRoot &lt;dbl&gt;, SSTipVNode &lt;dbl&gt;, SSAmongNodes &lt;dbl&gt;,
-#&gt; #   SSWithinNodes &lt;dbl&gt;
+#&gt; 10     1     traitA    17     J     3     8       2   1.75         651
+#&gt; # ... with 114 more rows, and 19 more variables: tmn.rankhi &lt;int&gt;,
+#&gt; #   tip.sd &lt;dbl&gt;, tsd.ranklow &lt;int&gt;, tsd.rankhi &lt;int&gt;, node.mn &lt;dbl&gt;,
+#&gt; #   nmn.ranklow &lt;int&gt;, nmn.rankhi &lt;int&gt;, nod.sd &lt;dbl&gt;, nsd.ranklow &lt;int&gt;,
+#&gt; #   nsd.rankhi &lt;int&gt;, sstipsroot &lt;dbl&gt;, sstips &lt;dbl&gt;,
+#&gt; #   percvaramongnodes &lt;dbl&gt;, percvaratnode &lt;dbl&gt;, contributionindex &lt;dbl&gt;,
+#&gt; #   sstipvnoderoot &lt;dbl&gt;, sstipvnode &lt;dbl&gt;, ssamongnodes &lt;dbl&gt;,
+#&gt; #   sswithinnodes &lt;dbl&gt;
 #&gt; 
 #&gt; $independent_contrasts
 #&gt; # A tibble: 31 × 17
-#&gt;     node  name   age N.nodes Contrast1 Contrast2 Contrast3 Contrast4
+#&gt;     node  name   age n.nodes contrast1 contrast2 contrast3 contrast4
 #&gt;    &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
 #&gt; 1      0     A     5       2  0.000000  0.000000  0.000000  0.254000
 #&gt; 2      1     B     4       2  0.000000  1.032795  0.000000  0.516398
@@ -168,22 +195,22 @@ phylo_str &lt;-<span class="st"> </span><span class="kw">readLines</span>(phylo_
 #&gt; 8     11     H     1       2  0.000000  0.000000  0.707107  0.000000
 #&gt; 9     14     I     1       2  0.000000  0.000000  0.707107  0.000000
 #&gt; 10    17     J     3       2  0.267261  0.534522  0.000000  0.000000
-#&gt; # ... with 21 more rows, and 9 more variables: ContrastSD &lt;dbl&gt;,
-#&gt; #   LowVal1 &lt;dbl&gt;, HiVal1 &lt;dbl&gt;, LowVal2 &lt;dbl&gt;, HiVal2 &lt;dbl&gt;,
-#&gt; #   LowVal3 &lt;dbl&gt;, HiVal3 &lt;dbl&gt;, LowVal4 &lt;dbl&gt;, HiVal4 &lt;dbl&gt;
+#&gt; # ... with 21 more rows, and 9 more variables: contrastsd &lt;dbl&gt;,
+#&gt; #   lowval1 &lt;dbl&gt;, hival1 &lt;dbl&gt;, lowval2 &lt;dbl&gt;, hival2 &lt;dbl&gt;,
+#&gt; #   lowval3 &lt;dbl&gt;, hival3 &lt;dbl&gt;, lowval4 &lt;dbl&gt;, hival4 &lt;dbl&gt;
 #&gt; 
 #&gt; $phylogenetic_signal
 #&gt; # A tibble: 4 × 5
-#&gt;    Trait NTaxa VarContr VarCn.rankLow VarCn.rankHi
+#&gt;    trait ntaxa varcontr varcn.ranklow varcn.rankhi
 #&gt;    &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;         &lt;int&gt;        &lt;int&gt;
 #&gt; 1 traitA    32    0.054             1         1000
 #&gt; 2 traitB    32    0.109             1         1000
-#&gt; 3 traitC    32    0.622            52          949
+#&gt; 3 traitC    32    0.622            59          942
 #&gt; 4 traitD    32    0.011             1         1000
 #&gt; 
 #&gt; $ind_contrast_corr
 #&gt; # A tibble: 3 × 6
-#&gt;   XTrait YTrait Ntaxa  PicR  nPos nCont
+#&gt;   xtrait ytrait ntaxa  picr  npos ncont
 #&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
 #&gt; 1 traitA traitB    32 0.248  18.5    31
 #&gt; 2 traitA traitC    32 0.485  27.5    31
@@ -203,11 +230,11 @@ phylo_str &lt;-<span class="st"> </span><span class="kw">readLines</span>(phylo_
 (res &lt;-<span class="st"> </span><span class="kw"><a href="reference/ph_bladj.html">ph_bladj</a></span>(<span class="dt">ages =</span> ages_df, <span class="dt">phylo =</span> phylo_str))</code></pre></div>
 <pre><code>#&gt; [1] "((((((lomatium_concinnum:20.250000,campanula_vandesii:20.250000):20.250000,(((veronica_candidissima:10.125000,penstemon_paniculatus:10.125000)plantaginaceae:10.125000,justicia_oblonga:20.250000):10.125000,marsdenia_gilgiana:30.375000):10.125000):10.125000,epacris_alba-compacta:50.625000)ericales_to_asterales:10.125000,((daphne_anhuiensis:20.250000,syzygium_cumini:20.250000)malvids:20.250000,ditaxis_clariana:40.500000):20.250000):10.125000,thalictrum_setulosum:70.875000)eudicots:10.125000,((dendrocalamus_giganteus:27.000000,guzmania_densiflora:27.000000)poales:27.000000,warczewiczella_digitata:54.000000):27.000000)malpighiales:1.000000;\n"
 #&gt; attr(,"ages_file")
-#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/ages"
+#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/ages"
 #&gt; attr(,"phylo_file")
-#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpBFZlyP/phylo_7c5324dc0b4e"</code></pre>
+#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpHQKtsq/phylo_12f92cd47482"</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(phytools::<span class="kw">read.newick</span>(<span class="dt">text =</span> res))</code></pre></div>
-<p><img src="inst/img/unnamed-chunk-7-1.png" width="672"></p>
+<p><img src="inst/img/unnamed-chunk-8-1.png" width="672"></p>
 </div>
 <div id="meta" class="section level2">
 <h2 class="hasAnchor">
@@ -244,7 +271,8 @@ phylo_str &lt;-<span class="st"> </span><span class="kw">readLines</span>(phylo_
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/ropensci/phylocomr"><img src="https://travis-ci.org/ropensci/phylocomr.svg?branch=master" alt="Build Status"></a></li>
-<li><a href="https://ci.appveyor.com/project/jeroenooms/phylocomr"><img src="https://ci.appveyor.com/api/projects/status/github/ropensci/phylocomr?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
+<li><a href="https://ci.appveyor.com/project/jeroen/phylocomr"><img src="https://ci.appveyor.com/api/projects/status/github/ropensci/phylocomr?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
+<li><a href="https://codecov.io/gh/ropensci/phylocomr"><img src="https://codecov.io/gh/ropensci/phylocomr/branch/master/graph/badge.svg" alt="codecov"></a></li>
 </ul>
 </body></html>
 </div>
