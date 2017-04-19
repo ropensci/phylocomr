@@ -5,11 +5,11 @@
 \alias{ph_comdistnt}
 \title{comdist}
 \usage{
-ph_comdist(sample, phylo, null_model = 0, randomizations = 999,
-  abundance = TRUE)
+ph_comdist(sample, phylo, rand_test = FALSE, null_model = 0,
+  randomizations = 999, abundance = TRUE)
 
-ph_comdistnt(sample, phylo, null_model = 0, randomizations = 999,
-  abundance = TRUE)
+ph_comdistnt(sample, phylo, rand_test = FALSE, null_model = 0,
+  randomizations = 999, abundance = TRUE)
 }
 \arguments{
 \item{sample}{(data.frame/character) sample data.frame or path to a
@@ -19,6 +19,8 @@ sample file}
 written to a temp file) - OR path to file with a newick
 string - OR a an \pkg{ape} `phylo` object. required.}
 
+\item{rand_test}{(logical) do you want to use null models? Default: FALSE}
+
 \item{null_model}{(integer) which null model to use. See Details.}
 
 \item{randomizations}{(numeric) number of randomizations. Default: 999}
@@ -27,7 +29,7 @@ string - OR a an \pkg{ape} `phylo` object. required.}
 for abundance. Otherwise, uses presence-absence.}
 }
 \value{
-data.frame
+data.frame or a list of data.frame's if use null models
 }
 \description{
 Outputs the phylogenetic distance between samples, based on phylogenetic
@@ -70,6 +72,8 @@ sampledf <- read.table(sfile, header = FALSE,
 phylo_str <- readLines(pfile)
 ph_comdist(sample = sampledf, phylo = phylo_str)
 ph_comdistnt(sample = sampledf, phylo = phylo_str)
+ph_comdist(sample = sampledf, phylo = phylo_str, rand_test = TRUE)
+ph_comdistnt(sample = sampledf, phylo = phylo_str, rand_test = TRUE)
 
 # from files
 sample_str <- paste0(readLines(sfile), collapse = "\\n")
@@ -79,4 +83,6 @@ pfile2 <- tempfile()
 cat(phylo_str, file = pfile2, sep = '\\n')
 ph_comdist(sample = sfile2, phylo = pfile2)
 ph_comdistnt(sample = sfile2, phylo = pfile2)
+ph_comdist(sample = sfile2, phylo = pfile2, rand_test = TRUE)
+ph_comdistnt(sample = sfile2, phylo = pfile2, rand_test = TRUE)
 }
