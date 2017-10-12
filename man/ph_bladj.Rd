@@ -33,9 +33,9 @@ phylo_file <- system.file("examples/phylo_bladj", package = "phylocomr")
 
 # from data.frame
 ages_df <- data.frame(
-  a = c('malpighiales','salicaceae','fabaceae','rosales','oleaceae',
-        'gentianales','apocynaceae','rubiaceae'),
-  b = c(81,20,56,76,47,71,18,56)
+  a = c('malpighiales','eudicots','ericales_to_asterales','plantaginaceae',
+        'malvids', 'poales'),
+  b = c(81, 20, 56, 76, 47, 71)
 )
 phylo_str <- readLines(phylo_file)
 (res <- ph_bladj(ages = ages_df, phylo = phylo_str))

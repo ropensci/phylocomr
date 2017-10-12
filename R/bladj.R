@@ -20,9 +20,9 @@
 #'
 #' # from data.frame
 #' ages_df <- data.frame(
-#'   a = c('malpighiales','salicaceae','fabaceae','rosales','oleaceae',
-#'         'gentianales','apocynaceae','rubiaceae'),
-#'   b = c(81,20,56,76,47,71,18,56)
+#'   a = c('malpighiales','eudicots','ericales_to_asterales','plantaginaceae',
+#'         'malvids', 'poales'),
+#'   b = c(81, 20, 56, 76, 47, 71)
 #' )
 #' phylo_str <- readLines(phylo_file)
 #' (res <- ph_bladj(ages = ages_df, phylo = phylo_str))
@@ -50,6 +50,7 @@ ph_bladj <- function(ages, phylo) {
 
   if (inherits(ages, "data.frame")) {
     afile <- file.path(tempdir(), "ages")
+    unlink(afile, force = TRUE)
     utils::write.table(ages, file = afile, quote = FALSE, row.names = FALSE)
     ages <- afile
   }
