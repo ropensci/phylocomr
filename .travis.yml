@@ -6,9 +6,11 @@ matrix:
     - os: linux
       dist: precise
       sudo: false
+      apt_packages: libapparmor-dev
     - os: linux
       dist: trusty
       sudo: required
+      apt_packages: libapparmor-dev
       env: R_CODECOV=true
     - os: osx
       osx_image: xcode8.1
