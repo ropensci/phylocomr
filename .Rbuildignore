@@ -13,3 +13,4 @@ README.Rmd
 man-roxygen
 docs
 .github
+^codemeta\.json$
