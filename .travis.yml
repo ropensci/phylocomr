@@ -4,7 +4,7 @@ cache: packages
 matrix:
   include:
     - os: linux
-      dist: precise
+      dist: trusty
       sudo: false
       apt_packages: libapparmor-dev
     - os: linux
@@ -12,12 +12,9 @@ matrix:
       sudo: required
       apt_packages: libapparmor-dev
       env: R_CODECOV=true
-    - os: osx
-      osx_image: xcode8.1
-      latex: false
-    - os: osx
-      osx_image: beta-xcode6.1
-      latex: false
+
+r_binary_packages:
+  - devtools
 
 r_github_packages:
   - jimhester/covr
