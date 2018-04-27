@@ -24,7 +24,6 @@ those cases.
 }
 \section{Package API}{
 
-
 \itemize{
 \item \code{\link[=ecovolve]{ecovolve()}}/\code{\link[=ph_ecovolve]{ph_ecovolve()}} - interface to \code{ecovolve} executable,
 and a higher level interface

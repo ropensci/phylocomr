@@ -12,8 +12,8 @@
 #' @param trait_contrasts (numeric) Specify which trait should be used as 'x'
 #' variable for contrasts. Default: 1
 #' @param ebl_unstconst (logical) Use equal branch lengths and unstandardized
-#' contrasts. Default: \code{FALSE}
-#' @return a list of data.frames, ...
+#' contrasts. Default: `FALSE`
+#' @return a list of data.frames
 #' @examples
 #' traits_file <- system.file("examples/traits_aot", package = "phylocomr")
 #' phylo_file <- system.file("examples/phylo_aot", package = "phylocomr")
@@ -33,8 +33,6 @@
 #' phylo_file2 <- tempfile()
 #' cat(phylo_str, file = phylo_file2, sep = '\n')
 #' (res <- ph_aot(traits_file2, phylo_file2))
-#'
-#'
 
 ph_aot <- function(traits, phylo, randomizations = 999, trait_contrasts = 1,
                    ebl_unstconst = FALSE) {

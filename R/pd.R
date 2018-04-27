@@ -8,13 +8,13 @@
 #' sample file. required
 #' @template phylo
 #' @return A single data.frame, with the colums:
-#' \itemize{
-#'  \item sample - community name/label
-#'  \item ntaxa - number of taxa
-#'  \item pd - Faith's phylogenetic diversity
-#'  \item treebl - tree BL
-#'  \item proptreebl - proportion tree BL
-#' }
+#' 
+#' - sample - community name/label
+#' - ntaxa - number of taxa
+#' - pd - Faith's phylogenetic diversity
+#' - treebl - tree BL
+#' - proptreebl - proportion tree BL
+#' 
 #' @family phylogenetic-diversity
 #' @examples
 #' sfile <- system.file("examples/sample_comstruct", package = "phylocomr")

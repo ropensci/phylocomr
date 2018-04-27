@@ -7,7 +7,8 @@
 #' @param sample (data.frame/character) sample data.frame or path to a
 #' sample file
 #' @template phylo
-#' @param rand_test (logical) do you want to use null models? Default: FALSE
+#' @param rand_test (logical) do you want to use null models? 
+#' Default: `FALSE`
 #' @template com_args
 #' @template com_null_models
 #' @return data.frame or a list of data.frame's if use null models

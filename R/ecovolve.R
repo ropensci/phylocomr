@@ -20,21 +20,20 @@
 #' Default: `FALSE`
 #' @param taper_change (numeric/integer) Taper character change by
 #' `e^(-time/F)`. This produces more conservatism in traits
-#' (see Kraft et al., 2007). Default: NULL, not passed
+#' (see Kraft et al., 2007). Default: `NULL`, not passed
 #' @param competition (logical) Simulate competition, with trait proximity
 #' increasing extinction. Default: `FALSE`
 #' @return a list with three elements:
-#' \itemize{
-#'  \item phylogeny - a phylogeny as a newick string. In the case of
+#' 
+#' - phylogeny - a phylogeny as a newick string. In the case of
 #'  `out_mode = 2` gives a Lineage Through Time data.frame instead of a
 #'  newick phylogeny
-#'  \item sample - a data.frame with three columns, "sample" (all "alive"),
+#' - sample - a data.frame with three columns, "sample" (all "alive"),
 #'  "abundance" (all 1's), "name" (the species code). In the case of
 #'  `out_mode = 2` gives an empty data.frame
-#'  \item traits - a data.frame with first column with spcies code ("name"),
+#' - traits - a data.frame with first column with spcies code ("name"),
 #'  then 5 randomly evolved and independent traits. In the case of
 #'  `out_mode = 2` gives an empty data.frame
-#' }
 #'
 #' @section Clean up:
 #' Two files, "ecovolve.sample" and "ecovolve.traits" are written to the
@@ -46,7 +45,7 @@
 #' with status 8. only 1 taxon; > 1 required" - this just means that only
 #' 1 taxon was created in the random process, so the function can't proceed
 #'
-#' @examples
+#' @examples \dontrun{
 #' # ph_ecovolve(speciation = 0.05)
 #' # ph_ecovolve(speciation = 0.1)
 #' ph_ecovolve(extinction = 0.005)
@@ -63,6 +62,7 @@
 #' # library(ape)
 #' # x <- ph_ecovolve(speciation = 0.05)
 #' # plot(read.tree(text = x$phylogeny))
+#' }
 
 ph_ecovolve <- function(speciation = 0.05, extinction = 0.01, time_units = 100,
   out_mode = 3, prob_env = '3211000000', extant_lineages = FALSE,

@@ -19,7 +19,8 @@ sample file}
 written to a temp file) - OR path to file with a newick
 string - OR a an \pkg{ape} `phylo` object. required.}
 
-\item{rand_test}{(logical) do you want to use null models? Default: FALSE}
+\item{rand_test}{(logical) do you want to use null models?
+Default: \code{FALSE}}
 
 \item{null_model}{(integer) which null model to use. See Details.}
 

@@ -30,7 +30,7 @@ Default: \code{FALSE}}
 
 \item{taper_change}{(numeric/integer) Taper character change by
 \code{e^(-time/F)}. This produces more conservatism in traits
-(see Kraft et al., 2007). Default: NULL, not passed}
+(see Kraft et al., 2007). Default: \code{NULL}, not passed}
 
 \item{competition}{(logical) Simulate competition, with trait proximity
 increasing extinction. Default: \code{FALSE}}
@@ -70,6 +70,7 @@ with status 8. only 1 taxon; > 1 required" - this just means that only
 }
 
 \examples{
+\dontrun{
 # ph_ecovolve(speciation = 0.05)
 # ph_ecovolve(speciation = 0.1)
 ph_ecovolve(extinction = 0.005)
@@ -86,4 +87,5 @@ ph_ecovolve(taper_change = 500)
 # library(ape)
 # x <- ph_ecovolve(speciation = 0.05)
 # plot(read.tree(text = x$phylogeny))
+}
 }

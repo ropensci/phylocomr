@@ -8,36 +8,33 @@
 #' sample file
 #' @template phylo
 #' @return A list of 6 data.frame's:
-#' \strong{Diversity components}:
-#' \itemize{
-#'  \item overall alpha (within-site)
-#'  \item beta (among-site)
-#'  \item total diversity
-#'  \item Fst statistic of differentiation for diversity and phylogenetic
+#' **Diversity components**:
+#' 
+#' - overall alpha (within-site)
+#' - beta (among-site)
+#' - total diversity
+#' - Fst statistic of differentiation for diversity and phylogenetic
 #'  diversity
-#' }
 #'
-#' \strong{Within-community diversity}:
-#' \itemize{
-#'  \item Plot - Plot name
-#'  \item NSpp - Number of species
-#'  \item NIndiv - Number of individuals
-#'  \item PropIndiv - Proportion of all individuals found in this plot
-#'  \item D - Diversity (= Simpson’s diversity)
-#'  \item Dp - Phylogenetic diversity (= Diversity weighted by interspecific
+#' **Within-community diversity**:
+#'
+#' - Plot - Plot name
+#' - NSpp - Number of species
+#' - NIndiv - Number of individuals
+#' - PropIndiv - Proportion of all individuals found in this plot
+#' - D - Diversity (= Simpson’s diversity)
+#' - Dp - Phylogenetic diversity (= Diversity weighted by interspecific
 #'  phylogenetic distances)
-#' }
 #'
 #' The remaining 4 tables compare each community pairwise:
-#' \itemize{
-#'  \item among_community_diversity_d - Among-community diversities
-#'  \item among_community_diversity_h - Among-community diversities excluding
+#' 
+#' - among_community_diversity_d - Among-community diversities
+#' - among_community_diversity_h - Among-community diversities excluding
 #'  within-community diversity
-#'  \item among_community_phylogenetic_diversity_dp - Among-community
+#' - among_community_phylogenetic_diversity_dp - Among-community
 #'  phylogenetic diversities
-#'  \item among_community_phylogenetic_diversity_hp - Among-community
+#' - among_community_phylogenetic_diversity_hp - Among-community
 #'  phylogenetic diversities excluding within-community diversity
-#' }
 #'
 #' @family phylogenetic-diversity
 #' @examples

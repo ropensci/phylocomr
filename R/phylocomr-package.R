@@ -17,19 +17,17 @@
 #'
 #' @section Package API:
 #'
-#' \itemize{
-#'  \item [ecovolve()]/[ph_ecovolve()] - interface to `ecovolve` executable,
+#' - [ecovolve()]/[ph_ecovolve()] - interface to `ecovolve` executable,
 #'  and a higher level interface
-#'  \item [phylomatic()]/[ph_phylomatic()] - interface to `phylomatic`
+#' - [phylomatic()]/[ph_phylomatic()] - interface to `phylomatic`
 #'  executable, and a higher level interface
-#'  \item [phylocom()] - interface to `phylocom` executable
-#'  \item [ph_aot()] - higher level interface to `aot`
-#'  \item [ph_bladj()] - higher level interface to `bladj`
-#'  \item [ph_comdist()]/[ph_comdistnt()] - higher level interface to comdist
-#'  \item [ph_comstruct()] - higher level interface to comstruct
-#'  \item [ph_comtrait()] - higher level interface to comtrait
-#'  \item [ph_pd()] - higher level interface to Faith's phylogenetic diversity
-#' }
+#' - [phylocom()] - interface to `phylocom` executable
+#' - [ph_aot()] - higher level interface to `aot`
+#' - [ph_bladj()] - higher level interface to `bladj`
+#' - [ph_comdist()]/[ph_comdistnt()] - higher level interface to comdist
+#' - [ph_comstruct()] - higher level interface to comstruct
+#' - [ph_comtrait()] - higher level interface to comtrait
+#' - [ph_pd()] - higher level interface to Faith's phylogenetic diversity
 #'
 #' @name phylocomr-package
 #' @aliases phylocomr

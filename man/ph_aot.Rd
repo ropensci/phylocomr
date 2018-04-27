@@ -24,7 +24,7 @@ variable for contrasts. Default: 1}
 contrasts. Default: \code{FALSE}}
 }
 \value{
-a list of data.frames, ...
+a list of data.frames
 }
 \description{
 AOT conducts univariate and bivariate tests of phylogenetic signal and
@@ -50,6 +50,4 @@ cat(traits_str, file = traits_file2, sep = '\\n')
 phylo_file2 <- tempfile()
 cat(phylo_str, file = phylo_file2, sep = '\\n')
 (res <- ph_aot(traits_file2, phylo_file2))
-
-
 }
