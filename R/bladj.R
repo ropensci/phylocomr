@@ -12,7 +12,7 @@
 #' @template phylo
 #' @return newick string with attributes for where ages and phylo files
 #' used are stored
-#' @examples
+#' @examples \dontrun{
 #' library(ape)
 #'
 #' ages_file <- system.file("examples/ages", package = "phylocomr")
@@ -43,6 +43,7 @@
 #' (res <- ph_bladj(ages_file2, x))
 #' tree <- read.tree(text = res)
 #' plot(tree)
+#' }
 
 ph_bladj <- function(ages, phylo) {
   assert(ages, c("data.frame", "character"))

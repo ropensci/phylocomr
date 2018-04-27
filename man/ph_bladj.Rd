@@ -26,6 +26,7 @@ and between dated nodes and terminals (beginning with the longest
 'chains').
 }
 \examples{
+\dontrun{
 library(ape)
 
 ages_file <- system.file("examples/ages", package = "phylocomr")
@@ -56,4 +57,5 @@ plot(x)
 (res <- ph_bladj(ages_file2, x))
 tree <- read.tree(text = res)
 plot(tree)
+}
 }
