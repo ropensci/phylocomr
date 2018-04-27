@@ -3,7 +3,7 @@
 ^inst/bin$
 src/empty.dll$
 .travis.yml
-CONDUCT.md
+CODE_OF_CONDUCT.md
 README.Rmd
 ^src/.*\.o$
 ^src/.*\.a$
