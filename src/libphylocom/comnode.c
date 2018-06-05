@@ -22,7 +22,7 @@ void Comnode(phylo t1, phylo t2)
   int *comlist2n; // the number of items in *comlist
   char tmp[50];
 
-  phylo Out[1];
+  // phylo Out[1]; not used
 
   strcpy(t1.phyname, "Tree1");
   // t1.arenotes = 1;
@@ -225,10 +225,10 @@ void Comnode(phylo t1, phylo t2)
   Fy2newRec(t2);
   printf("END;\n");
 
-  Out[0] = t1;
+  // Out[0] = t1;  not used
   //WriteNexus(Out, 1, InS, 0 , InC, 0 );
 
-  Out[0] = t2;
+  // Out[0] = t2;  not used
   //WriteNexus(Out, 1, InS, 0 , InC, 0 );
 
 }

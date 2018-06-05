@@ -54,7 +54,7 @@
 #' ph_ecovolve(extant_lineages = TRUE)
 #' ph_ecovolve(extant_lineages = FALSE)
 #' ph_ecovolve(only_extant = FALSE)
-#' ph_ecovolve(only_extant = TRUE)
+#' ph_ecovolve(only_extant = TRUE, speciation = 0.1)
 #' ph_ecovolve(taper_change = 2)
 #' ph_ecovolve(taper_change = 10)
 #' ph_ecovolve(taper_change = 500)

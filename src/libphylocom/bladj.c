@@ -13,7 +13,7 @@ void Bladj(phylo Intree)
   int *AgeFixed;
   char nameI[50];
   float ageI;
-  int matched;
+  // int matched; not used
   char line[201];  // array of characters from input line
   int lineending;
 
@@ -45,14 +45,14 @@ void Bladj(phylo Intree)
   while (myfgets(line, 200, Fa, lineending) != NULL)
     {
       sscanf(line, "%s %f", nameI, &ageI); // string
-      matched = 0;
+      // matched = 0;  not used
       for (z = 0; z < Intree.nnodes; z++)
         {
           if (strcmp(Intree.taxon[z], nameI) == 0)
             {
               Intree.age[z] = ageI;
               AgeFixed[z] = 1;
-              matched = 1;
+              // matched = 1;  not used
             }
         }
     }

@@ -19,7 +19,8 @@ void PSigRun(traits T, phylo P, int Output, int xVar, int aotOut) {
   // used without randomization. Print statements output results and
   // significance for trait conservatism and independent contrasts
 
-  int i, j, k, cx, run, depth, node, dtx, dtxlow, dtxhi, swap, tmp, bin;
+  int i, j, k, run, depth, node, dtx, dtxlow, dtxhi, swap, tmp, bin;
+  // cx, commented out for now
   int RunNum = 0; // set to 1 to track run # for big jobs
   //int Debug = 0; // set to 1 for verbose output during development
   int inclContrasts = 0;
@@ -216,7 +217,8 @@ void PSigRun(traits T, phylo P, int Output, int xVar, int aotOut) {
 
   // contrast x variable - default is 0 - add flag later for user
   // to specify another variable as x
-  cx = 0;
+  // commented out for now
+  // cx = 0; 
 
   //Allocate vectors and matrices
 
@@ -1757,7 +1759,7 @@ void RandArrayT(int **RndArr, int nTaxa, int run, int nTraits) {
   // Produces a random list from 0 to n-1 inclusive for each trait
   // IF TRAITS ARE KEPT TOGETHER, THEN TEST IS FOR EFFECTS OF PHYLOGENY
   int data[nTaxa];
-  int i, j, loop, size, pick, t;
+  unsigned int i, j, loop, size, pick, t;
 
   //printf("%d\n", n);
   for (t = 0; t < nTraits; t++) {
