@@ -92,7 +92,7 @@ ph_aot(traits = traits, phylo = phylo_str)
 
 ## bladj
 
-```{r}
+```r
 ages_file <- system.file("examples/ages", package = "phylocomr")
 phylo_file <- system.file("examples/phylo_bladj", package = "phylocomr")
 ages_df <- data.frame(
@@ -101,6 +101,8 @@ ages_df <- data.frame(
   b = c(81,20,56,76,47,71,18,56)
 )
 phylo_str <- readLines(phylo_file)
-(res <- ph_bladj(ages = ages_df, phylo = phylo_str))
+res <- ph_bladj(ages = ages_df, phylo = phylo_str)
 plot(read.tree(text = res))
 ```
+
+![plot](img/blad_tree.png)
