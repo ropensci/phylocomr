@@ -1,17 +1,20 @@
 language: r
 cache: packages
+dist: trusty
+sudo: required
 
 matrix:
   include:
     - os: linux
-      dist: trusty
-      sudo: false
-      apt_packages: libapparmor-dev
-    - os: linux
-      dist: trusty
-      sudo: required
-      apt_packages: libapparmor-dev
+      r: release
       env: R_CODECOV=true
+    - os: linux
+      r: devel
+
+addons:
+  apt:
+    packages: 
+      - libapparmor-dev
 
 r_binary_packages:
   - devtools
