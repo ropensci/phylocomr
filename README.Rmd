@@ -10,9 +10,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![cran checks](https://cranchecks.info/badges/worst/phylocomr)](https://cranchecks.info/pkgs/phylocomr)
 [![Build Status](https://travis-ci.org/ropensci/phylocomr.svg?branch=master)](https://travis-ci.org/ropensci/phylocomr)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/phylocomr?branch=master&svg=true)](https://ci.appveyor.com/project/jeroen/phylocomr)
 [![codecov](https://codecov.io/gh/ropensci/phylocomr/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/phylocomr)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/phylocomr)](https://github.com/metacran/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/phylocomr)](https://cran.r-project.org/package=phylocomr)
 
 `phylocomr` gives you access to the [Phylocom C library](https://github.com/phylocom/phylocom/).
 
@@ -41,8 +44,7 @@ install.packages("phylocomr")
 Development version:
 
 ```{r eval=FALSE}
-install.packages("devtools")
-devtools::install_github("ropensci/phylocomr")
+remotes::install_github("ropensci/phylocomr")
 ```
 
 ```{r}
