@@ -32,7 +32,8 @@ test_that("ph_bladj works with data.frame input", {
 
 test_that("ph_bladj works with file input", {
   skip_on_appveyor()
-  
+  skip_on_cran()
+
   ages_file2 <- file.path(tempdir(), "ages")
   write.table(ages_df, file = ages_file2, row.names = FALSE,
     col.names = FALSE, quote = FALSE)
