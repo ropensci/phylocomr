@@ -19,6 +19,8 @@ traitsdf <- read.table(text = readLines(traitsdf_file), header = TRUE,
    stringsAsFactors = FALSE)
 
 test_that("ph_comtrait works with data.frame input", {
+  skip_on_appveyor()
+
   aa <- ph_comtrait(sample = sampledf, traits = traitsdf,
     binary = c(FALSE, FALSE, FALSE, TRUE))
 
@@ -35,6 +37,8 @@ test_that("ph_comtrait works with data.frame input", {
 })
 
 test_that("ph_comtrait works with file input", {
+  skip_on_appveyor()
+
   aa <- ph_comtrait(sample = sfile2, traits = tfile2)
 
   expect_is(aa, "data.frame")
@@ -51,6 +55,8 @@ test_that("ph_comtrait works with file input", {
 
 
 test_that("ph_comtrait - different models give expected output", {
+  skip_on_appveyor()
+  
   n0 <- ph_comtrait(sample = sfile2, traits = tfile2, null_model = 0)
   n1 <- ph_comtrait(sample = sfile2, traits = tfile2, null_model = 1)
 
