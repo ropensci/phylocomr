@@ -14,6 +14,9 @@ phylo_file <- system.file("examples/phylo_bladj", package = "phylocomr")
 phylo_str <- readLines(phylo_file)
 
 test_that("ph_bladj works with data.frame input", {
+  skip_on_appveyor()
+  skip_on_cran()
+  
   aa <- ph_bladj(ages = ages_df, phylo = phylo_str)
 
   expect_is(aa, "character")
