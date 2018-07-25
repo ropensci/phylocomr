@@ -57,7 +57,7 @@
 #' - rankhigh - Number of randomizations with metric higher than observed
 #' - runs - Number of randomizations
 #' 
-#' @examples
+#' @examples \dontrun{
 #' sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 #' tfile <- system.file("examples/traits_aot", package = "phylocomr")
 #'
@@ -81,6 +81,7 @@
 #'   stringsAsFactors = FALSE)
 #' ph_comtrait(sample = sampledf, traits = traitsdf,
 #'   binary = c(FALSE, FALSE, FALSE, TRUE))
+#' }
 ph_comtrait <- function(sample, traits, binary = NULL, metric = "variance",
                         null_model = 0, randomizations = 999,
                         abundance = TRUE) {
