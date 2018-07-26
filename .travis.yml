@@ -18,6 +18,7 @@ addons:
 
 r_binary_packages:
   - devtools
+  - ape
 
 r_github_packages:
   - jimhester/covr
