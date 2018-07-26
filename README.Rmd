@@ -48,7 +48,6 @@ remotes::install_github("ropensci/phylocomr")
 
 ```{r}
 library("phylocomr")
-library("phytools")
 library("ape")
 ```
 
@@ -92,7 +91,7 @@ ages_df <- data.frame(
 )
 phylo_str <- readLines(phylo_file)
 (res <- ph_bladj(ages = ages_df, phylo = phylo_str))
-plot(phytools::read.newick(text = res))
+plot(ape::read.tree(text = res))
 ```
 
 ## Meta
