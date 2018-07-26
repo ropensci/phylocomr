@@ -60,7 +60,6 @@ taxa_check <- function(x, name = "taxa") {
 phylo_check <- function(x) {
   stopifnot(class(x) %in% c('phylo', 'character'))
   if (inherits(x, "phylo")) {
-    #tree <- ape::write.tree(x)
     tree <- write_tree_(x)
     pfile <- tempfile("phylo_")
     cat(tree, file = pfile, sep = "\n")

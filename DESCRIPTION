@@ -22,12 +22,12 @@ VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 Imports:
     tibble,
-    sys (>= 1.1),
-    ape
+    sys (>= 1.1)
 Suggests:
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    ape
 RoxygenNote: 6.0.1
 X-schema.org-applicationCategory: Biodiversity
 X-schema.org-keywords: phylogeny, Phylocom, phylodiversity, community structure, character evolution, species

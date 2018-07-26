@@ -59,9 +59,12 @@
 #' # ph_ecovolve(taper_change = 10)
 #' # ph_ecovolve(taper_change = 500)
 #'
-#' # library(ape)
-#' # x <- ph_ecovolve(speciation = 0.05)
-#' # plot(read.tree(text = x$phylogeny))
+#' if (requireNamespace("ape")) {
+#'   # library(ape)
+#'   # x <- ph_ecovolve(speciation = 0.05)
+#'   # plot(read.tree(text = x$phylogeny))
+#' }
+#' 
 #' }
 
 ph_ecovolve <- function(speciation = 0.05, extinction = 0.01, time_units = 100,

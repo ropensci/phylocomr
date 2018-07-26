@@ -28,8 +28,6 @@
 #' each line
 #'
 #' @examples
-#' library(ape)
-#'
 #' taxa_file <- system.file("examples/taxa", package = "phylocomr")
 #' phylo_file <- system.file("examples/phylo", package = "phylocomr")
 #'
@@ -44,7 +42,11 @@
 #' phylo_file2 <- tempfile()
 #' cat(phylo_str, file = phylo_file2, sep = '\n')
 #' (tree <- ph_phylomatic(taxa = taxa_file2, phylo = phylo_file2))
-#' plot(read.tree(text = tree))
+#' 
+#' if (requireNamespace("ape")) {
+#'   library(ape)
+#'   plot(read.tree(text = tree))
+#' }
 ph_phylomatic <- function(taxa, phylo, tabular = FALSE, lowercase = FALSE,
                           nodes = FALSE) {
   assert(taxa, "character")

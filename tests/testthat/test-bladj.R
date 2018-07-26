@@ -1,7 +1,5 @@
 context("ph_bladj")
 
-library(ape)
-
 ages_df <- data.frame(
   a = c('malpighiales','salicaceae','fabaceae','rosales','oleaceae',
         'gentianales','apocynaceae','rubiaceae'),
@@ -29,8 +27,11 @@ test_that("ph_bladj works with data.frame input", {
   expect_match(aa, "poales")
   expect_match(aa, "ericales_to_asterales")
 
-  tree <- read.tree(text = aa)
-  expect_is(tree, "phylo")
+  if (requireNamespace('ape')) {
+    library(ape)
+    tree <- read.tree(text = aa)
+    expect_is(tree, "phylo")
+  }
 })
 
 test_that("ph_bladj works with file input", {
@@ -55,8 +56,11 @@ test_that("ph_bladj works with file input", {
   expect_match(aa, "poales")
   expect_match(aa, "ericales_to_asterales")
 
-  tree <- read.tree(text = aa)
-  expect_is(tree, "phylo")
+  if (requireNamespace('ape')) {
+    library(ape)
+    tree <- read.tree(text = aa)
+    expect_is(tree, "phylo")
+  }
 })
 
 test_that("ph_bladj fails well", {

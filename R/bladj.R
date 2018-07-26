@@ -13,8 +13,6 @@
 #' @return newick string with attributes for where ages and phylo files
 #' used are stored
 #' @examples \dontrun{
-#' library(ape)
-#'
 #' ages_file <- system.file("examples/ages", package = "phylocomr")
 #' phylo_file <- system.file("examples/phylo_bladj", package = "phylocomr")
 #'
@@ -26,7 +24,10 @@
 #' )
 #' phylo_str <- readLines(phylo_file)
 #' (res <- ph_bladj(ages = ages_df, phylo = phylo_str))
-#' plot(read.tree(text = res))
+#' if (requireNamespace("ape")) {
+#'   library(ape)
+#'   plot(read.tree(text = res))
+#' }
 #'
 #' # from files
 #' ages_file2 <- file.path(tempdir(), "ages")
@@ -35,14 +36,24 @@
 #' phylo_file2 <- tempfile()
 #' cat(phylo_str, file = phylo_file2, sep = '\n')
 #' (res <- ph_bladj(ages_file2, phylo_file2))
-#' plot(read.tree(text = res))
+#' if (requireNamespace("ape")) {
+#'   library(ape)
+#'   plot(read.tree(text = res))
+#' }
 #'
 #' # using a ape phylo phylogeny object
 #' x <- read.tree(text = phylo_str)
-#' plot(x)
+#' if (requireNamespace("ape")) {
+#'   library(ape)
+#'   plot(x)
+#' }
+#' 
 #' (res <- ph_bladj(ages_file2, x))
-#' tree <- read.tree(text = res)
-#' plot(tree)
+#' if (requireNamespace("ape")) {
+#'   library(ape)
+#'   tree <- read.tree(text = res)
+#'   plot(tree)
+#' }
 #' }
 
 ph_bladj <- function(ages, phylo) {

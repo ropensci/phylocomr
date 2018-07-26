@@ -8,8 +8,6 @@ test_that("phylomatic executable works", {
 
 context("ph_phylomatic")
 
-library(ape)
-
 taxa_file <- system.file("examples/taxa", package = "phylocomr")
 phylo_file <- system.file("examples/phylo", package = "phylocomr")
 
@@ -29,8 +27,11 @@ test_that("ph_phylomatic works with chr string input", {
   expect_match(aa, "narcissus_cuatrecasasii")
   expect_match(aa, "poales_to_asterales")
 
-  tree <- read.tree(text = aa)
-  expect_is(tree, "phylo")
+  if (requireNamespace('ape')) {
+    library(ape)
+    tree <- read.tree(text = aa)
+    expect_is(tree, "phylo")
+  }
 })
 
 test_that("ph_phylomatic works with file input", {
@@ -49,8 +50,11 @@ test_that("ph_phylomatic works with file input", {
   expect_match(aa, "narcissus_cuatrecasasii")
   expect_match(aa, "poales_to_asterales")
 
-  tree <- read.tree(text = aa)
-  expect_is(tree, "phylo")
+  if (requireNamespace('ape')) {
+    library(ape)
+    tree <- read.tree(text = aa)
+    expect_is(tree, "phylo")
+  }
 })
 
 test_that("ph_phylomatic fails well", {

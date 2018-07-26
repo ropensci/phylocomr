@@ -84,8 +84,11 @@ with status 8. only 1 taxon; > 1 required" - this just means that only
 # ph_ecovolve(taper_change = 10)
 # ph_ecovolve(taper_change = 500)
 
-# library(ape)
-# x <- ph_ecovolve(speciation = 0.05)
-# plot(read.tree(text = x$phylogeny))
+if (requireNamespace("ape")) {
+  # library(ape)
+  # x <- ph_ecovolve(speciation = 0.05)
+  # plot(read.tree(text = x$phylogeny))
+}
+
 }
 }

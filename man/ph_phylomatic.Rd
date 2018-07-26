@@ -36,8 +36,6 @@ only one per line, and a newline (i.e., press ENTER) at the end of
 each line
 }
 \examples{
-library(ape)
-
 taxa_file <- system.file("examples/taxa", package = "phylocomr")
 phylo_file <- system.file("examples/phylo", package = "phylocomr")
 
@@ -52,7 +50,11 @@ cat(taxa_str, file = taxa_file2, sep = '\\n')
 phylo_file2 <- tempfile()
 cat(phylo_str, file = phylo_file2, sep = '\\n')
 (tree <- ph_phylomatic(taxa = taxa_file2, phylo = phylo_file2))
-plot(read.tree(text = tree))
+
+if (requireNamespace("ape")) {
+  library(ape)
+  plot(read.tree(text = tree))
+}
 }
 \references{
 Phylomatic is also available as a web service

@@ -65,7 +65,6 @@ devtools::install_github("ropensci/phylocomr")
 
 ```{r}
 library("phylocomr")
-library("ape")
 ```
 
 ## phylomatic
@@ -102,7 +101,11 @@ ages_df <- data.frame(
 )
 phylo_str <- readLines(phylo_file)
 res <- ph_bladj(ages = ages_df, phylo = phylo_str)
-plot(read.tree(text = res))
+
+if (requireNamespace("ape")) {
+  library(ape)
+  plot(read.tree(text = res))
+}
 ```
 
 ![plot](img/blad_tree.png)
