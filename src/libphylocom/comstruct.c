@@ -1134,7 +1134,7 @@ void NodeSig(phylo P, sample S, int outmethod, int abundWeighted) {
   int tipsReal_n[P.nnodes];
   float test_r[RUNS];
   char mark[2];
-  char tmp[15];
+  char tmp[30];
   int **tips_rn;
   // was: int tips_rn[RUNS][MaxNode+1];
   phylo Out[S.nsamples];
