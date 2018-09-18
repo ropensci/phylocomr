@@ -477,7 +477,7 @@ void Output(int t)
 void MakePhylo()
 {
   // needs to be final, so we can initialize the arrays based on Lineage results
-  char tmp[10];
+  char tmp[30];
   int x;
   int *prunex;
 

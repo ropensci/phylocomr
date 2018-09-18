@@ -114,7 +114,7 @@ void Fy2new(struct phylo O)
                               strcat(ClusterAt[O.up[i]], InteriorName[O.up[i]]);
                             }
 
-                          strcpy(ClusterAt[O.up[i]], ClusterAt[O.up[i]]);
+                          // strcpy(ClusterAt[O.up[i]], ClusterAt[O.up[i]]);
                           strcat(ClusterAt[O.up[i]], ":");
                           sprintf(blpr, "%f",  O.bl[O.up[i]] );
                           strcat(ClusterAt[O.up[i]], blpr); 

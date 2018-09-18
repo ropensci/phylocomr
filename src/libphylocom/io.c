@@ -457,7 +457,7 @@ void NewickToNexus(phylo P)
   //SWK - A Nexus wrapper takes a Newick file and makes it Mesquite readable
   time_t rawtime;
   int i;
-  char tmp[24];
+  char tmp[30];
 
   time ( &rawtime );
   strncpy(tmp , ctime(&rawtime), 24);
