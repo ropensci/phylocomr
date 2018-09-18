@@ -12,7 +12,7 @@ sample file. required}
 
 \item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
 written to a temp file) - OR path to file with a newick
-string - OR a an \pkg{ape} `phylo` object. required.}
+string - OR a an \pkg{ape} \code{phylo} object. required.}
 }
 \value{
 A single data.frame, with the colums:
@@ -51,3 +51,4 @@ ph_pd(sample = sfile2, phylo = pfile2)
 \seealso{
 Other phylogenetic-diversity: \code{\link{ph_rao}}
 }
+\concept{phylogenetic-diversity}

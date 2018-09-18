@@ -12,7 +12,7 @@ file. required.}
 
 \item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
 written to a temp file) - OR path to file with a newick
-string - OR a an \pkg{ape} `phylo` object. required.}
+string - OR a an \pkg{ape} \code{phylo} object. required.}
 }
 \value{
 newick string with attributes for where ages and phylo files

@@ -13,7 +13,7 @@ a temp file if provided) - OR a path to taxa file. Required. See Details.}
 
 \item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
 written to a temp file) - OR path to file with a newick
-string - OR a an \pkg{ape} `phylo` object. required.}
+string - OR a an \pkg{ape} \code{phylo} object. required.}
 
 \item{tabular}{(logical) Output a tabular representation of phylogeny.
 Default: \code{FALSE}}
@@ -60,6 +60,6 @@ if (requireNamespace("ape")) {
 Phylomatic is also available as a web service
 (https://github.com/camwebb/phylomatic-ws) - but is based on a different
 code base (https://github.com/camwebb/phylomatic-ws)
-See \href{https://doi.org/10.1111/j.1471-8286.2004.00829.x}{Webb and Donoghue (2005)}
+See \href{https://doi.org/10.1111/j.1471-8286.2004.00829.x}{ Webb and Donoghue (2005)}
 for more information on the goals of Phylomatic.
 }
