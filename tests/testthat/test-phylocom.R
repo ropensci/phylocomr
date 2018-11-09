@@ -10,6 +10,8 @@ test_that("phylocom executable works", {
 })
 
 test_that("phylocom fails well", {
+  skip_on_cran()
+
   expect_output(phylocom(args = 4),
                 "Oops! Command not recognized")
   expect_match(phylocom(args = 4, intern = TRUE),

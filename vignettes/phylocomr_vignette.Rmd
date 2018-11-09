@@ -29,10 +29,9 @@ Phylocom home page is at <http://phylodiversity.net/phylocom/>. The source code
 for Phylocom is at <https://github.com/phylocom/phylocom/>.
 
 Phylocom is usually used either on the command line or through the R package
-[picante](https://cran.r-project.org/package=picante), which has duplicated
-some of the Phylocom functionality.
+`picante`, which has duplicated some of the Phylocom functionality.
 
-Phylocom has been cited nearly [1000 times according to Google Scholar](https://scholar.google.com/scholar?cites=4771082488031811328&as_sdt=5,38&sciodt=1,38&hl=en),
+Phylocom has been cited nearly 1000 times according to Google Scholar,
 so is clearly a very widely used piece of software. The goal with this package
 is to make it even easier to use - and in particular, to incorporate its use into
 a reproducible workflow entirely in R instead of going to the shell/command line

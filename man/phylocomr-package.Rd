@@ -7,15 +7,17 @@
 \title{Phylocom interface}
 \description{
 \code{phylocomr} gives you access to Phylocom, specifically the
-\href{https://github.com/phylocom/phylocom/}{Phylocom C library}.
+Phylocom C library (https://github.com/phylocom/phylocom/),
+licensed under BSD 2-clause
+(http://www.opensource.org/licenses/bsd-license.php)
 }
 \details{
 This package isn't doing system calls to a separately installed Phylocom
 instance - but actually includes Phylocom itself in the package.
 
 Phylocom is usually used either on the command line or through the
-R package \href{https://cran.r-project.org/package=picante}{picante}, which
-has duplicated some of the Phylocom functionality.
+R package \pkg{picante}, which has duplicated some of the Phylocom
+functionality.
 
 In terms of performance, some functionality will be faster here than
 in \code{picante}, but the maintainers of \code{picante} have re-written some
