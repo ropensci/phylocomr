@@ -13,9 +13,12 @@ Authors@R: c(
     person("Scott", "Chamberlain", role = c("aut", "cre"),
         email = "sckott@protonmail.com", 
         comment = c(ORCID="0000-0003-1444-9135")),
-    person("Cam", "Webb", role = "cph"),
-    person("David", "Ackerly", role = "cph"),
-    person("Steven", "Kembel", role = "cph")
+    person("Cam", "Webb", role = "cph", 
+        comment = "Author of libphylocom (see AUTHORS and COPYRIGHT files for details)"),
+    person("David", "Ackerly", role = "cph",
+        comment = "Author of libphylocom (see AUTHORS and COPYRIGHT files for details)"),
+    person("Steven", "Kembel", role = "cph",
+        comment = "Author of libphylocom (see AUTHORS and COPYRIGHT files for details)")
     )
 URL: https://github.com/ropensci/phylocomr
 BugReports: https://github.com/ropensci/phylocomr/issues
