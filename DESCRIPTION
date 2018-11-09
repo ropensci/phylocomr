@@ -7,11 +7,16 @@ Description: Interface to 'Phylocom' (<http://phylodiversity.net/phylocom/>),
     the three executables, as well as higher level interfaces for methods
     like 'aot', 'ecovolve', 'bladj', 'phylomatic', and more.
 Version: 0.1.0
-Authors@R: c(person("Jeroen", "Ooms", role = "aut",
-    email = "jeroen@berkeley.edu"),
+Authors@R: c(
+    person("Jeroen", "Ooms", role = "aut",
+        email = "jeroen@berkeley.edu"),
     person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "sckott@protonmail.com", 
-    comment = c(ORCID="0000-0003-1444-9135")))
+        email = "sckott@protonmail.com", 
+        comment = c(ORCID="0000-0003-1444-9135")),
+    person("Cam", "Webb", role = "cph"),
+    person("David", "Ackerly", role = "cph"),
+    person("Steven", "Kembel", role = "cph")
+    )
 URL: https://github.com/ropensci/phylocomr
 BugReports: https://github.com/ropensci/phylocomr/issues
 License: MIT + file LICENSE
