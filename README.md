@@ -9,7 +9,7 @@ phylocomr
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/phylocomr)](https://github.com/metacran/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/phylocomr)](https://cran.r-project.org/package=phylocomr)
 
-`phylocomr` gives you access to the [Phylocom C library](https://github.com/phylocom/phylocom/).
+`phylocomr` gives you access to the [Phylocom C library](https://github.com/phylocom/phylocom/), licensed under [BSD 2-clause](http://www.opensource.org/licenses/bsd-license.php)
 
 ## Package API
 
@@ -55,28 +55,7 @@ ph_ecovolve(speciation = 0.05, extinction = 0.005, time_units = 50)
 ```
 
 ```
-#> $phylogeny
-#> [1] "((dead2:4.000000,sp7:19.000000)node1:15.000000,(dead5:5.000000,(sp8:11.000000,(sp9:3.000000,sp10:3.000000)node6:8.000000)node4:3.000000)node3:20.000000)node0:16.000000;\n"
-#> 
-#> $sample
-#> # A tibble: 4 x 3
-#>   sample abundance name 
-#>   <chr>      <int> <chr>
-#> 1 alive          1 sp7  
-#> 2 alive          1 sp8  
-#> 3 alive          1 sp9  
-#> 4 alive          1 sp10 
-#> 
-#> $traits
-#> # A tibble: 6 x 6
-#>   name  ecov0 ecov1 ecov2 ecov3 ecov4
-#>   <chr> <dbl> <dbl> <dbl> <dbl> <dbl>
-#> 1 dead2     2   -17     5    17    -8
-#> 2 dead5    -4    -3    -5     1     3
-#> 3 sp7       6   -14    18    16   -15
-#> 4 sp8      10   -21     4    -6    -1
-#> 5 sp9       6   -18     5    -4     0
-#> 6 sp10     -1   -23     8    -4    -1
+#> Error in file(file, "rt"): invalid 'description' argument
 ```
 
 ## phylomatic
@@ -109,9 +88,9 @@ ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
 ```
 #> [1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmp58xZbT/taxa_20f86538e35e"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpogI0jr/taxa_1524592b910d"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmp58xZbT/phylo_20f879d7643c"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpogI0jr/phylo_15243b401a37"
 ```
 
 ## aot
@@ -133,15 +112,15 @@ ph_aot(traits = traits, phylo = phylo_str)
 #>    trait trait.name  node name    age ntaxa n.nodes tip.mn tmn.ranklow
 #>    <int> <chr>      <int> <chr> <dbl> <int>   <int>  <dbl>       <int>
 #>  1     1 traitA         0 A         5    32       2   1.75        1000
-#>  2     1 traitA         1 B         4    16       2   1.75         640
-#>  3     1 traitA         2 C         3     8       2   1.75         678
-#>  4     1 traitA         3 D         2     4       2   1.5          266
-#>  5     1 traitA         4 E         1     2       2   1             61
+#>  2     1 traitA         1 B         4    16       2   1.75         645
+#>  3     1 traitA         2 C         3     8       2   1.75         668
+#>  4     1 traitA         3 D         2     4       2   1.5          255
+#>  5     1 traitA         4 E         1     2       2   1             59
 #>  6     1 traitA         7 F         1     2       2   2           1000
 #>  7     1 traitA        10 G         2     4       2   2           1000
 #>  8     1 traitA        11 H         1     2       2   2           1000
 #>  9     1 traitA        14 I         1     2       2   2           1000
-#> 10     1 traitA        17 J         3     8       2   1.75         651
+#> 10     1 traitA        17 J         3     8       2   1.75         676
 #> # ... with 114 more rows, and 19 more variables: tmn.rankhi <int>,
 #> #   tip.sd <dbl>, tsd.ranklow <int>, tsd.rankhi <int>, node.mn <dbl>,
 #> #   nmn.ranklow <int>, nmn.rankhi <int>, nod.sd <dbl>, nsd.ranklow <int>,
@@ -172,7 +151,7 @@ ph_aot(traits = traits, phylo = phylo_str)
 #> # A tibble: 4 x 5
 #>   trait  ntaxa varcontr varcn.ranklow varcn.rankhi
 #>   <chr>  <int>    <dbl>         <int>        <int>
-#> 1 traitA    32    0.054             2          999
+#> 1 traitA    32    0.054             1         1000
 #> 2 traitB    32    0.109             1         1000
 #> 3 traitC    32    0.622            68          933
 #> 4 traitD    32    0.011             1         1000
@@ -204,9 +183,9 @@ phylo_str <- readLines(phylo_file)
 ```
 #> [1] "((((((lomatium_concinnum:20.250000,campanula_vandesii:20.250000):20.250000,(((veronica_candidissima:10.125000,penstemon_paniculatus:10.125000)plantaginaceae:10.125000,justicia_oblonga:20.250000):10.125000,marsdenia_gilgiana:30.375000):10.125000):10.125000,epacris_alba-compacta:50.625000)ericales_to_asterales:10.125000,((daphne_anhuiensis:20.250000,syzygium_cumini:20.250000)malvids:20.250000,ditaxis_clariana:40.500000):20.250000):10.125000,thalictrum_setulosum:70.875000)eudicots:10.125000,((dendrocalamus_giganteus:27.000000,guzmania_densiflora:27.000000)poales:27.000000,warczewiczella_digitata:54.000000):27.000000)malpighiales:1.000000;\n"
 #> attr(,"ages_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmp58xZbT/ages"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpogI0jr/ages"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmp58xZbT/phylo_20f8386d8ada"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpogI0jr/phylo_15242962b257"
 ```
 
 ```r
