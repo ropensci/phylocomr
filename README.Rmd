@@ -53,7 +53,7 @@ library("ape")
 
 ## ecovolve
 
-```{r}
+```{r eval=FALSE}
 ph_ecovolve(speciation = 0.05, extinction = 0.005, time_units = 50)
 ```
 
