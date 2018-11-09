@@ -9,7 +9,7 @@
   "name": "phylocomr: Interface to 'Phylocom'",
   "codeRepository": "https://github.com/ropensci/phylocomr",
   "issueTracker": "https://github.com/ropensci/phylocomr/issues",
-  "license": "https://spdx.org/licenses/MIT",
+  "license": "https://spdx.org/licenses/BSD-2-Clause",
   "version": "0.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
@@ -17,7 +17,7 @@
     "version": "3.5.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.1 Patched (2018-07-18 r74978)",
+  "runtimePlatform": "R version 3.5.1 Patched (2018-11-02 r75543)",
   "author": [
     {
       "@type": "Person",
@@ -78,6 +78,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "ape",
+      "name": "ape",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=ape"
     }
   ],
   "softwareRequirements": [
@@ -105,25 +117,30 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=sys"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "ape",
-      "name": "ape",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=ape"
     }
   ],
   "contIntegration": "https://travis-ci.org/ropensci/phylocomr",
   "readme": "https://github.com/ropensci/phylocomr/blob/master/README.md",
-  "fileSize": "394.827KB",
+  "fileSize": "396.086KB",
   "applicationCategory": "Biodiversity",
   "isPartOf": "https://ropensci.org",
   "keywords": ["phylogeny", "Phylocom", "phylodiversity", "communitystructure", "characterevolution", "species", "evolution", "ecology", "community-ecology", "r", "rstats", "r-package"],
-  "releaseNotes": "https://github.com/ropensci/phylocomr/blob/master/NEWS.md"
+  "releaseNotes": "https://github.com/ropensci/phylocomr/blob/master/NEWS.md",
+  "copyrightHolder": [
+    {
+      "@type": "Person",
+      "givenName": "Cam",
+      "familyName": "Webb"
+    },
+    {
+      "@type": "Person",
+      "givenName": "David",
+      "familyName": "Ackerly"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Steven",
+      "familyName": "Kembel"
+    }
+  ]
 }
