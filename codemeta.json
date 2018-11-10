@@ -121,7 +121,7 @@
   ],
   "contIntegration": "https://travis-ci.org/ropensci/phylocomr",
   "readme": "https://github.com/ropensci/phylocomr/blob/master/README.md",
-  "fileSize": "396.086KB",
+  "fileSize": "396.078KB",
   "applicationCategory": "Biodiversity",
   "isPartOf": "https://ropensci.org",
   "keywords": ["phylogeny", "Phylocom", "phylodiversity", "communitystructure", "characterevolution", "species", "evolution", "ecology", "community-ecology", "r", "rstats", "r-package"],
