@@ -85,9 +85,9 @@ ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
 ```
 #> [1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpITMV4L/taxa_15ba13b6be7e"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpyILvfZ/taxa_97b64ff1f6b3"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpITMV4L/phylo_15ba42944c4e"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpyILvfZ/phylo_97b6167b8ac6"
 ```
 
 ## aot
@@ -109,15 +109,15 @@ ph_aot(traits = traits, phylo = phylo_str)
 #>    trait trait.name  node name    age ntaxa n.nodes tip.mn tmn.ranklow
 #>    <int> <chr>      <int> <chr> <dbl> <int>   <int>  <dbl>       <int>
 #>  1     1 traitA         0 A         5    32       2   1.75        1000
-#>  2     1 traitA         1 B         4    16       2   1.75         663
-#>  3     1 traitA         2 C         3     8       2   1.75         682
-#>  4     1 traitA         3 D         2     4       2   1.5          256
-#>  5     1 traitA         4 E         1     2       2   1             61
+#>  2     1 traitA         1 B         4    16       2   1.75         654
+#>  3     1 traitA         2 C         3     8       2   1.75         669
+#>  4     1 traitA         3 D         2     4       2   1.5          252
+#>  5     1 traitA         4 E         1     2       2   1             54
 #>  6     1 traitA         7 F         1     2       2   2           1000
 #>  7     1 traitA        10 G         2     4       2   2           1000
 #>  8     1 traitA        11 H         1     2       2   2           1000
 #>  9     1 traitA        14 I         1     2       2   2           1000
-#> 10     1 traitA        17 J         3     8       2   1.75         657
+#> 10     1 traitA        17 J         3     8       2   1.75         681
 #> # ... with 114 more rows, and 19 more variables: tmn.rankhi <int>,
 #> #   tip.sd <dbl>, tsd.ranklow <int>, tsd.rankhi <int>, node.mn <dbl>,
 #> #   nmn.ranklow <int>, nmn.rankhi <int>, nod.sd <dbl>, nsd.ranklow <int>,
@@ -148,9 +148,9 @@ ph_aot(traits = traits, phylo = phylo_str)
 #> # A tibble: 4 x 5
 #>   trait  ntaxa varcontr varcn.ranklow varcn.rankhi
 #>   <chr>  <int>    <dbl>         <int>        <int>
-#> 1 traitA    32    0.054             3          998
+#> 1 traitA    32    0.054             1         1000
 #> 2 traitB    32    0.109             1         1000
-#> 3 traitC    32    0.622            54          947
+#> 3 traitC    32    0.622            47          954
 #> 4 traitD    32    0.011             1         1000
 #> 
 #> $ind_contrast_corr
@@ -180,9 +180,9 @@ phylo_str <- readLines(phylo_file)
 ```
 #> [1] "((((((lomatium_concinnum:20.250000,campanula_vandesii:20.250000):20.250000,(((veronica_candidissima:10.125000,penstemon_paniculatus:10.125000)plantaginaceae:10.125000,justicia_oblonga:20.250000):10.125000,marsdenia_gilgiana:30.375000):10.125000):10.125000,epacris_alba-compacta:50.625000)ericales_to_asterales:10.125000,((daphne_anhuiensis:20.250000,syzygium_cumini:20.250000)malvids:20.250000,ditaxis_clariana:40.500000):20.250000):10.125000,thalictrum_setulosum:70.875000)eudicots:10.125000,((dendrocalamus_giganteus:27.000000,guzmania_densiflora:27.000000)poales:27.000000,warczewiczella_digitata:54.000000):27.000000)malpighiales:1.000000;\n"
 #> attr(,"ages_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpITMV4L/ages"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpyILvfZ/ages"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpITMV4L/phylo_15ba4841265e"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpyILvfZ/phylo_97b66ed05fcb"
 ```
 
 ```r
