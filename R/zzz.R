@@ -57,20 +57,34 @@ taxa_check <- function(x, name = "taxa") {
   }
 }
 
+lowerize <- function(x) {
+  txt <- readLines(x)
+  if (grepl("[[:upper:]]", txt)) {
+    txt <- tolower(txt)
+    cat(txt, file = x, sep = "\n")
+  }
+}
+
 phylo_check <- function(x) {
   stopifnot(class(x) %in% c('phylo', 'character'))
   if (inherits(x, "phylo")) {
+    # lowercase tip and nodel labels
+    x$tip.label <- tolower(x$tip.label)
+    x$node.label <- tolower(x$node.label)
     tree <- write_tree_(x)
     pfile <- tempfile("phylo_")
     cat(tree, file = pfile, sep = "\n")
     return(pfile)
   } else {
+    # lowercase tip and nodel labels
+    x <- tolower(x)
     if (grepl("\\(\\(", x)) {
       pfile <- tempfile("phylo_")
       cat(x, file = pfile, sep = "\n")
       return(pfile)
     } else {
       stopifnot(file.exists(x))
+      lowerize(x)
       return(x)
     }
   }
