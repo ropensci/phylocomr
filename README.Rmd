@@ -68,6 +68,45 @@ phylo_file <- system.file("examples/phylo", package = "phylocomr")
 ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
 ```
 
+use various different references trees
+
+```{r}
+library(brranching)
+library(ape)
+
+r2 <- ape::read.tree(text=brranching::phylomatic_trees[['R20120829']])
+smith2011 <- ape::read.tree(text=brranching::phylomatic_trees[['smith2011']])
+zanne2014 <- ape::read.tree(text=brranching::phylomatic_trees[['zanne2014']])
+
+# R20120829 tree
+taxa_str <- c(
+  "asteraceae/bidens/bidens_alba",
+  "asteraceae/cirsium/cirsium_arvense",
+  "fabaceae/lupinus/lupinus_albus"
+)
+ph_phylomatic(taxa = taxa_str, phylo = r2)
+
+# zanne2014 tree
+taxa_str <- c(
+  "zamiaceae/dioon/dioon_edule",
+  "zamiaceae/encephalartos/encephalartos_dyerianus",
+  "piperaceae/piper/piper_arboricola"
+)
+ph_phylomatic(taxa = taxa_str, phylo = zanne2014)
+
+# zanne2014 subtree
+zanne2014_subtr <- ape::extract.clade(zanne2014, node='Loganiaceae')
+zanne_subtree_file <- tempfile(fileext = ".txt")
+ape::write.tree(zanne2014_subtr, file = zanne_subtree_file)
+taxa_str <- c(
+  "loganiaceae/neuburgia/neuburgia_corynocarpum",
+  "loganiaceae/geniostoma/geniostoma_borbonicum",
+  "loganiaceae/strychnos/strychnos_darienensis"
+)
+ph_phylomatic(taxa = taxa_str, phylo = zanne2014_subtr)
+ph_phylomatic(taxa = taxa_str, phylo = zanne_subtree_file)
+```
+
 ## aot
 
 ```{r}
