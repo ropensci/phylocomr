@@ -1,6 +1,8 @@
 context("phylocom")
 
 test_that("phylocom executable works", {
+  skip_on_cran()
+
   expect_output(phylocom(), "Cam Webb")
   expect_output(phylocom(), "Copyright")
   expect_output(phylocom(), "community structure")

@@ -15,6 +15,9 @@ taxa_str <- readLines(taxa_file)
 phylo_str <- readLines(phylo_file)
 
 test_that("ph_phylomatic works with chr string input", {
+  skip_on_appveyor()
+  skip_on_cran()
+
   aa <- ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
 
   expect_is(aa, "character")
@@ -35,6 +38,9 @@ test_that("ph_phylomatic works with chr string input", {
 })
 
 test_that("ph_phylomatic works with file input", {
+  skip_on_appveyor()
+  skip_on_cran()
+  
   taxa_file2 <- tempfile()
   cat(taxa_str, file = taxa_file2, sep = '\n')
   phylo_file2 <- tempfile()

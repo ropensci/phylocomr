@@ -8,6 +8,9 @@ sampledf <- read.table(sfile, header = FALSE,
 phylo_str <- readLines(pfile)
 
 test_that("ph_pd works with data.frame input", {
+  skip_on_appveyor()
+  skip_on_cran()
+
   aa <- ph_pd(sample = sampledf, phylo = phylo_str)
 
   expect_is(aa, "tbl_df")
@@ -23,6 +26,9 @@ test_that("ph_pd works with data.frame input", {
 })
 
 test_that("ph_pd works with file input", {
+  skip_on_appveyor()
+  skip_on_cran()
+  
   sample_str <- paste0(readLines(sfile), collapse = "\n")
   sfile2 <- tempfile()
   cat(sample_str, file = sfile2, sep = '\n')

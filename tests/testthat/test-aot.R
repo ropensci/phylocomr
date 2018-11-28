@@ -10,6 +10,9 @@ traits <- read.table(text = readLines(traitsdf_file), header = TRUE,
 phylo_str <- readLines(phylo_file)
 
 test_that("ph_aot works with data.frame input", {
+  skip_on_appveyor()
+  skip_on_cran()
+
   aa <- ph_aot(traits, phylo = phylo_str)
 
   expect_is(aa, "list")
@@ -30,6 +33,9 @@ test_that("ph_aot works with data.frame input", {
 })
 
 test_that("ph_aot works with file input", {
+  skip_on_appveyor()
+  skip_on_cran()
+  
   traits_str <- paste0(readLines(traits_file), collapse = "\n")
   traits_file2 <- tempfile()
   cat(traits_str, file = traits_file2, sep = '\n')

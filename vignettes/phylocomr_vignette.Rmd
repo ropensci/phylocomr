@@ -68,7 +68,7 @@ library("phylocomr")
 
 ## phylomatic
 
-```{r}
+```r
 taxa_file <- system.file("examples/taxa", package = "phylocomr")
 phylo_file <- system.file("examples/phylo", package = "phylocomr")
 (taxa_str <- readLines(taxa_file))
@@ -78,7 +78,7 @@ ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
 
 ## aot
 
-```{r}
+```r
 traits_file <- system.file("examples/traits_aot", package = "phylocomr")
 phylo_file <- system.file("examples/phylo_aot", package = "phylocomr")
 traitsdf_file <- system.file("examples/traits_aot_df", package = "phylocomr")

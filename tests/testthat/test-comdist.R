@@ -8,6 +8,9 @@ sampledf <- read.table(sfile, header = FALSE,
 phylo_str <- readLines(pfile)
 
 test_that("ph_comdist works with data.frame input", {
+  skip_on_appveyor()
+  skip_on_cran()
+
   aa <- ph_comdist(sample = sampledf, phylo = phylo_str)
   aa_null <- ph_comdist(sample = sampledf, phylo = phylo_str, rand_test = TRUE)
 
@@ -33,6 +36,9 @@ test_that("ph_comdist works with data.frame input", {
 })
 
 test_that("ph_comdist works with file input", {
+  skip_on_appveyor()
+  skip_on_cran()
+
   sample_str <- paste0(readLines(sfile), collapse = "\n")
   sfile2 <- tempfile()
   cat(sample_str, file = sfile2, sep = '\n')
@@ -66,6 +72,9 @@ test_that("ph_comdist works with file input", {
 
 
 test_that("ph_comdist - different models give expected output", {
+  skip_on_appveyor()
+  skip_on_cran()
+  
   n0 <- ph_comdist(sample = sfile, phylo = pfile, null_model = 0)
   n1 <- ph_comdist(sample = sfile, phylo = pfile, null_model = 1)
 
