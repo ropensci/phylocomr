@@ -14,3 +14,4 @@ src/aot
 inst/bin
 *.RData
 inst/doc
+*.txt
