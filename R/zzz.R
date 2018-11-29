@@ -76,9 +76,9 @@ phylo_check <- function(x) {
     cat(tree, file = pfile, sep = "\n")
     return(pfile)
   } else {
-    # lowercase tip and nodel labels
-    x <- tolower(x)
     if (grepl("\\(\\(", x)) {
+      # lowercase tip and nodel labels
+      x <- tolower(x)
       pfile <- tempfile("phylo_")
       cat(x, file = pfile, sep = "\n")
       return(pfile)
