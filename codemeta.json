@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/phylocomr",
   "issueTracker": "https://github.com/ropensci/phylocomr/issues",
   "license": "https://spdx.org/licenses/BSD-2-Clause",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "version": "3.5.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.1 Patched (2018-11-02 r75543)",
+  "runtimePlatform": "R version 3.5.1 Patched (2018-11-18 r75627)",
   "author": [
     {
       "@type": "Person",
@@ -121,7 +121,7 @@
   ],
   "contIntegration": "https://travis-ci.org/ropensci/phylocomr",
   "readme": "https://github.com/ropensci/phylocomr/blob/master/README.md",
-  "fileSize": "396.078KB",
+  "fileSize": "428.365KB",
   "applicationCategory": "Biodiversity",
   "isPartOf": "https://ropensci.org",
   "keywords": ["phylogeny", "Phylocom", "phylodiversity", "communitystructure", "characterevolution", "species", "evolution", "ecology", "community-ecology", "r", "rstats", "r-package"],
@@ -142,5 +142,11 @@
       "givenName": "Steven",
       "familyName": "Kembel"
     }
-  ]
+  ],
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  }
 }

@@ -20,7 +20,7 @@ There are no reverse dependencies.
 
 --------
 
-This release includes fixes for failed checks on Solaris.
+This release includes fixes for failed checks on Solaris, and fixes bug in internals of ph_phylomatic to lowercase labels on trees.
 
 Thanks!
 Scott Chamberlain
