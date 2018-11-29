@@ -32,6 +32,7 @@ trait correlations, respectively, and node-level analyses of trait
 means and diversification.
 }
 \examples{
+\dontrun{
 traits_file <- system.file("examples/traits_aot", package = "phylocomr")
 phylo_file <- system.file("examples/phylo_aot", package = "phylocomr")
 
@@ -50,4 +51,5 @@ cat(traits_str, file = traits_file2, sep = '\\n')
 phylo_file2 <- tempfile()
 cat(phylo_str, file = phylo_file2, sep = '\\n')
 (res <- ph_aot(traits_file2, phylo_file2))
+}
 }
