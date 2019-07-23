@@ -6,7 +6,7 @@ astbl <- function(x = NULL) {
 }
 
 sample_check <- function(x, name = "sample") {
-  stopifnot(class(x) %in% c('data.frame', 'character'))
+  stopifnot(inherits(x, c('data.frame', 'character')))
   if (inherits(x, "data.frame")) {
     sfile <- tempfile(paste0(name, "_"))
     utils::write.table(
@@ -20,7 +20,7 @@ sample_check <- function(x, name = "sample") {
 }
 
 trait_check <- function(x, binary) {
-  stopifnot(class(x) %in% c('data.frame', 'character'))
+  stopifnot(inherits(x, c('data.frame', 'character')))
   if (inherits(x, "data.frame")) {
     stopifnot(!is.null(binary))
     stopifnot(is.logical(binary))
@@ -46,7 +46,7 @@ trait_check <- function(x, binary) {
 }
 
 taxa_check <- function(x, name = "taxa") {
-  stopifnot(class(x) %in% c('data.frame', 'character'))
+  stopifnot(inherits(x, c('data.frame', 'character')))
   if (!file.exists(x[1])) {
     sfile <- tempfile(paste0(name, "_"))
     cat(x, file = sfile, sep = "\n")
@@ -66,7 +66,7 @@ lowerize <- function(x) {
 }
 
 phylo_check <- function(x) {
-  stopifnot(class(x) %in% c('phylo', 'character'))
+  stopifnot(inherits(x, c('phylo', 'character')))
   if (inherits(x, "phylo")) {
     # lowercase tip and nodel labels
     x$tip.label <- tolower(x$tip.label)
@@ -92,7 +92,7 @@ phylo_check <- function(x) {
 
 assert <- function(x, y) {
   if (!is.null(x)) {
-    if (!class(x) %in% y) {
+    if (!inherits(x, y)) {
       stop(deparse(substitute(x)), " must be of class ",
            paste0(y, collapse = ", "), call. = FALSE)
     }
