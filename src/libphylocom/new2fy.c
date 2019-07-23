@@ -68,7 +68,7 @@ phylo New2fy(char filename[50]) {
   Xtree.arenotes = 0;
   // Set the number of nodes in the tree
   Xtree.nnodes = lbrack + comma + 1;
-  // Allocate size to structure:      
+  // Allocate size to structure:
   Xtree.up = ivector(0, Xtree.nnodes-1);
   Xtree.down = imatrix(0, Xtree.nnodes-1, 0, MAXPOLYTOMY); // set max poly = comma
   Xtree.noat = ivector(0, Xtree.nnodes-1);
@@ -93,12 +93,23 @@ phylo New2fy(char filename[50]) {
 
 
   // READ PROPERLY
-  if ((Fn = fopen(filename, "r")) == NULL) {
-    printf("Cannot open phylogeny file\n");
-    exit(0);
-  }
+  // if ((Fn = fopen(filename, "r")) == NULL) {
+  //   printf("Cannot open phylogeny file\n");
+  //   exit(0);
+  // }
 
-  fread(line, count, 1, Fn);
+  // READ
+  Fn = fopen(filename, "r");
+  size_t ret_code = fread(line, count, 1, Fn);
+
+  // error handling
+  if (ret_code != count) {
+    if (feof(Fn))
+      printf("Cannot open phylogeny file: unexpected end of file\n");
+    else if (ferror(Fn)) {
+      perror("Cannot open phylogeny file\n");
+    }
+  }
   fclose(Fn);
   line[count-1]=59;
   line[count]=0;
@@ -114,7 +125,7 @@ phylo New2fy(char filename[50]) {
     done = 0;
 
     // descend a branch, create lookup
-    if (line[i] == 40) // "(" 
+    if (line[i] == 40) // "("
       {
         nodei++;
 
@@ -164,12 +175,12 @@ phylo New2fy(char filename[50]) {
               (strncmp(&line[i], ")", 1) != 0) && \
               (strncmp(&line[i], "[", 1) != 0) && \
               (strncmp(&line[i], ";", 1) != 0) && \
-              (strncmp(&line[i], "]", 1) != 0) ) 
+              (strncmp(&line[i], "]", 1) != 0) )
         {
           strncat(iname, &line[i], 1);
           i++;
         }
-      
+
       strcpy(Xtree.taxon[atn], iname);
       done = 1;
     }
@@ -193,13 +204,13 @@ phylo New2fy(char filename[50]) {
       // 0-9 or .
       while ( ( (line[i] >= 48) && (line[i] <= 57)) || (line[i] == 46)) {
         strncat(bl, &line[i], 1);
-        //printf("%s\n",bl); 
+        //printf("%s\n",bl);
         i++;
       }
 
       if (bl[0] != 0)
         branchlengths = 1;
-      //printf("%s\n",bl);  
+      //printf("%s\n",bl);
       sscanf(bl, "%f", &Xtree.bl[atn]);
       //printf("%f is the bl of %d\n", Xtree.bl[atn], atn);
       done = 1;
@@ -209,12 +220,12 @@ phylo New2fy(char filename[50]) {
     while ( (line[i] == ' ') || (line[i] == '\t') || (line[i] == '\n') || (line[i] == '\r')) {
       i++;
     }
-                
+
     // default - it's a new taxon name
-    // TODO - fix this. anytime you find a non ,:;()[] character, check to 
+    // TODO - fix this. anytime you find a non ,:;()[] character, check to
     // see if previous VALID character is , or ). If it is, or if character
     // is ', begin a new taxon name. If it's not, ignore. This should handle
-    // whitespace, newlines and other garbage (but non-fatal) characters 
+    // whitespace, newlines and other garbage (but non-fatal) characters
     // that currently crash the input.
     if (done == 0) {
       for (q = 0; q < 100; q++)
@@ -228,7 +239,7 @@ phylo New2fy(char filename[50]) {
       while ( (strncmp( &line[i], ",", 1) != 0) && \
               (strncmp( &line[i], ")", 1) != 0) && \
               (strncmp( &line[i], ":", 1) != 0) && \
-              (strncmp( &line[i], "[", 1) != 0) ) 
+              (strncmp( &line[i], "[", 1) != 0) )
         {
           strncat(taxa, &line[i], 1);
           i++;
@@ -280,7 +291,7 @@ phylo New2fy(char filename[50]) {
     if (strlen(Xtree.taxon[i]) > 0) {
       Xtree.ntaxa++;
     }
-                
+
     //if this node is terminal, add taxon to taxalist
     if (Xtree.noat[i] == 0) {
       Xtree.termtaxa++;
