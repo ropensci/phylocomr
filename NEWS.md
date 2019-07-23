@@ -1,3 +1,13 @@
+phylocomr 0.1.4
+===============
+
+### BUG FIXES
+
+* fix examples (#22)
+* improve class checks in internal code, swap `inherits` for `class` (#23)
+* small fix to use of fread in C lib; check that fread worked, and if not if it was an EOF error or other error (#24)
+
+
 phylocomr 0.1.2
 ===============
 
