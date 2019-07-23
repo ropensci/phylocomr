@@ -2,7 +2,7 @@ astbl <- function(x = NULL) {
   if (NCOL(x) > 0 && !is.null(x)) {
     names(x) <- tolower(names(x))
   }
-  tibble::as_data_frame(x)
+  tibble::as_tibble(x)
 }
 
 sample_check <- function(x, name = "sample") {
