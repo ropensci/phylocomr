@@ -8,7 +8,9 @@ ph_bladj(ages, phylo)
 }
 \arguments{
 \item{ages}{(data.frame/character) ages data.frame, or path to an ages
-file. required.}
+file. required. column names do not matter, and are discarded anyway.
+the first column must be the node names, and the second column the node
+ages}
 
 \item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
 written to a temp file) - OR path to file with a newick
@@ -25,6 +27,19 @@ other branch lengths by placing the nodes evenly between dated nodes,
 and between dated nodes and terminals (beginning with the longest
 'chains').
 }
+\section{Common Errors}{
+
+A few issues to be aware of:
+\itemize{
+\item the ages table must have a row for the root node with an age estimate.
+bladj will not work without that. We attempt to check this but can only
+check it if you pass in a phylo object; there's no easy way to parse a
+newick string without requiring ape
+\item bladj is case sensitive. internally we lowercase all tip and node labels
+and taxon names in your ages file to avoid any case sensitivity problems
+}
+}
+
 \examples{
 \dontrun{
 ages_file <- system.file("examples/ages", package = "phylocomr")

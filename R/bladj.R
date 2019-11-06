@@ -8,10 +8,22 @@
 #'
 #' @export
 #' @param ages (data.frame/character) ages data.frame, or path to an ages
-#' file. required.
+#' file. required. column names do not matter, and are discarded anyway.
+#' the first column must be the node names, and the second column the node
+#' ages
 #' @template phylo
 #' @return newick string with attributes for where ages and phylo files
 #' used are stored
+#' @section Common Errors:
+#' A few issues to be aware of:
+#' 
+#' - the ages table must have a row for the root node with an age estimate.
+#' bladj will not work without that. We attempt to check this but can only
+#' check it if you pass in a phylo object; there's no easy way to parse a
+#' newick string without requiring ape
+#' - bladj is case sensitive. internally we lowercase all tip and node labels
+#' and taxon names in your ages file to avoid any case sensitivity problems
+#' 
 #' @examples \dontrun{
 #' ages_file <- system.file("examples/ages", package = "phylocomr")
 #' phylo_file <- system.file("examples/phylo_bladj", package = "phylocomr")
@@ -63,9 +75,13 @@ ph_bladj <- function(ages, phylo) {
   if (inherits(ages, "data.frame")) {
     afile <- file.path(tempdir(), "ages")
     unlink(afile, force = TRUE)
-    utils::write.table(ages, file = afile, quote = FALSE, row.names = FALSE)
+    if (inherits(ages[,1], c("character", "factor")))
+      ages[,1] <- tolower(ages[,1])
+    utils::write.table(ages, file = afile, quote = FALSE, row.names = FALSE,
+      col.names = FALSE)
     ages <- afile
   }
+  check_root_node(phylo, ages)
   phylo <- phylo_check(phylo)
 
   cdir <- getwd()
@@ -83,4 +99,17 @@ ph_bladj <- function(ages, phylo) {
   attr(out, "ages_file") <- ages
   attr(out, "phylo_file") <- phylo
   return(out)
+}
+
+check_root_node <- function(x, y) {
+  if (!inherits(x, "phylo")) return()
+  x$node.label <- tolower(x$node.label)
+  ages_nodes <- read.table(y, stringsAsFactors = FALSE)[,1]
+  phylo_root <- x$node.label[1]
+  if (nzchar(phylo_root)) {
+    if (!phylo_root %in% ages_nodes) {
+      warning(sprintf("bladj may fail; the root node '%s' is not in the ages nodes", phylo_root),
+        immediate. = TRUE)
+    }
+  }
 }
