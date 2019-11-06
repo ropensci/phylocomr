@@ -27,7 +27,7 @@
 #' only one per line, and a newline (i.e., press ENTER) at the end of
 #' each line
 #'
-#' @examples
+#' @examples \dontrun{
 #' taxa_file <- system.file("examples/taxa", package = "phylocomr")
 #' phylo_file <- system.file("examples/phylo", package = "phylocomr")
 #'
@@ -46,6 +46,7 @@
 #' if (requireNamespace("ape")) {
 #'   library(ape)
 #'   plot(read.tree(text = tree))
+#' }
 #' }
 ph_phylomatic <- function(taxa, phylo, tabular = FALSE, lowercase = FALSE,
                           nodes = FALSE) {

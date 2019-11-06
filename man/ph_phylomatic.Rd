@@ -36,6 +36,7 @@ only one per line, and a newline (i.e., press ENTER) at the end of
 each line
 }
 \examples{
+\dontrun{
 taxa_file <- system.file("examples/taxa", package = "phylocomr")
 phylo_file <- system.file("examples/phylo", package = "phylocomr")
 
@@ -54,6 +55,7 @@ cat(phylo_str, file = phylo_file2, sep = '\\n')
 if (requireNamespace("ape")) {
   library(ape)
   plot(read.tree(text = tree))
+}
 }
 }
 \references{
