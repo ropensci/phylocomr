@@ -104,12 +104,13 @@ ph_bladj <- function(ages, phylo) {
 check_root_node <- function(x, y) {
   if (!inherits(x, "phylo")) return()
   x$node.label <- tolower(x$node.label)
-  ages_nodes <- read.table(y, stringsAsFactors = FALSE)[,1]
+  ages_nodes <- utils::read.table(y, stringsAsFactors = FALSE)[,1]
   phylo_root <- x$node.label[1]
   if (nzchar(phylo_root)) {
     if (!phylo_root %in% ages_nodes) {
-      warning(sprintf("bladj may fail; the root node '%s' is not in the ages nodes", phylo_root),
-        immediate. = TRUE)
+      warning(
+        sprintf("bladj may fail; the root node '%s' is not in the ages nodes",
+          phylo_root), immediate. = TRUE)
     }
   }
 }
