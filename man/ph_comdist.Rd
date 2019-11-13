@@ -5,11 +5,23 @@
 \alias{ph_comdistnt}
 \title{comdist}
 \usage{
-ph_comdist(sample, phylo, rand_test = FALSE, null_model = 0,
-  randomizations = 999, abundance = TRUE)
+ph_comdist(
+  sample,
+  phylo,
+  rand_test = FALSE,
+  null_model = 0,
+  randomizations = 999,
+  abundance = TRUE
+)
 
-ph_comdistnt(sample, phylo, rand_test = FALSE, null_model = 0,
-  randomizations = 999, abundance = TRUE)
+ph_comdistnt(
+  sample,
+  phylo,
+  rand_test = FALSE,
+  null_model = 0,
+  randomizations = 999,
+  abundance = TRUE
+)
 }
 \arguments{
 \item{sample}{(data.frame/character) sample data.frame or path to a

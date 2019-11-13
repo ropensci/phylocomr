@@ -4,8 +4,7 @@
 \alias{ph_phylomatic}
 \title{phylomatic}
 \usage{
-ph_phylomatic(taxa, phylo, tabular = FALSE, lowercase = FALSE,
-  nodes = FALSE)
+ph_phylomatic(taxa, phylo, tabular = FALSE, lowercase = FALSE, nodes = FALSE)
 }
 \arguments{
 \item{taxa}{(character) all taxa as a character vector (will be written to
@@ -47,9 +46,9 @@ phylo_file <- system.file("examples/phylo", package = "phylocomr")
 
 # from files
 taxa_file2 <- tempfile()
-cat(taxa_str, file = taxa_file2, sep = '\\n')
+cat(taxa_str, file = taxa_file2, sep = '\n')
 phylo_file2 <- tempfile()
-cat(phylo_str, file = phylo_file2, sep = '\\n')
+cat(phylo_str, file = phylo_file2, sep = '\n')
 (tree <- ph_phylomatic(taxa = taxa_file2, phylo = phylo_file2))
 
 if (requireNamespace("ape")) {

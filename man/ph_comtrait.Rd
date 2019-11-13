@@ -4,8 +4,15 @@
 \alias{ph_comtrait}
 \title{comtrait}
 \usage{
-ph_comtrait(sample, traits, binary = NULL, metric = "variance",
-  null_model = 0, randomizations = 999, abundance = TRUE)
+ph_comtrait(
+  sample,
+  traits,
+  binary = NULL,
+  metric = "variance",
+  null_model = 0,
+  randomizations = 999,
+  abundance = TRUE
+)
 }
 \arguments{
 \item{sample}{(data.frame/character) sample data.frame or path to a
@@ -86,13 +93,13 @@ sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 tfile <- system.file("examples/traits_aot", package = "phylocomr")
 
 # from files
-sample_str <- paste0(readLines(sfile), collapse = "\\n")
+sample_str <- paste0(readLines(sfile), collapse = "\n")
 sfile2 <- tempfile()
-cat(sample_str, file = sfile2, sep = '\\n')
+cat(sample_str, file = sfile2, sep = '\n')
 
-traits_str <- paste0(readLines(tfile), collapse = "\\n")
+traits_str <- paste0(readLines(tfile), collapse = "\n")
 tfile2 <- tempfile()
-cat(traits_str, file = tfile2, sep = '\\n')
+cat(traits_str, file = tfile2, sep = '\n')
 
 ph_comtrait(sample = sfile2, traits = tfile2)
 

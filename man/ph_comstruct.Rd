@@ -4,8 +4,14 @@
 \alias{ph_comstruct}
 \title{comstruct}
 \usage{
-ph_comstruct(sample, phylo, null_model = 0, randomizations = 999,
-  swaps = 1000, abundance = TRUE)
+ph_comstruct(
+  sample,
+  phylo,
+  null_model = 0,
+  randomizations = 999,
+  swaps = 1000,
+  abundance = TRUE
+)
 }
 \arguments{
 \item{sample}{(data.frame/character) sample data.frame or path to a

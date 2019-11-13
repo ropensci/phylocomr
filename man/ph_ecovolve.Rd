@@ -4,9 +4,17 @@
 \alias{ph_ecovolve}
 \title{ecovolve}
 \usage{
-ph_ecovolve(speciation = 0.05, extinction = 0.01, time_units = 100,
-  out_mode = 3, prob_env = "3211000000", extant_lineages = FALSE,
-  only_extant = FALSE, taper_change = NULL, competition = FALSE)
+ph_ecovolve(
+  speciation = 0.05,
+  extinction = 0.01,
+  time_units = 100,
+  out_mode = 3,
+  prob_env = "3211000000",
+  extant_lineages = FALSE,
+  only_extant = FALSE,
+  taper_change = NULL,
+  competition = FALSE
+)
 }
 \arguments{
 \item{speciation}{(numeric) Probability of speciation per unit time.
