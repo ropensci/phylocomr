@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/phylocomr",
   "issueTracker": "https://github.com/ropensci/phylocomr/issues",
   "license": "https://spdx.org/licenses/BSD-2-Clause",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 Patched (2019-07-17 r76848)",
+  "runtimePlatform": "R version 3.6.1 Patched (2019-09-23 r77210)",
   "author": [
     {
       "@type": "Person",
