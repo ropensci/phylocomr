@@ -6,7 +6,7 @@ Description: Interface to 'Phylocom' (<http://phylodiversity.net/phylocom/>),
     character evolution. Includes low level methods for interacting with
     the three executables, as well as higher level interfaces for methods
     like 'aot', 'ecovolve', 'bladj', 'phylomatic', and more.
-Version: 0.1.5.9100
+Version: 0.2.0
 Authors@R: c(
     person("Jeroen", "Ooms", role = "aut",
         email = "jeroen@berkeley.edu"),

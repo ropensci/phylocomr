@@ -14,7 +14,7 @@ No errors were found with the one reverse dependency.
 
 --------
 
-This release includes fixes for examples, internal class checks, and a problem in the C code related to use of fread.
+This release includes a fix for the function ph_bladj, to avoid two types of errors.
 
 Thanks!
 Scott Chamberlain

@@ -1,3 +1,11 @@
+phylocomr 0.2.0
+===============
+
+### BUG FIXES
+
+* two fixes for `ph_bladj()`: 1) now we lowercase the taxon name column in the ages data.frame before writing the data.frame to disk to avoid any mismatch due to case (we write the phylogeny to disk with lowercased names); 2) bladj expects the root node name from the phyologeny to be in the ages file; we now check that (#25)
+
+
 phylocomr 0.1.4
 ===============
 
