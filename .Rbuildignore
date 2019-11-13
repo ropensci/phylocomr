@@ -16,3 +16,4 @@ docs
 ^codemeta\.json$
 ^cran-comments\.md$
 \*.txt
+^Makefile$
