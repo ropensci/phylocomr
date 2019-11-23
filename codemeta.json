@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/phylocomr",
   "issueTracker": "https://github.com/ropensci/phylocomr/issues",
   "license": "https://spdx.org/licenses/BSD-2-Clause",
-  "version": "0.2.0",
+  "version": "0.2.3.9100",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
