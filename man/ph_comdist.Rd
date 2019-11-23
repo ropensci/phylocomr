@@ -5,11 +5,23 @@
 \alias{ph_comdistnt}
 \title{comdist}
 \usage{
-ph_comdist(sample, phylo, rand_test = FALSE, null_model = 0,
-  randomizations = 999, abundance = TRUE)
+ph_comdist(
+  sample,
+  phylo,
+  rand_test = FALSE,
+  null_model = 0,
+  randomizations = 999,
+  abundance = TRUE
+)
 
-ph_comdistnt(sample, phylo, rand_test = FALSE, null_model = 0,
-  randomizations = 999, abundance = TRUE)
+ph_comdistnt(
+  sample,
+  phylo,
+  rand_test = FALSE,
+  null_model = 0,
+  randomizations = 999,
+  abundance = TRUE
+)
 }
 \arguments{
 \item{sample}{(data.frame/character) sample data.frame or path to a
@@ -85,11 +97,11 @@ ph_comdist(sample = sampledf, phylo = phylo_str, rand_test = TRUE)
 ph_comdistnt(sample = sampledf, phylo = phylo_str, rand_test = TRUE)
 
 # from files
-sample_str <- paste0(readLines(sfile), collapse = "\\n")
+sample_str <- paste0(readLines(sfile), collapse = "\n")
 sfile2 <- tempfile()
-cat(sample_str, file = sfile2, sep = '\\n')
+cat(sample_str, file = sfile2, sep = '\n')
 pfile2 <- tempfile()
-cat(phylo_str, file = pfile2, sep = '\\n')
+cat(phylo_str, file = pfile2, sep = '\n')
 ph_comdist(sample = sfile2, phylo = pfile2)
 ph_comdistnt(sample = sfile2, phylo = pfile2)
 ph_comdist(sample = sfile2, phylo = pfile2, rand_test = TRUE)

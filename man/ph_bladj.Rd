@@ -63,7 +63,7 @@ ages_file2 <- file.path(tempdir(), "ages")
 write.table(ages_df, file = ages_file2, row.names = FALSE,
   col.names = FALSE, quote = FALSE)
 phylo_file2 <- tempfile()
-cat(phylo_str, file = phylo_file2, sep = '\\n')
+cat(phylo_str, file = phylo_file2, sep = '\n')
 (res <- ph_bladj(ages_file2, phylo_file2))
 if (requireNamespace("ape")) {
   library(ape)

@@ -4,8 +4,14 @@
 \alias{ph_comstruct}
 \title{comstruct}
 \usage{
-ph_comstruct(sample, phylo, null_model = 0, randomizations = 999,
-  swaps = 1000, abundance = TRUE)
+ph_comstruct(
+  sample,
+  phylo,
+  null_model = 0,
+  randomizations = 999,
+  swaps = 1000,
+  abundance = TRUE
+)
 }
 \arguments{
 \item{sample}{(data.frame/character) sample data.frame or path to a
@@ -79,11 +85,11 @@ phylo_str <- readLines(pfile)
 (res <- ph_comstruct(sample = sampledf, phylo = phylo_str))
 
 # from files
-sample_str <- paste0(readLines(sfile), collapse = "\\n")
+sample_str <- paste0(readLines(sfile), collapse = "\n")
 sfile2 <- tempfile()
-cat(sample_str, file = sfile2, sep = '\\n')
+cat(sample_str, file = sfile2, sep = '\n')
 pfile2 <- tempfile()
-cat(phylo_str, file = pfile2, sep = '\\n')
+cat(phylo_str, file = pfile2, sep = '\n')
 (res <- ph_comstruct(sample = sfile2, phylo = pfile2))
 
 # different null models
