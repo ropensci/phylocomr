@@ -10,7 +10,7 @@ ph_bladj(ages, phylo)
 \item{ages}{(data.frame/character) ages data.frame, or path to an ages
 file. required. column names do not matter, and are discarded anyway.
 the first column must be the node names, and the second column the node
-ages}
+ages. See Details.}
 
 \item{phylo}{(character/phylo) One of: phylogeny as a newick string (will be
 written to a temp file) - OR path to file with a newick
@@ -63,7 +63,7 @@ ages_file2 <- file.path(tempdir(), "ages")
 write.table(ages_df, file = ages_file2, row.names = FALSE,
   col.names = FALSE, quote = FALSE)
 phylo_file2 <- tempfile()
-cat(phylo_str, file = phylo_file2, sep = '\n')
+cat(phylo_str, file = phylo_file2, sep = '\\n')
 (res <- ph_bladj(ages_file2, phylo_file2))
 if (requireNamespace("ape")) {
   library(ape)

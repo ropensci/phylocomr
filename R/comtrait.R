@@ -42,6 +42,13 @@
 #'
 #' When giving a data.frame to `traits` make sure to pass in a binary
 #' vector for what traits are to be treated as binary.
+#' 
+#' @section Taxon name case:
+#' In the `sample` and `trait` tables, if you're passing in a file, the names
+#' in the third and first columns, respectively, must be all lowercase; if not,
+#' we'll lowercase them for you. If you pass in a data.frame, we'll lowercase
+#' them for your. All phylo tip/node labels are also lowercased to avoid
+#' any casing problems
 #'
 #' @return data.frame of the form:
 #' 
@@ -96,7 +103,7 @@ ph_comtrait <- function(sample, traits, binary = NULL, metric = "variance",
   stopifnot(null_model %in% 0:3)
 
   sample <- sample_check(sample)
-  traits <- trait_check(x = traits, binary)
+  traits <- trait_check(traits, binary)
 
   metric <- switch(
     metric,
@@ -120,7 +127,7 @@ ph_comtrait <- function(sample, traits, binary = NULL, metric = "variance",
       if (abundance) "-a"
     ), intern = TRUE)
   )
-
+  phylocom_error(out)
   astbl(utils::read.table(text = out, skip = 1, header = TRUE,
                     stringsAsFactors = FALSE))
 }

@@ -4,15 +4,8 @@
 \alias{ph_comtrait}
 \title{comtrait}
 \usage{
-ph_comtrait(
-  sample,
-  traits,
-  binary = NULL,
-  metric = "variance",
-  null_model = 0,
-  randomizations = 999,
-  abundance = TRUE
-)
+ph_comtrait(sample, traits, binary = NULL, metric = "variance",
+  null_model = 0, randomizations = 999, abundance = TRUE)
 }
 \arguments{
 \item{sample}{(data.frame/character) sample data.frame or path to a
@@ -87,19 +80,28 @@ with the comstruct function.
 }
 }
 
+\section{Taxon name case}{
+
+In the \code{sample} and \code{trait} tables, if you're passing in a file, the names
+in the third and first columns, respectively, must be all lowercase; if not,
+we'll lowercase them for you. If you pass in a data.frame, we'll lowercase
+them for your. All phylo tip/node labels are also lowercased to avoid
+any casing problems
+}
+
 \examples{
 \dontrun{
 sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 tfile <- system.file("examples/traits_aot", package = "phylocomr")
 
 # from files
-sample_str <- paste0(readLines(sfile), collapse = "\n")
+sample_str <- paste0(readLines(sfile), collapse = "\\n")
 sfile2 <- tempfile()
-cat(sample_str, file = sfile2, sep = '\n')
+cat(sample_str, file = sfile2, sep = '\\n')
 
-traits_str <- paste0(readLines(tfile), collapse = "\n")
+traits_str <- paste0(readLines(tfile), collapse = "\\n")
 tfile2 <- tempfile()
-cat(traits_str, file = tfile2, sep = '\n')
+cat(traits_str, file = tfile2, sep = '\\n')
 
 ph_comtrait(sample = sfile2, traits = tfile2)
 

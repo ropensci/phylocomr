@@ -13,6 +13,11 @@
 #' @template com_args
 #' @template com_null_models
 #' @return data.frame
+#' @section Taxon name case:
+#' In the `sample` table, if you're passing in a file, the names in the
+#' third column must be all lowercase; if not, we'll lowercase them for you.
+#' If you pass in a data.frame, we'll lowercase them for your. All phylo
+#' tip/node labels are also lowercased to avoid any casing problems
 #' @examples
 #' sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 #' pfile <- system.file("examples/phylo_comstruct", package = "phylocomr")
@@ -68,7 +73,7 @@ ph_comstruct <- function(sample, phylo, null_model = 0, randomizations = 999,
       if (abundance) "-a"
     ), intern = TRUE)
   )
-
+  phylocom_error(out)
   astbl(utils::read.table(
     text = out, skip = 1, header = TRUE,
     stringsAsFactors = FALSE

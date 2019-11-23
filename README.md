@@ -86,9 +86,9 @@ ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
 ```
 #> [1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/taxa_a56d435c046c"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/taxa_1f9f770e2e7b"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/phylo_a56d4e267100"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/phylo_1f9f440dca4d"
 ```
 
 use various different references trees
@@ -114,9 +114,9 @@ ph_phylomatic(taxa = taxa_str, phylo = r2)
 ```
 #> [1] "(((bidens_alba:13.000000,cirsium_arvense:13.000000):19.000000,lupinus_albus:27.000000):12.000000)euphyllophyte;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/taxa_a56d4811fb61"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/taxa_1f9f2622842b"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/phylo_a56d148ec23e"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/phylo_1f9f2413369c"
 ```
 
 ```r
@@ -132,9 +132,9 @@ ph_phylomatic(taxa = taxa_str, phylo = zanne2014)
 ```
 #> [1] "(((dioon_edule:121.744843,encephalartos_dyerianus:121.744850)zamiaceae:230.489838,piper_arboricola:352.234711)spermatophyta:88.058670);\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/taxa_a56d28727efd"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/taxa_1f9f69664e44"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/phylo_a56d74ef28c9"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/phylo_1f9f3b9c886b"
 ```
 
 ```r
@@ -153,9 +153,9 @@ ph_phylomatic(taxa = taxa_str, phylo = zanne2014_subtr)
 ```
 #> [1] "((neuburgia_corynocarpum:32.807743,(geniostoma_borbonicum:32.036335,strychnos_darienensis:32.036335):0.771406):1.635496)loganiaceae;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/taxa_a56d7bca8a02"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/taxa_1f9f568e00ef"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/phylo_a56d2e2ac8cc"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/phylo_1f9f4df774e"
 ```
 
 ```r
@@ -165,9 +165,9 @@ ph_phylomatic(taxa = taxa_str, phylo = zanne_subtree_file)
 ```
 #> [1] "((neuburgia_corynocarpum:32.807743,(geniostoma_borbonicum:32.036335,strychnos_darienensis:32.036335):0.771406):1.635496)loganiaceae;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/taxa_a56d7ae4e0c1"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/taxa_1f9f6b11a461"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/filea56d15ee019.txt"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/phylo_1f9f533f1331"
 ```
 
 ## aot
@@ -189,48 +189,47 @@ ph_aot(traits = traits, phylo = phylo_str)
 #>    trait trait.name  node name    age ntaxa n.nodes tip.mn tmn.ranklow
 #>    <int> <chr>      <int> <chr> <dbl> <int>   <int>  <dbl>       <int>
 #>  1     1 traitA         0 a         5    32       2   1.75        1000
-#>  2     1 traitA         1 b         4    16       2   1.75         667
-#>  3     1 traitA         2 c         3     8       2   1.75         668
-#>  4     1 traitA         3 d         2     4       2   1.5          255
-#>  5     1 traitA         4 e         1     2       2   1             53
+#>  2     1 traitA         1 b         4    16       2   1.75         642
+#>  3     1 traitA         2 c         3     8       2   1.75         672
+#>  4     1 traitA         3 d         2     4       2   1.5          244
+#>  5     1 traitA         4 e         1     2       2   1             41
 #>  6     1 traitA         7 f         1     2       2   2           1000
 #>  7     1 traitA        10 g         2     4       2   2           1000
 #>  8     1 traitA        11 h         1     2       2   2           1000
 #>  9     1 traitA        14 i         1     2       2   2           1000
-#> 10     1 traitA        17 j         3     8       2   1.75         675
-#> # … with 114 more rows, and 19 more variables: tmn.rankhi <int>,
-#> #   tip.sd <dbl>, tsd.ranklow <int>, tsd.rankhi <int>, node.mn <dbl>,
-#> #   nmn.ranklow <int>, nmn.rankhi <int>, nod.sd <dbl>, nsd.ranklow <int>,
-#> #   nsd.rankhi <int>, sstipsroot <dbl>, sstips <dbl>,
-#> #   percvaramongnodes <dbl>, percvaratnode <dbl>, contributionindex <dbl>,
-#> #   sstipvnoderoot <dbl>, sstipvnode <dbl>, ssamongnodes <dbl>,
-#> #   sswithinnodes <dbl>
+#> 10     1 traitA        17 j         3     8       2   1.75         661
+#> # … with 114 more rows, and 19 more variables: tmn.rankhi <int>, tip.sd <dbl>,
+#> #   tsd.ranklow <int>, tsd.rankhi <int>, node.mn <dbl>, nmn.ranklow <int>,
+#> #   nmn.rankhi <int>, nod.sd <dbl>, nsd.ranklow <int>, nsd.rankhi <int>,
+#> #   sstipsroot <dbl>, sstips <dbl>, percvaramongnodes <dbl>,
+#> #   percvaratnode <dbl>, contributionindex <dbl>, sstipvnoderoot <dbl>,
+#> #   sstipvnode <dbl>, ssamongnodes <dbl>, sswithinnodes <dbl>
 #> 
 #> $independent_contrasts
 #> # A tibble: 31 x 17
-#>     node name    age n.nodes contrast1 contrast2 contrast3 contrast4
-#>    <int> <chr> <dbl>   <int>     <dbl>     <dbl>     <dbl>     <dbl>
-#>  1     0 a         5       2     0         0         0         0.254
-#>  2     1 b         4       2     0         1.03      0         0.516
-#>  3     2 c         3       2     0.267     0.535     0         0    
-#>  4     3 d         2       2     0.577     0         1.15      0    
-#>  5     4 e         1       2     0         0         0.707     0    
-#>  6     7 f         1       2     0         0         0.707     0    
-#>  7    10 g         2       2     0         0         1.15      0    
-#>  8    11 h         1       2     0         0         0.707     0    
-#>  9    14 i         1       2     0         0         0.707     0    
-#> 10    17 j         3       2     0.267     0.535     0         0    
-#> # … with 21 more rows, and 9 more variables: contrastsd <dbl>,
-#> #   lowval1 <dbl>, hival1 <dbl>, lowval2 <dbl>, hival2 <dbl>,
-#> #   lowval3 <dbl>, hival3 <dbl>, lowval4 <dbl>, hival4 <dbl>
+#>     node name    age n.nodes contrast1 contrast2 contrast3 contrast4 contrastsd
+#>    <int> <chr> <dbl>   <int>     <dbl>     <dbl>     <dbl>     <dbl>      <dbl>
+#>  1     0 a         5       2     0         0         0         0.254       1.97
+#>  2     1 b         4       2     0         1.03      0         0.516       1.94
+#>  3     2 c         3       2     0.267     0.535     0         0           1.87
+#>  4     3 d         2       2     0.577     0         1.15      0           1.73
+#>  5     4 e         1       2     0         0         0.707     0           1.41
+#>  6     7 f         1       2     0         0         0.707     0           1.41
+#>  7    10 g         2       2     0         0         1.15      0           1.73
+#>  8    11 h         1       2     0         0         0.707     0           1.41
+#>  9    14 i         1       2     0         0         0.707     0           1.41
+#> 10    17 j         3       2     0.267     0.535     0         0           1.87
+#> # … with 21 more rows, and 8 more variables: lowval1 <dbl>, hival1 <dbl>,
+#> #   lowval2 <dbl>, hival2 <dbl>, lowval3 <dbl>, hival3 <dbl>, lowval4 <dbl>,
+#> #   hival4 <dbl>
 #> 
 #> $phylogenetic_signal
 #> # A tibble: 4 x 5
 #>   trait  ntaxa varcontr varcn.ranklow varcn.rankhi
 #>   <chr>  <int>    <dbl>         <int>        <int>
-#> 1 traitA    32    0.054             2          999
+#> 1 traitA    32    0.054             1         1000
 #> 2 traitB    32    0.109             1         1000
-#> 3 traitC    32    0.622            56          945
+#> 3 traitC    32    0.622            60          941
 #> 4 traitD    32    0.011             1         1000
 #> 
 #> $ind_contrast_corr
@@ -260,9 +259,9 @@ phylo_str <- readLines(phylo_file)
 ```
 #> [1] "((((((lomatium_concinnum:20.250000,campanula_vandesii:20.250000):20.250000,(((veronica_candidissima:10.125000,penstemon_paniculatus:10.125000)plantaginaceae:10.125000,justicia_oblonga:20.250000):10.125000,marsdenia_gilgiana:30.375000):10.125000):10.125000,epacris_alba-compacta:50.625000)ericales_to_asterales:10.125000,((daphne_anhuiensis:20.250000,syzygium_cumini:20.250000)malvids:20.250000,ditaxis_clariana:40.500000):20.250000):10.125000,thalictrum_setulosum:70.875000)eudicots:10.125000,((dendrocalamus_giganteus:27.000000,guzmania_densiflora:27.000000)poales:27.000000,warczewiczella_digitata:54.000000):27.000000)malpighiales:1.000000;\n"
 #> attr(,"ages_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/ages"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/ages"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmphPGENV/phylo_a56df4e6c37"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpjO0cdG/phylo_1f9f397a9d92"
 ```
 
 ```r

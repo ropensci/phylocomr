@@ -28,6 +28,15 @@ A single data.frame, with the colums:
 Calculates Faith’s (1992) index of phylogenetic diversity (PD) for
 each sample in the phylo.
 }
+\section{Taxon name case}{
+
+In the \code{sample} table, if you're passing in a file, the names
+in the third column must be all lowercase; if not,
+we'll lowercase them for you. If you pass in a data.frame, we'll lowercase
+them for your. All phylo tip/node labels are also lowercased to avoid
+any casing problems
+}
+
 \examples{
 sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 pfile <- system.file("examples/phylo_comstruct", package = "phylocomr")
@@ -49,7 +58,6 @@ cat(phylo_str, file = pfile2, sep = '\\n')
 ph_pd(sample = sfile2, phylo = pfile2)
 }
 \seealso{
-Other phylogenetic-diversity: 
-\code{\link{ph_rao}()}
+Other phylogenetic-diversity: \code{\link{ph_rao}}
 }
 \concept{phylogenetic-diversity}

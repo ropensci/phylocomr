@@ -7,6 +7,12 @@
 #' @param sample (data.frame/character) sample data.frame or path to a
 #' sample file. required
 #' @template phylo
+#' @section Taxon name case:
+#' In the `sample` table, if you're passing in a file, the names
+#' in the third column must be all lowercase; if not,
+#' we'll lowercase them for you. If you pass in a data.frame, we'll lowercase
+#' them for your. All phylo tip/node labels are also lowercased to avoid
+#' any casing problems
 #' @return A single data.frame, with the colums:
 #' 
 #' - sample - community name/label

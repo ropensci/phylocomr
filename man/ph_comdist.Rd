@@ -5,23 +5,11 @@
 \alias{ph_comdistnt}
 \title{comdist}
 \usage{
-ph_comdist(
-  sample,
-  phylo,
-  rand_test = FALSE,
-  null_model = 0,
-  randomizations = 999,
-  abundance = TRUE
-)
+ph_comdist(sample, phylo, rand_test = FALSE, null_model = 0,
+  randomizations = 999, abundance = TRUE)
 
-ph_comdistnt(
-  sample,
-  phylo,
-  rand_test = FALSE,
-  null_model = 0,
-  randomizations = 999,
-  abundance = TRUE
-)
+ph_comdistnt(sample, phylo, rand_test = FALSE, null_model = 0,
+  randomizations = 999, abundance = TRUE)
 }
 \arguments{
 \item{sample}{(data.frame/character) sample data.frame or path to a
@@ -73,6 +61,14 @@ phylogeny could include the species present in some larger region.
 Entsminger, 2003); also known as ‘SIM9’ (Gotelli, 2000) creates swapped
 versions of the sample/species matrix.
 }
+}
+
+\section{Taxon name case}{
+
+In the \code{sample} table, if you're passing in a file, the names in the
+third column must be all lowercase; if not, we'll lowercase them for you.
+If you pass in a data.frame, we'll lowercase them for your. All phylo
+tip/node labels are also lowercased to avoid any casing problems
 }
 
 \examples{

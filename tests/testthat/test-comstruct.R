@@ -103,3 +103,28 @@ test_that("ph_comstruct fails well", {
   expect_error(ph_comstruct(sfile, pfile, null_model = 15),
                "null_model %in% 0:3 is not TRUE")
 })
+
+test_that("ph_comstruct corrects mismatched cases in data.frame's/phylo objects", {
+  # mismatch in `sample` case is fixed internally
+  sampledf_err <- sampledf
+  sampledf_err$V3 <- toupper(sampledf$V3)
+  expect_is(ph_comstruct(sampledf_err, phylo_str), "data.frame")
+
+  # mismatch in `phylo` case is fixed internally
+  phylo_str_err <- phylo_str
+  phylo_str_err <- toupper(phylo_str_err)
+  expect_is(ph_comstruct(sampledf, phylo_str_err), "data.frame")
+  
+  # mismatch in `sample` file is fixed internally
+  sampledf_err <- sampledf
+  sampledf_err$V3 <- toupper(sampledf$V3)
+  smp <- sample_check(sampledf_err)
+  expect_is(ph_comstruct(smp, phylo_str), "data.frame")
+
+  # mismatch in `sample` file is fixed internally
+  phylo_str_err <- phylo_str
+  phylo_str_err <- toupper(phylo_str_err)
+  phylo_str_err_file <- tempfile("phylo_")
+  cat(phylo_str_err, file = phylo_str_err_file, sep = "\n")
+  expect_is(ph_comstruct(sampledf, phylo_str_err_file), "data.frame")
+})

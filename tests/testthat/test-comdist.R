@@ -113,3 +113,27 @@ test_that("ph_comdist fails well", {
                "null_model %in% 0:3 is not TRUE")
 })
 
+test_that("ph_comdist corrects mismatched cases in data.frame's/phylo objects", {
+  # mismatch in `sample` case is fixed internally
+  sampledf_err <- sampledf
+  sampledf_err$V3 <- toupper(sampledf$V3)
+  expect_is(ph_comdist(sampledf_err, phylo_str), "data.frame")
+
+  # mismatch in `phylo` case is fixed internally
+  phylo_str_err <- phylo_str
+  phylo_str_err <- toupper(phylo_str_err)
+  expect_is(ph_comdist(sampledf, phylo_str_err), "data.frame")
+  
+  # mismatch in `sample` file is fixed internally
+  sampledf_err <- sampledf
+  sampledf_err$V3 <- toupper(sampledf$V3)
+  smp <- sample_check_nolower(sampledf_err)
+  expect_is(ph_comdist(smp, phylo_str), "data.frame")
+
+  # mismatch in `sample` file is fixed internally
+  phylo_str_err <- phylo_str
+  phylo_str_err <- toupper(phylo_str_err)
+  phylo_str_err_file <- tempfile("phylo_")
+  cat(phylo_str_err, file = phylo_str_err_file, sep = "\n")
+  expect_is(ph_comdist(sampledf, phylo_str_err_file), "data.frame")
+})

@@ -51,6 +51,15 @@ phylogenetic diversities excluding within-community diversity
 A measure of within- and among-community diversity taking species
 dissimilarity (phylogenetic dissimilarity) into account
 }
+\section{Taxon name case}{
+
+In the \code{sample} table, if you're passing in a file, the names
+in the third column must be all lowercase; if not,
+we'll lowercase them for you. If you pass in a data.frame, we'll lowercase
+them for your. All phylo tip/node labels are also lowercased to avoid
+any casing problems
+}
+
 \examples{
 sfile <- system.file("examples/sample_comstruct", package = "phylocomr")
 pfile <- system.file("examples/phylo_comstruct", package = "phylocomr")
@@ -73,7 +82,6 @@ cat(phylo_str, file = pfile2, sep = '\\n')
 ph_rao(sample = sfile2, phylo = pfile2)
 }
 \seealso{
-Other phylogenetic-diversity: 
-\code{\link{ph_pd}()}
+Other phylogenetic-diversity: \code{\link{ph_pd}}
 }
 \concept{phylogenetic-diversity}

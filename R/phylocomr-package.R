@@ -16,6 +16,14 @@
 #' in `picante`, but the maintainers of `picante` have re-written some
 #' Phylocom functionality in C/C++, so performance should be similar in
 #' those cases.
+#' 
+#' @section Original data:
+#' We have to write files to disk (your computer) to be able to run
+#' Phylocom. We take the inputs you give to the functions in this package
+#' and re-write them to temporary files (that are cleaned up when the 
+#' R session exits). We do this because we sometimes need to modify your
+#' inputs; usually because Phylocom is case sensitive. In this way we
+#' aren't modifying your original data files.
 #'
 #' @section Package API:
 #'

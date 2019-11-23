@@ -10,7 +10,7 @@
 #' @param ages (data.frame/character) ages data.frame, or path to an ages
 #' file. required. column names do not matter, and are discarded anyway.
 #' the first column must be the node names, and the second column the node
-#' ages
+#' ages. See Details.
 #' @template phylo
 #' @return newick string with attributes for where ages and phylo files
 #' used are stored
@@ -72,15 +72,7 @@ ph_bladj <- function(ages, phylo) {
   assert(ages, c("data.frame", "character"))
   assert(phylo, c("phylo", "character"))
 
-  if (inherits(ages, "data.frame")) {
-    afile <- file.path(tempdir(), "ages")
-    unlink(afile, force = TRUE)
-    if (inherits(ages[,1], c("character", "factor")))
-      ages[,1] <- tolower(ages[,1])
-    utils::write.table(ages, file = afile, quote = FALSE, row.names = FALSE,
-      col.names = FALSE)
-    ages <- afile
-  }
+  ages <- ages_check(ages)
   check_root_node(phylo, ages)
   phylo <- phylo_check(phylo)
 
@@ -96,6 +88,7 @@ ph_bladj <- function(ages, phylo) {
       "-f", basename(phylo)
     ), intern = TRUE)
   )[1]
+  phylocom_error(out)
   attr(out, "ages_file") <- ages
   attr(out, "phylo_file") <- phylo
   return(out)

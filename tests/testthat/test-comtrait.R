@@ -99,3 +99,18 @@ test_that("ph_comtrait fails well", {
   expect_error(ph_comtrait(sfile, tfile, null_model = 15),
                "null_model %in% 0:3 is not TRUE")
 })
+
+test_that("ph_comtrait corrects mismatched cases in sample/traits df's", {
+  # mismatch in `sample` case is fixed internally
+  sampledf_err <- sampledf
+  sampledf_err$V3 <- toupper(sampledf$V3)
+  expect_is(ph_comtrait(sample = sampledf_err, traits = traitsdf,
+    binary = c(FALSE, FALSE, FALSE, TRUE)), "data.frame")
+ 
+  # mismatch in `traits` file is fixed internally
+  traitsdf_err <- traitsdf
+  traitsdf_err$name <- toupper(traitsdf_err$name)
+  smp <- trait_check(traitsdf_err, binary = c(FALSE, FALSE, FALSE, TRUE))
+  expect_is(ph_comtrait(sampledf, smp, binary = c(FALSE, FALSE, FALSE, TRUE)),
+    "data.frame")
+})

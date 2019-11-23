@@ -62,3 +62,28 @@ test_that("ph_pd fails well", {
   expect_error(ph_pd("adf", mtcars),
                "phylo must be of class phylo, character")
 })
+
+test_that("ph_pd corrects mismatched cases in data.frame's/phylo objects", {
+  # mismatch in `sample` case is fixed internally
+  sampledf_err <- sampledf
+  sampledf_err$V3 <- toupper(sampledf_err$V3)
+  expect_is(ph_pd(sampledf_err, phylo_str), "data.frame")
+
+  # mismatch in `phylo` case is fixed internally
+  phylo_str_err <- phylo_str
+  phylo_str_err <- toupper(phylo_str_err)
+  expect_is(ph_pd(sampledf, phylo_str_err), "data.frame")
+  
+  # mismatch in `sample` file is fixed internally
+  sampledf_err <- sampledf
+  sampledf_err$V3 <- toupper(sampledf_err$V3)
+  smp <- sample_check_nolower(sampledf_err)
+  expect_is(ph_pd(smp, phylo_str), "data.frame")
+
+  # mismatch in `sample` file is fixed internally
+  phylo_str_err <- phylo_str
+  phylo_str_err <- toupper(phylo_str_err)
+  phylo_str_err_file <- tempfile("phylo_")
+  cat(phylo_str_err, file = phylo_str_err_file, sep = "\n")
+  expect_is(ph_pd(sampledf, phylo_str_err_file), "data.frame")
+})

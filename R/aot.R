@@ -6,7 +6,7 @@
 #'
 #' @export
 #' @param traits (data.frame/character) trait data.frame or path to
-#' traits file. required
+#' traits file. required. See Details.
 #' @template phylo
 #' @param randomizations (numeric) number of randomizations. Default: 999
 #' @param trait_contrasts (numeric) Specify which trait should be used as 'x'
@@ -14,6 +14,12 @@
 #' @param ebl_unstconst (logical) Use equal branch lengths and unstandardized
 #' contrasts. Default: `FALSE`
 #' @return a list of data.frames
+#' @section Taxon name case:
+#' In the `traits` table, if you're passing in a file, the names in the
+#' first column must be all lowercase; if not, we'll lowercase them for you.
+#' If you pass in a data.frame, we'll
+#' lowercase them for your. All phylo tip/node labels are also lowercased
+#' to avoid any casing problems
 #' @examples \dontrun{
 #' traits_file <- system.file("examples/traits_aot", package = "phylocomr")
 #' phylo_file <- system.file("examples/phylo_aot", package = "phylocomr")
@@ -44,6 +50,8 @@ ph_aot <- function(traits, phylo, randomizations = 999, trait_contrasts = 1,
 
   stopifnot(class(traits) %in% c('data.frame', 'character'))
   if (inherits(traits, "data.frame")) {
+    if (inherits(traits[,1], c("character", "factor")))
+      traits[,1] <- tolower(traits[,1])
     tfile <- tempfile("trait_")
     utils::write.table(prep_traits(traits), file = tfile,
                        quote = FALSE, row.names = FALSE)
@@ -69,6 +77,7 @@ ph_aot <- function(traits, phylo, randomizations = 999, trait_contrasts = 1,
     ), intern = TRUE)
   )
 
+  phylocom_error(out)
   out <- strsplit(out, split = "\n")[[1]]
 
   list(
