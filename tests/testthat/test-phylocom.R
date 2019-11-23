@@ -14,8 +14,14 @@ test_that("phylocom executable works", {
 test_that("phylocom fails well", {
   skip_on_cran()
 
-  expect_output(phylocom(args = 4),
-                "Oops! Command not recognized")
-  expect_match(phylocom(args = 4, intern = TRUE),
-                "Oops! Command not recognized")
+  if (.Platform$OS.type == "windows") {
+    expect_error(phylocom(args = 4),
+      "is.character\\(args\\) is not TRUE")
+    expect_error(phylocom(args = 4, intern = TRUE),
+      "is.character\\(args\\) is not TRUE")
+  } else {
+    expect_output(phylocom(args = 4), "Oops! Command not recognized")
+    expect_match(phylocom(args = 4, intern = TRUE),
+      "Oops! Command not recognized")
+  }
 })

@@ -105,6 +105,9 @@ test_that("ph_comstruct fails well", {
 })
 
 test_that("ph_comstruct corrects mismatched cases in data.frame's/phylo objects", {
+  skip_on_appveyor()
+  skip_on_cran()
+  
   # mismatch in `sample` case is fixed internally
   sampledf_err <- sampledf
   sampledf_err$V3 <- toupper(sampledf$V3)

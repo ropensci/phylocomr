@@ -101,6 +101,9 @@ test_that("ph_comtrait fails well", {
 })
 
 test_that("ph_comtrait corrects mismatched cases in sample/traits df's", {
+  skip_on_appveyor()
+  skip_on_cran()
+  
   # mismatch in `sample` case is fixed internally
   sampledf_err <- sampledf
   sampledf_err$V3 <- toupper(sampledf$V3)

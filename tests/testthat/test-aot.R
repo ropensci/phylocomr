@@ -62,6 +62,9 @@ test_that("ph_aot works with file input", {
 })
 
 test_that("ph_aot fails well", {
+  skip_on_appveyor()
+  skip_on_cran()
+  
   # required inputs
   expect_error(ph_aot(), "argument \"traits\" is missing, with no default")
   expect_error(ph_aot("Adsf"), "argument \"phylo\" is missing, with no default")

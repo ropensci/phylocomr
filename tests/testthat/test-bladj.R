@@ -76,6 +76,9 @@ test_that("ph_bladj fails well", {
 })
 
 test_that("ph_bladj corrects mismatched cases in data.frame's/phylo objects", {
+  skip_on_appveyor()
+  skip_on_cran()
+  
   # mismatch in `sample` case is fixed internally
   ages_df_err <- ages_df
   ages_df_err$a <- toupper(ages_df_err$a)
