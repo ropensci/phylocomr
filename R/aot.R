@@ -49,19 +49,22 @@ ph_aot <- function(traits, phylo, randomizations = 999, trait_contrasts = 1,
   assert(ebl_unstconst, 'logical')
 
   stopifnot(class(traits) %in% c('data.frame', 'character'))
+  tfile <- tempfile("trait_")
   if (inherits(traits, "data.frame")) {
     if (inherits(traits[,1], c("character", "factor")))
       traits[,1] <- tolower(traits[,1])
-    tfile <- tempfile("trait_")
     utils::write.table(prep_traits(traits), file = tfile,
                        quote = FALSE, row.names = FALSE)
-    traits <- tfile
+  } else {
+    stopifnot(file.exists(traits))
+    zz <- tolower(readLines(traits))
+    cat(zz, file = tfile, sep = "\n")
   }
 
   phylo <- phylo_check(phylo)
 
   cdir <- getwd()
-  bdir <- dirname(traits)
+  bdir <- dirname(tfile)
   stopifnot(bdir == dirname(phylo))
   setwd(bdir)
   on.exit(setwd(cdir))
@@ -69,7 +72,7 @@ ph_aot <- function(traits, phylo, randomizations = 999, trait_contrasts = 1,
   out <- suppressWarnings(
     phylocom(c(
       "aotf",
-      "-t", basename(traits),
+      "-t", basename(tfile),
       "-f", basename(phylo),
       "-r", randomizations,
       "-x", trait_contrasts,

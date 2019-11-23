@@ -81,3 +81,21 @@ test_that("ph_aot fails well", {
   expect_error(ph_aot("adf", "adsf", ebl_unstconst = "asdff"),
                "ebl_unstconst must be of class logical")
 })
+
+test_that("ph_aot corrects mismatched cases in traits df's", {
+  skip_on_appveyor()
+  skip_on_cran()
+  
+  # mismatch in `traits` data.frame is fixed internally
+  traits_err <- traits
+  traits_err$name <- toupper(traits_err$name)
+  expect_is(ph_aot(traits_err, phylo_str), "list")
+ 
+  # mismatch in `traits` file is fixed internally
+  traitsdf_err <- traits
+  traitsdf_err$name <- toupper(traitsdf_err$name)
+  tfile <- tempfile("trait_")
+  utils::write.table(prep_traits(traitsdf_err), file = tfile,
+    quote = FALSE, row.names = FALSE)
+  expect_is(ph_aot(tfile, phylo_str), "list")
+})
