@@ -17,13 +17,23 @@
 #' Phylocom functionality in C/C++, so performance should be similar in
 #' those cases.
 #' 
-#' @section Original data:
-#' We have to write files to disk (your computer) to be able to run
-#' Phylocom. We take the inputs you give to the functions in this package
-#' and re-write them to temporary files (that are cleaned up when the 
-#' R session exits). We do this because we sometimes need to modify your
-#' inputs; usually because Phylocom is case sensitive. In this way we
-#' aren't modifying your original data files.
+#' @section A note about files:
+#' As a convienence you can pass ages, sample and trait data.frame's, and
+#' phylogenies as strings, to `phylocomr` functions. However, `phylocomr`
+#' has to write these data.frame's/strings to disk (your computer's
+#' file system) to be able to run the Phylocom code on them. Internally,
+#' `phylocomr` is writing to a temporary file to run Phylocom code, and
+#' then the file is removed.
+#' 
+#' In addition, you can pass in files instead of data.frame's/strings.
+#' These are not themselves used. Instead, we read and write those
+#' files to temporary files. We do this for two reasons. First,
+#' Phylocom expects the files its using to be in the same directory,
+#' so if we control the file paths that becomes easier. Second,
+#' Phylocom is case sensitive, so we simply standardize all taxon
+#' names by lower casing all of them. We do this case manipulation
+#' on the temporary files so that your original data files are
+#' not modified.
 #'
 #' @section Package API:
 #'
