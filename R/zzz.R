@@ -16,6 +16,9 @@ trait_check <- function(x, binary) {
   stopifnot(inherits(x, c('data.frame', 'character')))
   sfile <- tempfile("trait_")
   if (inherits(x, "data.frame")) {
+    if (colnames(x)[1] != "name") {
+      stop("first column name in `traits` must be `name`", call. = FALSE)
+    }
     stopifnot(!is.null(binary))
     stopifnot(is.logical(binary))
     top <- matrix("3", ncol = NCOL(x) - 1)

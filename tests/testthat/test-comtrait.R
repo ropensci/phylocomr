@@ -98,6 +98,13 @@ test_that("ph_comtrait fails well", {
   # correct set of values
   expect_error(ph_comtrait(sfile, tfile, null_model = 15),
                "null_model %in% 0:3 is not TRUE")
+
+  # first column name must be `name`
+  tt <- traitsdf
+  colnames(tt)[1] <- "penguin"
+  expect_error(ph_comtrait(sample = sampledf, traits = tt,
+    binary = c(FALSE, FALSE, FALSE, TRUE)),
+    "first column name in `traits` must be `name`")
 })
 
 test_that("ph_comtrait corrects mismatched cases in sample/traits df's", {

@@ -80,6 +80,12 @@ test_that("ph_aot fails well", {
                "trait_contrasts must be of class integer, numeric")
   expect_error(ph_aot("adf", "adsf", ebl_unstconst = "asdff"),
                "ebl_unstconst must be of class logical")
+
+  # first column name must be `name`
+  tt <- traits
+  colnames(tt)[1] <- "penguin"
+  expect_error(ph_aot(tt, phylo_str),
+    "first column name in `traits` must be `name`")
 })
 
 test_that("ph_aot corrects mismatched cases in traits df's", {

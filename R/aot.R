@@ -6,7 +6,8 @@
 #'
 #' @export
 #' @param traits (data.frame/character) trait data.frame or path to
-#' traits file. required. See Details.
+#' traits file. required. See Details. See [phylocomr-inputs] for 
+#' expected format
 #' @template phylo
 #' @param randomizations (numeric) number of randomizations. Default: 999
 #' @param trait_contrasts (numeric) Specify which trait should be used as 'x'
@@ -51,6 +52,9 @@ ph_aot <- function(traits, phylo, randomizations = 999, trait_contrasts = 1,
   stopifnot(class(traits) %in% c('data.frame', 'character'))
   tfile <- tempfile("trait_")
   if (inherits(traits, "data.frame")) {
+    if (colnames(traits)[1] != "name") {
+      stop("first column name in `traits` must be `name`", call. = FALSE)
+    }
     if (inherits(traits[,1], c("character", "factor")))
       traits[,1] <- tolower(traits[,1])
     utils::write.table(prep_traits(traits), file = tfile,
