@@ -6,8 +6,7 @@
 #'
 #' @export
 #' @param traits (data.frame/character) trait data.frame or path to
-#' traits file. required. See Details. See [phylocomr-inputs] for 
-#' expected format
+#' traits file. required. See Details.
 #' @template phylo
 #' @param randomizations (numeric) number of randomizations. Default: 999
 #' @param trait_contrasts (numeric) Specify which trait should be used as 'x'
@@ -15,6 +14,7 @@
 #' @param ebl_unstconst (logical) Use equal branch lengths and unstandardized
 #' contrasts. Default: `FALSE`
 #' @return a list of data.frames
+#' @details See [phylocomr-inputs] for expected input formats
 #' @section Taxon name case:
 #' In the `traits` table, if you're passing in a file, the names in the
 #' first column must be all lowercase; if not, we'll lowercase them for you.

@@ -31,8 +31,10 @@
 #'  with the comstruct function.
 #' - 3 - Independent swap: Same as for [ph_comdist] and
 #'  [ph_comstruct]
-#'
+#' 
 #' @details
+#' See [phylocomr-inputs] for expected input formats
+#' 
 #' If you give a data.frame to `traits` parameter it expects data.frame like
 #' 
 #' - species - the taxon labels matching the sample data to `sample`

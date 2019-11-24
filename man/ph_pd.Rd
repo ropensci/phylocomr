@@ -28,6 +28,9 @@ A single data.frame, with the colums:
 Calculates Faith’s (1992) index of phylogenetic diversity (PD) for
 each sample in the phylo.
 }
+\details{
+See \link{phylocomr-inputs} for expected input formats
+}
 \section{Taxon name case}{
 
 In the \code{sample} table, if you're passing in a file, the names

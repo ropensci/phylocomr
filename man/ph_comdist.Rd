@@ -48,6 +48,9 @@ data.frame or a list of data.frame's if use null models
 Outputs the phylogenetic distance between samples, based on phylogenetic
 distances of taxa in one sample to the taxa in the other
 }
+\details{
+See \link{phylocomr-inputs} for expected input formats
+}
 \section{Null models}{
 
 \itemize{

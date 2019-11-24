@@ -14,6 +14,7 @@
 #' @template phylo
 #' @return newick string with attributes for where ages and phylo files
 #' used are stored
+#' @details See [phylocomr-inputs] for expected input formats
 #' @section Common Errors:
 #' A few issues to be aware of:
 #' 

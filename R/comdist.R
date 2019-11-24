@@ -12,6 +12,7 @@
 #' @template com_args
 #' @template com_null_models
 #' @return data.frame or a list of data.frame's if use null models
+#' @details See [phylocomr-inputs] for expected input formats
 #' @section Taxon name case:
 #' In the `sample` table, if you're passing in a file, the names in the
 #' third column must be all lowercase; if not, we'll lowercase them for you.

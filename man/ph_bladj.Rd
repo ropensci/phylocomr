@@ -27,6 +27,9 @@ other branch lengths by placing the nodes evenly between dated nodes,
 and between dated nodes and terminals (beginning with the longest
 'chains').
 }
+\details{
+See \link{phylocomr-inputs} for expected input formats
+}
 \section{Common Errors}{
 
 A few issues to be aware of:

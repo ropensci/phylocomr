@@ -36,6 +36,9 @@ AOT conducts univariate and bivariate tests of phylogenetic signal and
 trait correlations, respectively, and node-level analyses of trait
 means and diversification.
 }
+\details{
+See \link{phylocomr-inputs} for expected input formats
+}
 \section{Taxon name case}{
 
 In the \code{traits} table, if you're passing in a file, the names in the

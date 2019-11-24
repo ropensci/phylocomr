@@ -39,6 +39,9 @@ phylogenetic taxon distance (MNTD; aka MNND) for each sample, and
 compares them to MPD/MNTD values for randomly generated samples
 (null communities) or phylogenies.
 }
+\details{
+See \link{phylocomr-inputs} for expected input formats
+}
 \section{Null models}{
 
 \itemize{

@@ -55,6 +55,8 @@ Calculate measures of trait dispersion within each community, and
 compare observed patterns to those expected under a null model.
 }
 \details{
+See \link{phylocomr-inputs} for expected input formats
+
 If you give a data.frame to \code{traits} parameter it expects data.frame like
 \itemize{
 \item species - the taxon labels matching the sample data to \code{sample}

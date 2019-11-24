@@ -7,6 +7,7 @@
 #' @param sample (data.frame/character) sample data.frame or path to a
 #' sample file
 #' @template phylo
+#' @details See [phylocomr-inputs] for expected input formats
 #' @section Taxon name case:
 #' In the `sample` table, if you're passing in a file, the names
 #' in the third column must be all lowercase; if not,

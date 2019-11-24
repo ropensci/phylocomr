@@ -51,6 +51,9 @@ phylogenetic diversities excluding within-community diversity
 A measure of within- and among-community diversity taking species
 dissimilarity (phylogenetic dissimilarity) into account
 }
+\details{
+See \link{phylocomr-inputs} for expected input formats
+}
 \section{Taxon name case}{
 
 In the \code{sample} table, if you're passing in a file, the names
