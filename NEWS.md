@@ -1,3 +1,16 @@
+phylocomr 0.3.0
+===============
+
+### NEW FEATURES
+
+* via (#26) (see below) - we now no longer use file paths passed in directly to functions, but instead write to temporary files to run with Phylocom so that we do not alter at all the users files. We note this in the README and package level manual file `?phylocomr`
+* package gains new manual file `?phylocomr-inputs` that details the four types of inputs to functions and what format they are expected in, including how they differ for passing in data.frame's vs. file paths (#28)
+
+### BUG FIXES
+
+* for all data.frame traits inputs to fxns, check that the first column is called `name` (Phylocom doesn't accept anything else) (#27)
+* fix was originally for `ph_aot()`, but realized this touches almost all functions: Phylocom is case sensitive. We were already making sure all taxon names in phylogenies (tips and nodes) were lowercased, and were lowercasing names in tables passed in, but were not fixing case in file paths passed in by the user. Now across all functions we make sure case is all lowercase for taxon names in any user inputs, so case problems should no longer be an issue. (#26) via @Jez-R
+
 phylocomr 0.2.0
 ===============
 

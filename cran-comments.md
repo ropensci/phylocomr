@@ -14,7 +14,7 @@ No errors were found with the one reverse dependency.
 
 --------
 
-This release includes a fix for the function ph_bladj, to avoid two types of errors.
+This release includes fixes across most functions for better handling of user inputs; adds a new manual file better detailing user inputs.
 
 Thanks!
 Scott Chamberlain
