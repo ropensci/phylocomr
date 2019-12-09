@@ -20,7 +20,7 @@ Authors@R: c(
     person("Steven", "Kembel", role = "cph",
         comment = "Author of libphylocom (see AUTHORS and COPYRIGHT files for details)")
     )
-URL: https://github.com/ropensci/phylocomr
+URL: https://docs.ropensci.org/phylocomr, https://github.com/ropensci/phylocomr
 BugReports: https://github.com/ropensci/phylocomr/issues
 License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
