@@ -1,11 +1,5 @@
 /*  ecomain.c  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <string.h>
-#include <sys/types.h>
-#include <unistd.h>
 #include "ecovolve.h"
 #include "nrutil.h"
 
@@ -29,11 +23,11 @@ int main(int argc, char *argv[])
 
   PRUNED = 0;
   Droptail = 0;
- 
-  setbuf(stdout, NULL);  
+
+  setbuf(stdout, NULL);
   // srandom(time(NULL));
   //srandom(2);
-  srandom(getpid()); // need this because in a shell-script the program 
+  srandom(getpid()); // need this because in a shell-script the program
   // may run several times
 
   MAX_TIME = MAXTIME;
@@ -51,11 +45,11 @@ int main(int argc, char *argv[])
       if (strcmp(argv[argx], "-e") == 0)
         {
           sscanf(argv[argx+1], "%f", &p_EXTINCT);
-        }      
+        }
       if (strcmp(argv[argx], "-t") == 0)
         {
           sscanf(argv[argx+1], "%d", &MAX_TIME);
-        } 
+        }
       if (strcmp(argv[argx], "-d") == 0)
         {
           TAPER = 1;
@@ -133,7 +127,7 @@ int main(int argc, char *argv[])
           Censor_lt[l][t] = 0;
         }
     }
-    
+
   // initialize starting lineage
   Node = 0; // AHA A problem here!!!! switch to 0 must change later
   Lineage = 0;
@@ -157,11 +151,11 @@ int main(int argc, char *argv[])
   t = 0;
   while (stop == 0)
     {
-      
+
       // Determine competitive effect on extinction (before new evolution
       // and speciation)  simplest model - distance to nearest phenotype
       Compete(t);
-                        
+
       // store the last lineage number, so that it doesnt get confused by new species
       ll = Lineage;
 
@@ -181,7 +175,7 @@ int main(int argc, char *argv[])
               // vvv EDIT HERE FOR COMPETITION ALG vvv
               if (COMPETE)
                 {
-                  // the modified extinction probability is 
+                  // the modified extinction probability is
                   newp_EXTINCT = p_EXTINCT * (5.0 / ((float) EcoDist_l[l] \
                                                      + 1.0));
                   // printf("%f\n",newp_EXTINCT);
@@ -199,7 +193,7 @@ int main(int argc, char *argv[])
                 {
                   Speciate(l, t);
                   alive++;
-          
+
                 }
 
               // check for extinction, if the lineage has not speciated,
@@ -234,7 +228,7 @@ int main(int argc, char *argv[])
   //fprintf(stderr, "time: %d, lineages: %d, ", t, alive);
   tout = t; aliveout = alive;
 
-  // for those lineages still alive, kill em all! 
+  // for those lineages still alive, kill em all!
   //(thus giving them nodes & names)
   for (l = 0; l <= Lineage; l++)
     {
@@ -300,13 +294,13 @@ int main(int argc, char *argv[])
             }
         }
       // Calculate Char Variance
-      
+
       for (chi = 0; chi < NCHAR; chi++)
         {
           CharSumXSqr[chi] = ( CharSumXSqr[chi] - ( ( CharMean[chi] * CharMean[chi]) / \
                                                     (float) LttZ ) ) / (float) (LttZ - 1);
           CharMean[chi] = CharMean[chi] / (float) LttZ;
-      
+
           CharCSumXSqr[chi] = ( CharCSumXSqr[chi] - ( ( CharCMean[chi] * CharCMean[chi]) / \
                                                       (float) LttC ) ) / (float) (LttC - 1);
           CharCMean[chi] = CharCMean[chi] / (float) LttC;
@@ -314,18 +308,18 @@ int main(int argc, char *argv[])
       // output LTT
       if (OUT_MODE == 2) printf("%d\t%d\t%6.1f\t%6.1f\t%d\t%6.1f\t%6.1f\n", t, LttZ, \
                                 CharMean[0], CharSumXSqr[0], LttC, CharCMean[0], CharCSumXSqr[0]);
-            
+
       // Print out
     }
 
-  if (OUT_MODE == 3) 
+  if (OUT_MODE == 3)
     {
       MakePhylo();
       fprintf(stderr, ", time: %d, lineages: %d\n", tout, aliveout);
       WriteTraits();
       DummySample();
     }
-    
+
   return 1;
 }
 
@@ -343,15 +337,15 @@ void Speciate(int l, int t)
 
   // what's the node above it?
   NodeUp_n[Node] = NodeUp_l[l];
-  
+
   // what's the BL?
   BlUp_n[Node] = t - Time_n[NodeUp_n[Node]];
-  
+
   // The Char value?
   for (chi = 0; chi < NCHAR; chi++)
     {
       Char_nc[Node][chi] = Char_ltc[l][t][chi];
-    }  
+    }
   // make new lineages (can add polytomies)
   for (x = 0; x <=1; x++)
     {
@@ -365,11 +359,11 @@ void Speciate(int l, int t)
           Char_ltc[Lineage][t+1][chi] = Char_ltc[l][t][chi];
         }
     }
-  
+
   // deactivate current lineage
   Active_l[l] = 0;
   Living_lt[l][t+1] = 0;
-    
+
   // see it:
   Output(t);
 }
@@ -380,7 +374,7 @@ void CharChange(int l, int t)
 {
   int change, i;
   // int amount[17] = {-3,-2,-1,-1,-1,0,0,0,0,0,0,0,1,1,1,2,3};
-  // change = (int) ((17.0 * (float) random()) /    
+  // change = (int) ((17.0 * (float) random()) /
   //          (float) (RAND_MAX+1.0));
 
   for(i = 0; i < NCHAR; i++)
@@ -390,7 +384,7 @@ void CharChange(int l, int t)
 
       // printf("change = %d, n = %d\n", change, charch.n);
       //if (OUT_MODE == 0) printf("change = %d\n", change);
-  
+
       if (TAPER)
         {
           Char_ltc[l][t][i] = Char_ltc[l][t][i] + \
@@ -403,7 +397,7 @@ void CharChange(int l, int t)
         }
       // record max and min
       if (CharMin[i] > Char_ltc[l][t][i]) CharMin[i] = Char_ltc[l][t][i];
-      if (CharMax[i] < Char_ltc[l][t][i]) CharMax[i] = Char_ltc[l][t][i];       
+      if (CharMax[i] < Char_ltc[l][t][i]) CharMax[i] = Char_ltc[l][t][i];
     }
 }
 
@@ -437,7 +431,7 @@ void Extinct(int l, int t)
 {
   int chi;
   // make a new node
-  Node++;   
+  Node++;
   Time_n[Node] = t;
   Name++;
   Name_n[Node] = Node;
@@ -450,7 +444,7 @@ void Extinct(int l, int t)
 
   // what's the node above it?
   NodeUp_n[Node] = NodeUp_l[l];
-  
+
   // what's the BL?
   BlUp_n[Node] = t - Time_n[NodeUp_n[Node]];
 
@@ -467,11 +461,11 @@ void Output(int t)
   if (OUT_MODE == 0)
     printf("EVENT t %d\t\tn %d\tu %d\tb %d\t' %d\tc %f\n", t, Node, NodeUp_n[Node], \
            BlUp_n[Node], Name_n[Node], Char_nc[Node][0]);
-  
+
   if (OUT_MODE == 1) printf("%d\t%d\t%d\t%d\t%f\t%d\n", Node, NodeUp_n[Node], \
                             BlUp_n[Node], Name_n[Node], Char_nc[Node][0], Time_n[Node]);
 
-  
+
 }
 
 void MakePhylo()
@@ -496,14 +490,14 @@ void MakePhylo()
   OutTree.depth[0] = 0;
 
   for (x = 1; x <= Node; x++)
-    { 
+    {
 
       if (Terminal_n[x] == 1) prunex[x-1] = 1;
       else prunex[x-1] = 0;
 
       OutTree.up[x-1] = NodeUp_n[x]-1;
       OutTree.bl[x-1] = (float) BlUp_n[x];
-      
+
       if (Terminal_n[x] == 0) sprintf(tmp, "node%d", Name_n[x]-1);
       if (Terminal_n[x] == 1) sprintf(tmp, "sp%d", Name_n[x]-1);
       if (Terminal_n[x] == 2) sprintf(tmp, "dead%d", Name_n[x]-1);
@@ -521,7 +515,7 @@ void MakePhylo()
   //printf("nnodes = %d\n",OutTree.nnodes);
 
   //  for (x = 0; x < OutTree.nnodes; x++)
-  //  { 
+  //  {
   //      printf("%d\t%d\t%d\t%f\t%d\t%s\n", x, OutTree.up[x], OutTree.depth[x], OutTree.bl[x], OutTree.noat[x], OutTree.taxon[x]);
 
   //  }
@@ -530,19 +524,19 @@ void MakePhylo()
   else Fy2newRec(OutTree);
 
   // Balance
-  if (PRUNED == 1 ) 
+  if (PRUNED == 1 )
     {
       fprintf(stderr, "balance: %f", Balance(Prune(OutTree, prunex)));
     }
-  else 
+  else
     {
-      for (x = 0; x < OutTree.nnodes; x++) 
+      for (x = 0; x < OutTree.nnodes; x++)
         {
           if (OutTree.noat[x]==0) prunex[x] = 1;
           else prunex[x] = 0;
         }
       fprintf(stderr, "balance: %f", Balance(Prune(OutTree, prunex)));
-    }  
+    }
 
 }
 
@@ -560,11 +554,11 @@ shift MakeChange(char brownian[11])
   for (x = 0; x < 10; x++)
     {
       strncpy(tmp, &brownian[x],1);
-      sscanf(tmp, "%d", &brownvec[x]); 
+      sscanf(tmp, "%d", &brownvec[x]);
       if (x == 0) brownsum0 += brownvec[x];
       if (x > 0) brownsum1 += brownvec[x];
     }
-  
+
   brown.n = brownsum1 + brownsum0 + brownsum1;
 
   //  printf("length = %d\n",  (brownsum1 + brownsum0 + brownsum1));
@@ -605,7 +599,7 @@ void WriteTraits()
   FILE *out_file;
 
   if ( (out_file = fopen("ecovolve.traits", "w") ) == NULL )
-    {   
+    {
       fprintf(stderr, "Error: cannot write to file ecovolve.traits\n");
       exit(8);
     }
@@ -661,7 +655,7 @@ void DummySample()
   FILE *out_file;
 
   if ( (out_file = fopen("ecovolve.sample", "w") ) == NULL )
-    {   
+    {
       fprintf(stderr, "Error: cannot write to file ecovolve.sample\n");
       exit(8);
     }
@@ -683,7 +677,7 @@ float Balance(struct phylo A)
   int *nsub;
   int dev;
   float sumBal = 0.0;
-  
+
   nsub = ivector(0, A.nnodes);
 
   for (i = 0; i < A.nnodes; i++)
@@ -702,7 +696,7 @@ float Balance(struct phylo A)
             }
         }
     }
-  
+
   k = 0; nterm=0;
   for (i = 0; i < A.nnodes; i++)
     {
