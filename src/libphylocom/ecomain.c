@@ -1,5 +1,5 @@
 /*  ecomain.c  */
-
+#include "globals.c"
 #include "ecovolve.h"
 #include "nrutil.h"
 

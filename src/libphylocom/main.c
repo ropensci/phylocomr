@@ -1,4 +1,4 @@
-#include "phylocom.h"
+#include "globals.c"
 #include "nrutil.h"
 
 int main(int argc, char *argv[])

@@ -51,7 +51,8 @@
 #include <stdio.h>
 #include <math.h>  // for sqrt()
 #include <stdlib.h>
-#include "phylocom.h"
+#include <sys/types.h>
+#include <unistd.h>
 
 /* DEFINITIONS FOR MAIN PROGRAM ------------------------------------------ */
 
