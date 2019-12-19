@@ -2,30 +2,31 @@ INSTDIR=../inst/bin${R_ARCH}
 LIBPHYLOCOM=libphylocom/io.o libphylocom/new2fy.o  libphylocom/traits.o \
 	libphylocom/comstruct.o libphylocom/nrutil.o libphylocom/fy2new.o libphylocom/bladj.o \
 	libphylocom/comnode.o libphylocom/prune.o libphylocom/comtrait.o libphylocom/stats.o \
-	libphylocom/combase.o
+	libphylocom/combase.o libphylocom/globals.o
 
 # Debugging flag
-# PKG_CFLAGS = -Wno-unused
+# PKG_CFLAGS = -fno-common
+STATLIB = libphylocom/libphylocom.a
 
 all: clean executables
 
 executables: phylocom ecovolve phylomatic
 
-libphylocom.a: $(LIBPHYLOCOM)
+$(STATLIB): $(LIBPHYLOCOM)
 	mkdir -p $(INSTDIR)
-	$(AR) rcs libphylocom.a $(LIBPHYLOCOM)
+	$(AR) rcs $(STATLIB) $(LIBPHYLOCOM)
 
-phylocom: libphylocom.a libphylocom/main.o
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o phylocom libphylocom/main.o -L. -lphylocom -lm
+phylocom: $(STATLIB) libphylocom/main.o
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o phylocom libphylocom/main.o -Llibphylocom -lphylocom -lm
 	cp -f phylocom $(INSTDIR)
 
-ecovolve: libphylocom.a libphylocom/ecomain.o
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o ecovolve libphylocom/ecomain.o -L. -lphylocom -lm
+ecovolve: $(STATLIB) libphylocom/ecomain.o
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o ecovolve libphylocom/ecomain.o -Llibphylocom -lphylocom -lm
 	cp -f ecovolve $(INSTDIR)
 
-phylomatic: libphylocom.a libphylocom/phylomatic.o
-	$(CC) $(CPPFLAGS) $(CFLAGS) -o phylomatic libphylocom/phylomatic.o -L. -lphylocom -lm
+phylomatic: $(STATLIB) libphylocom/phylomatic.o
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o phylomatic libphylocom/phylomatic.o -Llibphylocom -lphylocom -lm
 	cp -f phylomatic $(INSTDIR)
 
 clean:
-	rm -Rf $(OBJECTS) libphylocom/*.o libphylocom.a phylocom ecovolve phylomatic
+	rm -Rf $(SHLIB) $(OBJECTS) $(LIBPHYLOCOM) $(STATLIB) phylocom ecovolve phylomatic

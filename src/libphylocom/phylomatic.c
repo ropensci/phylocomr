@@ -38,17 +38,11 @@
 
 /* INCLUDE HEADERS ------------------------------------------------------- */
 
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
-#include <string.h>
 #include <ctype.h>
 #include "phylocom.h"
 #include "nrutil.h"
 
 int LOWERCASETAXA = 0;
-int Droptail = 1;  // no root tails from phylomatic
-int FYOUT = 0;
 
 struct taxa ReadTaxa();
 
@@ -79,7 +73,7 @@ int main(int argc, char *argv[])
   Debug = 0;
 
   // set the buffer to zero, so output is written directly to file:
-  setbuf(stdout, NULL);  
+  setbuf(stdout, NULL);
 
   // pick up the global switches:
   for (argx = 0; argx <  argc; argx++)
@@ -160,9 +154,9 @@ int main(int argc, char *argv[])
       strcpy(P.taxalist[i], M.taxalist[i]);
       P.t2n[i] = M.t2n[i];
     }
-  
+
   matched = ivector(0, T.ntx-1); for (i=0;i<T.ntx;i++) matched[i]=0;
-  keep    = ivector(0, P.nnodes -1); 
+  keep    = ivector(0, P.nnodes -1);
   for (i=0;i<P.nnodes;i++) keep[i]=0;
   next = M.nnodes;
   nexttl = M.ntaxa;
@@ -178,7 +172,7 @@ int main(int argc, char *argv[])
             {
               for (k = 0; k < next; k++) // looping through all nodes
                 {
-                  // ---- compare with the taxon name at every node in the 
+                  // ---- compare with the taxon name at every node in the
                   // ---- megatree
                   if (strcmp(T.str[i][j], P.taxon[k]) == 0)
                     {
@@ -257,10 +251,10 @@ int main(int argc, char *argv[])
                       break;
                     }
                 }
-            } 
+            }
         }
     }
-  
+
   if (Debug)
     {
       for (i = 0; i < P.nnodes; i++)
@@ -273,7 +267,7 @@ int main(int argc, char *argv[])
 
   if (FYOUT) FyOut(Prune(P, keep)) ;
   else Fy2newRec(Prune(P, keep));
-  
+
   // Missing taxa
   if (nmatched < T.ntx)
     {
@@ -339,12 +333,12 @@ struct taxa ReadTaxa(char filename[100])
   T.ntx = linesread;
   T.maxnest = maxslash+1;
   T.str = c3d(0, T.ntx-1, 0, T.maxnest-1, 0, MAXTAXONLENGTH);
-  
+
   // initialize - important!
   for (i = 0; i < T.ntx; i++) {
     for (j =  0; j < T.maxnest; j++) {
       strcpy(T.str[i][j], ""); } }
- 
+
   // now read:
   linesread = 0;
   taxafile = fopen(filename, "r");
@@ -354,7 +348,7 @@ struct taxa ReadTaxa(char filename[100])
       i = (int) strlen(line) - 2; // not the newline
 
       // Convert to lowercase
-      if (LOWERCASETAXA) 
+      if (LOWERCASETAXA)
         {
           for (k = 0; k < strlen(line); k++) line[k] = tolower(line[k]);
         }
@@ -364,7 +358,7 @@ struct taxa ReadTaxa(char filename[100])
       k = 0;
       while (i >= -1) // newline
         {
-          if ((line[i] == 47) || (i == -1) ) 
+          if ((line[i] == 47) || (i == -1) )
             {
               strncat(T.str[linesread][k], &line[i+1], j-i);
               i--;
