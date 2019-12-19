@@ -90,11 +90,11 @@ ph_phylomatic(taxa = taxa_str, phylo = phylo_str)
 ```
 
 ```
-#> [1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales;\n"
+#> [1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales:1.000000;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/taxa_297e776101ab"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/taxa_c8d610d7337b"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/phylo_297e1b4bec8"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/phylo_c8d62074d8e0"
 ```
 
 use various different references trees
@@ -118,11 +118,11 @@ ph_phylomatic(taxa = taxa_str, phylo = r2)
 ```
 
 ```
-#> [1] "(((bidens_alba:13.000000,cirsium_arvense:13.000000):19.000000,lupinus_albus:27.000000):12.000000)euphyllophyte;\n"
+#> [1] "(((bidens_alba:13.000000,cirsium_arvense:13.000000):19.000000,lupinus_albus:27.000000):12.000000)euphyllophyte:1.000000;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/taxa_297e9ca5d19"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/taxa_c8d656a7d848"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/phylo_297e44a61954"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/phylo_c8d625688b6a"
 ```
 
 ```r
@@ -136,11 +136,11 @@ ph_phylomatic(taxa = taxa_str, phylo = zanne2014)
 ```
 
 ```
-#> [1] "(((dioon_edule:121.744843,encephalartos_dyerianus:121.744850)zamiaceae:230.489838,piper_arboricola:352.234711)spermatophyta:88.058670);\n"
+#> [1] "(((dioon_edule:121.744843,encephalartos_dyerianus:121.744850)zamiaceae:230.489838,piper_arboricola:352.234711)spermatophyta:88.058670):0.000000;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/taxa_297e74c8fd01"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/taxa_c8d67298ef55"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/phylo_297e375a888d"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/phylo_c8d61688f03a"
 ```
 
 ```r
@@ -157,11 +157,11 @@ ph_phylomatic(taxa = taxa_str, phylo = zanne2014_subtr)
 ```
 
 ```
-#> [1] "((neuburgia_corynocarpum:32.807743,(geniostoma_borbonicum:32.036335,strychnos_darienensis:32.036335):0.771406):1.635496)loganiaceae;\n"
+#> [1] "((neuburgia_corynocarpum:32.807743,(geniostoma_borbonicum:32.036335,strychnos_darienensis:32.036335):0.771406):1.635496)loganiaceae:0.000000;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/taxa_297e1c5074a8"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/taxa_c8d630ca1ff3"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/phylo_297e661ad01d"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/phylo_c8d625f7a38b"
 ```
 
 ```r
@@ -169,11 +169,11 @@ ph_phylomatic(taxa = taxa_str, phylo = zanne_subtree_file)
 ```
 
 ```
-#> [1] "((neuburgia_corynocarpum:32.807743,(geniostoma_borbonicum:32.036335,strychnos_darienensis:32.036335):0.771406):1.635496)loganiaceae;\n"
+#> [1] "((neuburgia_corynocarpum:32.807743,(geniostoma_borbonicum:32.036335,strychnos_darienensis:32.036335):0.771406):1.635496)loganiaceae:0.000000;\n"
 #> attr(,"taxa_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/taxa_297e6a555449"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/taxa_c8d625120e26"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/phylo_297e810bb29"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/phylo_c8d6445ef3cd"
 ```
 
 ## aot
@@ -195,15 +195,15 @@ ph_aot(traits = traits, phylo = phylo_str)
 #>    trait trait.name  node name    age ntaxa n.nodes tip.mn tmn.ranklow
 #>    <int> <chr>      <int> <chr> <dbl> <int>   <int>  <dbl>       <int>
 #>  1     1 traitA         0 a         5    32       2   1.75        1000
-#>  2     1 traitA         1 b         4    16       2   1.75         655
-#>  3     1 traitA         2 c         3     8       2   1.75         676
-#>  4     1 traitA         3 d         2     4       2   1.5          248
-#>  5     1 traitA         4 e         1     2       2   1             71
+#>  2     1 traitA         1 b         4    16       2   1.75         638
+#>  3     1 traitA         2 c         3     8       2   1.75         645
+#>  4     1 traitA         3 d         2     4       2   1.5          238
+#>  5     1 traitA         4 e         1     2       2   1             51
 #>  6     1 traitA         7 f         1     2       2   2           1000
 #>  7     1 traitA        10 g         2     4       2   2           1000
 #>  8     1 traitA        11 h         1     2       2   2           1000
 #>  9     1 traitA        14 i         1     2       2   2           1000
-#> 10     1 traitA        17 j         3     8       2   1.75         664
+#> 10     1 traitA        17 j         3     8       2   1.75         663
 #> # … with 114 more rows, and 19 more variables: tmn.rankhi <int>, tip.sd <dbl>,
 #> #   tsd.ranklow <int>, tsd.rankhi <int>, node.mn <dbl>, nmn.ranklow <int>,
 #> #   nmn.rankhi <int>, nod.sd <dbl>, nsd.ranklow <int>, nsd.rankhi <int>,
@@ -235,7 +235,7 @@ ph_aot(traits = traits, phylo = phylo_str)
 #>   <chr>  <int>    <dbl>         <int>        <int>
 #> 1 traitA    32    0.054             1         1000
 #> 2 traitB    32    0.109             1         1000
-#> 3 traitC    32    0.622            60          941
+#> 3 traitC    32    0.622            67          934
 #> 4 traitD    32    0.011             1         1000
 #> 
 #> $ind_contrast_corr
@@ -265,16 +265,16 @@ phylo_str <- readLines(phylo_file)
 ```
 #> [1] "((((((lomatium_concinnum:20.250000,campanula_vandesii:20.250000):20.250000,(((veronica_candidissima:10.125000,penstemon_paniculatus:10.125000)plantaginaceae:10.125000,justicia_oblonga:20.250000):10.125000,marsdenia_gilgiana:30.375000):10.125000):10.125000,epacris_alba-compacta:50.625000)ericales_to_asterales:10.125000,((daphne_anhuiensis:20.250000,syzygium_cumini:20.250000)malvids:20.250000,ditaxis_clariana:40.500000):20.250000):10.125000,thalictrum_setulosum:70.875000)eudicots:10.125000,((dendrocalamus_giganteus:27.000000,guzmania_densiflora:27.000000)poales:27.000000,warczewiczella_digitata:54.000000):27.000000)malpighiales:1.000000;\n"
 #> attr(,"ages_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/ages"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/ages"
 #> attr(,"phylo_file")
-#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpZkiISQ/phylo_297e496e5f37"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpLApP50/phylo_c8d65b2958fd"
 ```
 
 ```r
 plot(ape::read.tree(text = res))
 ```
 
-![plot of chunk unnamed-chunk-9](inst/img/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-9](man/figures/unnamed-chunk-9-1.png)
 
 ## Meta
 

@@ -36,7 +36,7 @@ Suggests:
     knitr,
     rmarkdown,
     ape
-RoxygenNote: 7.0.1
+RoxygenNote: 7.0.2
 X-schema.org-applicationCategory: Biodiversity
 X-schema.org-keywords: phylogeny, Phylocom, phylodiversity, community structure, character evolution, species
 X-schema.org-isPartOf: https://ropensci.org
