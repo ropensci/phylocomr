@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/phylocomr",
   "issueTracker": "https://github.com/ropensci/phylocomr/issues",
   "license": "https://spdx.org/licenses/BSD-2-Clause",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.1",
+    "version": "3.6.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 Patched (2019-09-23 r77210)",
+  "runtimePlatform": "R version 3.6.2 Patched (2019-12-12 r77564)",
   "author": [
     {
       "@type": "Person",
@@ -119,9 +119,9 @@
       "sameAs": "https://CRAN.R-project.org/package=sys"
     }
   ],
-  "contIntegration": "https://travis-ci.org/ropensci/phylocomr",
+  "contIntegration": ["https://travis-ci.org/ropensci/phylocomr", "https://ci.appveyor.com/project/jeroen/phylocomr", "https://codecov.io/gh/ropensci/phylocomr"],
   "readme": "https://github.com/ropensci/phylocomr/blob/master/README.md",
-  "fileSize": "428.853KB",
+  "fileSize": "308.797KB",
   "applicationCategory": "Biodiversity",
   "isPartOf": "https://ropensci.org",
   "keywords": ["phylogeny", "Phylocom", "phylodiversity", "communitystructure", "characterevolution", "species", "evolution", "ecology", "community-ecology", "r", "rstats", "r-package"],
@@ -151,5 +151,6 @@
   },
   "contributor": {},
   "funder": {},
-  "developmentStatus": "https://www.repostatus.org/#active"
+  "developmentStatus": "https://www.repostatus.org/#active",
+  "relatedLink": "https://docs.ropensci.org/phylocomr"
 }
