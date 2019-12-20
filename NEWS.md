@@ -1,3 +1,14 @@
+phylocomr 0.3.2
+===============
+
+### MINOR IMPROVEMENTS
+
+* move readme image into man/figures (#30)
+
+### BUG FIXES
+
+* fix for gcc `-fno-common` (#29) (#31)
+
 phylocomr 0.3.0
 ===============
 

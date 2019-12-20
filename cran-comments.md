@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.6.1 patched
-* ubuntu 14.04 (on travis-ci), R 3.6.1
+* local OS X install, R 3.6.2 patched
+* ubuntu 14.04 (on travis-ci), R 3.6.2
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -14,7 +14,7 @@ No errors were found with the one reverse dependency.
 
 --------
 
-This release includes fixes across most functions for better handling of user inputs; adds a new manual file better detailing user inputs.
+This release includes a fix for installation failures with gcc trunk, and moves README image to man/figures.
 
 Thanks!
 Scott Chamberlain
