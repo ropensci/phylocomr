@@ -1,4 +1,8 @@
-on: [push, pull_request]
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
 
 name: R-check
 
@@ -14,7 +18,10 @@ jobs:
         config:
         - { os: windows-latest, r: 'release'}
         - { os: macOS-latest, r: 'release'}
-        - { os: ubuntu-18.04, r: 'release', cran: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
+        - { os: ubuntu-latest, r: 'release'}
+        - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
+        - {os: ubuntu-latest,   r: 'oldrel-1'}
+
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -28,6 +35,11 @@ jobs:
           r-version: ${{ matrix.config.r }}
 
       - uses: r-lib/actions/setup-pandoc@v2
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck
+          needs: check
 
       - name: Cache R packages
         uses: actions/cache@v2
