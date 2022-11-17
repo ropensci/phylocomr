@@ -21,6 +21,7 @@ traitsdf <- read.table(text = readLines(traitsdf_file), header = TRUE,
 test_that("ph_comtrait works with data.frame input", {
   skip_on_appveyor()
   skip_on_cran()
+  skip_on_os("windows")
 
   aa <- ph_comtrait(sample = sampledf, traits = traitsdf,
     binary = c(FALSE, FALSE, FALSE, TRUE))
@@ -40,6 +41,7 @@ test_that("ph_comtrait works with data.frame input", {
 test_that("ph_comtrait works with file input", {
   skip_on_appveyor()
   skip_on_cran()
+  skip_on_os("windows")
 
   aa <- ph_comtrait(sample = sfile2, traits = tfile2)
 
@@ -59,6 +61,7 @@ test_that("ph_comtrait works with file input", {
 test_that("ph_comtrait - different models give expected output", {
   skip_on_appveyor()
   skip_on_cran()
+  skip_on_os("windows")
 
   n0 <- ph_comtrait(sample = sfile2, traits = tfile2, null_model = 0)
   n1 <- ph_comtrait(sample = sfile2, traits = tfile2, null_model = 1)
@@ -71,6 +74,7 @@ test_that("ph_comtrait - different models give expected output", {
 })
 
 test_that("ph_comtrait fails well", {
+  skip_on_os("windows")
   # required inputs
   expect_error(ph_comtrait(),
                "argument \"sample\" is missing, with no default")
@@ -110,13 +114,14 @@ test_that("ph_comtrait fails well", {
 test_that("ph_comtrait corrects mismatched cases in sample/traits df's", {
   skip_on_appveyor()
   skip_on_cran()
-  
+  skip_on_os("windows")
+
   # mismatch in `sample` case is fixed internally
   sampledf_err <- sampledf
   sampledf_err$V3 <- toupper(sampledf$V3)
   expect_is(ph_comtrait(sample = sampledf_err, traits = traitsdf,
     binary = c(FALSE, FALSE, FALSE, TRUE)), "data.frame")
- 
+
   # mismatch in `traits` file is fixed internally
   traitsdf_err <- traitsdf
   traitsdf_err$name <- toupper(traitsdf_err$name)
