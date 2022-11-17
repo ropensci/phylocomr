@@ -19,8 +19,8 @@ jobs:
         - { os: windows-latest, r: 'release'}
         - { os: macOS-latest, r: 'release'}
         - { os: ubuntu-latest, r: 'release'}
-        - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
-        - {os: ubuntu-latest,   r: 'oldrel-1'}
+        # - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
+        # - {os: ubuntu-latest,   r: 'oldrel-1'}
 
 
     env:
@@ -54,9 +54,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install libapparmor-dev
-
-      - name: Install dependencies
-        run: Rscript -e "install.packages('remotes')" -e "remotes::install_deps(dependencies = TRUE)" -e "remotes::install_cran('rcmdcheck')"
 
       - name: Check
         run: Rscript -e "rcmdcheck::rcmdcheck(args = '--no-manual', error_on = 'warning', check_dir = 'check')"
