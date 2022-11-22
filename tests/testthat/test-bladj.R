@@ -14,7 +14,8 @@ phylo_str <- readLines(phylo_file)
 test_that("ph_bladj works with data.frame input", {
   skip_on_appveyor()
   skip_on_cran()
-  
+  skip_on_os("windows")
+
   aa <- ph_bladj(ages = ages_df, phylo = phylo_str)
 
   expect_is(aa, "character")
@@ -37,6 +38,7 @@ test_that("ph_bladj works with data.frame input", {
 test_that("ph_bladj works with file input", {
   skip_on_appveyor()
   skip_on_cran()
+  skip_on_os("windows")
 
   ages_file2 <- file.path(tempdir(), "ages")
   write.table(ages_df, file = ages_file2, row.names = FALSE,
@@ -64,6 +66,7 @@ test_that("ph_bladj works with file input", {
 })
 
 test_that("ph_bladj fails well", {
+  skip_on_os("windows")
   # required inputs
   expect_error(ph_bladj(), "argument \"ages\" is missing, with no default")
   expect_error(ph_bladj("Adsf"), "argument \"phylo\" is missing, with no default")
@@ -78,7 +81,8 @@ test_that("ph_bladj fails well", {
 test_that("ph_bladj corrects mismatched cases in data.frame's/phylo objects", {
   skip_on_appveyor()
   skip_on_cran()
-  
+  skip_on_os("windows")
+
   # mismatch in `sample` case is fixed internally
   ages_df_err <- ages_df
   ages_df_err$a <- toupper(ages_df_err$a)
@@ -88,7 +92,7 @@ test_that("ph_bladj corrects mismatched cases in data.frame's/phylo objects", {
   phylo_str_err <- phylo_str
   phylo_str_err <- toupper(phylo_str_err)
   expect_is(ph_bladj(ages_df, phylo_str_err), "character")
-  
+
   # mismatch in `sample` file is fixed internally
   ages_df_err <- ages_df
   ages_df_err$a <- toupper(ages_df_err$a)
