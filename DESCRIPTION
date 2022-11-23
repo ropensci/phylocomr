@@ -28,7 +28,6 @@ BugReports: https://github.com/ropensci/phylocomr/issues
 License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
 Language: en-US
-LazyData: true
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 Imports:
@@ -39,7 +38,7 @@ Suggests:
     knitr,
     rmarkdown,
     ape
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2
 X-schema.org-applicationCategory: Biodiversity
 X-schema.org-keywords: phylogeny, Phylocom, phylodiversity, community structure, character evolution, species
 X-schema.org-isPartOf: https://ropensci.org
