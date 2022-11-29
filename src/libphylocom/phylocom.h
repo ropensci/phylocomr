@@ -101,35 +101,35 @@
 
 /* FUNCTION DECLARATION -------------------------------------------------- */
 
-// void NodeSig();
-void Means();
+void NodeSig();
+// void Means();
 void VMeans();
-void Clust();
-void ClustInt();  // internal calculation of means
-void ReadData();
+// void Clust();
+// void ClustInt();  // internal calculation of means
+// void ReadData();
 // void SortDistrib();
 int  Rel(int A, int B);
-void NRI();
-float NR();
-void NTI();
-float NT();
-void Slide();
-float SlidingN();
-void AppendNote();
+// void NRI();
+// float NR();
+// void NTI();
+// float NT();
+// void Slide();
+// float SlidingN();
+// void AppendNote();
 // void PrintHeader();
-void Showlevels();
-void Reshuffle();
+// void Showlevels();
+// void Reshuffle();
 void Sort();
-void Randomize();
-void RandomizeB();
+// void Randomize();
+// void RandomizeB();
 void PrintWelcome();
-void FormatHelp();
+// void FormatHelp();
 float Relatedness();
 void SimpleDist();
 void PhyloVarCovar();
 void ComDist();
 void ComDistNN();
-void Randomspp();
+// void Randomspp();
 void Ltt();
 void LttR();
 struct phylo New2fy();

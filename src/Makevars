@@ -7,6 +7,7 @@ LIBPHYLOCOM=libphylocom/io.o libphylocom/new2fy.o  libphylocom/traits.o \
 # Debugging flag
 # PKG_CFLAGS = -fno-common
 # CPPFLAGS+=-Wdeprecated-non-prototype
+# CPPFLAGS+=-Wno-strict-prototypes
 STATLIB = libphylocom/libphylocom.a
 
 all: clean executables
