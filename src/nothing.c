@@ -1,2 +1,2 @@
 //placeholder file, otherwise cmd check complains
-void nothing_here(){}
+void nothing_here(void){}
