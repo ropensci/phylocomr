@@ -101,13 +101,13 @@
 
 /* FUNCTION DECLARATION -------------------------------------------------- */
 
-void NodeSig();
+// void NodeSig();
 void Means();
 void VMeans();
 void Clust();
 void ClustInt();  // internal calculation of means
 void ReadData();
-void SortDistrib();
+// void SortDistrib();
 int  Rel(int A, int B);
 void NRI();
 float NR();
