@@ -1,8 +1,9 @@
-phylocomr 0.3.2.92
-==================
+phylocomr 0.3.3
+===============
 
-* adding new maintainer info (#33)
-* Maintenance release to fix CRAN issues related to compiler warnings.
+* Maintenance release to:
+  - fix CRAN issues related to compiler warnings
+  - add new maintainer info (#33)
 
 
 phylocomr 0.3.2
