@@ -99,134 +99,6 @@
 #define TRUE 1
 #define FALSE 0
 
-/* FUNCTION DECLARATION -------------------------------------------------- */
-
-void NodeSig();
-void Means();
-void VMeans();
-void Clust();
-void ClustInt();  // internal calculation of means
-void ReadData();
-void SortDistrib();
-int  Rel(int A, int B);
-void NRI();
-float NR();
-void NTI();
-float NT();
-void Slide();
-float SlidingN();
-void AppendNote();
-// void PrintHeader();
-void Showlevels();
-void Reshuffle();
-void Sort();
-void Randomize();
-void RandomizeB();
-void PrintWelcome();
-void FormatHelp();
-float Relatedness();
-void SimpleDist();
-void PhyloVarCovar();
-void ComDist();
-void ComDistNN();
-void Randomspp();
-void Ltt();
-void LttR();
-struct phylo New2fy();
-void Fy2new();
-struct sample ReadSample();
-struct phylo ReadPhylogeny();
-struct means ReadMeans();
-void AttachSampleToPhylo();
-void AttachSampleToTraits();
-void AttachTraitsToPhylo();
-void AttachPhyloToTraits();
-void DistMatrix();
-void DistMatrixNN();
-float DistToRootNode();
-int FindMRCA();
-void NewickToNexus();
-void WriteNexus();
-void NAF();
-void AgeNodes();
-struct traits ReadTraits();
-void PD();
-void License();
-void Bladj();
-int CleanPhy();
-int LineOfSight();
-void SortAction();
-void Adjust();
-//void Polytom();
-//void ReadDataBladj();
-void ComTraitMetric();
-// For reading line endings:
-char *myfgets();
-int whatnewline();
-void IComDist();
-void IComDistNN();
-void VComDist();
-void VComDistNN();
-void FyOut();
-
-//Comnode
-void Comnode();
-
-//Ecovolve
-struct phylo Prune();
-void RandPrune();
-void SamplePrune();
-
-// New recursive Newick-writing functions
-void Fy2newRec();
-struct phylo SetNodePointers();
-char *downPar();
-
-// DDA:
-void AOT();
-void NodeCharF();
-void TipStats();
-float *TraitsAtNode();
-void SigCount();
-void PIC();
-void binPIC();
-void aot_outfile();
-void aot_outscreen();
-void RandArray();
-
-// to be deleted from aot
-float *summaryStats();
-float correlation();
-
-// in traits.c - to be deleted from traits.c when aot finished
-void PSig();
-void PSigRun();
-void RandArrayT();
-
-// DA additions to io.c
-void MakeUpPassOrder();
-void AssignNodeLists();
-
-// SWK:
-void ComStruct(); //SWK
-void IndependentSwap(); //SWK
-void TrialSwap();
-void OutputSwappedMatrix(); //SWK
-void PhylogenySampleTaxaShuffle(); //SWK
-void PhylogenyAttachShuffle(); //SWK
-void TraitsAttachShuffle(); //SWK
-void RandomizeSampleTaxaShuffle(); //SWK
-double MeanDistance(); //SWK
-double MeanMinimumDistance(); //SWK
-void traitMetric(); //SWK
-void CommunityDistance();
-void CommunityDistanceNN();
-void CommunityDistanceNull();
-void CommunityDistanceNNNull();
-void PhyloDiversity();
-void RaoDiversity();
-
-
 /* GLOBAL VARIABLES ------------------------------------------------------ */
 // Capital first letter for global variables (generally)
 // small first letters for internal vars
@@ -351,3 +223,131 @@ extern float **Char;
 extern int *CharType; //0 = binary; 1 = multistate; 2 = ordered multistate; 3 = continuous // CW changed 9apr04
 // trait conservatism
 //int **RndArr;
+
+
+/* FUNCTION DECLARATION -------------------------------------------------- */
+
+void NodeSig(phylo, sample, int, int);
+// void Means();
+void VMeans(phylo);
+// void Clust();
+// void ClustInt();  // internal calculation of means
+// void ReadData();
+// void SortDistrib();
+int  Rel(int A, int B);
+// void NRI();
+// float NR();
+// void NTI();
+// float NT();
+// void Slide();
+// float SlidingN();
+// void AppendNote();
+// void PrintHeader();
+// void Showlevels();
+// void Reshuffle();
+void Sort(float *, int);
+// void Randomize();
+// void RandomizeB();
+void PrintWelcome(void);
+// void FormatHelp();
+float Relatedness(phylo, int, int);
+void SimpleDist(phylo);
+void PhyloVarCovar(phylo);
+void ComDist(phylo, sample);
+void ComDistNN(phylo, sample);
+// void Randomspp();
+void Ltt(phylo, sample);
+void LttR(phylo, sample);
+struct phylo New2fy(char *);
+void Fy2new(phylo);
+struct sample ReadSample(char *);
+struct phylo ReadPhylogeny(char *);
+struct means ReadMeans(phylo, char *);
+void AttachSampleToPhylo(sample, phylo, int *);
+void AttachSampleToTraits(sample, traits, int *);
+void AttachTraitsToPhylo(traits, phylo, int *);
+void AttachPhyloToTraits(phylo, traits, int *);
+void DistMatrix(phylo);
+void DistMatrixNN(phylo);
+float DistToRootNode(phylo, int);
+int FindMRCA(phylo, int, int);
+void NewickToNexus(phylo);
+void WriteNexus(phylo *, int, sample, int, traits, int);
+void NAF(phylo *, sample, traits);
+void AgeNodes(phylo);
+struct traits ReadTraits(char *);
+void PD(phylo, sample);
+void License(void);
+void Bladj(phylo);
+int CleanPhy(phylo);
+int LineOfSight(phylo, int *, int, int);
+void SortAction(phylo, int *, int, int);
+void Adjust(phylo, int *, int, int);
+//void Polytom();
+//void ReadDataBladj();
+void ComTraitMetric(sample, traits, int, int);
+// For reading line endings:
+char *myfgets(char *, int, FILE *, int);
+int whatnewline(char *);
+void IComDist(phylo, sample);
+void IComDistNN(phylo, sample);
+void VComDist(phylo, sample);
+void VComDistNN(phylo, sample);
+void FyOut(phylo);
+
+//Comnode
+void Comnode(phylo, phylo);
+
+//Ecovolve
+struct phylo Prune(phylo, int *);
+void RandPrune(phylo, int, int);
+void SamplePrune(phylo, sample);
+
+// New recursive Newick-writing functions
+void Fy2newRec(phylo);
+struct phylo SetNodePointers(phylo);
+char *downPar(phylo, int, char *);
+
+// DDA:
+void AOT(traits, phylo, int, int);
+void NodeCharF(phylo, traits, nodes, int *);
+void TipStats(phylo, traits, nodes, int *);
+float *TraitsAtNode(int, int, phylo, traits, nodes, int *);
+void SigCount(int, int, nodes, nodes);
+void PIC(phylo, nodes);
+void binPIC(phylo, traits, nodes);
+void aot_outfile(phylo, traits, nodes);
+// void aot_outscreen();
+void RandArray(int, int, int, nodes);
+
+// to be deleted from aot
+float *summaryStats(int, float *);
+float correlation(int, float *, float *);
+
+// in traits.c - to be deleted from traits.c when aot finished
+// void PSig();
+void PSigRun(traits, phylo, int, int, int);
+void RandArrayT(int **, int, int, int);
+
+// DA additions to io.c
+void MakeUpPassOrder(phylo);
+void AssignNodeLists(phylo);
+
+// SWK:
+void ComStruct(phylo, sample, int, int); //SWK
+void IndependentSwap(sample, int); //SWK
+void TrialSwap(sample, int);
+void OutputSwappedMatrix(phylo, sample, int); //SWK
+void PhylogenySampleTaxaShuffle(phylo, sample, int *); //SWK
+void PhylogenyAttachShuffle(phylo, sample, int *); //SWK
+void TraitsAttachShuffle(sample, traits, int *); //SWK
+void RandomizeSampleTaxaShuffle(sample); //SWK
+double MeanDistance(phylo, sample, int *, int, int); //SWK
+double MeanMinimumDistance(phylo, sample, int *, int, int); //SWK
+void traitMetric(float *, unsigned int, float *, int); //SWK
+// void CommunityDistance();
+// void CommunityDistanceNN();
+void CommunityDistanceNull(phylo, sample, int, int, int);
+void CommunityDistanceNNNull(phylo, sample, int, int, int);
+void PhyloDiversity(phylo, sample);
+void RaoDiversity(phylo, sample);

@@ -44,7 +44,7 @@
 
 int LOWERCASETAXA = 0;
 
-struct taxa ReadTaxa();
+struct taxa ReadTaxa(char *);
 
 typedef struct taxa {
   char ***str; // nested taxa strings
@@ -380,5 +380,3 @@ struct taxa ReadTaxa(char filename[100])
   return T;
 
 }
-
-

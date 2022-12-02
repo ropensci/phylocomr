@@ -317,7 +317,7 @@ void IComDistNN(struct phylo P, struct sample S)
                   if (R < minR) minR = R;
                 }
               // print results
-              printf("NT\t%s\t%s\t%s\t%f\n", S.pname[p], S.taxa[S.id[p][i]], S.pname[q], minR);  
+              printf("NT\t%s\t%s\t%s\t%f\n", S.pname[p], S.taxa[S.id[p][i]], S.pname[q], minR);
             }
         }
     }
@@ -786,9 +786,9 @@ void LttR(struct phylo P, struct sample S)
 
 
   //2010-04-02 major bug fix: The randomizition was scrambling the S.id
-  // vector and the 2nd plot was not real!  We use a dummy variable to 
+  // vector and the 2nd plot was not real!  We use a dummy variable to
   // store the original data
-  for (j = 0; j < S.nsamples; j++) 
+  for (j = 0; j < S.nsamples; j++)
     {
       for (i = 0; i < S.srec[j]; i++)
         {
@@ -796,7 +796,7 @@ void LttR(struct phylo P, struct sample S)
           // printf("j %d  i %d  id %d\n", j, i, S.id[j][i]);
         }
     }
- 
+
 
   // repeat for each plot
   for (j = 0; j < S.nsamples; j++)
@@ -1277,4 +1277,3 @@ void NodeSig(phylo P, sample S, int outmethod, int abundWeighted) {
                ReadTraits(TraitFile), 1);
 
 }
-

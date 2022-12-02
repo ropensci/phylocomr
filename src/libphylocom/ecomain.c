@@ -468,7 +468,7 @@ void Output(int t)
 
 }
 
-void MakePhylo()
+void MakePhylo(void)
 {
   // needs to be final, so we can initialize the arrays based on Lineage results
   char tmp[30];
@@ -592,7 +592,7 @@ shift MakeChange(char brownian[11])
 
 }
 
-void WriteTraits()
+void WriteTraits(void)
 {
 
   int n, chi;
@@ -648,7 +648,7 @@ void WriteTraits()
 
 }
 
-void DummySample()
+void DummySample(void)
 {
 
   int n;

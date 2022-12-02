@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 `phylocomr` is an R client for Phylocom - a C library for Analysis of Phylogenetic
 Community Structure and Character Evolution.
 
-Phylocom home page is at <http://phylodiversity.net/phylocom/>. The source code
+Phylocom home page is at <https://phylodiversity.net/phylocom/>. The source code
 for Phylocom is at <https://github.com/phylocom/phylocom/>.
 
 Phylocom is usually used either on the command line or through the R package

@@ -1907,6 +1907,8 @@ void RaoDiversity(phylo P, sample S) {
   int i, j, k, l;
   int plot;
   double sumDist = 0.0;
+  // TODO warning: variable 'sumDist' set but not used [-Wunused-but-set-variable]
+  // follow https://nelkinda.com/blog/suppress-warnings-in-gcc-and-clang/
   long countDist = 0;
   int *attach;
 

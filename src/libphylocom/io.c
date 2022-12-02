@@ -20,7 +20,7 @@ void FyOut(phylo P)
              P.depth[i],                        \
              P.bl[i], P.taxon[i]);
     }
-}  
+}
 
 
 // ----- Node-as-factor--------------------------------------
@@ -487,7 +487,7 @@ void NewickToNexus(phylo P)
 
 
 // ---------- PRINT WELCOME --------------------------------------------------
-void PrintWelcome()
+void PrintWelcome(void)
 {
   printf("\n  ==========================================================\n\n");
   printf("                       P H Y L O C O M\n");
@@ -1177,7 +1177,7 @@ int whatnewline(char *filename)
     }
 }
 
-void License()
+void License(void)
 {
 
   printf("\n       === License and warranty information for phylocom ===\n");

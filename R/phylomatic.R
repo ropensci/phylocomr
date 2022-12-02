@@ -17,8 +17,7 @@
 #' @references Phylomatic is also available as a web service
 #' (https://github.com/camwebb/phylomatic-ws) - but is based on a different
 #' code base (https://github.com/camwebb/phylomatic-ws)
-#' See [
-#' Webb and Donoghue (2005)](https://doi.org/10.1111/j.1471-8286.2004.00829.x)
+#' See Webb and Donoghue (2005) \doi{10.1111/j.1471-8286.2004.00829.x}
 #' for more information on the goals of Phylomatic.
 #'
 #' @details The `taxa` character vector must have each element of the
@@ -42,7 +41,7 @@
 #' phylo_file2 <- tempfile()
 #' cat(phylo_str, file = phylo_file2, sep = '\n')
 #' (tree <- ph_phylomatic(taxa = taxa_file2, phylo = phylo_file2))
-#' 
+#'
 #' if (requireNamespace("ape")) {
 #'   library(ape)
 #'   plot(read.tree(text = tree))

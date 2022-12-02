@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "phylocomr",
-  "description": "Interface to 'Phylocom' (<http://phylodiversity.net/phylocom/>),\n    a library for analysis of 'phylogenetic' community structure and\n    character evolution. Includes low level methods for interacting with\n    the three executables, as well as higher level interfaces for methods\n    like 'aot', 'ecovolve', 'bladj', 'phylomatic', and more.",
+  "description": "Interface to 'Phylocom' (<https://phylodiversity.net/phylocom/>),\n    a library for analysis of 'phylogenetic' community structure and\n    character evolution. Includes low level methods for interacting with\n    the three executables, as well as higher level interfaces for methods\n    like 'aot', 'ecovolve', 'bladj', 'phylomatic', and more.",
   "name": "phylocomr: Interface to 'Phylocom'",
   "codeRepository": "https://github.com/ropensci/phylocomr",
   "issueTracker": "https://github.com/ropensci/phylocomr/issues",
@@ -152,5 +152,5 @@
   "contributor": {},
   "funder": {},
   "developmentStatus": "https://www.repostatus.org/#active",
-  "relatedLink": "https://docs.ropensci.org/phylocomr"
+  "relatedLink": "https://docs.ropensci.org/phylocomr/"
 }

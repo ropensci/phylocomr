@@ -40,7 +40,7 @@
 //      (end real time)
 //      speciate; new spp get old state; make mid-time marker in t+1 on.
 //      extinct; active off (newly speciated clades cannot go extinct)
-//        else: pass mid-time lineage markers to future 
+//        else: pass mid-time lineage markers to future
 //   }
 
 // I.e. for time x lineage is before node
@@ -71,17 +71,17 @@
 
 /* FUNCTION DECLARATION -------------------------------------------------- */
 
-void Speciate();
-void Extinct();
-void CharChange();
-void Output();
-void Compete();
-void MakePhylo();
-void WriteTraits();
-void DummySample();
-struct shift MakeChange();
+void Speciate(int, int);
+void Extinct(int, int);
+void CharChange(int, int);
+void Output(int);
+void Compete(int);
+void MakePhylo(void);
+void WriteTraits(void);
+void DummySample(void);
+struct shift MakeChange(char *);
 //struct phylo Prune();  // maybe move to phylocom.h?
-float Balance();
+float Balance(phylo);
 
 /* GLOBAL VARIABLES ------------------------------------------------------ */
 
@@ -104,7 +104,7 @@ int Censor_lt[MAXNODES][MAXTIME+1];     // tracer for cenored tree
 int EcoDist_l[MAXNODES];
 
 // lineage states
-int LineageUp_l[MAXNODES];          
+int LineageUp_l[MAXNODES];
 int NodeUp_l[MAXNODES];
 float ***Char_ltc;
 int Extant_l[MAXNODES];
@@ -133,4 +133,3 @@ typedef struct shift {
 } shift;
 
 shift charch;
-
