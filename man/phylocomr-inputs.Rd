@@ -87,7 +87,7 @@ Applies to:
 
 Phylocom expects trees in Newick format. The basic Newick format used by
 Phylocom is: \verb{((A,B),C);}. See the Phylocom manual
-(http://phylodiversity.net/phylocom/) for more details on what they expect.
+(https://phylodiversity.net/phylocom/) for more details on what they expect.
 
 Applies to: all functions except \code{\link[=ph_phylomatic]{ph_phylomatic()}} and \code{\link[=ph_ecovolve]{ph_ecovolve()}}
 }

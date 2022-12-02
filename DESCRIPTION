@@ -1,7 +1,7 @@
 Package: phylocomr
 Type: Package
 Title: Interface to 'Phylocom'
-Description: Interface to 'Phylocom' (<http://phylodiversity.net/phylocom/>),
+Description: Interface to 'Phylocom' (<https://phylodiversity.net/phylocom/>),
     a library for analysis of 'phylogenetic' community structure and
     character evolution. Includes low level methods for interacting with
     the three executables, as well as higher level interfaces for methods
@@ -23,7 +23,7 @@ Authors@R: c(
         email = "sanchez.reyes.luna@gmail.com",
         comment = c(ORCID="0000-0001-7668-2528"))
     )
-URL: https://docs.ropensci.org/phylocomr, https://github.com/ropensci/phylocomr
+URL: https://docs.ropensci.org/phylocomr/, https://github.com/ropensci/phylocomr
 BugReports: https://github.com/ropensci/phylocomr/issues
 License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
