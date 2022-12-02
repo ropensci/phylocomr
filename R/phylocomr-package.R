@@ -2,29 +2,29 @@
 #'
 #' `phylocomr` gives you access to Phylocom, specifically the
 #' Phylocom C library (https://github.com/phylocom/phylocom/),
-#' licensed under BSD 2-clause 
+#' licensed under BSD 2-clause
 #' (http://www.opensource.org/licenses/bsd-license.php)
 #'
 #' This package isn't doing system calls to a separately installed Phylocom
 #' instance - but actually includes Phylocom itself in the package.
 #'
 #' Phylocom is usually used either on the command line or through the
-#' R package \pkg{picante}, which has duplicated some of the Phylocom 
+#' R package \pkg{picante}, which has duplicated some of the Phylocom
 #' functionality.
 #'
 #' In terms of performance, some functionality will be faster here than
 #' in `picante`, but the maintainers of `picante` have re-written some
 #' Phylocom functionality in C/C++, so performance should be similar in
 #' those cases.
-#' 
+#'
 #' @section A note about files:
-#' As a convienence you can pass ages, sample and trait data.frame's, and
+#' As a convenience you can pass ages, sample and trait data.frame's, and
 #' phylogenies as strings, to `phylocomr` functions. However, `phylocomr`
 #' has to write these data.frame's/strings to disk (your computer's
 #' file system) to be able to run the Phylocom code on them. Internally,
 #' `phylocomr` is writing to a temporary file to run Phylocom code, and
 #' then the file is removed.
-#' 
+#'
 #' In addition, you can pass in files instead of data.frame's/strings.
 #' These are not themselves used. Instead, we read and write those
 #' files to temporary files. We do this for two reasons. First,
