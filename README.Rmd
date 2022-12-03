@@ -19,12 +19,13 @@ knitr::opts_chunk$set(
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-check](https://github.com/ropensci/phylocomr/actions/workflows/R-check.yml/badge.svg)](https://github.com/ropensci/phylocomr/actions/workflows/R-check.yml)
-[![cran checks](https://cranchecks.info/badges/worst/phylocomr)](https://cranchecks.info/pkgs/phylocomr)
+<!-- [![cran checks](https://cranchecks.info/badges/worst/phylocomr)](https://cranchecks.info/pkgs/phylocomr) -->
+[![cran checks](https://cranchecks.info/badges/worst/phylocomr)](https://cloud.r-project.org/web/checks/check_results_phylocomr.html)
 [![codecov](https://codecov.io/gh/ropensci/phylocomr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/phylocomr)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/phylocomr)](https://github.com/r-hub/cranlogs.app)
-[![cran version](https://www.r-pkg.org/badges/version/phylocomr)](https://cran.r-project.org/package=phylocomr)
+[![cran version](https://www.r-pkg.org/badges/version/phylocomr)](https://CRAN.R-project.org/package=phylocomr)
 
-`phylocomr` gives you access to the [Phylocom C library](https://github.com/phylocom/phylocom/), licensed under [BSD 2-clause](https://www.opensource.org/licenses/bsd-license.php)
+`phylocomr` gives you access to the [Phylocom C library](https://github.com/phylocom/phylocom/), licensed under [BSD 2-clause](https://opensource.org/licenses/bsd-license.php)
 
 ## Package API
 

@@ -31,8 +31,8 @@ No errors were found with the two reverse dependencies.
 
 This release includes a fix for warnings with C functions with no prototypes on Linux envs.
 
-In this resubmission, I have updated URLs on README file.
+In this resubmission, I have updated one last URL on README file that I missed.
 
-Thanks :)
+Thanks!
 
 Luna Sanchez
