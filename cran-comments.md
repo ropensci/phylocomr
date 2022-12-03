@@ -14,7 +14,7 @@
 0 errors | 0 warnings | 1 note
 
 * checking CRAN incoming feasibility ... NOTE
- 
+
 Maintainer: ‘Luna Luisa Sanchez Reyes <sanchez.reyes.luna@gmail.com>’
 
 New maintainer:
@@ -31,6 +31,8 @@ No errors were found with the two reverse dependencies.
 
 This release includes a fix for warnings with C functions with no prototypes on Linux envs.
 
-Thanks!
+In this resubmission, I have updated URLs on README file.
+
+Thanks :)
 
 Luna Sanchez
