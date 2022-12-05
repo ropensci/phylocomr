@@ -1,0 +1,52 @@
+Package: phylocomr
+Type: Package
+Title: Interface to 'Phylocom'
+Description: Interface to 'Phylocom' (<http://phylodiversity.net/phylocom/>),
+    a library for analysis of 'phylogenetic' community structure and
+    character evolution. Includes low level methods for interacting with
+    the three executables, as well as higher level interfaces for methods
+    like 'aot', 'ecovolve', 'bladj', 'phylomatic', and more.
+Version: 0.3.2
+Authors@R: c(
+    person("Jeroen", "Ooms", role = "aut",
+        email = "jeroen@berkeley.edu"),
+    person("Scott", "Chamberlain", role = c("aut", "cre"),
+        email = "sckott@protonmail.com", 
+        comment = c(ORCID="0000-0003-1444-9135")),
+    person("Cam", "Webb", role = "cph", 
+        comment = "Author of libphylocom (see AUTHORS and COPYRIGHT files for details)"),
+    person("David", "Ackerly", role = "cph",
+        comment = "Author of libphylocom (see AUTHORS and COPYRIGHT files for details)"),
+    person("Steven", "Kembel", role = "cph",
+        comment = "Author of libphylocom (see AUTHORS and COPYRIGHT files for details)")
+    )
+URL: https://docs.ropensci.org/phylocomr,
+        https://github.com/ropensci/phylocomr
+BugReports: https://github.com/ropensci/phylocomr/issues
+License: BSD_2_clause + file LICENSE
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+VignetteBuilder: knitr
+Imports: tibble, sys (>= 3.2)
+Suggests: testthat, knitr, rmarkdown, ape
+RoxygenNote: 7.0.2
+X-schema.org-applicationCategory: Biodiversity
+X-schema.org-keywords: phylogeny, Phylocom, phylodiversity, community
+        structure, character evolution, species
+X-schema.org-isPartOf: https://ropensci.org
+NeedsCompilation: yes
+Packaged: 2019-12-20 02:17:41 UTC; sckott
+Author: Jeroen Ooms [aut],
+  Scott Chamberlain [aut, cre] (<https://orcid.org/0000-0003-1444-9135>),
+  Cam Webb [cph] (Author of libphylocom (see AUTHORS and COPYRIGHT files
+    for details)),
+  David Ackerly [cph] (Author of libphylocom (see AUTHORS and COPYRIGHT
+    files for details)),
+  Steven Kembel [cph] (Author of libphylocom (see AUTHORS and COPYRIGHT
+    files for details))
+Maintainer: Scott Chamberlain <sckott@protonmail.com>
+Repository: CRAN
+Date/Publication: 2019-12-20 11:30:03 UTC
+Built: R 4.2.0; aarch64-apple-darwin20; 2022-03-22 14:28:59 UTC; unix
+Archs: phylocomr.so.dSYM

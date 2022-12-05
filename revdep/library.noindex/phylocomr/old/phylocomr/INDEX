@@ -1,0 +1,12 @@
+executables             Executables
+ph_aot                  aot
+ph_bladj                bladj
+ph_comdist              comdist
+ph_comstruct            comstruct
+ph_comtrait             comtrait
+ph_ecovolve             ecovolve
+ph_pd                   pd - Faith's index of phylogenetic diversity
+ph_phylomatic           phylomatic
+ph_rao                  rao - Rao's quadratic entropy
+phylocomr-inputs        Expected inputs
+phylocomr-package       Phylocom interface
