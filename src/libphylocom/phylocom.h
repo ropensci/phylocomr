@@ -275,7 +275,7 @@ void NewickToNexus(phylo);
 void WriteNexus(phylo *, int, sample, int, traits, int);
 void NAF(phylo *, sample, traits);
 void AgeNodes(phylo);
-struct traits ReadTraits(char[50])
+struct traits ReadTraits(char[50]);
 void PD(phylo, sample);
 void License(void);
 void Bladj(phylo);
