@@ -126,7 +126,7 @@ void NAF(phylo P[], sample S, traits T)
 
 // ---------- READ MEANS -----------------------------------------------------
 
-means ReadMeans(phylo Intree, char meansfile[50])
+means ReadMeans(phylo Intree, char meansfile[6])
 {
 
   char line[500];
