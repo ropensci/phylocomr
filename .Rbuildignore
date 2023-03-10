@@ -18,4 +18,5 @@ docs
 \*.txt
 ^Makefile$
 phylocomr.Rproj
+^CRAN-SUBMISSION$
 revdep/
