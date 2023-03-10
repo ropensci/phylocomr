@@ -79,7 +79,7 @@ void Compete(int);
 void MakePhylo(void);
 void WriteTraits(void);
 void DummySample(void);
-struct shift MakeChange(char *);
+struct shift MakeChange(char[11]);
 //struct phylo Prune();  // maybe move to phylocom.h?
 float Balance(phylo);
 

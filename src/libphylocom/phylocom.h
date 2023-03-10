@@ -258,7 +258,7 @@ void ComDistNN(phylo, sample);
 // void Randomspp();
 void Ltt(phylo, sample);
 void LttR(phylo, sample);
-struct phylo New2fy(char *);
+struct phylo New2fy(char[50]);
 void Fy2new(phylo);
 struct sample ReadSample(char[50]);
 struct phylo ReadPhylogeny(char[50]);
