@@ -1,3 +1,9 @@
+phylocomr 0.3.4
+===============
+
+* Maintenance release to:
+  - fix CRAN issues related to compiler warning `[-Warray-parameter=]`
+
 phylocomr 0.3.3
 ===============
 
