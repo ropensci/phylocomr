@@ -26,7 +26,7 @@ those cases.
 }
 \section{A note about files}{
 
-As a convienence you can pass ages, sample and trait data.frame's, and
+As a convenience you can pass ages, sample and trait data.frame's, and
 phylogenies as strings, to \code{phylocomr} functions. However, \code{phylocomr}
 has to write these data.frame's/strings to disk (your computer's
 file system) to be able to run the Phylocom code on them. Internally,
