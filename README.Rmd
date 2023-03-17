@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![codecov](https://codecov.io/gh/ropensci/phylocomr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/phylocomr)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/phylocomr)](https://github.com/r-hub/cranlogs.app)
 
-`phylocomr` gives you access to the [Phylocom C library](https://github.com/phylocom/phylocom/), licensed under [BSD 2-clause](https://opensource.org/licenses/bsd-license.php)
+`phylocomr` gives you access to the [Phylocom C library](https://github.com/phylocom/phylocom/), licensed under [BSD 2-clause](https://opensource.org/license/bsd-2-clause/)
 
 ## Package API
 
