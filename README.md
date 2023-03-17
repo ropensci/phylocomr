@@ -4,12 +4,11 @@
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-check](https://github.com/ropensci/phylocomr/actions/workflows/R-check.yml/badge.svg)](https://github.com/ropensci/phylocomr/actions/workflows/R-check.yml)
-[![cran checks](https://cranchecks.info/badges/worst/phylocomr)](https://CRAN.R-project.org/web/checks/check_results_phylocomr.html)
+[![cran
+version](https://www.r-pkg.org/badges/version/phylocomr)](https://CRAN.R-project.org/package=phylocomr)
 [![codecov](https://codecov.io/gh/ropensci/phylocomr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/phylocomr)
 [![rstudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/phylocomr)](https://github.com/r-hub/cranlogs.app)
-[![cran
-version](https://www.r-pkg.org/badges/version/phylocomr)](https://CRAN.R-project.org/package=phylocomr)
 
 `phylocomr` gives you access to the [Phylocom C
 library](https://github.com/phylocom/phylocom/), licensed under [BSD
@@ -82,10 +81,9 @@ Development version:
 
     #> [1] "(lobelia_conferta:5.000000,(mapania_africana:1.000000,narcissus_cuatrecasasii:1.000000):1.000000)poales_to_asterales:1.000000;\n"
     #> attr(,"taxa_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp7QKKhJ/taxa_b5f13a6bc3fd"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/taxa_568829b63b0f"
     #> attr(,"phylo_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp7QKKhJ/phylo_b5f179103501"
-
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/phylo_56887adf6b2d"
 
 use various different references trees
 
@@ -106,9 +104,9 @@ use various different references trees
 
     #> [1] "(((bidens_alba:13.000000,cirsium_arvense:13.000000):19.000000,lupinus_albus:27.000000):12.000000)euphyllophyte:1.000000;\n"
     #> attr(,"taxa_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmpqx406q/taxa_1789926f7be7c"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/taxa_56884263aade"
     #> attr(,"phylo_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmpqx406q/phylo_1789952fad2e0"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/phylo_56881d66f6df"
 
     # zanne2014 tree
     taxa_str <- c(
@@ -120,9 +118,9 @@ use various different references trees
 
     #> [1] "(((dioon_edule:121.744843,encephalartos_dyerianus:121.744850)zamiaceae:230.489838,piper_arboricola:352.234711)spermatophyta:88.058670):0.000000;\n"
     #> attr(,"taxa_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmpqx406q/taxa_17899512a9aaf"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/taxa_568852d9b98d"
     #> attr(,"phylo_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmpqx406q/phylo_17899441180ca"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/phylo_568854250279"
 
     # zanne2014 subtree
     zanne2014_subtr <- ape::extract.clade(zanne2014, node='Loganiaceae')
@@ -137,17 +135,17 @@ use various different references trees
 
     #> [1] "((neuburgia_corynocarpum:32.807743,(geniostoma_borbonicum:32.036335,strychnos_darienensis:32.036335):0.771406):1.635496)loganiaceae:0.000000;\n"
     #> attr(,"taxa_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmpqx406q/taxa_178995d781ede"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/taxa_5688459e32d7"
     #> attr(,"phylo_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmpqx406q/phylo_178997932b0c2"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/phylo_5688151be4f6"
 
     ph_phylomatic(taxa = taxa_str, phylo = zanne_subtree_file)
 
     #> [1] "((neuburgia_corynocarpum:32.807743,(geniostoma_borbonicum:32.036335,strychnos_darienensis:32.036335):0.771406):1.635496)loganiaceae:0.000000;\n"
     #> attr(,"taxa_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmpqx406q/taxa_178996ef2ceb7"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/taxa_56885a54dd4d"
     #> attr(,"phylo_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmpqx406q/phylo_178996e18949"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/phylo_5688798d188f"
 
 ## aot
 
@@ -164,15 +162,15 @@ use various different references trees
     #>    trait trait.n…¹  node name    age ntaxa n.nodes tip.mn tmn.r…² tmn.r…³ tip.sd
     #>    <int> <chr>     <int> <chr> <dbl> <int>   <int>  <dbl>   <int>   <int>  <dbl>
     #>  1     1 traitA        0 a         5    32       2   1.75    1000    1000  0.440
-    #>  2     1 traitA        1 b         4    16       2   1.75     664     669  0.447
-    #>  3     1 traitA        2 c         3     8       2   1.75     668     715  0.463
-    #>  4     1 traitA        3 d         2     4       2   1.5      237     968  0.577
-    #>  5     1 traitA        4 e         1     2       2   1         57    1000  0    
-    #>  6     1 traitA        7 f         1     2       2   2       1000     570  0    
-    #>  7     1 traitA       10 g         2     4       2   2       1000     280  0    
-    #>  8     1 traitA       11 h         1     2       2   2       1000     552  0    
-    #>  9     1 traitA       14 i         1     2       2   2       1000     556  0    
-    #> 10     1 traitA       17 j         3     8       2   1.75     693     684  0.463
+    #>  2     1 traitA        1 b         4    16       2   1.75     653     668  0.447
+    #>  3     1 traitA        2 c         3     8       2   1.75     668     713  0.463
+    #>  4     1 traitA        3 d         2     4       2   1.5      250     958  0.577
+    #>  5     1 traitA        4 e         1     2       2   1         61    1000  0    
+    #>  6     1 traitA        7 f         1     2       2   2       1000     568  0    
+    #>  7     1 traitA       10 g         2     4       2   2       1000     322  0    
+    #>  8     1 traitA       11 h         1     2       2   2       1000     565  0    
+    #>  9     1 traitA       14 i         1     2       2   2       1000     572  0    
+    #> 10     1 traitA       17 j         3     8       2   1.75     688     682  0.463
     #> # … with 114 more rows, 17 more variables: tsd.ranklow <int>, tsd.rankhi <int>,
     #> #   node.mn <dbl>, nmn.ranklow <int>, nmn.rankhi <int>, nod.sd <dbl>,
     #> #   nsd.ranklow <int>, nsd.rankhi <int>, sstipsroot <dbl>, sstips <dbl>,
@@ -203,9 +201,9 @@ use various different references trees
     #> # A tibble: 4 × 5
     #>   trait  ntaxa varcontr varcn.ranklow varcn.rankhi
     #>   <chr>  <int>    <dbl>         <int>        <int>
-    #> 1 traitA    32    0.054             1         1000
+    #> 1 traitA    32    0.054             2          999
     #> 2 traitB    32    0.109             1         1000
-    #> 3 traitC    32    0.622            59          942
+    #> 3 traitC    32    0.622            51          950
     #> 4 traitD    32    0.011             1         1000
     #> 
     #> $ind_contrast_corr
@@ -230,9 +228,9 @@ use various different references trees
 
     #> [1] "((((((lomatium_concinnum:20.250000,campanula_vandesii:20.250000):20.250000,(((veronica_candidissima:10.125000,penstemon_paniculatus:10.125000)plantaginaceae:10.125000,justicia_oblonga:20.250000):10.125000,marsdenia_gilgiana:30.375000):10.125000):10.125000,epacris_alba-compacta:50.625000)ericales_to_asterales:10.125000,((daphne_anhuiensis:20.250000,syzygium_cumini:20.250000)malvids:20.250000,ditaxis_clariana:40.500000):20.250000):10.125000,thalictrum_setulosum:70.875000)eudicots:10.125000,((dendrocalamus_giganteus:27.000000,guzmania_densiflora:27.000000)poales:27.000000,warczewiczella_digitata:54.000000):27.000000)malpighiales:1.000000;\n"
     #> attr(,"ages_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmpqx406q/ages"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/ages"
     #> attr(,"phylo_file")
-    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmpqx406q/phylo_17899664e6334"
+    #> [1] "/var/folders/ss/2tpkp325521_kfgn59g44vd80000gn/T//Rtmp8bFvIX/phylo_5688655dcf1"
 
     plot(ape::read.tree(text = res))
 
