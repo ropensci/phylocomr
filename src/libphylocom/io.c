@@ -932,7 +932,7 @@ traits ReadTraits(char traitfile[50])
 
 
 // --------------- ReadPhylogeny -----------------------
-phylo ReadPhylogeny(char PhyloFile[50])
+phylo ReadPhylogeny(char PhyloFile[6])
 {
 
   //Read the phylogeny in Newick format

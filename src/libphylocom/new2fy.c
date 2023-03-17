@@ -6,7 +6,7 @@
 #include "phylocom.h"
 #include "nrutil.h"
 
-phylo New2fy(char filename[50]) {
+phylo New2fy(char filename[6]) {
 
   phylo Xtree;
 
@@ -305,4 +305,3 @@ phylo New2fy(char filename[50]) {
   return Xtree;
 
 }
-
