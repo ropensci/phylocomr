@@ -769,6 +769,7 @@ traits ReadTraits(char traitfile[50])
   struct traits C;
   FILE *Cread;
   char line[MAXTRAITLINE];
+  char tiny[2];
   int i, j, waitingforspace;
   int nline, words;
   int extra = 0;
@@ -776,6 +777,7 @@ traits ReadTraits(char traitfile[50])
   char tmp[MAXTAXONLENGTH + 6];
   int lineending;
 
+  tiny[1] = '\0';
   C.ntaxa = 0;
   C.ntraits = 0;
 
@@ -815,7 +817,9 @@ traits ReadTraits(char traitfile[50])
                 }
               else
                 {
-                  strncat(word[words] , &line[i], 1);
+                  // strncat(word[words] , &line[i], 1);
+                  tiny[0] = line[i];
+                  strncat(word[words] , tiny, 2);
                   waitingforspace = 1;
                 }
             }
@@ -865,7 +869,9 @@ traits ReadTraits(char traitfile[50])
             }
           else
             {
-              strncat(word[words] , &line[i], 1);
+              // strncat(word[words] , &line[i], 1);
+              tiny[0] = line[i];
+              strncat(word[words] , tiny, 2);
               waitingforspace = 1;
             }
         }
