@@ -769,6 +769,7 @@ traits ReadTraits(char traitfile[50])
   struct traits C;
   FILE *Cread;
   char line[MAXTRAITLINE];
+  char * myline = (char *)(line);
   int i, j, waitingforspace;
   int nline, words;
   int extra = 0;
@@ -815,7 +816,7 @@ traits ReadTraits(char traitfile[50])
                 }
               else
                 {
-                  strncat(word[words] , &line[i], 1);
+                  strncat(word[words] , &myline[i], 1);
                   waitingforspace = 1;
                 }
             }
@@ -865,7 +866,7 @@ traits ReadTraits(char traitfile[50])
             }
           else
             {
-              strncat(word[words] , &line[i], 1);
+              strncat(word[words] , &myline[i], 1);
               waitingforspace = 1;
             }
         }
