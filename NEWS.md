@@ -2,7 +2,7 @@ phylocomr 0.3.4
 ===============
 
 * Maintenance release to:
-  - fix CRAN issues related to compiler warning `[-Warray-parameter=]`
+  - fix CRAN issues related to compiler warnings `[-Warray-parameter=]`, `[-Wstringop-overflow=]`, and `[-Wstringop-truncation]`
 
 phylocomr 0.3.3
 ===============
