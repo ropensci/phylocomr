@@ -817,7 +817,7 @@ traits ReadTraits(char traitfile[50])
                 }
               else
                 {
-                  // strncat(word[words] , &myline[i], 1);
+                  // strncat(word[words] , &line[i], 1);
                   tiny[0] = line[i];
                   strncat(word[words] , tiny, 2);
                   waitingforspace = 1;
@@ -869,7 +869,7 @@ traits ReadTraits(char traitfile[50])
             }
           else
             {
-              // strncat(word[words] , &myline[i], 1);
+              // strncat(word[words] , &line[i], 1);
               tiny[0] = line[i];
               strncat(word[words] , tiny, 2);
               waitingforspace = 1;
