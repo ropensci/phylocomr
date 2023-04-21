@@ -72,9 +72,9 @@ example: \verb{sp1<TAB>1<TAB>1<TAB>1<TAB>0}
 \item OR -
 }
 
-A data.frame, where the first column called \code{name} has each taxon, and
-any number of columns withh traits, with each with the column name of
-the trait. The first column name must be \code{name}.
+A data.frame, where the first column called \code{name} has each taxon, followed by
+any number of columns with traits. The first column name must be \code{name}, and
+the following comlumns should be named using the name of the trait.
 
 Applies to:
 \itemize{

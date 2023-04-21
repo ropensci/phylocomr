@@ -1,17 +1,3 @@
-phylocomr 0.3.4
-===============
-
-* Maintenance release to:
-  - fix CRAN issues related to compiler warning `[-Warray-parameter=]`
-
-phylocomr 0.3.3
-===============
-
-* Maintenance release to:
-  - fix CRAN issues related to compiler warnings
-  - add new maintainer info (#33)
-
-
 phylocomr 0.3.2
 ===============
 
@@ -63,7 +49,7 @@ phylocomr 0.1.2
 
 ### BUG FIXES
 
-* fix to internals of all functions that handle a phylogeny. `ph_phylomatic` was working fine with very simple trees in all lowercase. we now internally lowercase all node and tip labels, on any phylogeny inputs (phylo object, newick string, file path (read, then re-write back to disk)). phylomatic wasn't working with any uppercase labels.
+* fix to internals of all functions that handle a phylogeny. `ph_phylomatic` was working fine with very simple trees in all lowercase. we now inernally lowercase all node and tip labels, on any phylogeny inputs (phylo object, newick string, file path (read, then re-write back to disk)). phylomatic wasn't working with any uppercase labels. 
 
 
 phylocomr 0.1.0

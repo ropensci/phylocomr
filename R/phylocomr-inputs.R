@@ -53,9 +53,9 @@
 #'
 #' - OR -
 #'
-#' A data.frame, where the first column called `name` has each taxon, and
-#' any number of columns withh traits, with each with the column name of
-#' the trait. The first column name must be `name`.
+#' A data.frame, where the first column called `name` has each taxon, followed by
+#' any number of columns with traits. The first column name must be `name`, and
+#' the following comlumns should be named using the name of the trait.
 #'
 #' Applies to:
 #' - [ph_comtrait()]

@@ -1,0 +1,17 @@
+phylocomr-package	phylocomr-package
+ecovolve	executables
+executables	executables
+phylocom	executables
+phylocomr	phylocomr-package
+phylocomr-inputs	phylocomr-inputs
+phylomatic	executables
+ph_aot	ph_aot
+ph_bladj	ph_bladj
+ph_comdist	ph_comdist
+ph_comdistnt	ph_comdist
+ph_comstruct	ph_comstruct
+ph_comtrait	ph_comtrait
+ph_ecovolve	ph_ecovolve
+ph_pd	ph_pd
+ph_phylomatic	ph_phylomatic
+ph_rao	ph_rao

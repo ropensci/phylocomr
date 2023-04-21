@@ -126,7 +126,7 @@ void NAF(phylo P[], sample S, traits T)
 
 // ---------- READ MEANS -----------------------------------------------------
 
-means ReadMeans(phylo Intree, char meansfile[50])
+means ReadMeans(phylo Intree, char meansfile[6])
 {
 
   char line[500];
@@ -938,7 +938,7 @@ traits ReadTraits(char traitfile[50])
 
 
 // --------------- ReadPhylogeny -----------------------
-phylo ReadPhylogeny(char PhyloFile[50])
+phylo ReadPhylogeny(char PhyloFile[6])
 {
 
   //Read the phylogeny in Newick format
