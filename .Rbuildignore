@@ -19,3 +19,4 @@ docs
 ^Makefile$
 phylocomr.Rproj
 ^CRAN-SUBMISSION$
+revdep/
