@@ -74,7 +74,7 @@ example: \verb{sp1<TAB>1<TAB>1<TAB>1<TAB>0}
 
 A data.frame, where the first column called \code{name} has each taxon, followed by
 any number of columns with traits. The first column name must be \code{name}, and
-the following comlumns should be named using the name of the trait.
+the following columns should be named using the name of the trait.
 
 Applies to:
 \itemize{
