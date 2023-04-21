@@ -28,8 +28,6 @@ CRAN repository db overrides:
   X-CRAN-Comment: Archived on 2023-02-24 as issues were not corrected
     in time.
 
-  _Apologies._
-
 ## Reverse dependencies
 
 No errors were found with the two reverse dependencies.

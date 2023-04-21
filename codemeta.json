@@ -8,19 +8,13 @@
   "codeRepository": "https://github.com/ropensci/phylocomr",
   "issueTracker": "https://github.com/ropensci/phylocomr/issues",
   "license": "https://spdx.org/licenses/BSD-2-Clause",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
-  "provider": {
-    "@id": "https://cran.r-project.org",
-    "@type": "Organization",
-    "name": "Comprehensive R Archive Network (CRAN)",
-    "url": "https://cran.r-project.org"
-  },
+  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
   "author": [
     {
       "@type": "Person",
@@ -150,9 +144,9 @@
   "applicationCategory": "Biodiversity",
   "isPartOf": "https://ropensci.org",
   "keywords": ["phylogeny", "Phylocom", "phylodiversity", "communitystructure", "characterevolution", "species", "evolution", "ecology", "community-ecology", "r", "rstats", "r-package"],
-  "fileSize": "1124.574KB",
+  "fileSize": "1240.057KB",
   "releaseNotes": "https://github.com/ropensci/phylocomr/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/phylocomr/blob/master/README.md",
-  "contIntegration": ["https://github.com/ropensci/phylocomr/actions/workflows/R-check.yml", "https://codecov.io/gh/ropensci/phylocomr"],
+  "contIntegration": ["https://github.com/ropensci/phylocomr/actions/workflows/R-check.yml", "https://app.codecov.io/gh/ropensci/phylocomr"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }
